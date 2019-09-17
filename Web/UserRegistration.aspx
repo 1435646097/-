@@ -48,10 +48,18 @@
             $('#btnReg').click(function () {
                 var param = $('#aspnetForm').serializeArray();
                 $.post('/ashx/validete.ashx?type=register', param, function (data) {
-                    if (data == 'ok') {
-                        alert('注册成功');
+                    //alert(data.ok);
+                    //alert(data.no);
+                    //if (data.ok != '') {
+                    //    window.location="/Login.aspx"
+                    //} else {
+                    //    alert(data.no);
+                    //}
+                    var msg = data.split(':');
+                    if (msg[0] == 'ok') {
+                        window.location = "/Login.aspx";
                     } else {
-                        alert('注册失败');
+                        alert(msg[1]);
                     }
                 });
             });

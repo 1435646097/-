@@ -65,9 +65,7 @@ namespace BookShop.DAL
 			parameters[3].Value = model.Address;
 			parameters[4].Value = model.Phone;
 			parameters[5].Value = model.Mail;
-			parameters[7].Value = model.UserState.Id;
-        
-
+			parameters[6].Value = model.UserState.Id;
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
 			{

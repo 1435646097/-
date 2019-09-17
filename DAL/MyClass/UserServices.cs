@@ -10,6 +10,11 @@ namespace BookShop.DAL
 {
     public partial class UserServices
     {
+        /// <summary>
+        /// 根据用户名查找
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         public bool Exists(string userName)
         {
             StringBuilder strSql = new StringBuilder();
@@ -18,10 +23,13 @@ namespace BookShop.DAL
             SqlParameter[] parameters = {
                     new SqlParameter("@userName", SqlDbType.NVarChar,50)};
             parameters[0].Value = userName;
-
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
-
+        /// <summary>
+        /// 根据邮箱查找
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <returns></returns>
         public bool ValideteEmail(string userEmail)
         {
             StringBuilder strSql = new StringBuilder();

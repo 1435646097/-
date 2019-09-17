@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using BookShop.Model;
 using BookShop.Model.Enum;
+using Common;
 
 namespace BookShop.Web
 {
@@ -36,21 +37,32 @@ namespace BookShop.Web
             }
         }
         /// <summary>
-        /// 验证注册的基础信息
+        /// 验证注册的用户基础信息,并注册用户
         /// </summary>
         /// <param name="context"></param>
         private void valideteRegister(HttpContext context)
         {
+            //判断验证码是否正确
+            string vCode = context.Request.Form["txtVcode"];
+            if (!Common.Common.valideteCode(vCode))
+            {
+                context.Response.Write("no:验证码错误!!");
+                context.Response.End();
+            }
+            //context.Session["vCode"] = null;//验证码清空
             User user = new User()
             {
                 Address = context.Request.Form["txtAddress"],
                 LoginId = context.Request.Form["txtUserName"],
-                LoginPwd = context.Request.Form["txtConfirmPwd"],
+                LoginPwd = Common.Common.GetMd5(context.Request.Form["txtConfirmPwd"]),
                 Mail = context.Request.Form["txtEmail"],
                 Name = context.Request.Form["txtRealName"],
                 Phone = context.Request.Form["txtPhone"]
             };
             user.UserState.Id = Convert.ToInt32(UserStateEnum.NormalState);
+            UserManager userManager = new UserManager();
+            string msg = string.Empty;
+            context.Response.Write(userManager.Add(user, out msg) > 0 ? msg :  msg);
         }
 
         /// <summary>
