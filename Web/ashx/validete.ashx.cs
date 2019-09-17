@@ -1,4 +1,5 @@
 ﻿using BookShop.BLL;
+using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace BookShop.Web
     /// <summary>
     /// validete 的摘要说明
     /// </summary>
-    public class validete : IHttpHandler,System.Web.SessionState.IRequiresSessionState
+    public class validete : IHttpHandler, System.Web.SessionState.IRequiresSessionState
     {
 
         public void ProcessRequest(HttpContext context)
@@ -35,16 +36,9 @@ namespace BookShop.Web
         /// <param name="context"></param>
         private void valideteCode(HttpContext context)
         {
-            bool isCorrect = false;
-            if (context.Session["vCode"] != null)
-            {
-                string vCode = context.Request.Form["vCode"];
-                if (vCode.Equals(context.Session["vCode"].ToString(), StringComparison.OrdinalIgnoreCase))
-                {
-                    isCorrect = true;
-                }
-            }
-            context.Response.Write(isCorrect ? "ok" : "no");
+            string vCode = context.Request.Form["vCode"];
+            bool isSuccess = Common.Common.valideteCode(vCode);
+            context.Response.Write(isSuccess ? "ok" : "no");
         }
 
         /// <summary>

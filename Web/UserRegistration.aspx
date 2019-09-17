@@ -44,6 +44,10 @@
             $('#txtRealName').blur(function () {
                 validateRealName(this);
             });
+            //注册用户
+            $('#btnReg').click(function () {
+                window.location = '/ashx/validete.ashx?type=register';
+            });
         });
         //验证邮箱是否合法
         function validateEmail(control) {
