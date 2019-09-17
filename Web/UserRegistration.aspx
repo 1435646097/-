@@ -25,7 +25,7 @@
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            //验证用户木是否合法
+            //验证用户木是否合法对码
             $('#userName').blur(function () {
                 validateUserName(this);
             });
