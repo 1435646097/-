@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BookShop.Model;
+using BookShop.Model.Enum;
 
 namespace BookShop.Web
 {
@@ -28,8 +30,29 @@ namespace BookShop.Web
                 case "vCode":
                     valideteCode(context);
                     break;
+                case "register":
+                    valideteRegister(context);
+                    break;
             }
         }
+        /// <summary>
+        /// 验证注册的基础信息
+        /// </summary>
+        /// <param name="context"></param>
+        private void valideteRegister(HttpContext context)
+        {
+            User user = new User()
+            {
+                Address = context.Request.Form["txtAddress"],
+                LoginId = context.Request.Form["txtUserName"],
+                LoginPwd = context.Request.Form["txtConfirmPwd"],
+                Mail = context.Request.Form["txtEmail"],
+                Name = context.Request.Form["txtRealName"],
+                Phone = context.Request.Form["txtPhone"]
+            };
+            user.UserState.Id = Convert.ToInt32(UserStateEnum.NormalState);
+        }
+
         /// <summary>
         /// 判断验证码是否正确
         /// </summary>

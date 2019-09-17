@@ -46,7 +46,14 @@
             });
             //注册用户
             $('#btnReg').click(function () {
-                window.location = '/ashx/validete.ashx?type=register';
+                var param = $('#aspnetForm').serializeArray();
+                $.post('/ashx/validete.ashx?type=register', param, function (data) {
+                    if (data == 'ok') {
+                        alert('注册成功');
+                    } else {
+                        alert('注册失败');
+                    }
+                });
             });
         });
         //验证邮箱是否合法
@@ -213,9 +220,9 @@
                         </table>
                         <div class="STYLE5">---------------------------------------------------------</div>
                     </div>
-                    </td>
+                </td>
                 <td width="2" bgcolor="#DDDDCC">&nbsp;</td>
-    </tr>
+            </tr>
         </table>
 
         <table width="80%" height="3" border="0" align="center" cellpadding="0" cellspacing="0">
