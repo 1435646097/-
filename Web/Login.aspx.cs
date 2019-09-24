@@ -13,6 +13,7 @@ namespace BookShop.Web
     {
         public string Msg = string.Empty;
         public string ReturnUrl = string.Empty;
+        UserManager userManager = new UserManager();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.HttpMethod == "POST")
@@ -21,14 +22,23 @@ namespace BookShop.Web
             }
             else
             {
-                if (Session["userLogin"] != null)
+                if (Session["userLogin"] != null)//判断session是否存在
                 {
                     Response.Redirect("/UserCenter.aspx");
                 }
-                string url = Context.Request["ReturnUrl"];
+                string url = Context.Request["returnUrl"];
                 if (!string.IsNullOrEmpty(url))
                 {
                     ReturnUrl = url;
+                }
+                if (Request.Cookies["cp1"] != null)
+                {
+                    string name = Request.Cookies["cp1"].Value;
+                    Model.User model = userManager.GetModel(name);
+                    if(!Common.Common.valideteUserLogin(model))
+                    {
+                        Response.Redirect("/UserCenter.aspx");
+                    }
                 }
             }
         }
@@ -39,19 +49,27 @@ namespace BookShop.Web
             string pwd = Request.Form["password"];
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(pwd))
             {
-                UserManager userManager = new UserManager();
                 User user = new User();
                 string msg = string.Empty;
                 if (userManager.UserLogin(name, pwd, out user, out msg))
                 {
                     Session["userLogin"] = user;
-                    if (!string.IsNullOrEmpty(ReturnUrl))
+                    if (!string.IsNullOrEmpty(Context.Request["returnUrl"]))//判断是否是从别的页面跳转到登录界面
                     {
-                        Response.Redirect(ReturnUrl);
+                        Response.Redirect(Context.Request["returnUrl"]);
                     }
                     else
                     {
-                        Response.Redirect("/UserCenter.aspx");
+                        Response.Redirect("/UserCenter.aspx");//跳转到用户中心
+                    }
+                    if (!string.IsNullOrEmpty(Request.Form["chkRember"]))//勾选了自动登录
+                    {
+                        HttpCookie cookie1 = new HttpCookie("cp1", name);
+                        HttpCookie cookie2 = new HttpCookie("cp2", pwd);
+                        cookie1.Expires = DateTime.Now.AddDays(7);
+                        cookie2.Expires = DateTime.Now.AddDays(7);
+                        Response.Cookies.Add(cookie1);
+                        Response.Cookies.Add(cookie2);
                     }
                 }
                 else

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookShop.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -9,7 +10,7 @@ using System.Web;
 
 namespace Common
 {
-    public  class Common:System.Web.SessionState.IRequiresSessionState
+    public class Common : System.Web.SessionState.IRequiresSessionState
     {
         /// <summary>
         /// 验证验证码是否正确
@@ -44,6 +45,32 @@ namespace Common
                 sb.Append(item.ToString("x2"));
             }
             return sb.ToString();
+        }
+        /// <summary>
+        /// 跳转到登录界面
+        /// </summary>
+        public static void GoPage()
+        {
+            HttpContext context = HttpContext.Current;
+            context.Response.Redirect("/Login.aspx?returnUrl=" + context.Server.UrlEncode(context.Request.Url.ToString()));
+        }
+        public static bool valideteUserLogin(User model)
+        {
+            HttpContext context = HttpContext.Current;
+            bool isSuccess = false;
+            if (context.Request.Cookies["cp2"] != null)
+            {
+                string pwd = context.Request.Cookies["cp2"].Value;
+                if (pwd == model.LoginPwd)
+                {
+                    isSuccess = true;
+                    context.Session["userLogin"] = model;
+                    return isSuccess;
+                }
+            }
+            context.Response.Cookies["cp1"].Expires = DateTime.Now.AddDays(-1);
+            context.Response.Cookies["cp2"].Expires = DateTime.Now.AddDays(-1);
+            return isSuccess;
         }
     }
 }

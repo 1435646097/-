@@ -11,7 +11,7 @@ namespace BookShop.BLL
     public partial class UserManager
     {
         /// <summary>
-        /// 得到一个对象实体
+        /// 根据Name判断账号是否存在
         /// </summary>
         public bool Exists(string userName)
         {
@@ -25,7 +25,12 @@ namespace BookShop.BLL
         {
             return dal.ValideteEmail(userEmail);
         }
-
+        /// <summary>
+        /// 添加一条数据
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public int Add(User model, out string msg)
         {
             BLL.UserManager userManager = new UserManager();
@@ -40,6 +45,14 @@ namespace BookShop.BLL
                 return userManager.Add(model);
             }
         }
+        /// <summary>
+        /// 用户登录验证
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="pwd"></param>
+        /// <param name="user"></param>
+        /// <param name="msg"></param>
+        /// <returns></returns>
         public bool UserLogin(string name, string pwd,out User user, out string msg)
         {
             bool isSuccees = false;
@@ -64,6 +77,16 @@ namespace BookShop.BLL
                 msg = "账号错误";
             }
             return isSuccees;
+        }
+        /// <summary>
+        /// 根据用户名得到一个实体
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public BookShop.Model.User GetModel(string name)
+        {
+
+            return dal.GetModel(name);
         }
     }
 }
