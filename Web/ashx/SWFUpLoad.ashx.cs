@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -30,7 +31,10 @@ namespace BookShop.Web.ashx
                     }
                     string fullPath = filePath + newName + ext;
                     httpPostedFile.SaveAs(context.Server.MapPath(fullPath));
-                    context.Response.Write("ok:" + fullPath);
+                    using (Image img = Image.FromFile(context.Request.MapPath(fullPath)))
+                    {
+                        context.Response.Write("ok:" + fullPath + ":" + img.Width + ":" + img.Height);
+                    }
                 }
                 else
                 {

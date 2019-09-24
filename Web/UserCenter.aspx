@@ -2,8 +2,16 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Css/default.css" rel="stylesheet" />
+    <link href="Css/all.css" rel="stylesheet" />
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="/js/handlers.js" type="text/javascript"></script>
     <script src="/js/swfupload.js" type="text/javascript"></script>
+    <script src="js/require.js"></script>
+    <script src="js/bootstrap.js">
+         $("#divCut").resizable({
+                containment: "#divContent"
+            });
+    </script>
     <script type="text/javascript">
         var swfu;
         window.onload = function () {
@@ -57,8 +65,7 @@
         function showImage(file, serverData) {
             var data = serverData.split(':');
             if (data[0] == "ok") {
-                //$("#divContent").css("backgroundImage","url("+data[1]+")").css("width",data[2]+"px").css("height",data[3]+"px");
-                $('#completeImg').attr('src', data[1]);
+                $("#divContent").css("backgroundImage", "url(" + data[1] + ")").css("width", data[2] + "px").css("height", data[3] + "px");
             } else {
                 alert(data[1]);
             }
@@ -71,18 +78,14 @@
         <div id="version">v2.5.0</div>
     </div>
 
-
-    <div id="content">
-        <h2>Application Demo (ASP.Net 2.0)</h2>
-
-        <div id="swfu_container" style="margin: 0px 10px;">
-            <div>
-                <span id="spanButtonPlaceholder"></span>
-            </div>
-            <div id="divFileProgressContainer" style="height: 75px;"></div>
-            <div id="thumbnails"></div>
+    <div id="swfu_container" style="margin: 0px 10px;">
+        <div>
+            <span id="spanButtonPlaceholder"></span>
         </div>
-        <div id="background">
-            <div id="photo"></div>
+        <div id="thumbnails"></div>
+    </div>
+    <div id="divContent" style="width: 300px; height: 300px">
+        <div id="divCut" style="border: solid 1px blue; width: 100px; height: 100px">
         </div>
+    </div>
 </asp:Content>
