@@ -146,9 +146,8 @@
                         <span class="reg_tit">
                             <strong>用户登陆</strong><span class="fr">
                                 没有账号
-
-                            
-                                  <a href="UserRegistration.aspx">快速注册</a>
+                                
+                                  <a href="UserRegistration.aspx?returnUrl=<%=this.ReturnUrl %>" >快速注册</a>
 
                             </span>
                         </span>

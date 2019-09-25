@@ -63,6 +63,7 @@ namespace BookShop.Web
             UserManager userManager = new UserManager();
             string msg = string.Empty;
             context.Response.Write(userManager.Add(user, out msg) > 0 ? msg :  msg);
+            context.Session["userLogin"] = user;
         }
 
         /// <summary>

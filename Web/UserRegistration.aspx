@@ -57,7 +57,11 @@
                     //}
                     var msg = data.split(':');
                     if (msg[0] == 'ok') {
-                        window.location = "/Login.aspx";
+                        if ($('#returnUrl').val() == '') {
+                            window.location = "/Login.aspx";
+                        } else {
+                            window.location = $('#returnUrl').val();
+                        }
                     } else {
                         alert(msg[1]);
                     }
@@ -145,7 +149,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <input type="hidden" id="returnUrl" name="returnUrl" value="<%=this.url %>" />
     <div style="font-size: small">
         <table width="80%" height="22" border="0" align="center" cellpadding="0" cellspacing="0">
             <tr>
