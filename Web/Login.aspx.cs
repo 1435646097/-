@@ -35,7 +35,7 @@ namespace BookShop.Web
                 {
                     string name = Request.Cookies["cp1"].Value;
                     Model.User model = userManager.GetModel(name);
-                    if(!Common.Common.valideteUserLogin(model))
+                    if (Common.Common.valideteUserLogin(model))
                     {
                         Response.Redirect("/UserCenter.aspx");
                     }
