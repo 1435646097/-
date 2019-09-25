@@ -10,8 +10,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <link href="/Css/index.css" rel="stylesheet" type="text/css"/>
     <script src="/js/jquery-3.4.1.min.js"></script>
-<%--    <link href="/Css/themes/ui-lightness/jquery-ui-1.8.2.custom.css" rel="stylesheet" />--%>
-  <%--  <script src="/js/jquery-ui-1.8.2.custom.min.js"></script>--%>
+    <script>
+        $(function () {
+            $('#logout').click(function () {
+                $.post("/ashx/logout.ashx", {}, function (data) {
+                    if (data == 'ok') {
+                        window.location = '/Login.aspx';
+                    }
+                });
+            });
+        });
+    </script>
 <asp:ContentPlaceHolder ID="head" runat="server">
 </asp:ContentPlaceHolder>
 
@@ -33,7 +42,7 @@
       <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
       <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
       <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |  
-	  <%--<a href="/OrderInfo.aspx" >我的订单</a>&nbsp;&nbsp;欢迎 <%=((BookShop.Model.User)Session["userInfo"]).LoginId %>登录  <a href="javascript:void(0)">退出</a></span></div></div>--%>
+	  <a href="/OrderInfo.aspx" >我的订单</a>&nbsp;&nbsp;欢迎 <%=((BookShop.Model.User)Session["userLogin"]).LoginId %>登录  <a href="javascript:void(0)" id="logout">退出</a></span></div></div>
 
 
 	<div style="WIDTH: 750px;"><img src="/images/集团网站1.jpg" width="780" height="93" /></div>

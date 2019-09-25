@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/Css/default.css" rel="stylesheet" />
     <link href="Css/all.css" rel="stylesheet" />
-    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="/js/handlers.js" type="text/javascript"></script>
     <script src="/js/swfupload.js" type="text/javascript"></script>
     <script src="js/require.js"></script>
