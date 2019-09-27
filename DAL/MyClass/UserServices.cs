@@ -83,5 +83,46 @@ namespace BookShop.DAL
                 return null;
             }
         }
+        /// <summary>
+        /// 根据邮箱获得一个实体类
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public User GetModelByEmail(string email)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 Id,LoginId,LoginPwd,Name,Address,Phone,Mail,UserStateId from Users ");
+            strSql.Append(" where Mail=@email ");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@email",SqlDbType.NVarChar,50)};
+            parameters[0].Value = email;
+
+            BookShop.Model.User model = new BookShop.Model.User();
+            DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                if (ds.Tables[0].Rows[0]["Id"].ToString() != "")
+                {
+                    model.Id = int.Parse(ds.Tables[0].Rows[0]["Id"].ToString());
+                }
+                model.LoginId = ds.Tables[0].Rows[0]["LoginId"].ToString();
+                model.LoginPwd = ds.Tables[0].Rows[0]["LoginPwd"].ToString();
+                model.Name = ds.Tables[0].Rows[0]["Name"].ToString();
+                model.Address = ds.Tables[0].Rows[0]["Address"].ToString();
+                model.Phone = ds.Tables[0].Rows[0]["Phone"].ToString();
+                model.Mail = ds.Tables[0].Rows[0]["Mail"].ToString();
+
+                if (ds.Tables[0].Rows[0]["UserStateId"].ToString() != "")
+                {
+                    int UserStateId = int.Parse(ds.Tables[0].Rows[0]["UserStateId"].ToString());
+                    model.UserState = userStateServices.GetModel(UserStateId);
+                }
+                return model;
+            }
+            else
+            {
+                return null;
+            }
+        }
     }
 }

@@ -3,123 +3,158 @@
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-
-<title>用户登</title>
-<!--[if IE 6]>
+<head>
+    <title>用户登</title>
+    <!--[if IE 6]>
     <script type="text/javascript" src="../js/iepngfix_tilebg.js"></script>
     <script type="text/javascript" src="/content/js/DD_belatedPNG.js" ></script>
     <script type="text/javascript" src="/content/js/ie6_loading.js"></script>
     <![endif]-->
-<link href="/Css/ucenter.css" rel="stylesheet" />
-<style type="text/css">
-    SPAN > A {
-        padding-left: 20px;
-    }
-
-        SPAN > A:hover {
-            text-decoration: none;
+    <link href="/Css/ucenter.css" rel="stylesheet" />
+    <style type="text/css">
+        SPAN > A {
+            padding-left: 20px;
         }
 
-    SPAN.login_qq {
-        background: url(/Content/img/icons/q_login.png) no-repeat;
-        _padding-left: 0;
-    }
+            SPAN > A:hover {
+                text-decoration: none;
+            }
 
-    SPAN.papa {
-        font-size: 15px;
-        font-family: "Microsoft yahei";
-    }
-
-
-
-    .log_login {
-        padding: 30px 20px 0 0;
-    }
-
-        .log_login p {
-            padding: 10px 0;
+        SPAN.login_qq {
+            background: url(/Content/img/icons/q_login.png) no-repeat;
+            _padding-left: 0;
         }
 
-    .lognow {
-        background: #79cd35;
-        width: 200px;
-        margin-left: 100px;
-        height: 40px;
-        border: none;
-        color: #FFF;
-        font-size: 15px;
-        font-weight: 700;
-    }
+        SPAN.papa {
+            font-size: 15px;
+            font-family: "Microsoft yahei";
+        }
 
-    #pageflip {
-        right: 0px;
-        float: right;
-        position: relative;
-        top: 0px;
-    }
 
-        #pageflip img {
-            z-index: 100;
+
+        .log_login {
+            padding: 30px 20px 0 0;
+        }
+
+            .log_login p {
+                padding: 10px 0;
+            }
+
+        .lognow {
+            background: #79cd35;
+            width: 200px;
+            margin-left: 100px;
+            height: 40px;
+            border: none;
+            color: #FFF;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        #pageflip {
             right: 0px;
-            width: 50px;
-            position: absolute;
+            float: right;
+            position: relative;
             top: 0px;
-            height: 52px;
-            ms-interpolation-mode: bicubic;
         }
 
-        #pageflip .msg_block {
-            right: 0px;
-            background: url(images/logo.gif) no-repeat right top;
-            overflow: hidden;
-            width: 50px;
-            position: absolute;
-            top: 0px;
-            height: 50px;
-            z-index: 99;
+            #pageflip img {
+                z-index: 100;
+                right: 0px;
+                width: 50px;
+                position: absolute;
+                top: 0px;
+                height: 52px;
+                ms-interpolation-mode: bicubic;
+            }
+
+            #pageflip .msg_block {
+                right: 0px;
+                background: url(images/logo.gif) no-repeat right top;
+                overflow: hidden;
+                width: 50px;
+                position: absolute;
+                top: 0px;
+                height: 50px;
+                z-index: 99;
+            }
+
+        .fr {
+            float: right;
         }
 
-    .fr {
-        float: right;
-    }
+        .wid100 {
+            width: 100%;
+            display: inline-block;
+        }
 
-    .wid100 {
-        width: 100%;
-        display: inline-block;
-    }
-
-    .rem_for {
-        padding: 0px;
-        margin: 0px;
-        line-height: 1.8;
-        font-size: 15px;
-    }
-
-        .rem_for label {
-            padding: 0px 10px 0px 0px;
+        .rem_for {
+            padding: 0px;
             margin: 0px;
             line-height: 1.8;
+            font-size: 15px;
         }
 
-        .rem_for input {
-            vertical-align: middle;
-            height: 16px;
-            line-height: 16px;
-            border: 1px #ccc solid;
-            width: 25px;
+            .rem_for label {
+                padding: 0px 10px 0px 0px;
+                margin: 0px;
+                line-height: 1.8;
+            }
+
+            .rem_for input {
+                vertical-align: middle;
+                height: 16px;
+                line-height: 16px;
+                border: 1px #ccc solid;
+                width: 25px;
+            }
+
+        .errorlog {
+            color: red;
         }
 
-    .errorlog {
-        color: red;
-    }
-
-    .changpassword {
-        border: 1px #ddd solid;
-        padding: 15px 15px 0px 15px;
-        display: block;
-    }
-</style>
+        .changpassword {
+            border: 1px #ddd solid;
+            padding: 15px 15px 0px 15px;
+            display: block;
+        }
+    </style>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //找回密码
+            $('#btnForget').click(function () {
+                $('#logindiv').css('display', 'none');
+                $('#forgetdiv').css('display', 'block');
+            });
+            //返回登录
+            $('#login').click(function () {
+                $('#logindiv').css('display', 'block');
+                $('#forgetdiv').css('display', 'none');
+            });
+            //使用邮箱找回密码
+            $('#btnForgetsub').click(function () {
+                {
+                    var regex = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                    if (regex.test($('#txtforumail').val())) {
+                        $.post('/ashx/RetrievePassword.ashx', { 'email': $('#txtforumail').val() }, function (data) {
+                            var mess = data.split(":");
+                            if (mess[0] == "ok") {
+                                alert(mess[1]);
+                            } else {
+                                alert(mess[1]);
+                            }
+                        })
+                    } else {
+                        alert('请输入正确的邮箱');
+                    }
+                   
+                };
+            });
+        });
+    </script>
 </head>
+
 <body>
 
     <div id="main" class="swidth1024 loginbg">
@@ -147,7 +182,7 @@
                             <strong>用户登陆</strong><span class="fr">
                                 没有账号
                                 
-                                  <a href="UserRegistration.aspx?returnUrl=<%=this.ReturnUrl %>" >快速注册</a>
+                                  <a href="UserRegistration.aspx?returnUrl=<%=this.ReturnUrl %>">快速注册</a>
 
                             </span>
                         </span>
@@ -186,7 +221,7 @@
                             <span class="reg_tit">
                                 <strong>找回密码</strong><span>请输入您注册时的电子邮箱</span><span class="fr">
 
-                                    <a href="http://www.itcast.com/Account/Login">登陆</a>
+                                    <a id="login" href="javascript:void(0)">登陆</a>
                                 </span>
                             </span>
                             <dl>
@@ -198,7 +233,7 @@
                             </dl>
                             <dl>
                                 <dd>
-                                    <button type="submit" id="btnForgetsub" class="lognow" style="margin-left: 90px;">找回密码</button><span id="loginerrofor"></span>
+                                    <button type="button" id="btnForgetsub" class="lognow" style="margin-left: 90px;">找回密码</button><span id="loginerrofor"></span>
                                 </dd>
                             </dl>
                             <dl id="txtmsgdl" style="height: 200px; display: none;">
@@ -215,9 +250,6 @@
             </div>
         </div>
     </div>
-
-    <script src="../js/jquery-1.7.1.js"></script>
-
 
     <!--注册区 结束-->
 

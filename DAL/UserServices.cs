@@ -107,7 +107,7 @@ namespace BookShop.DAL
 			parameters[4].Value = model.Address;
 			parameters[5].Value = model.Phone;
 			parameters[6].Value = model.Mail;
-			parameters[8].Value = model.UserState.Id;
+			parameters[7].Value = model.UserState.Id;
 
 			DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 		}

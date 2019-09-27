@@ -4,6 +4,8 @@ using Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 
 namespace BookShop.BLL
@@ -53,16 +55,16 @@ namespace BookShop.BLL
         /// <param name="user"></param>
         /// <param name="msg"></param>
         /// <returns></returns>
-        public bool UserLogin(string name, string pwd,out User user, out string msg)
+        public bool UserLogin(string name, string pwd, out User user, out string msg)
         {
             bool isSuccees = false;
             UserServices userServices = new UserServices();
             User model = userServices.GetModel(name);
             user = null;
             msg = string.Empty;
-            if (model!=null)
+            if (model != null)
             {
-                if (model.LoginPwd==Common.Common.GetMd5(pwd))
+                if (model.LoginPwd == Common.Common.GetMd5(pwd))
                 {
                     user = model;
                     isSuccees = true;
@@ -87,6 +89,38 @@ namespace BookShop.BLL
         {
 
             return dal.GetModel(name);
+        }
+        public bool UserFindPassword(string email)
+        {
+            bool isSuccess = false;
+            User model = dal.GetModelByEmail(email);
+            if (model != null)
+            {
+                string pwd = Guid.NewGuid().ToString().Substring(0, 8);
+                model.LoginPwd = Common.Common.GetMd5(pwd);
+                dal.Update(model);
+                System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
+                //发件人地址
+                mailMessage.From = new MailAddress("liaoximing520@163.com");
+                //收件人地址
+                mailMessage.To.Add(new MailAddress(email));
+                //设置邮件标题
+                mailMessage.Subject = "这是您的新密码";
+                //设置邮件内容
+                mailMessage.Body = "您的新密码为：" + pwd;
+                SmtpClient smtp = new SmtpClient("smtp.163.com");
+                //设置邮箱的账号密码
+                smtp.Credentials = new NetworkCredential("liaoximing520@163.com", "liaoximing520");
+                //发送邮箱
+                smtp.Send(mailMessage);
+                isSuccess = true;
+                return isSuccess;
+
+            }
+            else
+            {
+                return isSuccess;
+            }
         }
     }
 }
