@@ -100,22 +100,22 @@ namespace BookShop.BLL
                 model.LoginPwd = Common.Common.GetMd5(pwd);
                 dal.Update(model);
                 System.Net.Mail.MailMessage mailMessage = new System.Net.Mail.MailMessage();
+                SettingManager setting = new SettingManager();
                 //发件人地址
-                mailMessage.From = new MailAddress("liaoximing520@163.com");
+                mailMessage.From = new MailAddress(setting.GetValue("系统邮件地址"));
                 //收件人地址
                 mailMessage.To.Add(new MailAddress(email));
                 //设置邮件标题
                 mailMessage.Subject = "这是您的新密码";
                 //设置邮件内容
                 mailMessage.Body = "您的新密码为：" + pwd;
-                SmtpClient smtp = new SmtpClient("smtp.163.com");
+                SmtpClient smtp = new SmtpClient(setting.GetValue("系统邮件SMTP"));
                 //设置邮箱的账号密码
-                smtp.Credentials = new NetworkCredential("liaoximing520@163.com", "liaoximing520");
+                smtp.Credentials = new NetworkCredential(setting.GetValue("系统邮件用户名"), setting.GetValue("系统邮件密码"));
                 //发送邮箱
                 smtp.Send(mailMessage);
                 isSuccess = true;
                 return isSuccess;
-
             }
             else
             {
