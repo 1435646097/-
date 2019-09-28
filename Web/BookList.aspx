@@ -2,6 +2,7 @@
 
 <%@ Import Namespace="BookShop.Model" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="Header" runat="server">
+    <link href="/Css/PageBarStyle.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%foreach (Book book in list)
@@ -34,10 +35,13 @@
             <tr>
                 <td align="right" colspan="2"><span
                     style="font-weight: bold; font-size: 13px; line-height: 20px">&yen; 
-                        99.0000</span> </td>
+                        <%=book.UnitPrice %></span> </td>
             </tr>
         </tbody>
     </table>
     <hr />
     <%} %>
+    <div class="page_nav">
+        <%=Common.PageBarHelper.PageBar(PageIndex, PageCount) %>
+    </div>
 </asp:Content>

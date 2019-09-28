@@ -12,15 +12,29 @@ namespace BookShop.Web
     public partial class BookList : System.Web.UI.Page
     {
         public List<Book> list { get; set; }
+        public int PageIndex { get; set; }
+        public int PageCount { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.HttpMethod == "GET")
             {
                 BookManager bll = new BookManager();
-                list = bll.GetModelList("");
+                int pageSize = 10;
+                int pageIndex = 1;
+                int pageCount = bll.GetPageCount(pageSize);//获取总页数
+                if (!int.TryParse(Request.QueryString["pageIndex"], out pageIndex))
+                {
+                    pageIndex = 1;
+                }
+                PageCount = pageCount;
+                pageIndex = pageIndex <= 0 ? 1 : pageIndex;
+                pageIndex = pageIndex >= PageCount ? PageCount : pageIndex;
+                PageIndex = pageIndex;
+                list = bll.GetPageList(pageIndex, pageSize);
+
             }
         }
-        public static string CutContent(string content,int length)
+        public static string CutContent(string content, int length)
         {
             return content.Length > length ? content.Substring(0, 150) + "..........." : content;
         }

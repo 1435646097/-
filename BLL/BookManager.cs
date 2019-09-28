@@ -9,7 +9,7 @@ namespace BookShop.BLL
 	/// <summary>
 	/// 业务逻辑类BooksManager 的摘要说明。
 	/// </summary>
-	public class BookManager
+	public partial class BookManager
 	{
         PublisherServices publisherServices = new PublisherServices();
         CategoryServices categoryServices = new CategoryServices();
