@@ -42,6 +42,6 @@
     <hr />
     <%} %>
     <div class="page_nav">
-        <%=Common.PageBarHelper.PageBar(PageIndex, PageCount) %>
+        <%=Common.PageBarHelper.PageBar(PageIndex,PageCount) %>
     </div>
 </asp:Content>

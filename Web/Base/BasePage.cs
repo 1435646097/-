@@ -8,7 +8,7 @@ using BookShop.BLL;
 using BookShop.Model;
 using Common;
 
-namespace Common
+namespace BookShop.Web
 {
     public class BasePage : Page
     {
@@ -23,14 +23,14 @@ namespace Common
                     string userName = Request.Cookies["cp1"].Value;
                     UserManager userManager = new UserManager();
                     User userInfo = userManager.GetModel(userName);
-                    if (!Common.valideteUserLogin(userInfo))
+                    if (!Common.Common.valideteUserLogin(userInfo))
                     {
-                        Common.GoPage();
+                        Common.Common.GoPage();
                     }
                 }
                 else
                 {
-                    Common.GoPage();
+                    Common.Common.GoPage();
                 }
             }
         }

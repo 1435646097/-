@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace BookShop.Web
 {
-    public partial class BookList : System.Web.UI.Page
+    public partial class BookList : BasePage
     {
         public List<Book> list { get; set; }
         public int PageIndex { get; set; }
@@ -28,7 +28,7 @@ namespace BookShop.Web
                 }
                 PageCount = pageCount;
                 pageIndex = pageIndex <= 0 ? 1 : pageIndex;
-                pageIndex = pageIndex >= PageCount ? PageCount : pageIndex;
+                pageIndex = pageIndex >= pageCount ? pageCount : pageIndex;
                 PageIndex = pageIndex;
                 list = bll.GetPageList(pageIndex, pageSize);
 

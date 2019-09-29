@@ -39,5 +39,20 @@ namespace BookShop.BLL
                 return cache[key].ToString();
             }
         }
+        /// <summary>
+        /// 用户提交表单后更新数据库，在调用该方法，移除cache中的旧数据
+        /// </summary>
+        /// <param name="key"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public bool SetValue(string key, string value)
+        {
+            Cache cache = HttpRuntime.Cache;
+            BLL.SettingManager settingManager = new SettingManager();
+            Settings setting = settingManager.GetModel(key);
+            Common.CacheHelper.remove(key);
+            settingManager.Update(setting);
+            return true;
+        }
     }
 }
