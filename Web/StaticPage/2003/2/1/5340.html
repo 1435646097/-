@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">移动设备.NET 应用程序设计 <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="移动设备.NET 应用程序设计" border="1" height="216"  src="/Images/BookCovers/9787302064220.jpg" style="border:1px   solid   #B0B0B0" title="移动设备.NET 应用程序设计" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（英）威格里 著，（英）罗克斯巴勒 著，赵明 等译
+                                        <br />
+                                        书名：移动设备.NET 应用程序设计<br />
+                                        字数：767000<br />
+                                        出版时间：2003年2月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787302064220<br />
+                                        <font color="#CC3300">本网价：<strong>￥58.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top"><br>前言<br><br>第1章 将.NET引入移动Web<br><br>1.1 无线Web的诞生<br>1.1.1 Internet<br>1.1.2 无线通信<br>1.1.3 移动数据通信<br>1.2 Mobile Internet Toolkit<br>1.3 无线混乱的解决方案<br><br>第2章 ASP.NET与Mobile Internet Toolkit<br><br>2.1 ASP.NET概述<br>2.1.1 背景<br>2.1.2 更简单的ASP<br>2.1.3 ASP.NET：Web开发的新途径<br>2.2 开发Web应用程序<br>2.2.1 进一步了解ASP.NET Web窗体<br>2.2.2 使用Web窗体控件<br>2.2.3 使用.NET工具开发Web应用程序<br>2.2.4 扩展Web应用程序<br>2.3 使用移动Web窗体进行开发<br>2.3.1 了解设备性能<br>2.3.2 抽象移动设备的用户界面<br>2.3.3 使用移动Web窗体控件<br>2.3.4 在移动Web窗体中使用.NET工具<br>2.4 .NET语言简介<br>2.4.1 符合CLS的程序设计语言<br>2.4.2 实现代码<br>2.4.3 事件响应<br>2.5 XML Web服务简介<br>2.6 会话管理与安全<br>2.6.1 使用会话<br>2.6.2 使用cookie<br>2.6.3 分布式体系结构中的部署<br>2.7 调试移动应用程序<br>2.7.1 使用简单工具<br>2.7.2 程序调试<br>2.7.3 使用Visual Studio.NET调试<br><br>第3章 开发移动Web应用程序<br><br>3.1 安装开发系统<br>3.2 创建第一个移动Web应用程序<br>3.2.1 使用Visual Studio.NET<br>3.2.2 创建移动Web项目<br>3.2.3 使用【解决方案资源管理器】和【属性】对话框<br>3.2.4 使用Toolbox创建用户界面<br>3.2.5 生成和执行应用程序<br>3.3 使用移动电话仿真器进行测试<br>3.3.1 安装Openwave仿真器<br>3.3.2 使用仿真器进行测试<br>3.4 使用Mobile Internet Designer<br>3.4.1 移动Web窗体页面和Form控件<br>3.4.2 使用多个移动Web窗体<br>3.4.3 在移动Web应用程序中向前向后导航<br>3.4.4 复杂控件在特定设备上的再现<br>3.4.5 在Visual Studio.NET中获得帮助信息<br>3.5 Visual Studio.NET项目和SDK示例的关系<br>3.6 使用Visual Studio.NET项目<br>3.6.1 Visual Studio.NET移动Web应用程序项目所创建的文件<br>3.6.2 选择项目的存放位置<br>3.6.3 指定Web服务器的访问方式<br>3.6.4 复制项目<br>3.6.5 打开项目<br>3.6.6 删除项目<br>3.6.7 团队开发<br>3.6.8 脱机工作<br><br>第4章 动态移动应用程序<br><br>4.1 编程策略<br>4.1.1 选择语言<br>4.1.2 内联代码和代码隐藏<br>4.2 Hello Universe应用程序<br>4.3 日程表程序<br>4.3.1 不变性类成员<br>4.3.2 生成并测试应用程序<br>4.3.3 应用程序总结<br>4.4 为日程表程序添加功能<br>4.4.1 生成并测试应用程序<br>4.4.2 应用程序的生存期<br>4.4.3 应用程序总结<br>4.5 时钟程序<br>4.5.1 生成用户界面<br>4.5.2 创建代码隐藏模块<br>4.5.3 生成并测试应用程序<br><br>第5章 使用Mobile Internet TooIkit标准控件<br><br>5.1 控件的类层次<br>5.2 移动控件共有的功能<br>5.3 使用控件示例<br>5.4 容器控件<br>5.4.1 包容规则<br>5.4.2 Form控件<br>5.4.3 Panel控件<br>5.5 核心控件<br>5.5.1 Label控件<br>5.5.2 TextBox控件<br>5.5.3 TextView控件<br>5.5.4 Link控件<br>5.5.5 Command控件<br>5.5.6 Image控件<br><br>第6章 列表控件<br><br>6.1 SelectionList控件<br>6.1.1 语法<br>6.1.2 属性<br>6.1.3 用法<br>6.1.4 绑定到数据集合<br>6.2 List控件<br>6.2.1 语法<br>6.2.2 属性<br>6.2.3 用法<br>6.3 ObjectList控件<br>6.3.1 语法<br>6.3.2 属性<br>6.3.3 用法<br><br>第7章 特殊用途控件和验证控件<br><br>7.1 特殊用途控件<br>7.1.1 Calendar控件<br>7.1.2 PhoneCall控件<br>7.1.3 AdRotator控件<br>7.2 验证控件<br>7.2.1 RequiredFieldValidator控件<br>7.2.2 CompareValidator控件<br>7.2.3 RangeValidator控件<br>7.2.4 RegularExpressionValidator控件<br>7.2.5 CustomValidator控件<br>7.2.6 ValidationSummary控件<br>7.2.7 验证控件示例<br><br>第8章 样式和设备定制的显示<br><br>8.1 概述<br>8.1.1 样式<br>8.1.2 属性重写<br>8.1.3 模板<br>8.2 使用样式和样式表<br>8.2.1 使用样式属性<br>8.2.2 使用StyleSheet控件<br>8.2.3 在Visual Studio.NET中使用样式<br>8.3 用属性重写配置设备定制<br>8.3.1 ＜DeviceSpecific＞和＜Choice＞元素<br>8.3.2 设备过滤器<br>8.4 使用模板化控件<br>8.4.1 使用Form控件模板<br>8.4.2 使用List和ObjectList控件模板<br>8.4.3 使用Panel控件模板<br>8.4.4 通过代码使用模板中的控件<br>8.4.5 使用Visual Studio.NET工具定义模板<br>8.4.6 在样式表中定义模板<br><br>第9章 访问数据<br><br>9.1 使用List控件的高级数据绑定功能 <br>9.1.1 定义静态List和SelectionList的列表项<br>9.1.2 绑定到数据集合<br>9.1.3 重写List控件中的单个字段显示<br>9.2 使用ASP.NET声明数据绑定<br>9.2.1 使用DataBinder.Eval<br>9.2.2 理解命名容器<br>9.3 使用ADO.NET<br>9.3.1 理解ADO.NET对象<br>9.3.2 DataReader对象用于对只读数据的访问<br>9.3.3 用DataSet对象进行数据绑定<br>9.3.4 创建移动Web应用程序进行数据库更新<br>9.4 Microsoft的可视化数据库工具<br>9.4.1 使用Server Explorer<br>9.4.2 创建数据组件<br>9.4.3 在Web应用程序中使用数据组件<br>9.5 学习更多ADO.NET的知识<br><br>第10章 状态管理<br><br>10.1 会话状态<br>10.1.1 使用Session对象<br>10.1.2 使用cookie<br>10.1.3 使用混合的URL<br>10.1.4 为何要使用cookie<br>10.2 隐藏变量<br>10.3 视图状态<br>10.4 应用程序状态<br>10.4.1 在Global.asax中使用应用程序状态<br>10.4.2 使用应用程序状态时的注意事项<br><br>第11章 设计强制的移动网络应用程序<br><br>11.1 基本设计原则<br>11.2 创建集成桌面和移动访问的ASP.NET应用程序<br>11.2.1 为客户端设备调整功能<br>11.2.2 为移动Web站点完成重定向页面<br>11.3 优化性能<br>11.3.1 使用页面输出缓存<br>11.3.2 使用片段缓存<br>11.3.3 使用数据缓存<br>11.4 创建多语言和多元文化的移动Web应用程序<br>11.4.1 定义字符串、日期和时间格式<br>11.4.2 支持本地化内容<br>11.4.3 定义字符集编码<br><br>第12章 XML Web服务<br><br>12.1 创建XML Web服务<br>12.1.1 使用文本编辑器<br>12.1.2 使用Visual Studio.NET<br>12.2 部署和使用XML Web服务<br>12.2.1 使用命令行工具<br>12.2.2 使用Visual Studio.NET<br>12.2.3 使用其他技术<br>12.3 定义XML Web服务的行为<br>12.4 管理会话和应用程序状态<br>12.5 使用数据类型<br>12.6 访问数据<br>12.7 移动设备的注意事项<br><br>第13章 调试、测试仿真程序并处理运行库错误<br><br>13.1 调试移动Web应用程序<br>13.2 使用跟踪工具<br>13.2.1 添加跟踪语句<br>13.2.2 使用应用程序级的跟踪<br>13.3 处理错误<br>13.3.1 实现自定义的错误页面<br>13.3.2 编程处理错误<br>13.4 用仿真程序和真实设备测试<br>13.4.1 使用Pocket Internet Explorer进行测试<br>13.4.2 使用Pocket PC仿真程序测试<br>13.4.3 使用移动电话仿真程序测试<br>13.4.4 确认对仿真程序的支持<br>13.4.5 将仿真程序集成到Visual Studio.NET中<br><br>第14章 打包、配置和安全<br><br>14.1 打包和部署应用程序<br>14.1.1 复制应用程序<br>14.1.2 创建Web安装项目<br>14.2 配置应用程序<br>14.2.1 理解.NET配置文件<br>14.2.2 Web.config配置示例<br>14.3 ASP.NET应用程序的安全性<br>14.3.1 提供验证程序<br>14.3.2 角色和用户授权<br><br>第15章 创建用户控件和自定义控件<br><br>15.1 生成用户控件<br>15.1.1 创建简单的用户控件<br>15.1.2 用户控件模块的编码<br>15.1.3 在Web Forms页面中使用用户控件<br>15.1.4 用户控件示例<br>15.2 在代码中生成控件<br>15.2.1 了解控件的生命周期<br>15.2.2 通过继承生成控件<br>15.2.3 使用编译过的自定义控件<br>15.2.4 通过复合生成控件<br><br>第16章 从零开始生成控件和使用设备适配器<br><br>16.1 从零开始生成控件<br>16.1.1 控件生命周期<br>16.1.2 设备适配器的作用<br>16.2 生成简单的自定义控件和设备适配器<br>16.2.1 具有HTML和WML设备适配器的简单控件<br>16.2.2 编写具有MobileTextWriter类的设备标记<br>16.2.3 在设备适配器中处理样式属性<br>16.2.4 使用自定义控件和设备适配器<br>16.3 生成数据绑定自定义控件<br>16.3.1 支持内部和自定义分页<br>16.3.2 实现OnDataBind事件<br>16.4 在自定义控件中支持视图状态<br>16.4.1 将控件属性保存至ViewState对象<br>16.4.2 理解IstateManager接口<br>16.4.3 使用PrivateViewState<br>16.5 实现自定义MobileControlBuilder<br>16.6 在自定义控件中启用客户端回送<br>16.7 处理发送数据<br>16.7.1 在CMTable控件中实现发送数据处理<br>16.7.2 在DeviceAdapter类中提供不同的用户接口<br>16.7.3 在设备适配器类中添加子控件<br>16.8 开发模板自定义控件<br>16.8.1 实现模板支持<br>16.8.2 为数据绑定List控件实现模板支持<br><br>第17章 支持新型客户端<br><br>17.1 通过配置文件支持新型客户端<br>17.2 支持新型客户端<br>17.2.1 识别移动设备<br>17.2.2 识别设备功能<br>17.3 使用设备适配器<br>17.3.1 设备适配器的作用<br>17.3.2 使用设备适配器集<br>17.3.3 定义设备适配器集 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书是《微软.NET程序员系列》丛书之一，主要介绍了怎样使用微软ASP.NET和Mobile Internet Toolkit来创建移动的Web应用程序的方法，这种应用程序能够以正确的格式在多种设备上动态地显示相同的页面。<br>    本书主要内容包括将.NET用于移动Web、开发移动.NET应用程序、使用移动Web控件、样式与设备定制的显示、状态管理、XML Web服务、打包和安全性等内容。本书适用于从事移动设备应用程序开发人员以及对开发移动设备应用程序感兴趣的读者。此外，本书给出丰富的应用实例，可以帮助掌握C＃和Visual Basic.NET、ASP.NET编程的读者提高。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">（英）威格里 著，（英）罗克斯巴勒 著，赵明 等译Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Java设计模式 <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Java设计模式" border="1" height="216"  src="/Images/BookCovers/9787115156884.jpg" style="border:1px   solid   #B0B0B0" title="Java设计模式" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（美）梅特斯克，（美）韦克  著，龚波，赵彩琳，陈蓓  译
+                                        <br />
+                                        书名：Java设计模式<br />
+                                        字数：472000<br />
+                                        出版时间：2007年3月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115156884<br />
+                                        <font color="#CC3300">本网价：<strong>￥49.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章  设计模式介绍        1<br>1.1  为什么使用模式        1<br>1.2  为什么使用设计模式        2<br>1.3  为什么使用Java        2<br>1.4  UML        3<br>1.5  自我突破        3<br>1.6  本书的组织方式        3<br>1.7  欢迎来到Oozinoz公司        4<br>1.8  小结        5<br>第一部分  接口型模式<br>第2章  接口型模式介绍        8<br>2.1  接口和抽象类        8<br>2.2  接口和责任        9<br>2.3  小结        10<br>2.4  超越普通接口        10<br>第3章  Adapter（适配器）模式        11<br>3.1  接口适配        11<br>3.2  类和对象适配器        14<br>3.3  为JTable适配数据        16<br>3.4  标识适配器        20<br>3.5  小结        20<br>第4章  Facade（外观）模式        21<br>4.1  外观类、工具类和示例类        21<br>4.2  重构为Facade模式        22<br>4.3  小结        29<br>第5章  Composite（组合）模式        30<br>5.1  常见的组合        30<br>5.2  Composite模式的递归特性        31<br>5.3  组合、树和环        32<br>5.4  含有环的Composite模式        35<br>5.5  环的影响        38<br>5.6  小结        39<br>第6章  Bridge（桥接）模式        40<br>6.1  经典范例：普通抽象        40<br>6.2  从抽象到Bridge模式        42<br>6.3  应用Bridge模式的驱动程序        43<br>6.4  数据库驱动程序        44<br>6.5  小结        45<br>第二部分  责任型模式<br>第7章  责任型模式介绍        48<br>7.1  常见的责任型模式        48<br>7.2  通过可见性属性控制责任        49<br>7.3  小结        50<br>7.4  超越普通责任型模式        50<br>第8章  Singleton（单例）模式        51<br>8.1  Singleton模式机制        51<br>8.2  单例和线程        52<br>8.3  识别单例        53<br>8.4  小结        54<br>第9章  Observer（观察者）模式        55<br>9.1  经典范例：GUI中的Observer模式        55<br>9.2  模型/视图/控制器        58<br>9.3  维护Observable类对象        62<br>9.4  小结        64<br>第10章  Mediator（中介者）模式        65<br>10.1  经典范例：GUI的Mediator模式        65<br>10.2  利用Mediator模式管理关系完整性        68<br>10.3  小结        73<br>第11章  Proxy（代理）模式        74<br>11.1  经典范例：图像代理        74<br>11.2  重新思考图像代理        78<br>11.3  远程代理        79<br>11.4  动态代理        84<br>11.5  小结        87<br>第12章  Chain of Responsibility（责任链）模式        88<br>12.1  常见的责任链        88<br>12.2  重构为Chain of Responsibility模式        89<br>12.3  固定责任链        91<br>12.4  不带组合结构的Chain of <br>Responsibility模式        92<br>12.5  小结        93<br>第13章  Flyweight（享元）模式        94<br>13.1  不变性        94<br>13.2  提取享元中不可变的部分        95<br>13.3  共享享元        96<br>13.4  小结        99<br>第三部分  构造型模式<br>第14章  构造型模式介绍        102<br>14.1  普通构造的挑战        102<br>14.2  小结        103<br>14.3  超越普通构造        103<br>第15章  Builder（生成器）模式        105<br>15.1  常见的生成器        105<br>15.2  根据约束构造对象        107<br>15.3  根据不完整信息构造符合约束的对象        109<br>15.4  小结        109<br>第16章  Factory Method（工厂方法）模式        110<br>16.1  经典范例：迭代器        110<br>16.2  识别Factory Method模式        111<br>16.3  决定要实例化的对象        111<br>16.4  并行层次结构中的Factory Method模式        112<br>16.5  小结        114<br>第17章  Abstract Factory（抽象工厂）模式        115<br>17.1  经典范例：GUI工具包        115<br>17.2  抽象工厂和工厂方法        118<br>17.3  包和抽象工厂        121<br>17.4  小结        122<br>第18章  Prototype（原型）模式        123<br>18.1  作为工厂的原型        123<br>18.2  利用克隆进行原型化        124<br>18.3  小结        126<br>第19章  Memento（备忘录）模式        127<br>19.1  经典范例：使用备忘录实现撤销操作        127<br>19.2  备忘录的持久性        132<br>19.3  跨越会话的持久性备忘录        132<br>19.4  小结        135<br>第四部分  操作型模式<br>第20章  操作型模式介绍        138<br>20.1  操作和方法        138<br>20.2  签名        139<br>20.3  异常        139<br>20.4  算法和多态性        140<br>20.5  小结        141<br>20.6  超越普通操作        141<br>第21章  Template Method（模板方法）模式        142<br>21.1  经典范例：排序        142<br>21.2  完成算法        145<br>21.3  Template Method模式钩子        147<br>21.4  重构为Template Method模式        148<br>21.5  小结        149<br>第22章  State（状态）模式        150<br>22.1  状态建模        150<br>22.2  重构为State模式        153<br>22.3  使状态成为常量        156<br>22.4  小结        157<br>第23章  Strategy（策略）模式        158<br>23.1  策略建模        158<br>23.2  重构为Strategy模式        160<br>23.3  比较Strategy模式和State模式        163<br>23.4  比较Strategy模式和Template Method模式        164<br>23.5  小结        164<br>第24章  Command（命令）模式        165<br>24.1  经典范例：菜单命令        165<br>24.2  使用Command模式提供服务        167<br>24.3  Command模式钩子        168<br>24.4  Command模式与其他模式的关系        169<br>24.5  小结        170<br>第25章  Interpreter（解释器）模式        171<br>25.1  Interpreter模式范例        171<br>25.2  解释器、语言和解析器        180<br>25.3  小结        180<br>第五部分  扩展型模式<br>第26章  扩展型模式介绍        184<br>26.1  面向对象设计原则        184<br>26.2  Liskov替换原则（LSP）        184<br>26.3  Demeter法则        185<br>26.4  消除代码坏味        186<br>26.5  超越普通的扩展        187<br>26.6  小结        187<br>第27章  Decorator（装饰器）模式        188<br>27.1　经典范例：流和输出器        188<br>27.2　函数包装器        193<br>27.3　与其他模式相关的Decorator模式        199<br>27.4　小结        199<br>第28章　Iterator（迭代器）模式        200<br>28.1　常规迭代        200<br>28.2　线程安全的迭代        201<br>28.3　对组合结构进行迭代        206<br>28.3.1　组合枚举器的深度        211<br>28.3.2　枚举叶节点        212<br>28.4　小结        213<br>第29章　Visitor（访问者）模式        214<br>29.1　Visitor模式机制        214<br>29.2　常见的Visitor模式        216<br>29.3　Visitor模式循环        220<br>29.4　Visitor模式危机        223<br>29.5　小结        224<br>第六部分  附录<br>附录A　指南        226<br>A.1　从本书中学到更多        226<br>A.2　理解设计模式的典型范例        226<br>A.3　在实践中应用设计模式        227<br>A.4　不断地学习        228<br>附录B　参考答案        229<br>B.1　接口型模式介绍（第2章）        229<br>B.2　Adapter（适配器）模式（第3章）        230<br>B.3　Fa&ccedil;ade（外观）模式（第4章）        233<br>B.4　Composite（组合）模式（第5章）        235<br>B.5　Bridge（桥接）模式（第6章）        237<br>B.6　责任型模式介绍（第7章）        239<br>B.7　Singleton（单例）模式（第8章）        240<br>B.8　Observer（观察者）模式（第9章）        241<br>B.9　Mediator（中介者）模式（第10章）        245<br>B.10　Proxy（代理）模式（第11章）        248<br>B.11　Chain of Responsibility（责任链）模式（第12章）        249<br>B.12　Flyweight（享元）模式（第13章）        252<br>B.13　构造型模式介绍（第14章）        254<br>B.14　Builder（生成器）模式（第15章）        255<br>B.15　Factory Method（工厂方法）模式（第16章）        257<br>B.16　Abstract Factory（抽象工厂）模式（第17章）        260<br>B.17　Prototype（原型）模式（第18章）        262<br>B.18　Memento（备忘录）模式（第19章）        264<br>B.19　操作模式介绍（第20章）        266<br>B.20　Template Method（模板方法）模式（第21章）        267<br>B.21　State（状态）模式（第22章）        268<br>B.22　Strategy（策略）模式（第23章）        270<br>B.23　Command（命令）模式（第24章）        271<br>B.24　Interpreter（解释器）模式（第25章）        274<br>B.25　扩展型模式介绍（第26章）        275<br>B.26　Decorator（装饰器）模式（第27章）        276<br>B.27　Iterator（迭代器）模式（第28章）        278<br>B.28　Visitor（访问者）模式（第29章）        279<br>附录C　Oozinoz源代码        282<br>C.1　获取和使用源代码        282<br>C.2　构建Oozinoz源代码        282<br>C.3　使用JUnit测试代码        282<br>C.4　自己查找文件        283<br>C.5　小结        283<br>附录D　UML概览        284<br>D.1　类        284<br>D.2　类间关系        285<br>D.3　接口        286<br>D.4　对象        287<br>D.5　状态        288<br>词汇表        289<br>参考文献        294<br>索引        296<br>设计模式列表        308 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书通过最新的Java特征和最佳实践阐释了经典著作《设计模式》中介绍的23种基本设计模式。作者根据自己丰富的编程经验，用实际的Java 5.0程序、清晰的UML图表以及引人入胜的实践讲述了每个模式。书中每章集中讨论一种特定的模式，之后给出一些自我突破题，自我突破题或者启发读者思考，或者要求编写代码来解决某个问题，有助于更深入地理解书中的概念。<br>    本书适合于各层次的Java开发人员阅读。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">（美）梅特斯克，（美）韦克  著，龚波，赵彩琳，陈蓓  译Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

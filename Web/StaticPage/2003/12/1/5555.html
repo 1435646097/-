@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">网页制作实用技术 <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="网页制作实用技术" border="1" height="216"  src="/Images/BookCovers/9787302073062.jpg" style="border:1px   solid   #B0B0B0" title="网页制作实用技术" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：徐娟 吴志山 陈金良
+                                        <br />
+                                        书名：网页制作实用技术<br />
+                                        字数：390<br />
+                                        出版时间：2003年12月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787302073062<br />
+                                        <font color="#CC3300">本网价：<strong>￥23.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章  网页制作概述                  <br><br> 1. 1  Internet简介                  <br><br> 1. 2  网页与网站                  <br><br> 1. 3  HTML与XML                  <br><br> 1. 4  常用网页制作工具                  <br><br> 习题                  <br><br> 第2章  FrontPage 2002基础知识                  <br><br> 2. 1  FrontPage 2002概述                  <br><br> 2. 1. 1  FrontPage 2002简介                  <br><br> 2. 1. 2  FrontPage 2002的工作界面                  <br><br> 2. 2  站点的基本操作                  <br><br> 2. 2. 1  创建站点                  <br><br> 2. 2. 2  打开与关闭站点                  <br><br> 2. 2. 3  删除站点                  <br><br> 2. 3  创建和编辑Web网页                  <br><br> 2. 3. 1  创建Web网页                  <br><br> 2. 3. 2  网页的基本操作                  <br><br> 2. 3. 3  格式化文本                  <br><br> 2. 3. 4  插入列表                  <br><br> 2. 3. 5  插入符号                  <br><br> 2. 3. 6  插入水平线                  <br><br> 2. 3. 7  插入日期与时间                  <br><br> 2. 3. 8  创建超链接                  <br><br> 2. 4  在网页中使用多媒体                  <br><br> 2. 4. 1  插入图像                  <br><br> 2. 4. 2  加入声音                  <br><br> 2. 4. 3  使用视频                  <br><br> 习题                  <br><br> 第3章  FrontPage 2002高级应用技术                  <br><br> 3. 1  应用表格                  <br><br> 3. 1. 1  创建表格                  <br><br> 3. 1. 2  表格的基本操作                  <br><br> 3. 1. 3  设置表格和单元格的属性                  <br><br> 3. 1. 4  在网页布局中使用表格                  <br><br> 3. 2  使用框架布局                  <br><br> 3. 2. 1  框架基本知识介绍                  <br><br> 3. 2. 2  设计框架                  <br><br> 3. 3  应用主题                  <br><br> 3. 4  设计表单                  <br><br> 3. 4. 1  表单基本元素介绍                  <br><br> 3. 4. 2  创建表单                  <br><br> 3. 5  特殊网页效果                  <br><br> 3. 5. 1  插入滚动字幕                  <br><br> 3. 5. 2  插入横幅广告                  <br><br> 3. 5. 3  插入悬停按钮                  <br><br> 3. 5. 4  插入站点计数器                  <br><br> 3. 5. 5  动态HTML效果                  <br><br> 3. 5. 6  网页特效                  <br><br> 习题                  <br><br> 第4章  Photoshop 7. 0基础知识                  <br><br> 4. 1  Photoshop 7. 0界面简介                  <br><br> 4. 2  Photoshop 7. 0的新增功能                  <br><br> 4. 2. 1  复原笔刷工具和修补工具                  <br><br> 4. 2. 2  切片工具                  <br><br> 4. 2. 3  图片浏览器                  <br><br> 4. 2. 4  画笔                  <br><br> 4. 2. 5  图章工具                  <br><br> 4. 2. 6  文字工具                  <br><br> 4. 2. 7  形状工具                  <br><br> 4. 2. 8  放大镜工具                  <br><br> 4. 2. 9  工具预设                  <br><br> 4. 2. 10  图层                  <br><br> 4. 2. 11  信息面板                  <br><br> 4. 2. 12  文件菜单                  <br><br> 4. 2. 13  网络图像存储                  <br><br> 4. 2. 14  内置拼写检查器和文字查找替换功能                  <br><br> 4. 2. 15  无缝图案生成器                  <br><br> 4. 2. 16  自定义工作区                  <br><br> 4. 2. 17  自动校色功能                  <br><br> 4. 2. 18  图片包功能                  <br><br> 4. 2. 19  提供密码保护                  <br><br> 4. 3  Photoshop 7. 0 工具及命令                  <br><br> 4. 3. 1  区域选择工具                  <br><br> 4. 3. 2  移动工具                  <br><br> 4. 3. 3  剪切工具                  <br><br> 4. 3. 4  复原工具和修补工具                  <br><br> 4. 3. 5  画笔工具                  <br><br> 4. 3. 6  图章工具                  <br><br> 4. 3. 7  历史记录画笔工具                  <br><br> 4. 3. 8  橡皮工具                  <br><br> 4. 3. 9  渐变工具                  <br><br> 4. 3. 10  油漆桶工具                  <br><br> 4. 3. 11  模糊.锐化和涂抹工具                  <br><br> 4. 3. 12  淡化.加深和海绵工具                  <br><br> 4. 3. 13  箭头工具                  <br><br> 4. 3. 14  钢笔工具                  <br><br> 4. 3. 15  注释工具                  <br><br> 4. 3. 16  吸管.颜色取样器和度量工具                  <br><br> 4. 3. 17  手抓工具                  <br><br> 4. 3. 18  缩放工具                  <br><br> 4. 4  Photoshop 7. 0菜单及命令                  <br><br> 4. 4. 1  文件菜单及命令                  <br><br> 4. 4. 2  编辑菜单及命令                  <br><br> 4. 4. 3  图像菜单及命令                  <br><br> 4. 4. 4  图层菜单及命令                  <br><br> 4. 4. 5  选择菜单及命令                  <br><br> 4. 4. 6  滤镜菜单及命令                  <br><br> 4. 4. 7  视图菜单及命令                  <br><br> 4. 4. 8  窗口菜单及命令                  <br><br> 习题                  <br><br> 第5章  Photoshop 7. 0滤镜                  <br><br> 5. 1  Filter菜单命令                  <br><br> 5. 2  Photoshop 7. 0滤镜分析                  <br><br> 5. 2. 1  上一次滤镜                  <br><br> 5. 2. 2  抽出／液化                  <br><br> 5. 2. 3  艺术效果                  <br><br> 5. 2. 4  模糊滤镜                  <br><br> 5. 2. 5  画笔描边滤镜                  <br><br> 5. 2. 6  扭曲滤镜                  <br><br> 5. 2. 7  杂色滤镜                  <br><br> 5. 2. 8  像素化滤镜                  <br><br> 5. 2. 9  渲染滤镜                  <br><br> 5. 2. 10  锐化滤镜                  <br><br> 5. 2. 11  素描滤镜                  <br><br> 5. 2. 12  风格化滤镜                  <br><br> 5. 2. 13  纹理滤镜                  <br><br> 习题                  <br><br> 第6章  Photoshop范例解析                  <br><br> 6. 1  立体荧光字效果                  <br><br> 6. 2  爆炸效果制作                  <br><br> 习题                  <br><br> 第7章  FlashMX基础知识                  <br><br> 7. 1  Flash MX的新功能                  <br><br> 7. 1. 1  方便易用                  <br><br> 7. 1. 2  更有创新性                  <br><br> 7. 1. 3  更加规范化                  <br><br> 7. 2  FlashMX的入门知识                  <br><br> 7. 2. 1  FlashMX概述                  <br><br> 7. 2. 2  FlashMX的基本菜单及命令                  <br><br> 7. 2. 3  Flash MX文件的基本操作方法                  <br><br> 7. 2. 4  用FlashMX绘制图形及图形编辑                  <br><br> 习题                  <br><br> 第8章  FlashMX具体应用                  <br><br> 8. 1  FlashMX文本的处理                  <br><br> 8. 1. 1  文本属性                  <br><br> 8. 1. 2  段落属性                  <br><br> 8. 1. 3  文本的类型                  <br><br> 8. 1. 4  文本类型转换及其文字变形                  <br><br> 8. 2  FlashMX的符号及其作用                  <br><br> 8. 2. 1  符号与实例概念                  <br><br> 8. 2. 2  符号的创建与编辑                  <br><br> 8. 3  层与帧                  <br><br> 8. 3. 1  概念                  <br><br> 8. 3. 2  对时间线中图层的编辑                  <br><br> 8. 3. 3  帧                  <br><br> 8. 3. 4  对帧的编辑                  <br><br> 8. 4  Flash MX对声音.视频文件的支持                  <br><br> 8. 4. 1  声音文件支持                  <br><br> 8. 4. 2  视频文件支持                  <br><br> 8. 5  动画制作                  <br><br> 8. 5. 1  场景在动画制作中的运用                  <br><br> 8. 5. 2  动画制作具体介绍及其应用                  <br><br> 习题                  <br><br> 第9章  FlashMX实例演练场                  <br><br> 9. 1  霓虹灯效果的荧光文字                  <br><br> 9. 2  探照灯效果                  <br><br> 9. 3  FlashMX制作百叶窗效果                  <br><br> 9. 4  FlashMX制作光芒效果                  <br><br> 9. 5  Flash MX组件打造留言板                  <br><br> 习题                  <br><br> 第10章  网站发布与管理                  <br><br> 10. 1  网站规划                  <br><br> 10. 1. 1  网站规划概述                  <br><br> 10. 1. 2  网站规划流程                  <br><br> 10. 2  网页设计原则                  <br><br> 10. 2. 1  内容设计原则                  <br><br> 10. 2. 2  版式设计原则                  <br><br> 10. 2. 3  色彩设计原则                  <br><br> 10. 2. 4  图像与文本运用原则                  <br><br> 10. 3  站点检查与测试                  <br><br> 10. 3. 1  站点检查                  <br><br> 10. 3. 2  站点测试                  <br><br> 10. 4  站点发布                  <br><br> 10. 4. 1  申请网页空间                  <br><br> 10. 4. 2  发布站点                  <br><br> 10. 5  站点管理与维护                  <br><br> 10. 5. 1  管理站点                  <br><br> 10. 5. 2  维护站点                  <br><br> 10. 5. 3  宣传站点                  <br><br> 习题                  <br><br> 附录  习题解答                  <br><br> 参考文献 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书是根据教育部高等教育司组织制定的《普通高等学校文科类专业计算机基础课程教学大纲（2000年版）》的基本要求编写的。全书主要阐述Internet网页的制作方法，内容包括网页制作概述、网页编辑软件FrontPage 2002、静态图像处理软件Photoshop 7.0、动画制作软件Flash MX，最后是网站发布与管理，可使读者理解和掌握网站开发的全过程。为了方便读者学习，各章均配备了范例、习题，并在附录中给出了习题答案。<br>本书针对最新的软件版本进行讲解，内容丰富、层次清晰、图文并茂，适合作为普通高等学校的教材，也可供网页制作培训班作为教材或参考书。 <br> </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">徐娟 吴志山 陈金良Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

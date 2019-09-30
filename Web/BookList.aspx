@@ -13,7 +13,7 @@
         <tbody>
             <tr>
                 <td rowspan="2"><a
-                    onclick="window.location='BookDetail.aspx?bid=4939'">
+                    onclick="window.location='<%=GetStaticPagePath(book.PublishDate) %><%=book.Id %>.html'">
                     <img
                         style="cursor: help" height="121"
                         alt="<%=book.Title %>" hspace="4 "
@@ -21,7 +21,7 @@
                 </td>
                 <td style="font-size: small; color: red" width="650"><a
                     class="booktitle" id="link_prd_name"
-                    href="BookDetail.aspx?bid=4939" target="_blank"
+                    href="<%=GetStaticPagePath(book.PublishDate) %><%=book.Id %>.html" target="_blank"
                     name="link_prd_name"><%=book.Title %></a> </td>
             </tr>
             <tr>

@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Visual C++网络程序设计实例详解（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Visual C++网络程序设计实例详解（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115149145.jpg" style="border:1px   solid   #B0B0B0" title="Visual C++网络程序设计实例详解（附光盘）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：张越  等编著
+                                        <br />
+                                        书名：Visual C++网络程序设计实例详解（附光盘）<br />
+                                        字数：535000<br />
+                                        出版时间：2006年7月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115149145<br />
+                                        <font color="#CC3300">本网价：<strong>￥39.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章　客户机/服务器开发　1<br>1.1　Winsock编程入门——简单的TCP服务器　1<br>1.1.1　Winsock编程简介　1<br>1.1.2　简单的TCP服务器　1<br>1.1.3　测试程序　4<br>1.2　Winsock编程入门——简单的TCP客户端　4<br>1.2.1　TCP客户程序的编写流程　5<br>1.2.2　初始化Winsock库　5<br>1.2.3　创建套接字　5<br>1.2.4　获取主机信息　5<br>1.2.5　连接到服务器　6<br>1.2.6　TCP通信　6<br>1.2.7　关闭连接、释放Winsock库　7<br>1.3　多线程TCP服务器和客户端实例　7<br>1.3.1　实例介绍　7<br>1.3.2　多线程服务器　7<br>1.3.3　自定义传输协议　8<br>1.3.4　客户端程序　12<br>1.4　网络对时程序实例　17<br>1.4.1　时间协议(Time Protocol)　17<br>1.4.2　TCP/IP实现代码　17<br>1.5　网络文件传输实例　19<br>1.5.1　服务器端程序代码分析　20<br>1.5.2　客户端程序代码分析　23<br>1.5.3　演示软件　26<br><br>第2章　计算机嗅探和远程控制　27<br>2.1　Ping程序实例　27<br>2.1.1　原始套接字　27<br>2.1.2　Ping程序运行原理　28<br>2.1.3　Ping程序代码分析　30<br>2.1.4　WinPing程序实例分析　32<br>2.2　路由跟踪实例　33<br>2.3　网络嗅探器实例　35<br>2.3.1　嗅探器设计原理　36<br>2.3.2　网络嗅探器的具体实现　37<br>2.4　远程进程和机器控制实例　40<br>2.4.1　远程控制机器的方法　41<br>2.4.2　基本实施方案　41<br>2.4.3　客户程序的实施细节　45<br>2.4.4　服务器程序的实施细节　46<br>2.5　网络唤醒(Wake On LAN)实例　46<br>2.5.1　WOL工作方式　46<br>2.5.2　魔术包格式　46<br>2.5.3　获取MAC地址　47<br>2.5.4　实例代码分析　49<br><br>第3章　网络计算机扫描　53<br>3.1　原始UDP封包发送实例　53<br>3.1.1　IP数据报格式　53<br>3.1.2　UDP数据报格式　54<br>3.1.3　原始UDP封包发送实例　57<br>3.2　原始以太封包发送实例　59<br>3.2.1　NDIS协议驱动　59<br>3.2.2　协议驱动用户接口　60<br>3.2.3　发送以太封包的测试程序　66<br>3.3　TCP/IP端口扫描实例　68<br>3.3.1　扫描器的工作方式　68<br>3.3.2　扫描器的实现　70<br>3.4　高级TCP半开端口扫描实例　71<br>3.4.1　端口扫描原理　71<br>3.4.2　以太网数据帧　72<br>3.4.3　半开端口扫描实现　73<br><br>第4章　网络封包过滤技术　81<br>4.1　Windows网络数据和封包过滤概述　81<br>4.1.1　Windows网络系统体系结构图　81<br>4.1.2　用户模式下的网络数据过滤　82<br>4.1.3　内核模式下的网络数据过滤　83<br>4.2　Hook API过滤原理　83<br>4.2.1　通过覆盖代码挂钩API　83<br>4.2.2　DLL工程框架　87<br>4.2.3　数据交换机制　88<br>4.2.4　数据的过滤　90<br>4.3　Hook API过滤实例　91<br>4.3.1　主窗口界面　91<br>4.3.2　注入DLL　94<br>4.3.3　处理封包　99<br>4.4　基于SPI的数据报过滤实例　102<br>4.4.1　SPI概述　102<br>4.4.2　Winsock协议目录　104<br>4.4.3　分层服务提供者(LSP)　109<br>4.4.4　数据报过滤实例　121<br>4.5　IP过滤钩子驱动　127<br>4.5.1　创建过滤钩子(Filter-hook)驱动　127<br>4.5.2　IP过滤钩子驱动工程框架　130<br>4.5.3　过滤列表　133<br>4.5.4　编写过滤函数　134<br>4.5.5　注册钩子回调函数　137<br>4.5.6　处理IOCTL设备控制代码　138<br>4.6　Windows防火墙开发实例　139<br>4.6.1　文档视图　140<br>4.6.2　文档对象　143<br>4.6.3　视图对象　144<br>4.6.4　主窗口对象　147<br><br>第5章　NDIS中间层驱动开发　151<br>5.1　中间层网络驱动PassThru　151<br>5.1.1　PassThru NDIS中间层驱动简介　151<br>5.1.2　编译和安装PassThru驱动　151<br>5.2　扩展PassThru NDIS IM驱动——添加IOCTL接口　152<br>5.2.1　扩展之后的PassThru驱动(PassThruEx)概况　152<br>5.2.2　添加基本的DeviceIoControl接口　153<br>5.2.3　添加绑定枚举功能　157<br>5.2.4　添加ADAPT结构的引用计数　162<br>5.2.5　适配器句柄的打开/关闭函数　163<br>5.2.6　句柄事件通知　170<br>5.2.7　查询和设置适配器的OID信息　170<br>5.3　扩展PassThru NDIS IM驱动——添加过滤规则　179<br>5.3.1　需要考虑的事项　179<br>5.3.2　过滤相关的数据结构　180<br>5.3.3　过滤列表　181<br>5.3.4　网络活动状态　183<br>5.3.5　IOCTL控制代码　184<br>5.3.6　过滤数据　187<br>5.4　核心层过滤实例　196<br><br>第6章　网络安全　199<br>6.1　ARP概述　199<br>6.1.1　ARP　199<br>6.1.2　ARP协议格式　202<br>6.1.3　SendARP函数　202<br>6.2　局域网计算机诊测实例　203<br>6.2.1　管理原始ARP封包　203<br>6.2.2　ARP扫描示例　206<br>6.3　ARP欺骗与ARP表中毒实例　211<br>6.3.1　IP欺骗的用途和实现原理　211<br>6.3.2　IP地址冲突　212<br>6.3.3　ARP欺骗示例程序　212<br>6.4　SuperPasswordSpy++密码诊测实例　215<br>6.4.1　体系结构　216<br>6.4.2　实现细节　217<br>6.5　侦听局域网内密码实例　220<br><br>第7章　IP帮助函数　224<br>7.1　 IP配置信息管理实例　224<br>7.1.1　获取网络配置信息　224<br>7.1.2　管理网络接口　226<br>7.1.3　管理IP地址　230<br>7.2　获取网络状态信息实例　233<br>7.2.1　获取TCP连接表　234<br>7.2.2　获取UDP监听表　237<br>7.2.3　获取IP统计数据　239<br>7.3　路由管理实例　247<br>7.3.1　获取路由表　247<br>7.3.2　管理特定路由　250<br>7.3.3　修改默认网关的例子　251<br>7.4　ARP表管理实例　252<br>7.4.1　获取ARP表　253<br>7.4.2　添加ARP入口　253<br>7.4.3　删除ARP入口　254<br>7.4.4　打印ARP表　254<br>7.5　进程网络活动监视实例　258<br>7.5.1　获取通信的进程终端　258<br>7.5.2　Netstate源程序代码　260<br><br>第8章　串口通信编程技术　265<br>8.1　串口通信基本接线方法　265<br>8.1.1　DB9和DB25的常用信号脚说明　265<br>8.1.2　RS232C串口通信接线方法(三线制)　265<br>8.1.3　串口调试中要注意的几点　266<br>8.2　串口通信基本API函数　266<br>8.3　异步通信实例　270<br>8.3.1　异步通信基础　271<br>8.3.2　异步通信实例分析　273<br>8.4　CSerial类的封装与串口调试实例　277<br>8.4.1　串口类CSerial的封装　277<br>8.4.2　串口测试程序ComTest　288<br>8.5　串口文件传输实例　290<br>8.5.1　通信协议　290<br>8.5.2　文件传输过程　290<br>8.5.3　通信协议实施细节　291<br>8.5.4　命令号和状态代码的定义　291<br>8.5.5　数据校验　292<br>8.5.6　通讯协议控制类CSCSerial　293<br>8.5.7　文件传输程序具体实现　297<br><br>第9章　综合实例　310<br>9.1　IP多播(Multicasting)实例　310<br>9.1.1　套接字选项　310<br>9.1.2　多播地址　312<br>9.1.3　组管理协议(IGMP)　312<br>9.1.4　使用IP多播　313<br>9.2　基于IP多播的组讨论会实例　317<br>9.2.1　定义组讨论会协议　317<br>9.2.2　线程通信机制　318<br>9.2.3　封装CGroupTalk类　318<br>9.2.4　程序界面　325<br>9.3　完成端口I/O模型编程实例　328<br>9.3.1　完成端口(completion port)对象简介　328<br>9.3.2　使用IOCP的方法　329<br>9.3.3　示例程序　330<br>9.3.4　恰当地关闭IOCP　333<br>9.4　基于I/O完成端口的IP多播编程实例(使用UDP)　334<br>9.5　从NT服务启动Windows程序实例　340 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书全面介绍了使用Visual C++开发各种网络程序的方法与技巧，内容涵盖TCP和UDP的客户/服务器编程、Internet和LAN上的远程PC控制、链路层的计算机扫描技术、路由跟踪技术、IP欺骗技术、密码截获及保护技术、网络封包截获技术、串口通信技术、IOCP技术，以及分层协议、NDIS中间层网络驱动编程等。<br>　　本书实例新颖，有很强的实用性，既适合于有一定C、C++语言基础，欲深入了解Windows网络编程的读者快速提高，也适合于从事网络编程的工作人员参考借鉴。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">张越  等编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

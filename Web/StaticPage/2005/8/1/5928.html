@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Visual Basic系统开发实例精粹（附CD-ROM光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Visual Basic系统开发实例精粹（附CD-ROM光盘一张）" border="1" height="216"  src="/Images/BookCovers/7115136726.jpg" style="border:1px   solid   #B0B0B0" title="Visual Basic系统开发实例精粹（附CD-ROM光盘一张）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：四维科技，曹衍龙  编著
+                                        <br />
+                                        书名：Visual Basic系统开发实例精粹（附CD-ROM光盘一张）<br />
+                                        字数：852000<br />
+                                        出版时间：2005年8月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 7115136726<br />
+                                        <font color="#CC3300">本网价：<strong>￥49.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top"><br>Part 1　系统编程篇<br><br>Example 01　资源管理器　2<br>1.1　设计思路　2<br>1.2　编程原理　2<br>1.2.1　TreeView控件　2<br>1.2.2　ListView控件　3<br>1.2.3　相关API函数　3<br>1.3　实例详解　5<br>1.3.1　frmMain窗体　5<br>1.3.2　cDrives类　8<br>1.3.3　mFileList模块　10<br>1.3.4　mProcFunc模块　11<br>1.3.5　mVariables模块　12<br>1.3.6　mExplorerTree模块　12<br><br>Example 02　注册表管理器　13<br>2.1　设计思路　13<br>2.2　编程原理　14<br>2.2.1　TreeView控件　14<br>2.2.2　ListView控件　15<br>2.2.3　分割条编程技术　15<br>2.2.4　Visual Basic中的注册表处理函数　15<br>2.2.5　动态添加菜单技术　16<br>2.2.6　重要的API函数　16<br>2.3　实例详解　17<br>2.3.1　frmMain窗体　17<br>2.3.2　frmOrgFaves窗体　20<br>2.3.3　frmSearch窗体　20<br>2.3.4　ModReg模块　22<br>2.3.5　Module1模块　24<br>2.3.6　HexClass类模块　25<br>2.3.7　其他模块　25<br><br>Example 03　文件搜索系统　26<br>3.1　设计思路　26<br>3.2　编程原理　27<br>3.3　实例详解　29<br>3.3.1　文件搜索主窗体　29<br>3.3.2　添加右键快捷方式　32<br>3.3.3　文件属性显示窗体　33<br>3.3.4　clsSearch类　34<br><br>Example 04　科学计算器程序——高级版　38<br>4.1　设计思路　38<br>4.2　编程原理　39<br>4.2.1　基本数学函数　39<br>4.2.2　程序中的数学函数使用说明　40<br>4.2.3　非基本数学函数　40<br>4.3　实例详解　40<br>4.3.1　Anical1窗体　40<br>4.3.2　Anical2窗体　42<br><br>Example 05　加密解密系统　51<br>5.1　设计思路　51<br>5.2　编程原理　52<br>5.3　实例详解　55<br>5.3.1　fTest窗体　56<br>5.3.2　cEncDec类模块　58<br><br>Example 06　虚拟驱动器程序　68<br>6.1　设计思路　68<br>6.2　编程原理　68<br>6.3　实例详解　68<br>6.3.1　Form1.frm窗体　69<br>6.3.2　ComDlg模块　75<br>6.3.3　Module2模块　75<br>6.3.4　PathCTL模块　75<br>6.3.5　REGEDT模块　75<br>6.3.6　Strings模块　75<br><br>精彩实例赏析　76<br><br>Part 2　多媒体/图形图像篇<br><br>Example 07　绘图系统　82<br>7.1　设计思路　82<br>7.2　编程原理　83<br>7.3　实例详解　87<br>7.3.1　ComicPageMakerMain窗体　88<br>7.3.2　ZoomWindows窗体　102<br>7.3.3　Text窗体　103<br>7.3.4　HorizontalRuler窗体　103<br><br>Example 08　功能强大的图像处理系统　103<br>8.1　设计思路　103<br>8.2　编程原理　105<br>8.2.1　自定义控件开发　105<br>8.2.2　API的应用　106<br>8.2.3　常用图像处理原理　109<br>8.3　实例详解　116<br>8.3.1　fMain窗体　116<br>8.3.2　CDIB类模块　124<br>8.3.3　cDIBDither类模块　126<br>8.3.4　cDIBFilter类模块　126<br>8.3.5　cDIBPal类模块　127<br>8.3.6　cDIBSave类模块　127<br>8.3.7　cFrame类模块　128<br>8.3.8　mBrowseFolder模块　128<br>8.3.9　mChooseColor模块　128<br>8.3.10　mDialogEx模块　129<br>8.3.11　mGDIpEx模块　129<br>8.3.12　mHSL模块　129<br>8.3.13　mINI模块　130<br>8.3.14　mMisc模块　130<br>8.3.15　mSettings模块　130<br>8.3.16　mWheel模块　130<br>8.3.17　ucCanvas控件　131<br>8.3.18　cInfo控件　132<br>8.3.19　ucProgress控件　133<br>8.3.20　ucToolbar控件　133<br>8.3.21　带预览功能的图像选择框　133<br>8.3.22　为图像选择材质的窗体　134<br>8.3.23　更改图像大小的窗体　134<br>8.3.24　显示图像信息的窗体　134<br>8.3.25　打印图像的窗体　135<br>8.3.26　实现图像全景的窗体　135<br>8.3.27　滤镜效果查看窗体　136<br><br>Example 09　图像切换特效程序　136<br>9.1　设计思路　136<br>9.2　编程原理　137<br>9.2.1　BitBlt函数　137<br>9.2.2　PatBlt函数　138<br>9.2.3　StretchBlt函数　138<br>9.2.4　SetStretchBltMode函数　138<br>9.3　实例详解　139<br>9.3.1　frmTransEffects窗体　139<br>9.3.2　modTransEffects.bas模块　140<br><br>Example 10　语音编辑系统　146<br>10.1　设计思路　146<br>10.2　编程原理　146<br>10.2.1　WAV文件概述　146<br>10.2.2　MMC控件　148<br>10.3　实例详解　148<br>10.3.1　编辑器主窗体　148<br>10.3.2　语音编辑窗体　149<br><br>Example 11　曲谱编辑器　160<br>11.1　设计思路　160<br>11.2　编程原理　161<br>11.3　实例详解　163<br>11.3.1　fMain窗体　163<br>11.3.2　fSymbolsToolbar窗体　166<br>11.3.3　fAlternateToolbar窗体　167<br>11.3.4　fMusicBoard窗体　167<br>11.3.5　mInitialization模块　168<br><br>Example 12　MP3播放器　168<br>12.1　设计思路　168<br>12.2　编程原理　172<br>12.2.1　MP3编码解析　172<br>12.2.2　编码层　173<br>12.3　实例详解　174<br>12.3.1　mVars.bas模块　174<br>12.3.2　mMp3Player.frm窗体　175<br>12.3.3　mMp3.bas模块　178<br><br>Example 13　视频捕捉程序　182<br>13.1　设计思路　182<br>13.2　编程原理　183<br>13.2.1　VFW简介　183<br>13.2.2　系统工作过程　184<br>13.3　实例详解　188<br>13.3.1　frmMain窗体　188<br>13.3.2　mACM模块　191<br>13.3.3　mCapApp模块　192<br>13.3.4　mVFW模块　196<br><br>精彩实例赏析　207<br><br>Part 3　网络通信篇<br><br>Example 14　多页面显示浏览器　214<br>14.1　设计思路　214<br>14.2　编程原理　215<br>14.3　实例详解　215<br>14.3.1　frmBrowser窗体　215<br>14.3.2　frmOpen窗体　222<br>14.3.3　frmOptions窗体　222<br><br>Example 15　HTML文件编辑器　223<br>15.1　设计思路　223<br>15.2　编程原理　224<br>15.3　实例详解　231<br>15.3.1　frmMDI窗体　231<br>15.3.2　frmChild窗体　237<br>15.3.3　frmDocPreview窗体　239<br>15.3.4　frmValidation窗体　243<br>15.3.5　frmFind窗体　244<br>15.3.6　frmCFade窗体　244<br><br>Example 16　网络检测实用工具集　244<br>16.1　设计思路　244<br>16.2　编程原理　245<br>16.2.1　获取当前网络流量状况　245<br>16.2.2　主机名与IP地址相互转换　246<br>16.2.3　获取各种形式的IP地址及相关信息　246<br>16.2.4　获取网络适配器(网卡)信息　248<br>16.2.5　调用Windows命令并返回命令的输出　248<br>16.3　实例详解　249<br>16.3.1　frmBandwidth窗体　249<br>16.3.2　frmIPCalc窗体　252<br>16.3.3　frmNetStat1窗体和frmNetStat2窗体　257<br>16.3.4　frmPing窗体　258<br>16.3.5　frmPortListen窗体　261<br>16.3.6　frmPortScanner窗体　262<br>16.3.7　frmStats窗口　264<br>16.3.8　frmTrace窗口和frmTrace2窗口　264<br><br>Example 17　电子邮件收发系统　266<br>17.1　设计思路　266<br>17.2　编程原理　270<br>17.2.1　SMTP协议　271<br>17.2.2　POP3协议　274<br>17.2.3　邮件结构详述　278<br>17.2.4　MIME编码/解码与发送附件　278<br>17.3　实例详解　279<br><br>Example 18　网络性能监控与流量统计系统　279<br>18.1　设计思路　279<br>18.2　编程原理　280<br>18.2.1　IP Helper API简介　280<br>18.2.2　IP Helper API的使用　281<br>18.3　实例详解　281<br>18.3.1　frmMain主窗体模块　282<br>18.3.2　frmMenu窗体模块　285<br>18.3.3　基本模块modHook　285<br>18.3.4　modINI基本模块　287<br>18.3.5　modStart基本模块　287<br>18.3.6　modSysTrayMenu基本模块　287<br>18.3.7　modTray基本模块　287<br>18.3.8　clsAdaptors基本模块　287<br>18.3.9　clsIPStatistics类模块　290<br>18.3.10　ctlDigital与ctlSpeedometer控件模块　292<br><br>Example 19　代理服务器系统　293<br>19.1　设计思路　293<br>19.2　编程原理　294<br>19.3　实例详解　298<br>19.3.1　frmMain窗体　298<br>19.3.2　frmConfiguration窗体和modConfiguration模块　308<br>19.3.3　modGlobe模块　309<br>19.3.4　modHTML模块　312<br>19.3.5　clsSysTray类　312<br><br>精彩实例赏析　313<br><br>Part 4　数据库/MIS开发篇<br><br>Example 20　数据库配置和管理综合实例　318<br>20.1　设计思路　318<br>20.2　编程原理　319<br>20.3　实例详解　322<br>20.3.1　连接Access数据库　322<br>20.3.2　连接SQL Server数据库　324<br>20.3.3　连接ODBC数据源　327<br>20.3.4　frmMain窗体　328<br><br>Example 21　条形码的设计与打印　333<br>21.1　设计思路　333<br>21.2　编程原理　334<br>21.3　实例详解　339<br>21.3.1　Form1窗体　339<br>21.3.2　Bar39模块　341<br>21.3.3　Special128模块　343<br>21.3.4　GIF类　354<br><br>Example 22　服装进销存系统　355<br>22.1　设计思路　355<br>22.2　编程原理　355<br>22.2.1　安全登录　355<br>22.2.2　进货管理　356<br>22.2.3　会员管理　356<br>22.2.4　服装销售　356<br>22.2.5　数据统计　356<br>22.2.6　数据库分析　356<br>22.3　实例详解　358<br>22.3.1　系统登录模块　358<br>22.3.2　新增用户　365<br>22.3.3　删除用户　367<br>22.3.4　修改密码　368<br>22.3.5　系统主界面　368<br>22.3.6　服装信息管理模块　368<br>22.3.7　会员管理模块　374<br>22.3.8　服装销售模块　375<br>22.3.9　报表统计打印模块　378<br><br>Example 23　人事/工资/考勤管理信息系统　386<br>23.1　设计思路　386<br>23.2　编程原理　387<br>23.2.1　系统功能分析　387<br>23.2.2　系统功能模块设计　388<br>23.2.3　UML系统建模　391<br>23.2.4　数据库需求分析　396<br>23.2.5　数据库逻辑结构设计　397<br>23.3　实例详解　397<br>23.3.1　系统设计概述　398<br>23.3.2　系统主界面实现　399<br>23.3.3　系统登录和增加管理员窗体　400<br>23.3.4　人事管理功能模块　403<br>23.3.5　考勤管理功能模块设计　407<br>23.3.6　工资管理功能模块设计　410<br>23.3.7　报表管理功能模块设计　414<br>23.3.8　系统维护功能模块设计　415<br>23.3.9　综合查询模块　418<br><br>Example 24　考试管理信息系统　418<br>24.1　设计思路　418<br>24.2　编程原理　418<br>24.2.1　系统功能分析　418<br>24.2.2　UML系统建模　420<br>24.2.3　数据库需求分析　423<br>24.2.4　数据库概念结构设计　423<br>24.2.5　数据库逻辑结构设计　424<br>24.3　实例详解　424<br>24.3.1　系统设计概况　424<br>24.3.2　系统主界面实现　425<br>24.3.3　增加题目类别模块　431<br>24.3.4　增加题目模块　431<br>24.3.5　modMain模块文件　431<br>24.3.6　参数设置模块　433<br>24.3.7　系统选项设置模块　433<br>24.3.8　考生考试模块　434<br>24.3.9　系统登录模块　438<br>24.3.10　用户管理模块　438<br><br>Example 25　餐饮管理信息系统　439<br>25.1　设计思路　439<br>25.2　编程原理　440<br>25.2.1　系统功能分析　440<br>25.2.2　系统功能模块设计　440<br>25.2.3　UML系统建模　444<br>25.2.4　数据库需求分析　449<br>25.3　实例详解　451<br>25.3.1　系统设计概况　451<br>25.3.2　系统主界面实现　453<br>25.3.3　接待预定模块　454<br>25.3.4　房台列表模块　456<br>25.3.5　房台预定模块　456<br>25.3.6　点菜收银模块　457<br>25.3.7　开台信息模块　458<br>25.3.8　房台账单模块　458<br>25.3.9　点菜模块　459<br>25.3.10　结账模块　459<br>25.3.11　吧厨出品模块　460<br>25.3.12　其他重要模块　460<br><br>精彩实例赏析　461<br><br>Part 5　游戏篇<br><br>Example 26　寻宝游戏　468<br>Example 27　太空大战游戏　470<br>Example 28　贪吃蛇游戏　471<br>Example 29　快速逃生游戏　472<br>Example 30　地图编辑器　473<br>Example 31　Tic Tac Toe游戏　473<br>Example 32　国际象棋游戏　474<br>Example 33　积木游戏　474<br>Example 34　拼图游戏　474<br>Example 35　弹球游戏　475<br>Example 36　射击游戏　475<br>Example 37　老虎机游戏　476<br>Example 38　简易足球赛游戏　476<br>Example 39　人工智能坦克大战　477<br>Example 40　俄罗斯方块游戏　477 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书精选了近40个综合性实例，详细介绍了基于Visual Basic的程序开发技巧和方法，内容涵盖了Visual Basic的系统编程、多媒体/图形图像编程、网络通信编程、数据库/MIS开发、游戏编程等许多热门领域。<br>　　每个实例都按照设计思路、编程原理以及实例详解3个步骤来解说。尤其是对每个实例的原理都进行了详细地说明，对实例的源代码进行了注释。同时在本书的光盘中赠送了大量非常有价值的实例源代码。通过本书的学习，读者可以非常容易地理解并掌握Visual Basic开发的核心技术，并根据自身需要进行二次开发。<br>　　本书可以作为高等院校相关专业的课程设计、毕业设计的指导用书，同时也可以作为科研单位、企业相关软件开发的技术指导用书。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">四维科技，曹衍龙  编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

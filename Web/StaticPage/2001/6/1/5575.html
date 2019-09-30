@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">XML 揭秘: 入门.应用.精通(含盘) <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="XML 揭秘: 入门.应用.精通(含盘)" border="1" height="216"  src="/Images/BookCovers/9787900635280.jpg" style="border:1px   solid   #B0B0B0" title="XML 揭秘: 入门.应用.精通(含盘)" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（美）Michael Morrison.al 著
+                                        <br />
+                                        书名：XML 揭秘: 入门.应用.精通(含盘)<br />
+                                        字数：1030000<br />
+                                        出版时间：2001年6月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787900635280<br />
+                                        <font color="#CC3300">本网价：<strong>￥69.50</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章 XML新手<br>      1.1 XML历史简介<br>      1.2 XML是怎样的<br>      1.3 XML语法基础<br>        1.3.1 标记<br>        1.3.2 实体引用<br>        1.3.3 注释<br>        1.3.4 处理指令<br>        1.3.5 文件类型声明<br>        1.3.6 CDATA片段<br>      1.4 XML的现状<br>        1.4.1 XML的显示样式<br>        1.4.2 浏览XML<br>        1.4.3 解析XML<br>      1.5 总结<br>第2章 数据模型：文件类型定义和Schema<br>      2.1 XML数据模型基础<br>      2.2 用DTD来建立数据模型<br>      2.3 用XML  Schema建立数据模型<br>      2.4 比较两种建立数据模型的方法<br>      2.5 总结<br>第3章 DTD基础<br>      3.1 DTD和文件结构<br>        3.1.1 内部DTD和外部DTD<br>        3.1.2 有效的和结构良好的文件<br>      3.2 理解元素和属性<br>      3.3 使用元素<br>        3.3.1 空元素<br>        3.3.2 只含子元素的元素<br>        3.3.3 混合元素<br>        3.3.4 ANY元素<br>      3.4 使用属性<br>        3.4.1 字符串属性<br>        3.4.2 枚举属性<br>        3.4.3 标记属性<br>        3.4.4 声明多重属性<br>      3.5 用DTD创建有效的文件<br>      3.6 总结<br>第4章 进一步深入DTD<br>      4.1 实体和文件结构<br>      4.2 字符和实体<br>      4.3 使用实体<br>        4.3.1 一般实体<br>        4.3.2 参数实体<br>      4.4 外部实体<br>        4.4.1 引用非解析实体<br>        4.4.2 使用外部参数实体<br>      4.5 声明表示法<br>      4.6 在文件中引用实体<br>      4.7 使用条件段<br>      4.8 总结<br>第5章 XML  Schema基础<br>      5.1 了解XML Schema<br>        5.1.1 XML Schema和W3C<br>        5.1.2 XML Schema的好处<br>      5.2 深入XML Schema词表<br>        5.2.1 schema元素<br>        5.2.2 datatype元素<br>        5.2.3 ElementType元素<br>        5.2.4 element元素<br>        5.2.5 group元素<br>        5.2.6 AtrributeType元素<br>        5.2.7 attribute元素<br>        5.2.8 description元素<br>      5.3 XML Schema数据类型<br>      5.4 从XML Schema创建文件<br>      5.5 总结<br>第6章 XML  Schema构造技术<br>      6.1 将DTD转换为Schema<br>      6.2 根据Schema验证文件<br>      6.3 用XML  Authority生成schema<br>      6.4 理解内容模型<br>      6.5 XML  schema的未来<br>        6.5.1 元素继承<br>        6.5.2 受约束的数据类型<br>      6.6 总结<br>第7章 使用XML名字空间<br>      7.1 名字空间基础<br>      7.2 声明名字空间<br>        7.2.1 缺省声明<br>        7.2.2 显式声明<br>      7.3 将schema作为名字空间引用<br>      7.4 在schema中使用名字空间<br>      7.5 名字空间和文件对象模型<br>      7.6 总结<br>第2部分 格式化XML文件<br>第8章 对比两种样式规范：可扩展样式表语言和层叠样式表<br>      8.1 样式表基础<br>        8.1.1 HTML是一种非常糟糕的描述语言<br>        8.1.2 将描述踢出HTML<br>        8.1.3 通过样式表显示XML<br>      8.2 CSS和XSL发展史<br>        8.2.1 理解CSS<br>        8.2.2 理解XSL<br>      8.3 XSL与CSS的比较<br>      8.4 XSL和CSS联合使用<br>      8.5 总结<br>第9章 使用层叠样式表格式化XML<br>      9.1 CSS初步<br>      9.2 深入CSS样式表<br>      9.3 CSS样式属性<br>        9.3.1 display属性<br>        9.3.2 width和height属性<br>        9.3.3 border属性<br>        9.3.4 margin属性<br>        9.3.5 color属性<br>        9.3.6 text属性<br>        9.3.7 font属性<br>      9.4 创建CSS样式表<br>      9.5 总结<br>第10章 理解XSL<br>      10.1 处理XSL样式表            <br>      10.2 XSL体系结构    <br>        10.2.1 XSL转换       <br>            10.2.2 XPath<br>        10.2.3 XSL格式化对象<br>      10.3 总结<br>第11章 创建XSL样式表<br>      11.1 XSL与Internet  Explorer  5.0<br>      11.2 深入XSL样式表<br>        11.2.1 模板<br>        11.2.2 模式<br>      11.3 XSLT模板结构<br>        11.3.1 xsl：value-of元素<br>        11.3.2 xsl：if元素<br>        11.3.3 xsl：for-each元素<br>        11.3.4 xsl：apply-templates元素<br>      11.4 开发XSL样式表<br>      11.5 总结<br>第3部分 XML文件的处理<br>第12章 XML处理基础<br>      12.1 XML文件的处理<br>      12.2 为什么要解析XML<br>      12.3 为什么要验证XML文件<br>        12.3.1 文件类<br>        12.3.2 用DTD来验证内容<br>        12.3.3 在XML  EDI中使用DTD<br>        12.3.4 用DOM来使用DTD<br>      12.4 深入XML解析器<br>        12.4.1 解析树<br>        12.4.2 结构良好的解析器<br>        12.4.3 验证解析器<br>      12.5 解析XML的两种方案的比较<br>        12.5.1 将文件作为树来解析<br>        12.5.2 将文件作为平面数据结构来解析<br>      12.6 作为对象的解析器<br>      12.7 总结<br>第13章 用Java解析XML<br>      13.1 Java的XML解析器库剖析<br>        13.1.1 核心功能<br>        13.1.2 核心API<br>        13.1.3 这个核心没有揭示DTD<br>      13.2 市面上的工具<br>        13.2.1 Sun的Java  Project  X  package<br>        13.2.2 IBM的XML4J v2包<br>        13.2.3 Oracle的v2 XML包<br>        13.2.4 DataChannel的XJParser包<br>        13.2.5 Microstar的Aelfred解析器<br>        13.2.6 James  Clark的XP解析器<br>        13.2.7 其他XML解析器<br>      13.3 用Java解析XML文件<br>        13.3.1 使用SAX解析器<br>        13.3.2 取得一个DOM文件<br>        13.3.3 在解析之后：DOM扩展<br>      13.4 总结<br>第14章 用C＋＋解析XML<br>      14.1 为什么用C编写解析器<br>      14.2 Expat解析器<br>        14.2.1 取得和使用Expat<br>        14.2.2 用Expat解析<br>      14.3 IBM的C＋＋  XML解析器<br>        14.3.1 取得和使用IBM解析器<br>        14.3.2 用IBM解析器验证文件的有效性<br>      14.4 Microsoft的C解析器<br>        14.4.1 Xmlint.exe解析器<br>      14.5 MSXML解析器<br>        14.5.1 获得并使用解析器<br>        14.5.2 实现解析器<br>        14.5.3 MS解析器错误处理<br>        14.5.4 MS解析器的选项和模式<br>        14.5.5 用IE5打开XML文件<br>      14.6 用MSXML构建解析器接口<br>        14.6.1 在解析器中详述脚本<br>        14.6.2 使用MSXML解析器解析和验证XML文件<br>      14.7 MSXML解析器的错误<br>        14.7.1 巨大DTD的不正确操作<br>        14.7.2 DOM中的不正确语法<br>      14.8 在文件和DTD设计中使用C解析器<br>        14.8.1 设计文件类型<br>        14.8.2 调试模板文件<br>        14.8.3 检查DTD语法<br>        14.8.4 使用C++解析器调试DTD<br>        14.8.5 解释错误信息<br>      14.9 总结<br>第15章 使用文件对象模型<br>      15.1 W3C和XMLDOM<br>        15.1.1 DOM的API接口<br>    15.2 文件对象模型<br>      15.3 文件树和解析树<br>      15.4 W3C DOM基础<br>        15.4.1 DOM对象<br>      15.5 DOM接口<br>      15.6 节点和对象<br>      15.7 访问DOM中的节点<br>        15.7.1 遍历树<br>        15.7.2 用名字来访问节点<br>      15.8 DOM方法返回的数据类型<br>    15.9 Document接口<br>        15.9.1 Document接口的只读属性<br>        15.9.2 Implementation属性<br>        15.9.3 Document接口的方法<br>        15.9.4 使用Node和nodeList接口<br>      15.9.5 使用getElementsByTagName（）方法<br>      15.10 DocumentFragment接口<br>    15.11 node接口<br>      15.11.1 node接口的属性<br>        15.11.2 节点属性特征的调查<br>      15.11.3 node接口的方法<br>        15.11.4 使用节点方法：示例A<br>      15.11.5 使用节点方法：示例B<br>    15.12 NodeList接口<br>      15.12.1 item（）方法<br>    15.13 NamedNodeMap接口<br>      15.13.1 getNamedItem（），setNamedItem（）和removeNamedItem（）方法<br>      15.13.2 length属性<br>    15.14 CharacterData接口<br>      15.14.1 data属性<br>      15.14.2 length属性<br>      15.14.3 subStringData方法<br>      15.14.4 appendData（）方法<br>      15.14.5 insertData（）方法<br>      15.14.6 deleteData（）方法<br>      15.14.7 replaceData（）方法<br>    15.15 Attr接口<br>      15.15.1 name属性<br>      15.15.2 value属性<br>      15.15.3 specified属性<br>    15.16 Element接口<br>      15.16.1 处理属性的方法<br>        15.16.2 其他element接口的属性和方法<br>      15.17 不常用的DOM接口<br>        15.17.1 text接口<br>        15.17.2 CDATASection接口<br>        15.17.3 DocumentType接口<br>        15.17.4 Notation接口<br>        15.17.5 Entity和EntityReference接口<br>        15.17.6 ProcessingInstruction接口<br>      15.18 实现DOM<br>        15.18.1 Microsoft的DOM引擎<br>        15.18.2 IBM的DOM引擎<br>      15.19 为应用程序加入DOM支持<br>        15.19.1 Java<br>        15.19.2 C++<br>        15.19.3 Visual Basic<br>        15.19.4 ASP<br>        15.20 脚本和DOM<br>          15.20.1 使用C++DSO<br>        15.20.2 使用Microsoft  XMLDOM  ActiveX数据对象（ADO）<br>      15.21 Gecko中的DOM支持<br>      15.22 永久保存文件<br>      15.23 总结<br>第16章 在Java中使用SAX  API<br>      16.1 SAX 1.O的结构<br>      16.2 SAX 1.0包基础<br>        16.2.1 解析XML文本<br>        16.2.2 HandlerBase：统一的SAX处理函数<br>        16.2.3 SAX  DocumentHandler接口<br>      16.3 SAX应用程序的例子<br>        16.3.1 简单的模板处理<br>        16.3.2 构建DOM树<br>      16.4 SAX的其他核心功能<br>        16.4.1 使用Parser.parse（）的其他方法<br>        16.4.2 ErrorHandler对象<br>        16.4.3 InputSource对象<br>        16.4.4 其他DocumentHandler回调<br>        16.4.5 不是所有的解析器都一样<br>      16.5 SAX的高级特征<br>        16.5.1 对外部解析实体使用EntityResolver<br>        16.5.2 诊断Locale<br>        16.5.3 对未解析实体和注释使用DTD  Handler<br>        16.6 SAX 2.0<br>        16.6.1 解析器特征标志<br>        16.6.2 解析器属性值<br>      16.7 总结<br>第4部分 XML与Web<br>第17章 浏览XML<br>      17.1 XML和Web浏览器现状<br>      17.2 Microsoft  Internet  Explorer<br>        17.2.1 XML原始代码<br>        17.2.2 XML错误处理<br>        17.2.3 CSS和XSL<br>        17.2.4 XML名字空间<br>        17.2.5 XMLSchema<br>        17.2.6 CDF和VML<br>      17.3 Netscape  Navigator（Mozilla）<br>        17.3.1 CSS和XSL<br>        17.3.2 Expat解析器<br>        17.3.3 XUL和RDF<br>      17.4 其他浏览器<br>        17.4.1 CITEC DocZilla<br>        17.4.2 W3C Amaya<br>        17.4.3 Opera<br>      17.5 总结<br>第18章 XHTML：XML与HTML结合的产物<br>      18.1 为什么要用XHTML<br>      18.2 XHTML和HTML4.0的差别<br>      18.3 XHTML和文件的有效性<br>        18.3.1 声明XHTML DTD<br>        18.3.2 声明XHTML名字空间<br>        18.3.3 验证XHTML文件<br>      18.4 创建XHTML文件<br>      18.5 将HTML文件转化为XHTML<br>        18.5.1 手工转换文件<br>        18.5.2 使用HTML整理工具<br>      18.6 总结<br>第19章 使用XLink和XPointer链接文件<br>      19.1 链接HTML的方法<br>      19.2 超越传统HTML链接<br>      19.3 W3C链接规范<br>        19.3.1 XPath<br>        19.3.2 XPointer<br>          19.3.3 XLink<br>        19.4 深入XLink<br>          19.4.1 链接的类别<br>          19.4.2 XLink属性<br>          19.4.3 创建XLink<br>        19.5 深入XPointer<br>          19.5.1 位置路径<br>          19.5.2 创建XPointer<br>        19.6 总结<br>第20章 编写XML脚本<br>      20.1 为什么编写XML脚本<br>      20.2 XML脚本选择<br>        20.2.1 JavaScript<br>        20.2.2 VBScript<br>        20.2.3 Perl<br>        20.2.4 Python<br>        20.2.5 AppleScript<br>        20.2.6 Tcl<br>      20.3 JavaScript入门<br>        20.3.1 语句<br>        20.3.2 变量<br>        20.3.3 表达式<br>        20.3.4 注释<br>        20.3.5 函数<br>        20.3.6 对象<br>      20.4 再谈XML DOM<br>        20.4.1 XMLDOMDocument对象<br>        20.4.2 XMLDOMNode对象<br>        20.4.3 XMLDOMNodeList对象<br>        20.4.4 XMLDOMNamedNodeMap对象<br>        20.4.5 XMLDOMElement对象<br>        20.4.6 XMLDOMAttribute对象<br>        20.4.7 XMLDOMText对象<br>        20.4.8 XMLDOMParseError对象<br>      20.5 开发XML脚本<br>      20.6 总结<br>第5部分 使用XML操作数据<br>第21章 XML数据源对象<br>      21.1 数据库和远程数据访问<br>        21.1.1 数据是如何组织的<br>        21.1.2 什么是记录集<br>        21.1.3 浏览记录集<br>        21.1.4 什么是DSO<br>        21.1.5 DSO和XML<br>      21.2 远程数据服务和DSO<br>        21.2.1 表格式数据控制（TDC）<br>        21.2.2 远程数据服务（以前的ADC）<br>        21.2.3 JDBC  DataSource  Applet<br>        21.2.4 XML数据源<br>      21.3 理解表格式数据控制（TDC）<br>        21.3.1 创建TDC DSO<br>        21.3.2 导入文本文件<br>        21.3.3 TDC  DSO的数据绑定<br>        21.3.4 使用脚本和SQL语法<br>        21.3.5 DSO事件<br>        21.3.6 数据与HTML表格（table）绑定<br>      21.4 XMLDSO<br>      21.5 XMLJava DSO<br>      21.6 XML C++ DSO<br>        21.6.1 实例化C++ XML DSO<br>        21.6.2 加载扩展文件<br>        21.6.3 验证XML<br>        21.6.4 加载一个内嵌文件<br>      21.7 使用XML岛<br>        21.7.1 在XML岛中验证XML<br>        21.7.2 加载嵌入XML<br>        21.7.3 加载外部文件<br>      21.8 编写XML DS0<br>        21.8.1 使用SQL<br>        21.8.2 使用DOM<br>      21.9 XML数据绑定<br>      21.10 复杂XML的数据绑定<br>        21.10.1 绑定属性<br>        21.10.2 绑定嵌套的元素<br>      21.11 总结<br>第22章 使用XSL模式和XQL<br>      22.1 查询语言的需求<br>        22.1.1 为什么要有XML查询语言<br>        22.1.2 作为数据存储的XML<br>      22.2 XML查询语言（XQL）<br>        22.2.1 什么是XQL查询<br>        22.2.2 XQL查询样例<br>      22.3 XQL语法<br>        22.3.1 层叠查询字符串<br>        22.3.2 连续关系查询<br>        22.3.3 查询以找到属性<br>        22.3.4 处理空白空间<br>        22.3.5 使用过滤器<br>        22。3.6 布尔语句<br>        22.3.7 等式<br>        22.3.8 比较<br>        22.3.9 XQL方法<br>        22.3.10 在查询中使用圆括号<br>        22.3.11 名字空间查询方法<br>        22.3.12 聚合方法<br>      22.4 XQL：执行工具和其他资源<br>      22.5 XSLT模式<br>        22.5.1 XSLT查询的例子<br>      22.6 使用DOM<br>        22.6.1 何时使用DOM查询<br>      22.7 自编函数<br>        22.7.1 什么时候使用自编函数查询<br>      22.8 总结<br>第23章 使用XML和ASP访问数据库<br>    23.1 在数据库管理系统中使用XML<br>        23.1.1 XML用于归档<br>        23.1.2 XML作为包<br>        23.1.3 XML用于显示<br>        23.1.4 XML作为数据存储<br>      23.2 个人万维网服务器（PWS）和动态服务器网页（ASP）<br>        23.2.1 使用PWS<br>        23.2.2 理解ASP<br>      23.3 本机的ASP对象<br>        23.3.1 server对象<br>        23.3.2 request对象<br>        23.3.3 response对象<br>      23.4 脚本对象<br>        23.4.1 FileSystemObject对象<br>        23.4.2 TextStream对象<br>      23.5 ActiveX和DOM对象<br>        23.5.1 ADODB对象<br>        23.5.2 XMLDOM对象<br>      23.6 理解数据库<br>      23.7 使用ASP连接数据库<br>        23.7.1 ODBC和0LE-DB<br>        23.7.2 访问数据库<br>      23.8 将数据读入XML流<br>        23.8.1 扩展connect2.asp<br>        23.8.2 使用XML备份记录<br>        23.8.3 使用XML进行信息封装<br>      23.9 使用XML作为数据存储<br>        23.9.1 使用ASP访问XML文件<br>        23.9.2 以简单结构文本文件获得XML文件<br>        23.9.3 以DOM对象方式获取XML<br>      23.10 从XML数据存储中访问数据<br>      23.11 XML与RDBMS对比<br>        23.11.1 什么时候使用XML作为数据库的附属<br>        23.11.2 什么时候将XML作为数据存储<br>        23.11.3 什么时候不使用XML作为数据存储<br>      23.12 总结<br>第24章 使用WIDL链接商用数据<br>      24.1 商业上使用WIDL<br>        24.1.1 自动数据收集<br>        24.1.2 使用WIDL作为解决方案<br>      24.2 WIDL 2.0简介<br>        24.2.1 对象模型<br>        24.2.2 WIDL元素<br>        24.2.3 SERVICE元素<br>        24.2.4 SERVICE链<br>        24.2.5 BINDING元素<br>        24.2.6 VARIABLE元素<br>        24.2.7 CONDITION元素<br>        24.2.8 REGION元素<br>      24.3 WIDL 3.0<br>      24.4 总结<br>第25章 EDI和XML<br>      25.1 EDI初步<br>          25.1.1 历史与现状<br>          25.1.2 EDI的商业特征<br>          25.1.3 技术描述<br>      25.2 EDI有什么问题<br>          25.2.1 商业问题<br>          25.2.2 技术问题<br>        25.3 与EDI接近的XML<br>          25.3.1 基础技术<br>          25.3.2 网上电子商务<br>    25.3.3 XML中的EDI消息——XML／EDIT<br>25.4 总结<br>第6部分 XMLI具<br>窜26章 XML制作和内容管理工具<br>      26.1 XML工具类型<br>      26.2 XML制作工具<br>        26.2.1 SoftQuad XMetal<br>        26.2.2 Adobe Frame Maker+SGML<br>        26.2.3 Arbortext ADEPT-Editor<br>        26.2.4 Stilo Web Writer<br>        26.2.5 IBM Xeena<br>        26.2.6 Vervet Logic XML Pro<br>        26.2.7 Bluestone Visual-XML<br>        26.2.8 Microsoft XML  Notepad<br>        26.2.9 Emile<br>      26.3 XML内容管理工具<br>        26.3.1 Poet内容管理套件<br>        26.3.2 Arbortext  Epic<br>        26.3.3 Chrystal  Astoria<br>        26.3.4 Oracle 8i<br>      26.4 其他XML工具<br>        26.4.1 XML Authority<br>        26.4.2 Near  and  Far  Designer<br>        26.4.3 Stylus<br>      26.5 总结<br>第27章 使用XML生成器移值数据<br>      27.1 XML生成器基础<br>      27.2 使用XML生成器应用程序<br>        27.2.1 分隔的文本数据文件<br>        27.2.2 XML模板<br>      27.3 生成XML文件<br>      27.4 总结<br>第28章 XFA脚本系统<br>      28.1 XFA脚本基础<br>        28.1.1 解释XFA脚本<br>      28.2 XFA和XML的关系<br>      28.3 XFA数据类型<br>      28.4 XFA词表<br>          28.4.1 xfa：val元素<br>          28.4.2 xfa：block元素<br>        28.4.3 xfa：function元素<br>        28.4.4 xfa：use元素<br>        28.4.5 xfa：if、xfa：orif和xfa：else元素<br>        28.4.6 xfa：for元素<br>        28.4.7 xfa：while元素<br>        28.4.8 xfa：string元素<br>        28.4.9 xfa：break元素<br>        28.4.10 xfa：let元素<br>        28.4.11 xfa：data元素<br>        28.4.12 xfa：tag元素<br>        28.4.13 xfa：ref元素<br>        28.4.14 xfa：form元素<br>        28.4.15 xfa：note元素<br>      28.5 编写XFA脚本<br>        28.5.1 从文本文件中读取<br>        28.5.2 处理XML代码<br>      28.6 XFA和DTD<br>      28.7 总结<br>第29章 使用DDbE生成DTD<br>      29.1 理解DDbE<br>      29.2 深入DDbE命令行工具<br>      29.3 生成DTD<br>      29.4 使用DDbE库<br>      29.5 总结<br>第30章 了解IBM的XML工具集<br>      30.1 工具箱一瞥<br>      30.2 使用Xplorer和XML浏览器<br>      30.3 使用XML转换生成器<br>        30.3.1 转换XML文件<br>        30.3.2 从网页中提取数据<br>      30.4 使用XML区分和归并工具<br>      30.5 总结<br>第7部分 XML词表探讨<br>第31章 用XMLNEWS制作新闻<br>      31.1 理解XMLNews<br>      31.2 深入XMLNews-Story词表<br>        31.2.1 ntif元素<br>        31.2.2 body.head元素<br>        31.2.3 body.content元素<br>      31.3 使用XMLNews创建新闻故事<br>      31.4 总结<br>第32章 使用SMIL集成多媒体对象<br>      32.1 SMIL基础<br>      32.2 深入SMIL词表<br>        32.2.1 smil元素<br>        32.2.2 head元素<br>        32.2.3 body元素<br>      32.3 创建SMIL内容<br>      32.4 SMIL播放器和制作工具<br>        32.4.1 SMIL播放器<br>        32.4.2 SMIL制作工具<br>      32.5 SMIL和HTML+TIME<br>      32.6 总结<br>第33章 使用CDF推出Web内容<br>      33.1 Active频道基础<br>      33.2 使用Active频道<br>      33.3 深入CDF词表<br>        33.3.1 Channel元素<br>        33.3.2 Title元素<br>        33.3.3 Abstract元素<br>        33.3.4 Author元素<br>        33.3.5 Publisher元素<br>        33.3.6 Copyright元素<br>        33.3.7 PublicationDate元素<br>        33.3.8 LastMod元素<br>        33.3.9 Schedule元素<br>        33.3.10 Logo元素<br>      33.4 使用CDF创建频道<br>      33.5 CDF生成器工具<br>      33.6 总结<br>第34章 使用VML和SVG描述矢量图形<br>      34.1 结构化矢量图形的重要性<br>      34.2 XML矢量图形支持<br>        34.2.1 矢量标记语言（VML）<br>        34.2.2 精确矢量图形（SVG）<br>      34.3 深入VML词表<br>        34.3.1 shape元素<br>        34.3.2 path元素<br>        34.3.3 line元素<br>        34.3.4 polyline元素<br>        34.3.5 curve元素<br>        34.3.6 rect元素<br>        34.3.7 roundrect元素<br>        34.3.8 oval元素<br>        34.3.9 arc元素<br>        34.3.10 group元素<br>      34.4 深入SVG词表<br>      34.5 总结<br>第35章 虚拟现实和3DML<br>      35.1 DML基础<br>      35.2 深入3DML词表<br>        35.2.1 SPOT元素<br>        35.2.2 HEAD元素<br>        35.2.3 BODY元素<br>      35.3 创建3DML世界<br>      35.4 在网页中嵌入3DML世界<br>      35.5 Spotnik  3DML场景制作工具<br>      35.6 总结<br>第36章 用MathML表达数学<br>      36.1 MathML基础<br>      36.2 深入MathML词表<br>        36.2.1 表述标记<br>        36.2.2 内容标记<br>      36.3 创建MathML内容<br>      36.4 MathML工具<br>        36.4.1 Amaya编辑器和浏览器<br>        36.4.2 WebEQ数学浏览器Java  Applet<br>        36.4.3 IBM的techexplorer  Hypermedia浏览器<br>        36.4.4 MathType等式编辑器<br>        36.4.5 EzMath编辑器和插件<br>        36.4.6 Mathematica科学计算工具<br>      36.5 总结<br>第37章 使用P3P管理个人隐私信息<br>      37.1 P3P基础<br>      37.2 RDF速成<br>      37.3 深入P3P协调词表<br>        37.3.1 PROP元素<br>        37.3.2 ASSURANCE元素<br>        37.3.3 REALM元素<br>        37.3.4 VOC：DISCLOSURE元素<br>        37.3.5 STATEMENT元素<br>        37.3.6 DATA：REF元素<br>      37.4 使用P3P创建个人策略<br>        37.5 Privacy  Wizard<br>      37.6 总结<br>第38章 使用RELML列出实际不动产<br>      38.1 RELML基础<br>      38.2 深入RELML词表<br>      38.3 创建RELML内容<br>      38.4 RELML和0penMLS<br>      38.5 总结<br>第39章 使用HRMML管理人才资源<br>      39.1 HRMML基础<br>      39.2 深入HRMML词表<br>        39.2.1  hr-com.mod模块<br>        39.2.2  hr-org.mod模块<br>        39.2.3  hr-pstd.mod模块<br>        39.2.4  hr-jobd.mod模块<br>        39.2.5  hr-phon.mod模块<br>        39.2.6  hr-addr.mod模块<br>        39.2.7  hr-resm.mod模块<br>      39.3 评价HRMML履历结构<br>        39.3.1 resumeprolog元素<br>        39.3.2 resumebody元素<br>      39.4 创建HRMML履历<br>      39.5 浏览HRMML履历<br>      39.6 总结<br>第40章 交互谈话和VoxML<br>      40.1 VoxML基础<br>      40.2 深入VoxML词表<br>        40.2.1 DIALOG元素<br>        40.2.2 STEP元素<br>      40.3 VoxML工具<br>        40.3.1 VoxML模拟器<br>        40.3.2 VoxML浏览器<br>        40.3.3 VoxML开发节点<br>      40.4 使用VoxML创建语音应用<br>      40.5 总结<br>第8部分 附录<br>附录A XML缩略词<br>附录B XML资源<br>        R.1 一般XML资源<br>        B.2 XML规范<br>        B.3 XML浏览器<br>        B.4 XML工具<br>         B.4.1 验证服务<br>         B.4.2 解析器<br>         B.4.3 制作工具<br>         B.4.4 内容管理工具<br>         B.4.5 其他工具<br>        B.5 XML词表<br>        B.6 其他资源<br><br><br> </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书由在Web技术领域中名声显赫的Michael  Morrison编写。该书全面介绍了XML的相关技术，并对XML深层次的技术给出宝贵而实用的建议，远见卓识地描述了XML用于Web信息结构化的光明前景，使你可以从中获取丰富的技巧和经验，理解和拓宽知识的深度，掌握XML的全部潜能。作者在本书的后半部分详细地讲述了XML在多个领域中的应用。为了帮助读者更好地理解书中的内容，作者提供了大量简明实用且又具代表性的示例。<br>        本书内容丰富、由浅入深，既适合初学者学习掌握XML语言，也适合有一定基础的读者精通XML。 		<br>				<br> </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">（美）Michael Morrison.al 著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

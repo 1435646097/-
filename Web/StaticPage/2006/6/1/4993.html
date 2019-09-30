@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Visual C++音视频编解码技术及实践（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Visual C++音视频编解码技术及实践（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115148131.jpg" style="border:1px   solid   #B0B0B0" title="Visual C++音视频编解码技术及实践（附光盘）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：求是科技  编著
+                                        <br />
+                                        书名：Visual C++音视频编解码技术及实践（附光盘）<br />
+                                        字数：1008000<br />
+                                        出版时间：2006年6月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115148131<br />
+                                        <font color="#CC3300">本网价：<strong>￥88.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章　数字视频技术基础　1<br>1.1　图像压缩的必要性　1<br>1.2　数字图像压缩的基本思想　2<br>1.2.1　无损压缩　2<br>1.2.2　有损压缩　4<br>1.3　MPEG技术基础　6<br>1.4　H.26x技术基础　9<br><br>第2章　JPEG编解码技术及实现　12<br>2.1　JPEG压缩标准　12<br>2.2　JPEG模型与算法流程　13<br>2.3　离散余弦变换　15<br>2.4　量化和之字序列　20<br>2.4.1　量化原理　20<br>2.4.2　标量量化　20<br>2.4.3　矢量量化　21<br>2.4.4　JPEG中的量化　21<br>2.5　熵编码　23<br>2.5.1　熵　23<br>2.5.2　熵编码原理　24<br>2.5.3　JPEG中的熵编码　24<br>2.6　Huffman编码　28<br>2.6.1　理论基础　28<br>2.6.2　程序实现　29<br>2.7　JPEG文件的格式　41<br>2.7.1　色度空间　41<br>2.7.2　JPEG文件格式　42<br>2.8　JPEG压缩编解码的实现　47<br>2.8.1　实现JPEG压缩编解码的CJpeg类　47<br>2.8.2　JPEG压缩编解码程序的实现　54<br>2.9　封装方便JPEG与Bmp相互转换的API函数　62<br>2.9.1　API函数的具体封装办法　63<br>2.9.2　API函数的Visual Basic调用演示　65<br>2.10　小结　68<br><br>第3章　MPEG编解码技术与实现　70<br>3.1　MPEG-1标准　70<br>3.2　MPEG视频模型　73<br>3.2.1　MPEG视频压缩　73<br>3.2.2　宏块(Macro Block)　74<br>3.2.3　运动补偿预测　75<br>3.2.4　MPEG帧图像的类型　76<br>3.3　为I图像帧编码　79<br>3.3.1　算法原理　79<br>3.3.2　实现代码　79<br>3.4　为P图像帧编码　90<br>3.4.1　算法原理　90<br>3.4.2　实现代码　93<br>3.5　为B图像帧编码　101<br>3.5.1　算法原理　101<br>3.5.2　实现代码　102<br>3.6　MPEG音频压缩　112<br>3.6.1　听觉系统的感知特性　113<br>3.6.2　声音编码　116<br>3.6.3　编码层　118<br>3.6.4　MPEG音频层1/2/3的帧头　140<br>3.6.5　MPEG音频编码的性能　143<br><br>第4章　MPEG-2压缩编码标准　144<br>4.1　MPEG-2标准特性　144<br>4.1.1　MPEG-2视频特性　146<br>4.1.2　MPEG-2音频特性　148<br>4.2　改进后的MPEG-2算法　149<br>4.2.1　视频算法　149<br>4.2.2　音频算法　172<br><br>第5章　MPEG-4压缩编码技术与实现　194<br>5.1　MPEG-4标准特性　194<br>5.1.1　AV对象(AVO)　194<br>5.1.2　MPEG-4标准的构成　196<br>5.1.3　MPEG-4的应用前景　199<br>5.2　MPEG-4视频编码算法概述　200<br>5.2.1　MPEG-4的结构和句法　200<br>5.2.2　MPEG-4系统数据类型描述　203<br>5.2.3　形状编码　207<br>5.2.4　运动信息编码　207<br>5.2.5　纹理编码　217<br>5.2.6　sprite编码　238<br>5.2.7　可缩放性(Scalability)　240<br>5.2.8　容错和码率控制　242<br>5.2.9　小结　247<br>5.3　基于视频对象平面的编码　248<br>5.3.1　视频对象平面的编码结构　248<br>5.3.2　视频对象平面编码的代码分析　249<br>5.4　MPEG-4视频解码算法概述　259<br>5.4.1　媒体对象的组成和流式数据的传输　259<br>5.4.2　MPEG-4系统流　262<br>5.4.3　MPEG-4视频流解码　267<br>5.4.4　MPEG-4解码器代码分析　277<br>5.4.5　小结　282<br>5.5　MPEG-4音频流　284<br>5.5.1　自然声音　284<br>5.5.2　参数编码器　285<br>5.5.3　码激励线性预测编解码器　287<br>5.5.4　TwinVQ与AAC简介　288<br>5.5.5　结构化音频　288<br>5.5.6　MPEG-4音频编码编程介绍　289<br>5.5.7　小结　303<br><br>第6章　MPEG-4实用源代码分析　304<br>6.1　如何完成工程的编译和安装　304<br>6.2　MPEG-4文件处理　306<br>6.2.1　MPEG-4视频　306<br>6.2.2　MPEG-4音频　307<br>6.2.3　多路技术　307<br>6.2.4　MPEG-4的编码　308<br>6.2.5　MPEG-4的播放　314<br>6.3　MPEG-4编码器源代码分析　315<br>6.3.1　源代码的组织结构　315<br>6.3.2　代码功能分析与讲解　316<br>6.4　小结　333<br><br>第7章　H.263视频压缩编码技术与实现　334<br>7.1　H.263视频压缩编码标准　334<br>7.1.1　H.263简介　334<br>7.1.2　H.263标准的构成　338<br>7.1.3　H.263的应用前景　340<br>7.2　视频模型的描述　341<br>7.2.1　视频图像层　341<br>7.2.2　GOB层　347<br>7.2.3　编码宏块层　348<br>7.2.4　编码块层　350<br>7.3　H.263视频压缩编码算法及实现　351<br>7.3.1　H.263基本数据结构描述　351<br>7.3.2　运动估计技术　355<br>7.3.3　高级变长编码技术　380<br>7.3.4　容错与码率控制技术　382<br>7.3.5　视频可缩放性　384<br>7.3.6　视频编码器设计　387<br>7.3.7　小结　401<br>7.4　H.263视频解码技术　402<br>7.4.1　运动补偿技术　402<br>7.4.2　系数解码　407<br>7.4.3　编码块重构　412<br>7.5　系统编译与使用　412<br>7.5.1　编码器系统编译与使用　412<br>7.5.2　解码器系统编译与使用　413<br><br>第8章　H.264视频压缩编码技术与实现　415<br>8.1　H.264视频编码标准　415<br>8.1.1　H.264简介　415<br>8.1.2　H.264标准的构成　418<br>8.1.3　H.264的应用前景　422<br>8.2　H.264视频编码算法概述　423<br>8.2.1　基本概念　424<br>8.2.2　H.264编码器数据类型描述　431<br>8.2.3　帧内预测技术　438<br>8.2.4　帧间预测技术　449<br>8.2.5　熵编码技术　462<br>8.2.6　去块效应的循环滤波器技术　462<br>8.2.7　假想参考解码器模型　467<br>8.3　总结　468<br><br>第9章　音、视频网络传送技术　469<br>9.1　路由选择　469<br>9.1.1　基本概念　470<br>9.1.2　单播路由　471<br>9.1.3　组播技术　473<br>9.2　传输协议　485<br>9.2.1　基本概念　485<br>9.2.2　传输低层协议　486<br>9.2.3　传输高层协议　500<br>9.3　拥塞控制　502<br>9.3.1　基本概念　502<br>9.3.2　拥塞控制策略　503<br>9.3.3　控制算法性能评价　509<br>9.4　数据同步　510<br>9.4.1　基本概念　510<br>9.4.2　同步描述　511<br>9.4.3　同步机制　513<br>9.5　差错控制　515<br>9.5.1　基本概念　515<br>9.5.2　编码方式　516<br>9.5.3　基本协议　518<br>9.5.4　编程实现　519<br>9.6　安全传输　521<br>9.6.1　基本概念　521<br>9.6.2　安全体系　521<br>9.6.3　安全措施　522<br>9.6.4　编程实现加-解密　525<br>9.7　QoS服务质量　537<br>9.7.1　基本概念　537<br>9.7.2　QoS规范　538<br>9.7.3　QoS机制　539<br>9.7.4　QoS体系　540<br>9.7.5　编程实现QoS　542<br>9.8　小结　572<br><br>第10章　音频、视频通信工程实例　573<br>10.1　音频通信实例　573<br>10.1.1　设计概要　573<br>10.1.2　关键技术　574<br>10.1.3　关键代码　575<br>10.1.4　系统改进　614<br>10.2　视频通信实例　614<br>10.2.1　设计概要　614<br>10.2.2　关键技术　614<br>10.2.3　关键代码　621<br>10.2.4　系统改进　642<br><br>参考文献　644 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书以Visual C++作为开发工具，从实用角度，向读者介绍了数字音、视频编解码技术的基础理论、实现方法和实用技巧，并给出具体的工程案例。<br>　　全书主要内容包括数字视频技术基础，JPEG编解码技术与实现，MPEG-1编解码技术与实现，MPEG-2压缩编码标准，MPEG-4压缩编码技术与实现，MPEG-4实用源代码分析，H.263视频压缩编码技术与实现，H.264视频压缩编码技术与实现，音、视频网络传送技术等，最后给出了一个音、视频通信工程的实例。<br>　　本书内容丰富、叙述详细、实用性强，可供从事数字编码及多媒体开发工作的技术人员阅读。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">求是科技  编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

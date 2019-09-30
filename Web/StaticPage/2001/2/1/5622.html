@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">21天精通ASP电子商务编程（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="21天精通ASP电子商务编程（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115090751.jpg" style="border:1px   solid   #B0B0B0" title="21天精通ASP电子商务编程（附光盘）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：[美]STEPHEN WALTHER
+                                        <br />
+                                        书名：21天精通ASP电子商务编程（附光盘）<br />
+                                        字数：826<br />
+                                        出版时间：2001年2月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115090751<br />
+                                        <font color="#CC3300">本网价：<strong>￥63.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第一部分 第1周课程：概览<br>第1章 第1天课程：电子商务简介<br>1.1 什么是电子商务<br>1.2 微软的电子商务技术<br>1.2.1 Microsoft Personal Web Server<br>1.2.2 Microsoft Internet Information Server<br>1.2.3 Microsoft Access<br>1.2.4 Microsoft SQL Server<br>1.2.5 Microsoft Visual InterDev<br>1.3 什么是ASP网页<br>1.3.1 ASP包含的脚本<br>1.3.2 ASP包含的对象和组件<br>1.3.3 ASP和数据库访问<br>1.4 小结<br>1.5 问与答<br>1.6 练习题<br>第2章 第2天课程：与客户的交互<br>2.1 使用Response对象<br>2.1.1 输出长字符串<br>2.1.2 显示特殊字符<br>2.1.3 显示引号<br>2.1.4 使用输出分界符 %=和% <br>2.1.5 使用Response对象终止脚本执行<br>2.2 使用Request对象<br>2.2.1 使用查询字符串<br>2.2.2 使用表单集合<br>2.3 存储查询字符串和表单变量<br>2.3.1 服务器变量的使用<br>2.3.2 存储客户的Internet地址<br>2.4 小结<br>2.5 问与答<br>2.6 练习题<br>2.6.1 测验<br>2.6.2 练习<br>第3章 第3天课程：在电子商务应用程序中使用Application和Session对象 <br>3.1 使用cookie跟踪客户<br>3.1.1 给客户的浏览器添加cookie<br>3.1.2 读取客户浏览器的cookie<br>3.2 使用Session变量跟踪客户<br>3.2.1 在Session变量中保存数组<br>3.2.2 利用SessionID跟踪会话<br>3.2.3 终止用户会话<br>3.3 使用Application对象<br>3.3.1 在Application变量中保存数组<br>3.3.2 从内存中清除Application变量<br>3.4 使用Global.asa文件<br>3.5 小结<br>3.6 问与答<br>3.7 练习题<br>3.7.1 测验<br>3.7.2 练习<br>第4章 第4天课程：在电子商务应用程序中操作文件<br>4.1 在ASP网页中包含文件<br>4.2 使用文件重定向<br>4.3 使用File Access组件<br>4.3.1 管理文本文件<br>4.3.2 显示文件夹的内容<br>4.3.3 简单的应用程序：记录市场数据<br>4.4 小结<br>4.5 问与答<br>4.6 练习题<br>4.6.1 测验<br>4.6.2 练习<br>第5章 第5天课程：组建商品列表<br>5.1 创建商场数据库<br>5.2 创建商品表<br>5.3 连接到数据库<br>5.4 将商品添加到商品表中<br>5.4.1 创建addProduct表单<br>5.4.2 有关数据库和引号的问题<br>5.5 更新商品表中的商品信息<br>5.5.1 为更新显示一列商品<br>5.5.2 创建updateProduct表单<br>5.5.3 有关HTML表单和引号的问题<br>5.5.4 更新数据库记录<br>5.6 小结<br>5.7 问与答<br>5.8 练习题<br>5.8.1 测验<br>5.8.2 练习<br>第6章 第6天课程：显示商品<br>6.1 使用记录集<br>6.1.1 使用SQL SELECT语句<br>6.1.2 记录集游标类型<br>6.2 显示商品<br>6.2.1 选择商品类别<br>6.2.2 显示商品列表<br>6.2.3 创建主商场网页<br>6.2.4 显示商品详情<br>6.2.5 记录集翻页<br>6.3 使商场更具可伸缩性<br>6.4 小结<br>6.5 问与答<br>6.6 练习题<br>6.6.1 测验<br>6.6.2 练习<br>第7章 第7天课程：搜 索 商 品<br>7.1 显示特色商品的旋转列表<br>7.1.1 选择特色商品列表<br>7.1.2 检索特色商品列表<br>7.1.3 优化特色商品的显示<br>7.2 创建搜索网页<br>7.3 创建可索引的Web网页<br>7.4 小结<br>7.5 问与答<br>7.6 练习题<br>7.6.1 测验<br>7.6.2 练习<br>第1周课程复习<br>附加工程：创建客户反馈表单<br>第二部分 第2周课程：概览<br>第8章 第8天课程：组建 事务数据库<br>8.1 事务数据库表<br>8.2 创建Users数据库表<br>8.3 注册用户<br>8.3.1 创建cart.asp网页<br>8.3.2 创建register.asp网页<br>8.3.3 注册函数<br>8.4 适当处理表单错误<br>8.5 使 用 SSL<br>8.5.1 在Web服务器上启用SSL<br>8.5.2 请求服务器证书<br>8.5.3 安装服务器证书<br>8.5.4 在ASP网页中使用SSL<br>8.6 小结<br>8.7 问与答<br>8.8 练习题<br>8.8.1 测验<br>8.8.2 练习<br>第9章 第9天课程：组建 购物小车<br>9.1 使用Session变量创建购物小车<br>9.2 使用ADO对象的本地方法<br>9.2.1 创建可更新记录集<br>9.2.2 使用AddNew添加新记录<br>9.2.3 更新现有记录<br>9.2.4 使用Delete删除记录<br>9.3 使用数据库表创建购物小车<br>9.4 小结<br>9.5 问与答<br>9.6 练习题<br>9.6.1 测验<br>9.6.2 练习<br>第10章 第10天课程：付帐<br>10.1 理解事务<br>10.1.1 ASP网页事务<br>10.1.2 ADO事务<br>10.1.3 数据库事务<br>10.2 完成订单<br>10.2.1 检索地址和付帐信息<br>10.2.2 更新地址和付帐信息<br>10.2.3 传输购物小车<br>10.3 处理订单<br>10.4 小结<br>10.5 问与答<br>10.6 练习题<br>10.6.1 测验<br>10.6.2 练习<br>第11章 第11天课程： 操作信用卡<br>11.1 处理信用卡的方法<br>11.1.1 站点外付帐处理商<br>11.1.2 付帐终端方案<br>11.1.3 基于组件的方案<br>11.1.4 处理信用卡方法的选择<br>11.2 CyberCash的准备<br>11.2.1 打开信用卡商家帐户<br>11.2.2 在CyberCash上注册<br>11.2.3 安装CyberCash软件<br>11.3 授权信用卡交易<br>11.4 处理信用卡交易<br>11.5 小结<br>11.6 问与答<br>11.7 练习题<br>第12章 第12天课程：让客户 跟踪订单<br>12.1 利用Web网页让客户跟踪订单<br>12.2 计算装运费用<br>12.2.1 安装iisCARTship组件<br>12.2.2 iisCARTship组件的方法和属性<br>12.2.3 iisCARTship组件的简单应用程序<br>12.3 小结<br>12.4 问与答<br>12.5 练习题<br>第13章 第13天课程：创建基于预订的站点<br>13.1 使用HTTP身份验证<br>13.1.1 启用HTTP身份验证<br>13.1.2 什么时候应该使用HTTP身份验证<br>13.2 使用数据库身份验证<br>13.3 使用混合身份验证<br>13.3.1 理解基本身份验证的运作<br>13.3.2 强制口令对话框出现<br>13.3.3 AUTHORIZATION首部解码<br>13.4 小结<br>13.5 问与答<br>13.6 练习题<br>第14天 定制购物过程<br>14.1 检索现有用户设置<br>14.2 显示过去的购买情况<br>14.3 宣传客户喜欢的商品项目<br>14.3.1 为客户喜欢的类别更新Users表<br>14.3.2 组建favorites.asp网页<br>14.3.3 组建savefavorites.asp网页<br>14.3.4 更新features.asp网页<br>14.3.5 更新default.asp网页<br>14.4 小结<br>14.5 问与答<br>14.6 练习题<br>14.6.1 测验<br>14.6.2 练习<br>第二周课程复习<br>Bonus工程：创建一个事务性客户反馈表单<br>第三部分 第三周课程概览<br>第15章 第15天课程：保护商场<br>15.1 注册域<br>15.1.1 域名和市场<br>15.1.2 自己注册自己的域名<br>15.2 保护服务<br>15.2.1 使用NT Server或Windows 2000 Server<br>15.2.2 保证系统应用最新的服务包和热修复<br>15.2.3 改变系统管理员帐号的名字和口令<br>15.2.4 使用NTFS<br>15.2.5 使用防火墙<br>15.2.6 保持服务器锁定<br>15.2.7 保持服务器运行<br>15.3 使用SSL保护用户的隐私信息<br>15.4 保护数据库<br>15.5 使用Better Business Bureau Reliability程序注册<br>15.6 建立隐私方案并连接隐私密印程序<br>15.7 概览Better Business Bureaus Childrens Advertising Review Unit规程 <br>15.8 小结<br>15.9 问与答<br>15.10 练习题<br>15.10.1 测验<br>15.10.2 练习<br>第16章 第16天课程：调试电子商务应用程序<br>16.1 将开发系统和成品系统隔离<br>16.1.1 创建第二个IP地址<br>16.1.2 创建第二个Web站点<br>16.1.3 使用Visual InterDev部署应用程序<br>16.2 使用Visual InterDev的集成调试程序调试应用程序<br>16.2.1 准备调试<br>16.2.2 调试站点<br>16.3 在成品服务器上调试应用程序<br>16.3.1 为调试创建和维护Session变量<br>16.3.2 使用会话级调试变量<br>16.3.3 创建调试库<br>16.3.4 发现和捕获错误<br>16.4 将错误捕获进日志文件<br>16.5 测试可伸缩性<br>16.6 小结<br>16.7 问与答<br>16.8 练习题<br>16.8.1 测验<br>16.8.2 练习<br>第17章 第17天课程：利用ASP远程管理商场<br>17.1 IIS管理网页<br>17.1.1 安装管理网页<br>17.1.2 保护管理网页<br>17.1.3 使用管理网页<br>17.2 安装管理IIS FTP服务<br>17.3 使用FTP上传文件到站点<br>17.4 基于Web的高级商品类别维护<br>17.4.1 Posting Acceptor怎样使用户和程序员更轻松<br>17.4.2 从addProducts.asp和updateProducts.asp上传图片<br>17.4.3 将网页处理逻辑从manageProducts.asp移到新的donePost.asp <br>17.4.4 把网页综合进管理Web<br>17.5 小结<br>17.6 问与答<br>17.7 练习题<br>第18章 第18天课程：在ASP中使用电子邮件<br>18.1 Internet邮件基础<br>18.2 配置SMTP服务器<br>18.3 CDONTS<br>18.4 从ASP网页发送电子邮件<br>18.4.1 CDONTS常量<br>18.4.2 针对错误为自己发送电子邮件<br>18.4.3 发送新用户电子邮件<br>18.4.4 发送HTML邮件<br>18.5 批量发送电子邮件<br>18.5.1 选择客户<br>18.5.2 编写消息<br>18.5.3 发送信息<br>18.5.4 处理电子邮件市场<br>18.6 小结<br>18.7 问与答<br>18.8 练习题<br>第19章 第19天课程：生成商场报表<br>19.1 汇报站点的使用<br>19.1.1 站点应用日志<br>19.1.2 分析日志<br>19.1.3 分析日志的其他方法<br>19.2 小结<br>19.3 问与答<br>19.4 练习题<br>第20章 第20天课程：钱夹操作<br>20.1 实际商务和电子商务<br>20.2 电子钱夹<br>20.2.1 客户机端钱夹<br>20.2.2 服务器端钱夹<br>20.2.3 通用站点钱夹<br>20.3 钱夹标准<br>20.4 商场的钱夹<br>20.5 接受来自钱夹的信息<br>20.6 小结<br>20.7 问与答<br>20.8 练习题<br>20.8.1 测验<br>20.8.2 练习<br>第21章 第21天课程：改进站点和管理横幅广告<br>21.1 搜索引擎<br>21.1.1 工作方式<br>21.1.2 进入列表的最好方法<br>21.2 Web环<br>21.3 横幅广告<br>21.4 横幅广告付帐<br>21.5 参与回报程序<br>21.6 增加收入的其他方法<br>21.6.1 附属程序<br>21.6.2 经营广告<br>21.7 小结<br>21.8 问与答<br>21.9 练习题<br>21.9.1 测验<br>21.9.2 练习<br>第3周课程复习<br>附加工程：向客户发送反馈答复电子邮件<br>附录A 测验答案<br>A.1 第一天课程的答案<br>A.2 第二天课程的答案<br>A.3 第三天课程的答案<br>A.3.1 测验<br>A.3.2 练习<br>A.4 第4天课程的答案<br>A.4.1 测验<br>A.4.2 练习<br>A.5 第5天课程的答案<br>A.5.1 测验<br>A.5.2 练习<br>A.6 第6天课程的答案<br>A.6.1 测验<br>A.6.2 练习<br>A.7 第7天课程的答案<br>A.7.1 测验<br>A.7.2 练习<br>A.8 第8天课程的答案<br>A.8.1 测验<br>A.8.2 练习<br>A.9 第9天课程的答案<br>A.9.1 测验<br>A.9.2 练习<br>A.10 第10天课程的答案<br>A.10.1 测验<br>A.10.2 练习<br>A.11 第11天课程的答案<br>A.12 第12天课程的答案<br>A.13 第13天课程的答案<br>A.14 第14天课程的答案<br>A.15 第15天课程的答案<br>A.16 第16天课程的答案<br>A.16.1 测验<br>A.16.2 练习<br>A.17 第17天课程的答案<br>A.18 第18天课程的答案<br>A.19 第19天课程的答案<br>A.20 第20天课程的答案<br>A.21 第21天课程的答案<br>附录B ASP的常见问题<br>B.1 安装问题<br>B.1.1 什么样的操作系统支持ASP<br>B.1.2 怎样得到Internet Information Server和ASP的最新版本<br>B.1.3 怎样得到最新的ActiveX Data Object(ADO)版本<br>B.2 常见的脚本问题<br>B.2.1 怎样在VBScript字符串中添加引号<br>B.2.2 怎样将单个VBScript语句断开为多行<br>B.2.3 在VBScript中比较字符串的正确方法<br>B.2.4 怎样在使用了ON ERROR RESUME NEXT以后重新启用错误<br>B.2.5 怎样阻止脚本超时<br>B.2.6 什么时候需要将变量外部转换为特定的数据类型 <br>B.2.7 何时应该用值传递变量以及何时用指针传递变量 <br>B.2.8 怎样在两个变量的输出之间添加空格<br>B.2.9 ASP是否支持动态包含<br>B.2.10 怎样在ASP中使用Option Explicit语句<br>B.3 Session和Application变量的问题<br>B.3.1 为什么Session变量有时候不能工作<br>B.3.2 怎样清除Application变量<br>B.4 文 件 问 题<br>B.4.1 怎样检测文件是否存在<br>B.4.2 怎样自动显示目录中的文件列表<br>B.5 图 片 问 题<br>B.5.1 怎样在数据库表中保存图片<br>B.5.2 在ASP中是否可以动态创建图形或图片<br>B.6 浏览器的问题<br>B.6.1 怎样检测某个人访问Web站点使用的浏览器类型<br>B.6.2 怎样检测一个人的原始网页<br>B.7 ActiveX Data Objects(ADO)的问题<br>B.7.1 为什么使用连接对象执行SQL字符串时有时会收到错误 <br>B.7.2 怎样在ASP中检索TEXT字段<br>B.7.3 为什么使用RecordCount总是返回值-1<br>B.7.4 为什么每次试图更新记录集中字段的值时都收到错误 <br>B.7.5 怎样限制数据库查询返回的行数<br>B.7.6 怎样从使用了COUNT(*) 、MAX、 MIN或者 @@IDENTITY的<br>SQL语句中检索值<br>B.7.7 在ASP中怎样从SQL存储过程检索输出参数<br>B.8 表单和查询字符串的问题<br>B.8.1 什么使表单字段的值截尾<br>B.8.2 怎样在查询字符串中包含空格或者其他特殊字符 <br>B.9 有关ASP Web站点的问题<br>B.9.1 是否所有的ISP都主持ASP<br>B.9.2 有哪些好的Web站点具有有关ASP的信息<br>附录C SQL参考<br>C.1 SQL语句<br>C.2 SQL函数<br>C.3 SQL全局变量<br>C.4 SQL Server存储过程<br>C.5 SQL Server数据类型<br>光盘内容 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书旨在帮助读者快速而有效地掌握如何利用ASP进行电子商务编程。本书内容全面而完整，不仅有基础知识的介绍，而且还深入探讨了各种高级功能。本书的主要内容有：在Internet上利用电子商务站点处理业务，使客户的购物体验个性化；使用电子钱夹简化交易；建立可搜索的目录来显示产品；创建客户购物小车；使用ASP轻松处理业务；利用信用卡接受付款；保护数据和在线产易；使用ASP自动通告和电子商务编程，掌握有关的新功能和高级功能，并应用到现实生活中。<br>    本书适用于中、高级网站开发 <br> </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">[美]STEPHEN WALTHERDesc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

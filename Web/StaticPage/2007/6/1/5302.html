@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">ASP.NET2.0服务器控件与组件开发高级编程 <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="ASP.NET2.0服务器控件与组件开发高级编程" border="1" height="216"  src="/Images/BookCovers/9787115159908.jpg" style="border:1px   solid   #B0B0B0" title="ASP.NET2.0服务器控件与组件开发高级编程" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（美）库斯拉维（Khosravi，S.）　著，郝刚，田亮君，陈文　译
+                                        <br />
+                                        书名：ASP.NET2.0服务器控件与组件开发高级编程<br />
+                                        字数：1834000<br />
+                                        出版时间：2007年6月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115159908<br />
+                                        <font color="#CC3300">本网价：<strong>￥148.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章　ASP.NET 2.0框架　　<br>  1.1　请求过程　　<br>  1.2　为什么开发自定义组件　　<br>  1.3　小结　　<br>第2章　开发简单的自定义控件和用户控件　　<br>  2.1　隐藏信息　　<br>  2.2　部署自定义控件　<br>  2.3　在Web页面中使用自定义控件　<br>  2.4　为自定义控件添加属性　<br>  2.5　为自定义控件添加设计时属性　 <br>  2.6　将自定义控件添加到Visual Studio工具箱　<br>  2.7　与HtmlTextWriter相关的枚举　<br>  2.8　状态管理　<br>  2.9　用户控件　<br>  2.10　小结　<br>第3章　开发自定义控件样式　<br>  3.1　Style类　<br>  3.2　WebControl类　<br>  3.3　继承WebControl类　<br>  3.4　开发自定义Style类　<br>  3.5　使用自定义Style类　<br>  3.6　小结　<br>第4章　开发自定义控件事件　<br>  4.1　事件介绍　<br>  4.2　.NET事件设计模式　<br>  4.3　事件优化　<br>  4.4　回传　<br>  4.5　页面生命周期　<br>  4.6　小结　<br>第5章　开发自定义复合控件　<br>  5.1　再次修改CreditCardForm6　<br>  5.2　创建复合控件　<br>  5.3　小结<br>第6章　开发自定义模板控件<br>  6.1　自定义容器控件内容<br>  6.2　TemplatedCreditCardForm控件<br>  6.3　在ASP.NET页面中使用模板<br>  6.4　模板内幕<br>  6.5　数据绑定表达式<br>  6.6　数据绑定表达式内幕<br>  6.7　默认模板<br>  6.8　小结<br>第7章　开发包含复杂属性的自定义控件<br>  7.1　容器控件的样式属性<br>  7.2　自定义容器控件外观<br>  7.3　状态管理<br>  7.4　实现IStateManager接口的类型<br>  7.5　不实现IStateManager接口的类型<br>  7.6　容器控件样式的状态管理<br>  7.7　声明持久性<br>  7.8　小结<br>第8章　ASP.NET请求处理框架<br>  8.1　请求过程<br>  8.2　HTTP模块<br>  8.3　HTTP处理程序<br>  8.4　HTTP处理程序工厂<br>  8.5　控件生成器<br>  8.6　开发自定义HTTP模块<br>  8.7　注册自定义HTTP模块<br>  8.8　开发自定义HTTP处理程序工厂<br>  8.9　开发自定义HTTP处理程序<br>  8.10　开发自定义控件生成器<br>  8.11　小结<br>第9章　数据绑定<br>  9.1　CustomTable控件<br>  9.2　设置数据源<br>  9.3　重写CreateChildControls方法<br>  9.4　重写DataBind方法<br>  9.5　创建控件层次<br>  9.6　重写CreateControlStyle属方法<br>  9.7　实现CustomTable事件<br>  9.8　重写OnBubbleEvent<br>  9.9　CustomTableRow类<br>  9.10　CustomTableRowCollection类<br>  9.11　子控件样式<br>  9.12　重写Render方法<br>  9.13　状态管理<br>  9.14　在页面中使用CustomTable控件<br>  9.15　CustomTable控件的缺点<br>  9.16　小结<br>第10章　XML Web服务<br>  10.1　开发和使用XML Web服务<br>  10.2　添加引用按钮背后的秘密<br>  10.3　WSDL文档<br>  10.4　XmlWebServiceMethodInvoker类<br>  10.5　如何使用XmlWebServiceMethodInvoker<br>  10.6　缓存编译后的代理类<br>  10.7　开发XML Web服务自定义控件<br>  10.8　XmlWebServiceResolver组件<br>  10.9　小结<br>第11章　实现架构导入扩展和ISerializable接口<br>  11.1　实现IXmlSerializable接口<br>  11.2　开发自定义架构导入扩展<br>  11.3　注册自定义架构导入扩展<br>  11.4　以块化方式发送和接收数据<br>  11.5　XmlWebServiceMethodInvoker的可扩展能力<br>  11.6　小结<br>第12章　理解ASP.NET 2.0表格式数据源控件模型<br>  12.1　为什么需要ASP.NET 2.0数据源控件模型<br>  12.2　ASP.NET 2.0数据源控件模型<br>  12.3　AS P.NET 2.0表格式数据源控件模型<br>  12.4　小结<br>第13章　ASP.NET 2.0数据源控件参数模型<br>  13.1　Parameters类<br>  13.2　Parameter类<br>  13.3　ParameterCollection类<br>  13.4　自动调用GetValues和UpdateValues方法<br>  13.5　综合应用<br>  13.6　开发自定义参数<br>  13.7　小结<br>第14章　开发ASP.NET 2.0自定义表格式数据源控件<br>  14.1　XmlWebServiceMethodInvoker组件<br>  14.2　DataSourceControl类<br>  14.3　DataSourceView类<br>  14.4　RetrieveMethodArgumentNamesAndValues方法<br>  14.5　状态管理<br>  14.6　小结<br>第15章　理解ASP.NET 2.0分层式数据源控件模型<br>  15.1　IHierarchicalDataSource接口<br>  15.2　HierarchicalDataSourceControl类<br>  15.3　HierarchicalDataSourceView类<br>  15.4　IHierarchyData接口<br>  15.5　IHierarchicalEnumerable接口<br>  15.6　小结<br>第16章　开发ASP.NET 2.0自定义分层式数据源控件<br>  16.1　CustomSqlDataSource控件<br>  16.2　SqlHierarchyDataPropertyDescriptor类<br>  16.3　SqlHierarchyData类<br>  16.4　SqlHierarchicalEnumerable类<br>  16.5　SqlHierarchicalDataSourceView类<br>  16.6　小结<br>第17章　理解ASP.NET 2.0表格式数据绑定控件模型<br>  17.1　本章概述<br>  17.2　ASP.NET 1.x数据绑定控件模型<br>  17.3　BaseDataBoundControl类<br>  17.4　开发继承自BaseDataBoundControl的自定义数据绑定控件<br>  17.5　DataBoundControl类<br>  17.6　开发继承自DataBoundControl的自定义数据绑定控件<br>  17.7　CompositeDataBoundControl类<br>  17.8　开发继承自CompositeDataBoundControl的控件<br>  17.9　小结<br>第18章　ASP.NET 2.0数据控件字段模型<br>  18.1　为什么需要ASP.NET 2.0数据控件字段模型<br>  18.2　DataControlField组件<br>  18.3　BoundField<br>  18.4　DataControlFieldCollection组件<br>  18.5　开发自定义数据控件字段<br>  18.6　小结<br>第19章　开发ASP.NET 2.0自定义表格式数据绑定控件<br>  19.1　继承自CompositeDataBoundControl<br>  19.2　重写CreateChildControls方法<br>  19.3　重写CreateDataSourceSelectArguments方法<br>  19.4　重写CreateControlStyle方法<br>  19.5　重写OnBubbleEvent方法<br>  19.6　重写Render方法<br>  19.7　状态管理<br>  19.8　重写OnInit方法<br>  19.9　事件<br>  19.10　GridViewRow类<br>  19.11　GridViewRowCollection类<br>  19.12　小结<br>第20章　为什么需要ASP.NET 2.0成员资格/角色模型<br>  20.1　ASP.NET 1.x安全模型<br>  20.2　授权机制 <br>  20.3　ASP.NET 1.x安全模型的缺点<br>  20.4　.NET 2.0提供程序模式<br>  20.5　小结<br>第21章　理解ASP.NET 2.0成员资格模型<br>  21.1　Membership类<br>  21.2　成员资格API<br>  21.3　开发自定义安全控件<br>  21.4　MembershipUser类<br>  21.5　小结<br>第22章　开发自定义MembershipProvider和MembershipUser组件<br>  22.1　MembershipProvider类<br>  22.2　SqlMembershipProvider类<br>  22.3　ProviderBase基类<br>  22.4　MembershipProvider类<br>  22.5　注册SqlMembershipProvider<br>  22.6　使用自定义成员资格提供程序<br>  22.7　扩展ASP.NET 2.0成员资格API<br>  22.8　小结<br>第23章　理解ASP.NET角色管理模型<br>  23.1　角色管理API<br>  23.2　RolePrincipal类 <br>  23.3　RoleManagerModule类<br>  23.4　小结<br>第24章　开发自定义角色提供程序、模块和主体<br> 24.1　RoleProvider基类<br>  24.2　XmlRoleProvider<br>  24.3　ProviderBase类<br>  24.4　XML API<br>  24.5　实现RoleProvider类的方法<br>  24.6　开发自定义角色主体<br>  24.7　开发自定义角色管理模块<br>  24.8　使用XmlRoleProvider<br>  24.9　小结<br>第25章　开发基于提供程序的自定义服务<br>  25.1　开发基于提供程序的自定义服务的方法<br>  25.2　基于提供程序的RSS服务<br>  25.3　自定义提供程序基类<br>  25.4　自定义提供程序集合<br>  25.5　配置Web.config和Machine.config文件<br>  25.6　实现Service类<br>  25.7　使用RSS服务<br>  25.8　SqlRssProvider类<br>  25.9　RssHelper类<br>  25.10　XmlRssProvider类<br>  25.11　小结<br>第26章　开发Ajax控件和组件：客户端功能<br>  26.1　Ajax组件和控件<br>  26.2　Ajax控件客户端功能的实现方法<br>  26.3　呈现方式<br>  26.4　部署<br>  26.5　呈现控件的客户端脚本的时机<br>  26.6　呈现控件的客户端脚本的位置<br>  26.7　退回到服务器端代码<br>  26.8　开发Ajax控件<br>  26.9　小结<br>第27章　开发Ajax控件和组件：异步客户端回调<br>  27.1　为什么使用AjaxDropDownList控件<br>  27.2　客户端回调机制<br>  27.3　实现ASP.NET 2.0客户端回调机制<br>  27.4　ASP.NET 2.0客户端回调机制<br>  27.5　未知类型数据存储Ajax控件<br>  27.6　主/次窗体<br>  27.7　开发Ajax数据控件字段<br>  27.8　AjaxDetailsDialog控件<br>  27.9　AjaxField数据控件字段<br>  27.10　DropDownListField2控件<br>  27.11　Ajax控件CustomGridView<br>  27.12　小结<br>第28章　开发Ajax控件和组件：Ajax模式<br>  28.1　模式<br>  28.2　Google的XML Web服务API<br>  28.3　预测式获取(Predictive Fetch)模式<br>  28.4　小结<br>第29章　开发Ajax控件和组件：更多的Ajax模式<br>  29.1　周期式刷新(Periodic Refresh)模式<br>  29.2　提交节流(Submission Throttling)模式<br>  29.3　显式提交(Explicit Submission)模式<br>  29.4　小结<br>第30章　理解ASP.NET 2.0 Web部件框架<br>  30.1　什么是ASP.NET Web部件框架<br>  30.2　以声明方式开发WebPart控件<br>  30.3　移动WebPart控件<br>  30.4　个性化WebPart控件的属性<br>  30.5　个性化WebPart控件的自定义属性<br>  30.6　添加已声明的WebPart控件<br>  30.7　添加已关闭的WebPart控件<br>  30.8　导出WebPart控件<br>  30.9　添加导入的WebPart控件<br>  30.10　Web部件框架的主要组件<br>  30.11　Part基类<br>  30.12　小结<br>第31章　开发自定义WebPart、EditorPart和CatalogPart控件<br>  31.1　WebPart基类<br>  31.2　开发自定义WebPart控件　　　　<br>  31.3　实现IWebPart接口　　　　<br>  31.4　IWebActionable接口　　　　<br>  31.5　EditorPart基类　　　　<br>  31.6　开发自定义EditorPart控件　　　　<br>  31.7　CatalogPart基类　　　　<br>  31.8　开发自定义CatalogPart控件　　　　<br>  31.9　小结　　　　<br>第32章　开发自定义WebPartZoneBase控件　　　　<br>  32.1　WebZone基类　　　　<br>  32.2　WebPartZoneBase基类　　　　<br>  32.3　WebPartZone类　　　　<br>  32.4　开发自定义WebPartZone控件　　　　<br>  32.5　WebPartChrome类　　　　<br>  32.6　开发自定义WebPartChrome　　　　<br>  32.7　小结　　　　<br>第33章　WebPartManager、Web部件连接和数据绑定WebPart控件　　　　<br>  33.1　开发自定义WebPartManager控件　　　　<br>  33.2　连接WebPart控件　　　　<br>  33.3　开发数据绑定WebPart控件　　　　<br>  33.4　小结 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书是一本专门介绍服务器控件和组件的开发与使用的图书。全书共分为33章，分别介绍了Ajax控件和组件、ASP.NET 2.0 Web部件控件、ASP.NET 2.0安全、ASP.NET 2.0表格式和分层式数据源控件、ASP.NET 2.0表格式数据绑定控件、自定义架构导入扩展和ISerializable接口、基于提供程序的服务等内容。本书可帮助读者学习、掌握服务器控件和组件的各种开发技巧、知识和经验。 <br>　　本书适合于那些需要学习如何创建自定义服务器控件和组件的读者。<br>作者简介：<br>　　Shahram Khosravi，在学院期间，Shahram Khosravi是一名软件工程师。在获得学博士学位之后，他继续为一个切割软件开发项目工作。Shahram是一名高级软件工程师、咨询师、作家和讲师。他讲授的课程包括ASP.NET、Web服务、NET技术、XML技术、ADO.NET、C#、3D计算机图形、智能界面（Human Interface，缩写为HI）可用性和设计模式等。他拥有超过10年的面向对象分析、设计和编程经验。Shahram还撰写了大量.NET Framework、ADO.NET、ASP.NET和XML技术的文章。这些文章发表于多个主要的行业杂志上，如Dr.Dobb's Journal、asp.netPRO和Microsoft MSDN Online。他对于应用、教授和撰写有关最新的微软技术抱有极大热情，同时，还为使用这些技术的人们提供咨询和培训服务。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">（美）库斯拉维（Khosravi，S.）　著，郝刚，田亮君，陈文　译Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

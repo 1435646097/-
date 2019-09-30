@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">ASP.NET企业级开发案例精解（C#编程篇） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="ASP.NET企业级开发案例精解（C#编程篇）" border="1" height="216"  src="/Images/BookCovers/9787115137074.jpg" style="border:1px   solid   #B0B0B0" title="ASP.NET企业级开发案例精解（C#编程篇）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：刘庆国，聂元铭  编著
+                                        <br />
+                                        书名：ASP.NET企业级开发案例精解（C#编程篇）<br />
+                                        字数：670000<br />
+                                        出版时间：2006年2月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115137074<br />
+                                        <font color="#CC3300">本网价：<strong>￥38.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第一部分　Commerce Starter Kit——电子商务系统<br><br>第1章　Commerce 简介　3<br>1.1　Commerce 的概况　3<br>1.1.1　Commerce的开发背景　3<br>1.1.2　Commerce的版本　4<br>1.2　Commerce的安装　5<br>1.2.1　下载安装 Commerce　5<br>1.2.2　配置运行Commerce　6<br>1.3　开发启示　6<br>1.3.1　Commerce技术要点概述　6<br>1.3.2　Commerce开发启示　6<br><br>第2章　需求分析与系统架构　8<br>2.1　系统功能　8<br>2.1.1　需求分析　8<br>2.1.2　系统功能　10<br>2.2　UML图　11<br>2.2.1　用例图　11<br>2.2.2　类图　11<br>2.2.3　活动图　13<br>2.3　系统架构　13<br>2.4　数据库设计　14<br>2.5　设计启示　14<br><br>第3章　技术点解析　16<br>3.1　服务器控件　16<br>3.1.1　服务器控件的特点　16<br>3.1.2　服务器控件的简单应用　17<br>3.1.3　ASP.NET可利用的服务器控件　18<br>3.2　多层结构　18<br>3.2.1　多层结构的概念　18<br>3.2.2　ASP.NET中的多层结构　19<br>3.3　配置Web.config　20<br>3.3.1　Web.config的功能和特点　20<br>3.3.2　配置Web.config　21<br>3.4　Web Service　24<br>3.4.1　Web Service简述　24<br>3.4.2　构建ASP.NET的Web Service　25<br>3.4.3　在ASP.NET中调用Web Service　27<br>3.5　技术点总结　28<br><br>第4章　系统设计　29<br>4.1　页面样式基础　29<br>4.1.1　使用级联样式表文件　29<br>4.1.2　ASPNETCommerce.css　30<br>4.2　Global.asax　31<br>4.2.1　Global.asax的结构和作用　31<br>4.2.2　使用Global.asax　32<br>4.3　用户控件　33<br>4.3.1　_Header.ascx　33<br>4.3.2　_Menu.ascx　35<br>4.3.3　在页面中调用用户控件　38<br>4.4　小结　38<br><br>第5章　用户体系　39<br>5.1　系统设计　39<br>5.1.1　需求分析　39<br>5.1.2　功能设计　40<br>5.1.3　数据库设计　41<br>5.2　用户注册　41<br>5.2.1　实现效果　41<br>5.2.2　关键技术点　43<br>5.2.3　存储过程　43<br>5.2.4　数据访问层　44<br>5.2.5　业务逻辑层　45<br>5.2.6　用户表示层　48<br>5.3　用户登录　49<br>5.3.1　实现效果　49<br>5.3.2　关键技术点　50<br>5.3.3　存储过程　50<br>5.3.4　数据访问层　51<br>5.3.5　业务逻辑层　53<br>5.3.6　用户表示层　56<br>5.4　开发启示　56<br><br>第6章　Web商店　58<br>6.1　系统设计　58<br>6.1.1　需求分析　58<br>6.1.2　功能设计　59<br>6.1.3　数据库设计　60<br>6.2　关键技术点　62<br>6.2.1　ASP.NET中的数据访问技术　62<br>6.2.2　ASP.NET中的数据展现技术　67<br>6.3　商品浏览　69<br>6.3.1　实现效果　69<br>6.3.2　存储过程　70<br>6.3.3　数据访问层　73<br>6.3.4　业务逻辑层　77<br>6.3.5　用户表示层　80<br>6.4　购物车　83<br>6.4.1　实现效果　83<br>6.4.2　存储过程　84<br>6.4.3　数据访问层　89<br>6.4.4　业务逻辑层　96<br>6.4.5　用户表示层　102<br>6.5　商品评论　103<br>6.5.1　实现效果　103<br>6.5.2　存储过程　104<br>6.5.3　数据访问层　105<br>6.5.4　业务逻辑层　107<br>6.5.5　用户表示层　109<br>6.6　开发启示　110<br><br>第7章　购物订单　112<br>7.1　系统设计　112<br>7.1.1　需求分析　112<br>7.1.2　功能设计　113<br>7.1.3　数据库设计　113<br>7.2　购物订单　113<br>7.2.1　实现效果　113<br>7.2.2　关键技术点　114<br>7.2.3　存储过程　116<br>7.2.4　数据访问层　118<br>7.2.5　业务逻辑层　122<br>7.2.6　用户表示层　123<br>7.3　开发启示　124<br><br>第8章　构建Web Service　125<br>8.1　系统设计　125<br>8.1.1　需求分析　125<br>8.1.2　功能设计　126<br>8.2　实现Web Service　127<br>8.2.1　实现效果　127<br>8.2.2　实现细节　130<br>8.2.3　第三方调用Web Service　132<br>8.3　开发启示　133<br><br>第9章　扩展Commerce　134<br>9.1　订单管理　134<br>9.1.1　需求分析　134<br>9.1.2　数据层　136<br>9.1.3　逻辑层　140<br>9.1.4　表示层　142<br>9.2　用户数据　147<br>9.2.1　需求分析　147<br>9.2.2　数据层　149<br>9.2.3　逻辑层　150<br>9.2.4　表示层　151<br>9.3　扩展Web Service　156<br>9.3.1　需求分析　157<br>9.3.2　数据层　157<br>9.3.3　逻辑层　159<br>9.4　第三方调用　164<br>9.4.1　需求分析　164<br>9.4.2　开发InvokeCommerce　164<br>9.5　开发启示　178<br><br>第二部分　Time Tracker Starter Kit——项目与工作管理系统<br><br>第10章　TimeTracker简介　181<br>10.1　TimeTracker概况　181<br>10.1.1　TimeTracker的开发背景　181<br>10.1.2　系统功能　182<br>10.1.3　版本信息　182<br>10.2　TimeTracker的安装　183<br>10.2.1　推荐环境　183<br>10.2.2　安装步骤　183<br>10.2.3　配置说明　188<br>10.3　技术点概述　189<br><br>第11章　需求分析与系统架构　190<br>11.1　系统功能　190<br>11.1.1　需求分析　190<br>11.1.2　功能设计　191<br>11.2　UML图　192<br>11.2.1　类图　192<br>11.2.2　活动图　194<br>11.3　系统架构　194<br>11.4　数据库设计　194<br>11.5　设计启示　196<br><br>第12章　技术点解析　197<br>12.1　DataGrid的高级应用　197<br>12.1.1　DataGrid的事件　197<br>12.1.2　常用的DataGrid事件　198<br>12.2　对象集合类的使用　200<br>12.3　GDI+技术　202<br>12.3.1　GDI+简介　202<br>12.3.2　GDI+技术　202<br>12.3.3　GDI+技术简单应用　203<br>12.4　移动Web应用　205<br>12.4.1　移动Web应用基础知识　205<br>12.4.2　ASP.NET移动Web应用程序　205<br>12.5　技术点总结　205<br><br>第13章　系统底层开发　207<br>13.1　页面样式　207<br>13.2　Web.config　207<br>13.2.1　系统级常量的定义　207<br>13.2.2　用户身份验证　208<br>13.3　Global.asax　210<br>13.4　用户控件Banner　211<br>13.4.1　逻辑层　212<br>13.4.2　后台编码类　212<br>13.4.3　前台页面　214<br>13.5　用户控件AdminTabs　214<br>13.5.1　后台编码类　215<br>13.5.2　前台页面　216<br>13.6　开发启示　216<br><br>第14章　用户体系　217<br>14.1　系统设计　217<br>14.1.1　功能设计　217<br>14.1.2　数据结构　219<br>14.2　关键技术点　220<br>14.2.1　ASP.NET运行时用户信息的存储　220<br>14.2.2　集合类的使用　220<br>14.3　用户体系的实现　220<br>14.3.1　数据库设计　220<br>14.3.2　逻辑层　224<br>14.3.3　应用层　238<br>14.3.4　表示层　247<br>14.4　开发启示　249<br><br>第15章　项目管理与工作进程管理　250<br>15.1　系统设计　250<br>15.1.1　功能设计　250<br>15.1.2　数据结构　252<br>15.2　关键技术点　253<br>15.2.1　DataGrid的高级应用　253<br>15.2.2　使用ViewState存储页面内部变量　254<br>15.3　项目管理　254<br>15.3.1　数据库设计　254<br>15.3.2　逻辑层　265<br>15.3.3　应用层　277<br>15.3.4　表示层　288<br>15.4　工作进程管理　290<br>15.4.1　数据库设计　290<br>15.4.2　逻辑层　292<br>15.4.3　应用层　295<br>15.4.4　表示层　301<br>15.5　开发启示　303<br><br>第16章　数据报表　304<br>16.1　系统设计　304<br>16.1.1　功能设计　304<br>16.1.2　数据库设计　306<br>16.2　页面形式的报表　309<br>16.2.1　逻辑层　309<br>16.2.2　应用层　314<br>16.2.3　表示层　318<br>16.3　图片形式的报表　324<br>16.3.1　应用层　324<br>16.3.2　逻辑层　325<br>16.4　开发启示　331<br><br>第17章　移动Web应用　332<br>17.1　系统设计　332<br>17.2　应用详解　333<br>17.2.1　用户登录　333<br>17.2.2　管理工作进程　336<br>17.3　开发启示　345 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">ASP.NET Starter Kit是微软公司提供的免费下载ASP.NET入门指南，其中包括学习资料和示例解决方案。ASP.NET Starter Kit中的企业级解决方案功能实用、代码编写规范，是学习和进行ASP.NET开发可借鉴的理想范例。但是它又非常复杂，在没有指导的情况下，初学者很难将其读懂并且应用到实际当中。本书从应用的角度出发，按照功能模块对ASP.NET Starter Kit中的简单电子商务系统和项目进度管理系统做了详尽的解析，并讲述了其中的设计思想和开发技巧。本书的范例采用的编程语言是C#。<br>　　本书从实用的角度出发，结合ASP.NET Starter Kit中范例讲解ASP.NET技术，适合正在从事和希望学习ASP.NET开发的人员阅读。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">刘庆国，聂元铭  编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

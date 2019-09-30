@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Java 信息管理系统开发实例导航（附多媒体视频及源代码光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Java 信息管理系统开发实例导航（附多媒体视频及源代码光盘一张）" border="1" height="216"  src="/Images/BookCovers/9787115132147.jpg" style="border:1px   solid   #B0B0B0" title="Java 信息管理系统开发实例导航（附多媒体视频及源代码光盘一张）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：求是科技  编著
+                                        <br />
+                                        书名：Java 信息管理系统开发实例导航（附多媒体视频及源代码光盘一张）<br />
+                                        字数：518000<br />
+                                        出版时间：2005年4月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115132147<br />
+                                        <font color="#CC3300">本网价：<strong>￥34.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章　图书馆管理系统　1<br>1.1　数据库设计　2<br>1.1.1　设计思路和理由　2<br>1.1.2　设计结果　3<br>1.1.3　设计小结　6<br>1.2　系统功能的设计　6<br>1.2.1　需求分析　6<br>1.2.2　模块设计及功能　7<br>1.2.3　配置运行　9<br>1.2.4　系统预览　11<br>1.3　开发模式设计　12<br>1.3.1　基本的开发模式　12<br>1.3.2　DAO数据存取　14<br>1.3.3　Servlet控制器　14<br>1.4　数据库连接组件　15<br>1.4.1　图书数据组件　15<br>1.4.2　馆藏数据组件　19<br>1.4.3　借阅数据组件　20<br>1.4.4　读者数据组件　23<br>1.5　设计与编写各模块　25<br>1.5.1　用户查询模块　30<br>1.5.2　超级用户模块　37<br>1.5.3　借阅管理模块　37<br>1.5.4　图书管理模块　39<br>1.5.5　其他模块　48<br>1.6　小结　48<br><br>第2章　教师办公管理系统　49<br>2.1　数据库设计　50<br>2.1.1　设计思路　50<br>2.1.2　设计结果　51<br>2.2　系统功能的设计　54<br>2.2.1　需求分析　54<br>2.2.2　模块设计及功能　55<br>2.2.3　模块组织结构图　56<br>2.2.4　配置运行　56<br>2.2.5　系统预览　58<br>2.3　开发模式设计　58<br>2.3.1　概述　58<br>2.3.2　基于数据库操作类的开发模式　59<br>2.3.3　基于标准MVC架构的开发模式　62<br>2.4　系统设置模块　66<br>2.4.1　登录　66<br>2.4.2　学院维护　71<br>2.4.3　系所维护　77<br>2.4.4　人员维护　80<br>2.4.5　角色权限维护　83<br>2.5　通知通告模块　83<br>2.5.1　发布通知　83<br>2.5.2　浏览通知　87<br>2.6　领导信箱模块　88<br>2.6.1　写信　89<br>2.6.2　收信箱　90<br>2.6.3　发件箱　91<br>2.7　文件中心模块　91<br>2.7.1　文件上传　92<br>2.7.2　文件下载　99<br>2.8　小结　102<br><br>第3章　企业信息发布系统　103<br>3.1　数据库设计　104<br>3.1.1　设计思路和理由　104<br>3.1.2　设计结果　106<br>3.2　系统功能的设计　109<br>3.2.1　需求分析　109<br>3.2.2　模块设计及功能　110<br>3.2.3　模块组织结构图　111<br>3.2.4　配置运行　112<br>3.2.5　系统预览　115<br>3.3　开发模式设计　116<br>3.3.1　基本的开发模式　116<br>3.3.2　本案例的开发模式　117<br>3.4　设计系统的组件　117<br>3.4.1　底层组件　118<br>3.4.2　数据字典组件　118<br>3.4.3　菜单维护组件　125<br>3.4.4　新闻组件　127<br>3.4.5　新闻评论组件　129<br>3.4.6　新闻专题组件　130<br>3.4.7　前台主页显示组件　130<br>3.5　后台管理模块的实现　133<br>3.5.1　登录与退出模块　133<br>3.5.2　新闻菜单维护模块　134<br>3.5.3　发布新闻模块　140<br>3.5.4　文章管理模块　143<br>3.5.5　专题列表模块　146<br>3.5.6　主页设置模块　149<br>3.6　前台显示模块的实现　149<br>3.6.1　版面设计　150<br>3.6.2　一级菜单显示　150<br>3.6.3　二级菜单显示　151<br>3.6.4　三级菜单显示　152<br>3.6.5　分页显示新闻列表　152<br>3.6.6　显示新闻内容　154<br>3.6.7　搜索引擎　156<br>3.6.8　新闻评论　157<br>3.7　小结　159<br><br>第4章　BBS论坛系统　161<br>4.1　数据库设计　162<br>4.1.1　数据库结构设计　162<br>4.1.2　创建与连接数据库　170<br>4.2　系统分析与设计　173<br>4.2.1　需求分析　173<br>4.2.2　模块设计　176<br>4.2.3　配置运行　178<br>4.2.4　系统预览　180<br>4.3　系统开发模式　181<br>4.3.1　MVC三层架构　181<br>4.3.2　回顾基本的开发模式　181<br>4.3.3　设计开发模式　182<br>4.4　编写论坛系统的JavaBean组件　182<br>4.4.1　参数管理组件　182<br>4.4.2　版面管理组件　183<br>4.4.3　帖子管理组件　185<br>4.4.4　用户管理组件　187<br>4.4.5　在线统计组件　188<br>4.5　设计与编写论坛信息JSP页面　190<br>4.5.1　建立用户登录页面　190<br>4.5.2　建立主页面　191<br>4.5.3　建立查看帖子相关页面　194<br>4.5.4　建立发布帖子相关页面　196<br>4.5.5　建立帖子搜索相关页面　197<br>4.5.6　建立个人资料相关页面　199<br>4.5.7　建立排行榜相关页面　201<br>4.6　设计与编写论坛管理的JSP页面　202<br>4.6.1　建立管理员登录页面　202<br>4.6.2　建立版面管理相关页面　203<br>4.6.3　建立参数设置相关页面　205<br>4.6.4　建立数据统计相关页面　207<br>4.6.5　建立用户管理相关页面　207<br>4.7　小结　209<br><br>第5章　网络即时通信系统　211<br>5.1　系统总体设计　213<br>5.1.1　主要应用技术　214<br>5.1.2　功能模块划分　215<br>5.1.3　多线程设计　216<br>5.2　数据库设计　217<br>5.2.1　数据库表的设计　217<br>5.2.2　建立数据库表　218<br>5.3　服务器的设计　219<br>5.3.1　主服务器类的设计　219<br>5.3.2　ServerThread类的设计　220<br>5.3.3　登录验证　221<br>5.3.4　新建用户　223<br>5.3.5　好友处理　224<br>5.3.6　退出下线　230<br>5.4　客户端的设计　231<br>5.4.1　用户注册　231<br>5.4.2　用户登录　236<br>5.4.4　主程序设计　241<br>5.4.5　消息通信的设计　252<br>5.4.6　好友管理　259<br>5.5　系统配置与使用　266<br><br>第6章　客户资料管理系统　269<br>6.1　数据库的设计　270<br>6.2　系统功能的设计　271<br>6.2.1　需求分析　273<br>6.2.2　模块设计　273<br>6.3　设计与实现"国家管理”功能　274<br>6.3.1　设计与实现国家视图(View)　274<br>6.3.2　设计与实现国家模型(Model)　280<br>6.3.3　设计与实现国家控制层(Control)　280<br>6.3.4　设计和实现国家业务逻辑(Data Access Object)　290<br>6.4　设计与实现省份管理　295<br>6.4.1　设计与实现省份视图(View)　295<br>6.4.2　设计和实现省份模型(Model)　299<br>6.4.3　设计和实现省份控制层(Control)　300<br>6.4.4　设计和实现省份封装业务逻辑　308<br>6.5　设计与实现城市管理　313<br>6.5.1　设计与实现城市视图(View)　313<br>6.5.2　设计和实现城市模型(Model)　319<br>6.5.3　设计和实现城市控制层(Control)　320<br>6.5.4　设计和实现城市封装业务逻辑　326 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书以多个实用的信息管理系统(包括图书馆管理系统、教师办公管理系统、企业信息发布系统、BBS论坛系统、网络即时通信系统、客户资料管理系统)为案例，详细讲述了信息管理系统的开发过程，对目标设计、系统开发背景、系统功能分析、系统功能模块设计、数据库需求分析与设计、各功能模块编码实现、系统的发布等各个过程进行详细描述。<br>　　本书案例程序的功能贴近实际，设计专业，内容精炼，适合大中专院校的学生和软件项目开发人员学习和参考。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">求是科技  编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

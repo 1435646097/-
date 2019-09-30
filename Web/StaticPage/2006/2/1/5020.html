@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Visual C++经典游戏程序设计（附光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Visual C++经典游戏程序设计（附光盘一张）" border="1" height="216"  src="/Images/BookCovers/9787115137531.jpg" style="border:1px   solid   #B0B0B0" title="Visual C++经典游戏程序设计（附光盘一张）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：罗伟坚  编著
+                                        <br />
+                                        书名：Visual C++经典游戏程序设计（附光盘一张）<br />
+                                        字数：580000<br />
+                                        出版时间：2006年2月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115137531<br />
+                                        <font color="#CC3300">本网价：<strong>￥42.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章　Visual C++游戏编程基础　1<br>1.1　Visual C++可视化集成开发环境　1<br>1.1.1　项目工作区　2<br>1.1.2　AppWizard(应用程序向导)　3<br>1.1.3　ClassWizard(类向导)　3<br>1.1.4　WizardBar(向导工具条)　4<br>1.1.5　Component Gallery(组件画廊)　4<br>1.1.6　Developer Studio的一些快捷特性　4<br>1.2　VC++工程项目模板程序　5<br>1.2.1　Win32应用程序　5<br>1.2.2　MFC应用程序　9<br>1.3　GDI原理基础　12<br>1.3.1　设备环境　12<br>1.3.2　常用GDI绘图操作　15<br><br>第2章　扫雷　19<br>2.1　需求分析　19<br>2.1.1　规则描述　19<br>2.1.2　功能需求分析　20<br>2.2　框架的搭建　20<br>2.2.1　创建工程项目　20<br>2.2.2　框架的改造　21<br>2.3　菜单的制作　24<br>2.3.1　难度级别的选择设定　24<br>2.3.2　窗体大小的改变　25<br>2.3.3　声音与图像颜色的开启　26<br>2.3.4　使用帮助的实现　27<br>2.3.5　关于信息的实现　27<br>2.4　核心实现　27<br>2.4.1　算法设计　28<br>2.4.2　从算法到具体实现　28<br>2.4.3　布雷　29<br>2.4.4　扫雷　30<br>2.5　界面制作　40<br>2.5.1　绘图的基本知识　40<br>2.5.2　绘图实现　42<br>2.5.3　雷区模块绘制　44<br>2.5.4　笑脸模块绘制　49<br>2.5.5　3D效果外壳模块绘制　51<br>2.5.6　数字模块绘制　52<br>2.6　功能的完善　55<br>2.6.1　音效的实现　55<br>2.6.2　图像彩色选项实现　56<br>2.7　英雄榜的实现　58<br>2.7.1　模态/非模态对话框　58<br>2.7.2　对话框模板的设计　58<br>2.7.3　对话框类的设计　60<br>2.7.4　非模态对话框的特点　66<br><br>第3章　贪吃蛇　73<br>3.1　需求分析　73<br>3.2　框架的搭建　74<br>3.2.1　创建工程项目　74<br>3.2.2　Win32应用程序架构　75<br>3.2.3　框架的改造　81<br>3.3　类的设计　84<br>3.4　游戏的实现　117<br>3.4.1　资源的准备　117<br>3.4.2　绘图的实现　123<br><br>第4章　推箱子　135<br>4.1　需求分析　135<br>4.1.1　功能描述　135<br>4.1.2　操作特性分析　135<br>4.2　框架的搭建　135<br>4.3　核心实现　138<br>4.3.1　地图与内部数据结构的设计　138<br>4.3.2　文件操作　140<br>4.3.3　地图的载入和导出　146<br>4.3.4　算法设计　147<br>4.3.5　算法子功能实现　149<br>4.3.6　游戏的绘制　156<br>4.4　功能的完善　162<br>4.4.1　音效的实现　162<br>4.4.2　帮助提示的制作　169<br>4.4.3　选关功能的实现　170<br>4.5　地图编辑器框架的搭建　174<br>4.5.1　框架的搭建　174<br>4.5.2　框架的改造　175<br>4.6　地图编辑器的核心实现　176<br>4.6.1　功能类的设计与实现　176<br>4.6.2　个性工具栏的实现　180<br>4.6.3　用户交互的实现　184<br>4.6.4　图像绘制　187<br>4.6.5　地图数据的导出　192<br><br>第5章　俄罗斯方块　195<br>5.1　需求分析　195<br>5.1.1　功能描述　195<br>5.1.2　操作特性分析　195<br>5.2　框架的搭建　196<br>5.3　MFC应用程序架构　197<br>5.3.1　App应用程序类物件　197<br>5.3.2　文档-视图机制　200<br>5.3.3　绘图程序的实现　216<br>5.3.4　MFC机制的文档-视图-框架的内在关联　232<br>5.4　框架的拓展　234<br>5.5　游戏的内部实现　235<br>5.5.1　算法设计　235<br>5.5.2　中断操作流程的设计　242<br>5.5.3　正常流程的设计　244<br>5.5.4　正常流程的实现(定时处理)　245<br>5.5.5　中断操作流程的实现　259<br>5.6　游戏区域绘图的实现　267<br>5.6.1　位图资源的准备　267<br>5.6.2　绘图机制设计　268<br>5.6.3　绘图环境资源的初始化和释放　268<br>5.6.4　游戏区域的绘制　271<br>5.7　功能的完善　275<br>5.7.1　MCI　277<br>5.7.2　游戏背景音乐的实现　282<br>5.7.3　工具栏快捷键的实现　284<br><br>第6章　拼图游戏　287<br>6.1　需求分析　287<br>6.1.1　功能描述　287<br>6.1.2　操作特性分析　288<br>6.2　预备知识　288<br>6.2.1　动态分裂视图　288<br>6.2.2　静态分裂视图　293<br>6.2.3　嵌入分裂视图　295<br>6.2.4　非同源多文档多视图　300<br>6.3　框架的搭建　303<br>6.4　算法的分析　305<br>6.4.1　数据结构设计　305<br>6.4.2　算法设计　306<br>6.5　核心实现　307<br>6.5.1　图像的分割　308<br>6.5.2　图像原始数据记录/游戏前的初始化　308<br>6.5.3　图像的移动　309<br>6.5.4　图像的打乱　313<br>6.5.5　图像的胜利检测　314<br>6.6　用户交互操作的实现　314<br>6.6.1　键盘事件的交互　315<br>6.6.2　鼠标事件的交互　317<br>6.7　图像的绘制　318<br>6.7.1　源图像区域视图的绘制　319<br>6.7.2　游戏区域视图的绘制　319<br>6.7.3　绘制功能函数　321<br>6.7.4　提高图像重绘的效率　324<br>6.8　功能的完善　324<br>6.8.1　个性化菜单的制作　325<br>6.8.2　用户自选图片的实现　333<br>6.8.3　背景音乐的添加　334<br><br>第7章　连连看　337<br>7.1　需求分析　337<br>7.2　框架的搭建　338<br>7.3　算法分析与设计　338<br>7.3.1　游戏地图数据的设计　338<br>7.3.2　数据的初始化工作　340<br>7.4　核心实现　341<br>7.4.1　图案方块的连接判断　341<br>7.4.2　游戏胜利的判断　345<br>7.4.3　鼠标交互功能的实现　345<br>7.5　绘图功能的实现　349<br>7.5.1　位图图像的准备　349<br>7.5.2　绘图方案的设计　349<br>7.5.3　绘图资源的载入与初始化　349<br>7.5.4　游戏区域的绘制　351<br>7.6　游戏外挂　352<br>7.6.1　功能需求　352<br>7.6.2　框架的搭建　353<br>7.7　入侵实现的概要分析　354<br>7.8　前期核心实现　354<br>7.8.1　目标程序的侵入以及控制权的获取　354<br>7.8.2　数据的获取以及分析(地图数据的生成)　358<br>7.8.3　自动化智能查找功能的设计与实现　362<br>7.9　侵入相关操作实现　364<br>7.9.1　目标程序的操作控制　364<br>7.9.2　整体入侵过程的实现　367<br>7.10　本端功能的实现与完善　369<br>7.10.1　用户交互的实现　369<br>7.10.2　本端的绘制显示　370 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书以如何利用Visual C++实现扫雷、贪吃蛇、推箱子、俄罗斯方块、拼图、连连看这6款经典的小游戏为主线，详细介绍了如何通过Visual C++的各种优良机制结合界面交互绘图去实现特定需求、MFC的实现机制、Windows GDI绘图以及界面的程序设计等知识。<br>    本书在介绍游戏的具体设计中，通过特定的环境对MFC的众多机制进行适当的引入与讲解，使读者在学到具体的效果制作的同时，能深刻领悟到Visual C++的众多内部机制的设计思想以及运作原理。<br>　　本书适合各类游戏开发人员阅读。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">罗伟坚  编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

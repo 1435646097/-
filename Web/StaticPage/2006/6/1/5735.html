@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">征服Ajax Web 2.0开发技术详解（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="征服Ajax Web 2.0开发技术详解（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115148049.jpg" style="border:1px   solid   #B0B0B0" title="征服Ajax Web 2.0开发技术详解（附光盘）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：王沛，冯曼菲  编著
+                                        <br />
+                                        书名：征服Ajax Web 2.0开发技术详解（附光盘）<br />
+                                        字数：762000<br />
+                                        出版时间：2006年6月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115148049<br />
+                                        <font color="#CC3300">本网价：<strong>￥56.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1部分　Ajax入门<br><br>第1章　Ajax概述　3<br>1.1　什么是Ajax　3<br>1.1.1　Ajax的含义　3<br>1.1.2　Ajax的发展历史　4<br>1.1.3　使用Ajax能做什么　4<br>1.2　Ajax：新的Web开发模式　7<br>1.2.1　传统的Web开发模式　7<br>1.2.2　基于Ajax的开发模式　9<br>1.2.3　两种开发模式的比较　9<br>1.3　Ajax中的关键技术　11<br>1.3.1　JavaScript脚本语言　11<br>1.3.2　XMLHttpRequest对象　11<br>1.3.3　可扩展标记语言(XML)　12<br>1.3.4　文档对象模型(DOM)　12<br>1.3.5　级联样式表技术(CSS)　12<br>1.4　使用Ajax带来的问题　13<br>1.4.1　用户浏览习惯改变带来的问题　14<br>1.4.2　对搜索引擎的不友好　14<br>1.4.3　前进后退按钮的失效　14<br>1.4.4　刷新定位问题　16<br>1.4.5　性能问题　16<br>1.4.6　开发难度的加大　16<br><br>第2章　创建第一个Ajax应用：留言板　18<br>2.1　环境设置、需求分析及数据库设计　18<br>2.1.1　环境设置　18<br>2.1.2　留言板的需求分析　20<br>2.1.3　数据库设计　21<br>2.2　使用传统的Web开发方式　21<br>2.2.1　设计留言显示页面　21<br>2.2.2　设计留言提交页面　23<br>2.2.3　服务器端程序设计　24<br>2.3　使用Ajax实现留言板　26<br>2.3.1　一个页面就是一个程序　27<br>2.3.2　客户端页面设计　27<br>2.3.3　服务器端程序设计　27<br>2.3.4　使用XMLHttpRequest将数据提交到服务器　29<br>2.3.5　处理服务器返回的信息　31<br>2.3.6　将留言内容立刻显示在页面　31<br><br>第2部分　JavaScript精讲<br><br>第3章　JavaScript语言基础　39<br>3.1　JavaScript概述　39<br>3.1.1　JavaScript简介　39<br>3.1.2　JavaScript版本介绍　39<br>3.1.3　JavaScript在Ajax中的作用　40<br>3.2　JavaScript编辑和调试工具　42<br>3.2.1　用什么编写JavaScript程序　42<br>3.2.2　使用浏览器调试JavaScript程序　42<br>3.2.3　使用Venkman调试JavaScript程序　44<br>3.3　如何在HTML中工作　45<br>3.3.1　<script>标记：标识语言类型　45<br>3.3.2　使用外部JavaScript文件　46<br>3.3.3　嵌入HTML标记的JavaScript代码　47<br>3.4　建立JavaScript表达式　47<br>3.4.1　变量　47<br>3.4.2　常量　48<br>3.4.3　数据类型　49<br>3.4.4　数据类型的转换　51<br>3.4.5　JavaScript的语句结构　53<br>3.4.6　可选的分号　54<br>3.4.7　加入注释　55<br>3.4.8　建立赋值表达式　56<br>3.4.9　建立数字表达式　56<br>3.4.10　使用字符串表达式　57<br>3.4.11　使用比较表达式　58<br>3.4.12　使用逻辑表达式　60<br>3.4.13　使用逗号(,)表达式　62<br>3.4.14　理解操作符的优先级　62<br><br>第4章　流程控制和函数　64<br>4.1　代码流程控制：条件语句和循环语句　64<br>4.1.1　使用if语句进行条件判断　64<br>4.1.2　使用if…else…处理条件不成立的情形　65<br>4.1.3　使用条件运算符(?:)　66<br>4.1.4　使用switch语句进行多重条件判断　66<br>4.1.5　使用while循环　68<br>4.1.6　使用do…while循环　69<br>4.1.7　使用for循环　69<br>4.1.8　break语句：立即跳出循环的执行　70<br>4.1.9　continue语句：停止当前循环进入下一次循环　71<br>4.2　使用函数　72<br>4.2.1　什么是函数　72<br>4.2.2　定义和调用函数　72<br>4.2.3　给函数传递参数　74<br>4.2.4　参数的值传递和引用传递　75<br>4.2.5　使用return语句从函数返回值　76<br>4.2.6　变量的作用范围：局部变量和全局变量　77<br>4.2.7　使用递归函数　78<br>4.3　使用JavaScript内部函数　79<br>4.3.1　什么是内部函数　79<br>4.3.2　使用eval函数来执行JavaScript代码　79<br>4.3.3　使用parseInt和parseFloat函数将字符串转换为数字　80<br>4.3.4　使用escape和unescape函数进行URL编码和解码　81<br>4.3.5　使用isNaN和isFinite函数判断数字的类型　81<br><br>第5章　对象和表单　82<br>5.1　对象概述　82<br>5.2　处理日期和时间：Date对象　82<br>5.2.1　创建一个日期对象　82<br>5.2.2　从Date对象中提取信息　83<br>5.2.3　设置日期对象的值　85<br>5.2.4　进行日期计算　85<br>5.2.5　其他Date对象的方法　86<br>5.3　进行数学运算：Math对象　87<br>5.3.1　将一个小数四舍五入到指定位数　88<br>5.3.2　使用随机函数Math.random()　89<br>5.4　使用数组：Array对象　90<br>5.4.1　创建一个数组　90<br>5.4.2　使用数组元素　91<br>5.4.3　使用多维数组　92<br>5.4.4　使用数组的length属性　92<br>5.4.5　使用数组对象的方法　94<br>5.5　处理文本：String对象　95<br>5.5.1　确定字符串的长度　96<br>5.5.2　搜索和提取子字符串　96<br>5.5.3　替换和匹配字符串　97<br>5.5.4　字符串对象的其他方法　98<br>5.6　对象的高级应用　98<br>5.6.1　获取浏览器信息：使用navigator对象　98<br>5.6.2　处理地址栏信息：location对象　100<br>5.6.3　控制前进和后退：使用history对象　102<br>5.6.4　文档操作初步：document对象　102<br>5.6.5　使用with()语句简化对象访问　106<br>5.7　事件机制　107<br>5.7.1　什么是事件　107<br>5.7.2　使用HTML标记创建事件处理程序　107<br>5.7.3　使用对象的事件属性创建事件处理程序　108<br>5.7.4　使用attachEvent和addEventListener方法绑定事件处理程序　109<br>5.7.5　使用event对象获取事件信息　109<br>5.7.6　使用event对象的属性　111<br>5.8　表单编程入门　112<br>5.8.1　使用form对象　112<br>5.8.2　引用表单域　114<br>5.8.3　表单域的通用属性　114<br>5.8.4　表单域的通用方法　115<br>5.8.5　表单域的通用事件　116<br>5.9　使用文本域　117<br>5.9.1　获取和设置文本域的内容　118<br>5.9.2　使用defaultValue获得HTML标记中的value值　118<br>5.9.3　使用select方法选中文本　119<br>5.9.4　使用onselect事件处理用户的选中操作　119<br>5.10　使用按钮类表单　119<br>5.10.1　使用简单按钮　119<br>5.10.2　使用复选框　119<br>5.10.3　使用单选按钮　121<br>5.11　使用下拉列表框　121<br>5.11.1　使用value属性获取和设置下拉列表框的值　122<br>5.11.2　使用length属性获取选项的个数　122<br>5.11.3　使用selectedIndex属性获取当前选项的索引　122<br>5.11.4　使用options属性获取选项集合　122<br>5.11.5　使用option对象的value属性和text属性　123<br>5.11.6　使用option对象的selected属性　123<br>5.11.7　使用select对象的onchange事件　123<br>5.11.8　为select对象添加一个选项　124<br>5.11.9　从select对象中删除一个选项　124<br>5.11.10　清空一个select对象　124<br>5.11.11　替换一个选项　125<br>3.10.12　下拉框实例：二级联动的下拉列表菜单　125<br>5.12　执行表单验证　127<br><br>第6章　JavaScript面向对象程序设计　129<br>6.1　JavaScript中支持面向对象的基础　129<br>6.1.1　用定义函数的方式定义类　129<br>6.1.2　使用new操作符获得一个类的实例　129<br>6.1.3　使用方括号([])引用对象的属性和方法　130<br>6.1.4　动态添加、修改、删除对象的属性和方法　132<br>6.1.5　使用大括号({})语法创建无类型对象　133<br>6.1.6　prototype原型对象　134<br>6.2　深入认识JavaScript中的函数　135<br>6.2.1　概述　135<br>6.2.2　认识函数对象(Function Object)　135<br>6.2.3　函数对象和其他内部对象的关系　137<br>6.2.4　将函数作为参数传递　139<br>6.2.5　传递给函数的隐含参数：arguments　139<br>6.2.6　函数的apply、call方法和length属性　140<br>6.2.7　深入认识JavaScript中的this指针　141<br>6.3　类的实现　142<br>6.3.1　理解类的实现机制　142<br>6.3.2　使用prototype对象定义类成员　143<br>6.3.3　一种JavaScript类的设计模式　145<br>6.4　公有成员、私有成员和静态成员　146<br>6.4.1　实现类的公有成员　146<br>6.4.2　实现类的私有成员　146<br>6.4.3　实现静态成员　147<br>6.5　使用for(…in…)实现反射机制　148<br>6.5.1　什么是反射机制　148<br>6.5.2　在JavaScript中利用for(…in…)语句实现反射　149<br>6.5.3　使用反射来传递样式参数　149<br>6.6　类的继承　150<br>6.6.1　利用共享prototype实现继承　150<br>6.6.2　利用反射机制和prototype实现继承　152<br>6.6.3　prototype-1.3.1框架中的类继承实现机制　154<br>6.7　实现抽象类　156<br>6.7.1　抽象类和虚函数　156<br>6.7.2　在JavaScript实现抽象类　156<br>6.7.3　使用抽象类的示例　157<br>6.8　事件设计模式　158<br>6.8.1　事件设计概述　158<br>6.8.2　最简单的事件设计模式　158<br>6.8.3　给事件处理程序传递参数　159<br>6.8.4　使自定义事件支持多绑定　162<br>6.9　实例：使用面向对象思想处理cookie　163<br>6.9.1　需求分析　163<br>6.9.2　创建Cookie对象　163<br>6.9.3　实现设置Cookie的方法　163<br>6.9.4　实现取Cookie值的方法　164<br>6.9.5　实现删除Cookie的方法　164<br><br>第7章　JavaScript高级技术　166<br>7.1　框架编程　166<br>7.1.1　框架编程概述　166<br>7.1.2　框架间的互相引用　166<br>7.1.3　改变框架的载入页面　167<br>7.1.4　引用其他框架内的JavaScript变量和函数　168<br>7.2　使用cookie　169<br>7.2.1　cookie概述　169<br>7.2.2　设置cookie　170<br>7.2.3　获取cookie的值　171<br>7.2.4　给cookie设置终止日期　172<br>7.2.5　删除cookie　173<br>7.2.6　指定可访问cookie的路径　173<br>7.2.7　指定可访问cookie的主机名　173<br>7.2.8　综合示例：构造通用的cookie处理函数　174<br>7.3　使用正则表达式　175<br>7.3.1　正则表达式概述　175<br>7.3.2　使用RegExp对象执行字符串模式匹配　177<br>7.3.3　提取子字符串　178<br>7.3.4　和字符串相关的操作　179<br>7.4　使用window对象　180<br>7.4.1　使用window.open方法新建窗口　180<br>7.4.2　使用定时器实现JavaScript的延期执行或重复执行　181<br>7.4.3　给定时器调用传递参数　184<br>7.4.4　使用status和defaultStatus属性改变状态栏信息　185<br>7.4.5　使用alert、prompt和confirm语句与用户进行交互　186<br>7.5　异常处理　187<br>7.5.1　异常处理概述　187<br>7.5.2　使用try-catch-finally处理异常　187<br>7.5.3　使用throw语句抛出异常　188<br><br>第3部分　Ajax核心技术<br><br>第8章　XMLHttpRequest对象详解　193<br>8.1　概述　193<br>8.1.1　什么是XMLHttpRequest对象　193<br>8.1.2　XMLHttpRequest对象在Ajax中的作用　193<br>8.2　使用XMLHttpRequest对象和服务器进行通信　194<br>8.2.1　创建XMLHttpRequest对象　194<br>8.2.2　使用open方法创建一个请求　195<br>8.2.3　使用send方法发送一个请求　196<br>8.2.4　使用onreadystatechange事件捕获请求的状态变化　196<br>8.2.5　使用readyState属性判断请求状态　196<br>8.2.6　使用status属性判断请求的结果　197<br>8.2.7　使用responseText获得返回的文本　198<br>8.2.8　使用responseXML属性获取XML文档　199<br>8.2.9　使用abort方法取消一个请求　200<br>8.2.10　XMLHttpRequest对象的其他属性和方法　201<br>8.3　XMLHttpRequest对象使用示例　201<br>8.3.1　用get方法检测用户名是否存在　201<br>8.3.2　使用post方法向服务器提交数据　203<br>8.3.3　实现服务器相关的二级联动菜单　204<br><br>第9章　Ajax的基础架构：DOM模型　210<br>9.1　概述　210<br>9.1.1　什么是DOM模型　210<br>9.1.2　DOM模型的组成部分　211<br>9.1.3　DOM模型在Ajax开发中的作用　211<br>9.1.4　DOM模型的发展　211<br>9.1.5　DOM模型和DHTML的关系　211<br>9.1.6　小结　212<br>9.2　DOM结构模型　212<br>9.2.1　理解DOM中的文档层次结构　212<br>9.2.2　结点的概念　212<br>9.2.3　结点的类型　213<br>9.3　处理DOM中的结点　213<br>9.3.1　直接引用结点　213<br>9.3.2　间接引用结点　214<br>9.3.3　获取结点信息　215<br>9.3.4　处理属性结点　216<br>9.3.5　处理文本结点　217<br>9.3.6　因浏览器而异的空白结点　218<br>9.3.7　使用innerHTML改变结点的内容　219<br>9.4　改变文档的层次结构　220<br>9.4.1　使用document.createElement方法创建元素结点　220<br>9.4.2　使用document.createTextNode方法创建文本结点　220<br>9.4.3　使用appendChild方法添加结点　220<br>9.4.4　使用insertBefore方法插入子结点　221<br>9.4.5　使用replaceChild方法取代子结点　222<br>9.4.6　使用cloneNode方法复制结点　223<br>9.4.7　使用removeChild方法删除子结点　223<br>9.5　表格操作　224<br>9.5.1　表格操作概述　224<br>9.5.2　DOM1(DHTML)中表格对象的结构　226<br>9.5.3　创建一个表格对象　226<br>9.5.4　添加一行　226<br>9.5.5　添加单元格　226<br>9.5.6　引用单元格　228<br>9.5.7　使用单元格对象　228<br>9.5.8　删除行和单元格　228<br>9.5.9　交换两行的位置　230<br>9.5.10　交换两个单元格的位置　233<br>9.5.11　生成表格的其他方法　234<br><br>第10章　控制外观：CSS入门　235<br>10.1　CSS概述　235<br>10.1.1　什么是CSS　235<br>10.1.2　使用CSS的优点　235<br>10.1.3　CSS在Ajax开发中的作用　236<br>10.2　使用CSS控制页面表现　238<br>10.2.1　CSS的样式　238<br>10.2.2　CSS基本语法　240<br>10.2.3　使用标记选择器　240<br>10.2.4　使用类型选择器　241<br>10.2.5　使用id选择器　242<br>10.2.6　使用层次选择器　243<br>10.2.7　继承　244<br>10.2.8　样式应用就近原则　244<br>10.2.9　认识CSS中的盒模型　246<br>10.2.10　设计合理的CSS结构　247<br>10.3　使用JavaScript控制CSS　247<br>10.3.1　通过style对象改变结点的CSS　247<br>10.3.2　使用className属性指定结点样式　248<br>10.4　使用IE Only的CSS滤镜　249<br>10.4.1　CSS滤镜概述　249<br>10.4.2　使用界面滤镜　250<br>10.4.3　静态滤镜　254<br>10.4.4　动态滤镜　258<br>10.4.5　使用JavaScript控制CSS滤镜　261<br><br>第11章　Ajax标准通信载体--XML语言　263<br>11.1　XML概述　263<br>11.1.1　一个简单的XML实例　263<br>11.1.2　XML的基本概念　264<br>11.1.3　XML在Ajax中的作用　265<br>11.2　使用Javascript操作XML　265<br>11.2.1　MSXML介绍　265<br>11.2.2　在IE浏览器中创建XML片段　266<br>11.2.3　在IE浏览器中解析XML文本　267<br>11.2.4　使用Mozilla浏览器支持的DOM模型创建XML片段　268<br>11.2.5　使用Mozilla浏览器支持的DOM模型解析XML片段　269<br>11.2.6　基于Javascript的XML解析程序　270<br>11.3　其他通信模式　271<br>11.3.1　使用XML的问题　271<br>11.3.2　使用纯文本　271<br>11.3.3　使用HTML片段　271<br>11.3.4　使用JSON　272<br><br>第12章　服务器端编程　277<br>12.1　服务器端程序在Ajax中的角色　277<br>12.1.1　理解Ajax中的服务器端编程模式　277<br>12.1.2　Ajax中服务器端程序设计的特点　277<br>12.1.3　参数传递方式　278<br>12.1.4　接口设计模式　278<br>12.2　常用服务器端编程技术介绍　280<br>12.2.1　JSP语言介绍　280<br>12.2.2　PHP语言介绍　281<br>12.2.3　ASP.NET介绍　281<br>12.3　实现Ajax翻页效果　282<br>12.3.1　翻页　282<br>12.3.2　系统描述　282<br>12.3.3　客户端设计：页面结构　282<br>12.3.4　客户端设计：页面外观　283<br>12.3.5　客户端设计：设计Ajax逻辑　283<br>12.3.6　客户端设计：分页按钮　284<br>12.3.7　服务器端设计：通过ASP.NET控件直接得到HTML代码　285<br>12.3.8　服务器端设计：设计通用的分页标签生成器　285<br>12.3.9　服务器端设计：处理用户的查询　286<br>12.3.10　最终效果　290<br><br>第13章　Ajax中的常见问题及解决方案　292<br>13.1　跨浏览器问题　292<br>13.1.1　JavaScript中错误信息的显示　292<br>13.1.2　JavaScript中的eval函数能否使用apply方法　293<br>13.1.3　DOM中使用getElementById获取指定id结点的引用　295<br>13.1.4　DOM中的事件绑定语法　295<br>13.1.5　DOM中事件顺序模型的不同　296<br>13.1.6　CSS中使用!important提高属性优先级　298<br>13.1.7　在CSS中使用IE浏览器不支持的属性实现浏览器选择性　299<br>13.1.8　在CSS中使用反斜杠注释屏蔽IE5-Mac　299<br>13.2　解决导航问题　300<br>13.2.1　导航问题的由来　300<br>13.2.2　利用URL存储状态信息　300<br>13.2.3　利用Hash参数解决刷新问题　301<br>13.2.4　解决浏览器的【前进】【后退】按钮失效问题　305<br>13.3　搜索引擎问题　312<br>13.3.1　Ajax程序不易被搜索引擎检索到　312<br>13.3.2　使用冗余地址思路解决搜索引擎问题　313<br>13.4　安全问题　313<br>13.4.1　服务器端始终要作有效性验证　313<br>13.4.2　避免拒绝服务攻击(DoS攻击)　315<br>13.4.3　其他安全问题　315<br>13.5　性能问题　316<br>13.5.1　衡量JavaScript代码的运行事件　316<br>13.5.2　因浏览器而异的字符串连接操作　316<br>13.5.3　按需载入JavaScript代码　318<br>13.5.4　压缩JavaScript代码　319<br><br>第4部分　典型应用<br><br>第14章　动态获取数据的树状菜单　323<br>14.1　树状菜单概述　323<br>14.1.1　什么是树状菜单　323<br>14.1.2　使用无序列表标记(ul)　324<br>14.1.3　使用CSS控制外观　324<br>14.1.4　展开和折叠涉及的关键技术　326<br>14.2　实现树状菜单的两种方式　326<br>14.2.1　完全在客户端实现　326<br>14.2.2　完全由服务器端实现　327<br>14.2.3　基于Ajax的实现　328<br>14.3　设计树状菜单的数据结构　328<br>14.3.1　设计树结点接口类　328<br>14.3.2　实现树结构的数据库设计　329<br>14.3.3　最终树结构实现类　330<br>14.3.4　服务端的数据处理　333<br>14.3.5　静态树状菜单的实现　334<br>14.4　动态获取数据的树状菜单　337<br>14.4.1　什么时候需要动态获取数据　337<br>14.4.2　服务器端的代码设计　337<br>14.4.3　创建获取数据的方法　339<br>14.4.4　处理取回数据的方法　340<br>14.4.5　服务器端的请求处理方法　341<br><br>第15章　RSS阅读器　343<br>15.1　RSS概述　344<br>15.1.1　什么是RSS　344<br>15.1.2　一个简单的RSS 2.0示例　345<br>15.1.3　<channel>元素说明　346<br>15.1.4　<item>元素说明　347<br>15.2　阅读RSS模块程序设计　347<br>15.2.1　客户端原理分析　347<br>15.2.2　客户端代码设计　347<br>15.2.3　创建RSSReader类　350<br>15.2.4　服务器端代码设计　353<br>15.2.5　创建LoadRSS类　355<br>15.3　添加RSS模块程序设计　358<br>15.3.1　客户端原理分析　358<br>15.3.2　客户端代码设计　358<br>15.3.3　服务器端代码设计　360<br>15.3.4　数据库设计　361<br><br>第16章　搜索提示(Suggest)　365<br>16.1　搜索提示概述　365<br>16.1.1　Google Suggest介绍　365<br>16.1.2　搜索提示所带来的好处　366<br>16.1.3　基本原理分析　366<br>16.2　客户端代码　367<br>16.2.1　客户端原理分析　367<br>16.2.2　创建请求　368<br>16.2.3　处理返回数据　369<br>16.3　服务器端代码　370<br>16.3.1　服务器端原理分析　370<br>16.3.2　处理服务请求　371<br>16.3.3　数据库设计　372<br><br>第17章　基于Ajax的相册　374<br>17.1　基本原理分析　374<br>17.1.1　界面设计分析　374<br>17.1.2　CSS设计分析　375<br>17.1.3　图片放大原理分析　378<br>17.1.4　动态更换皮肤　379<br>17.2　Ajax程序设计　380<br>17.2.1　原理分析　380<br>17.2.2　创建XMLHttpRequest对象　380<br>17.2.3　发送请求　381<br>17.2.4　处理返回数据　382<br>17.3　服务器端程序设计　383<br>17.3.1　处理服务请求　383<br>17.3.2　创建实体访问类　385<br>17.3.3　数据库设计　386<br><br>第18章　基于Ajax的聊天室程序　389<br>18.1　聊天室概述　390<br>18.1.1　聊天室程序所需要解决的问题　390<br>18.1.2　传统聊天室的缺点　390<br>18.1.3　使用Ajax技术的好处　391<br>18.1.4　基本原理分析　391<br>18.2　数据库设计　392<br>18.2.1　数据库设计基本原理　392<br>18.2.2　数据表设计　392<br>18.2.3　创建表所对应的实体类　393<br>18.3　客户端程序设计　395<br>18.3.1　基本原理分析　395<br>18.3.2　选择聊天室页面　396<br>18.3.3　聊天室主页面　398<br>18.3.4　调用初始化方法　401<br>18.3.5　获得消息数据处理　402<br>18.3.6　发送消息数据处理　403<br>18.4　服务器端程序设计　404<br>18.4.1　刷新时获得消息请求的处理　404<br>18.4.2　发送消息请求的处理　407<br>18.4.3　数据库连接工具类　408<br><br>第19章　拖拽方式定制个性化主页　411<br>19.1　系统概述　411<br>19.1.1　系统目标：模仿Google ig　411<br>19.1.2　系统预览　412<br>19.1.3　系统构架　412<br>19.2　用户登录模块　414<br>19.2.1　原理分析　414<br>19.2.2　客户端代码　415<br>19.2.3　处理服务请求　416<br>19.2.4　服务器端代码　417<br>19.2.5　连接数据库　423<br>19.3　小窗口初始化模块　425<br>19.3.1　原理分析　425<br>19.3.2　数据库设计　426<br>19.3.3　访问数据库的实体类　426<br>19.3.4　父类代码的实现　429<br>19.3.5　创建欢迎小窗口　430<br>19.3.6　创建新闻RSS小窗口　431<br>19.3.7　创建书签小窗口　432<br>19.4　个性化主页模块　433<br>19.4.1　布局显示原理分析　433<br>19.4.2　数据库设计　433<br>19.4.3　创建访问数据库实体类　435<br>19.4.4　客户端代码　439<br>19.4.5　布局设置原理分析　441<br>19.4.6　关闭窗口自动保存布局　441<br>19.4.7　拖拽窗口自动保存布局　443<br>19.4.8　服务器端代码　446<br>19.5　拖拽原理分析　448<br>19.5.1　拖拽原理分析　448<br>19.5.2　释放原理分析　449<br>19.5.3　通用的拖放类　450<br><br>第20章　上传文件显示进度条　452<br>20.1　上传文件概述　452<br>20.1.1　上传文件的表单概述　452<br>20.1.2　上传文件后的服务器端处理　453<br>20.1.3　使用Apache的FlieUpload　455<br>20.1.4　使用Session记录上传进度　456<br>20.2　客户端实现　456<br>20.2.1　客户端原理分析　456<br>20.2.2　客户端代码　457<br>20.2.3　客户端请求处理　458<br>20.3　服务器端实现　459<br>20.3.1　服务器端原理分析　459<br>20.3.2　上传文件处理过程　460<br>20.3.3　获取上传信息　462<br>20.3.4　创建监听器类　464<br>20.3.5　注册监听器类　466<br><br>第21章　滑动显示分页　470<br>21.1　滑动显示分页概述　470<br>21.1.1　传统的分页显示　470<br>21.1.2　滑动分页显示　471<br>21.1.3　滑块基本原理　471<br>21.2　客户端实现　473<br>21.2.1　客户端基本原理　473<br>21.2.2　客户端页面代码　473<br>21.2.3　Javascript代码分析　475<br>21.3　服务器端代码实现　477<br>21.3.1　服务器端请求处理　477<br>21.3.2　创建数据实体类　479<br>21.3.3　数据库设计　480<br>21.3.4　连接数据库的工具类　481<br><br>第22章　仿Windows关机效果　484<br>22.1　基本原理分析　484<br>22.1.1　Windows关机效果分析　484<br>22.1.2　网页中实现关机效果分析　485<br>22.2　代码实现　487<br>22.2.1　客户端代码　487<br>22.2.2　客户端脚本　488<br>22.2.3　封装lightbox类　490<br>22.3　服务器端代码　492<br><br>附录A　JavaScript关键字和保留字　494<br>A.1　关键字　494<br>A.2　保留字　494<br><br>附录B　prototype-1.4.0框架详解　495<br>B.1　基础工具类　495<br>B.1.1　Prototype对象　495<br>B.1.2　Class对象　496<br>B.1.3　对Object类的扩展　497<br>B.1.4　对Function类的扩展　498<br>B.1.5　对Number类的扩展　499<br>B.1.6　Try对象　500<br>B.1.7　其他工具　500<br>B.2　定时器类　500<br>B.3　基础工具类　501<br>B.3.1　$()方法　502<br>B.3.2　对String类(字符串)的扩展　502<br>B.3.3　Enumerable(可枚举)接口　503<br>B.3.4　$A()函数　506<br>B.3.5　对Array类(数组)的扩展　507<br>B.3.6　新的哈希(Hash)对象　507<br>B.3.7　使用$H()函数获取Hash对象　508<br>B.3.8　新的ObjectRange类　508<br>B.3.9　使用$R()方法快速创建ObjectRange对象　508<br>B.4　Ajax模块　509<br>B.4.1　Ajax对象　509<br>B.4.2　Ajax.Responders对象　509<br>B.4.3　Ajax.Base类　510<br>B.4.4　Ajax.Request类　510<br>B.4.5　Ajax.Updater类　511<br>B.4.6　Ajax.PeriodicalUpdater类　512<br>B.5　对文档操作的封装　512<br>B.5.1　使用document.getElementsByClassName方法　512<br>B.5.2　Element对象　513<br>B.5.3　Toggle对象　514<br>B.5.4　Insertion命名空间　514<br>B.5.5　Element.ClassNames类　515<br>B.6　表单操作　516<br>B.6.1　Field对象　516<br>B.6.2　Form对象　516<br>B.6.3　Form.Element对象　516<br>B.6.4　Form.Element.Serializers对象　517<br>B.6.5　使用$F()函数获取表单域的值　517<br>B.7　Observer模式框架　517<br>B.7.1　Abstract.TimedObserver类　517<br>B.7.2　Form.Element.Observer类　518<br>B.7.3　Form.Observer类　518<br>B.7.4　Abstract.EventObserver类　518<br>B.7.5　Form.Element.EventObserver类　519<br>B.7.6　Form.Observer类　519<br>B.8　事件处理：对Event对象的扩展　519<br>B.9　结点的位置处理：Position对象　520 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书全面地介绍了Ajax技术。<br>　　全书分为4个部分。第1部分介绍Ajax应用程序的主要特点，同时还通过“留言板”程序比较了Ajax技术和传统Web开发技术的不同之处。第2部分和第3部分讲解了Ajax的核心技术，包括JavaScript、XMLHttpRequest、DOM、XML、CSS以及服务器端编程。第4部分通过完整项目案例介绍Ajax的典型应用。<br>　　本书适合网络编程人员、网页制作人员和网站建设者阅读。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">王沛，冯曼菲  编著Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

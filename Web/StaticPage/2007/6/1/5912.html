@@ -1,0 +1,436 @@
+﻿<html>
+<head>
+        <style type="text/css">
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+ <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+A.samesortgoods_A1:link {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:active {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+A.samesortgoods_A1:visited {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
+}
+A.samesortgoods_A1:hover {
+	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
+}
+</style>
+    <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
+    <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
+    <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <link href="/css/index.css" rel="stylesheet" type="text/css">
+    <link href="/Template/css.css" rel="stylesheet" />
+    <link href="/Template/css1.css" rel="stylesheet" />
+    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+    
+    <script type="text/javascript">
+        $(function () {
+            $("#btnAddComment").click(function () {
+                addComment();
+                
+            });
+            loadComment();//加载评论
+        });
+        //发布评论
+        function addComment() {
+            var msg = $("#txtComment").val();
+            if (msg != "") {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                    var serverData = data.split(':');
+                    if (serverData[0] == "ok") {
+                        alert(serverData[1]);
+                        $("#commentList").empty();
+                        loadComment();
+                    } else {
+                        alert(serverData[1]);
+                    }
+                });
+            } else {
+                alert("评论内容不能为空!!");
+            }
+        }
+        //加载评论
+        function loadComment() {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+                var serverData = $.parseJSON(data);
+                var serverDataLength = serverData.length;
+                for (var i = 0; i < serverDataLength; i++) {
+                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                }
+            });
+        }
+    </script>
+ 
+    <style type="text/css">
+
+.samesortgoods_L17 {
+	LINE-HEIGHT: 230%
+}
+.samesortgoods_F3 {
+	FONT-SIZE: 12px ;color:#A8A7A7; 
+}
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+
+/*修改编辑器的样式*/
+        #cke_txtComment {
+        width:650px;
+        }
+
+        
+        </style>
+</head>
+
+<body>
+        <center>
+
+<div class="top">
+	<div class="m_c" style="width: 736px; height: 27px">
+	<span class="l">
+      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
+	
+    
+    </span><span id="showUserName" style="font-size:14px;color:red"></span>
+    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
+
+	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+
+
+<div id="main_box">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+        <tr>
+    
+	<!-- 中间占位的空单元格 -->
+    
+	<!-- 中间占位的空单元格 -->
+            <td align="center" valign="top" width="924">
+     <!-- 装右侧内容的单元格 -->
+
+                <style type="text/css">
+
+.new_F4 {
+	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
+}
+</style>
+                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                    <tr>
+                        <td valign="middle" width="10">&nbsp;</td>
+                        <td valign="middle">
+                            <h1 class="new_F4" style="margin-bottom:0px;">Visual Basic接口设计与工程实践（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="top" width="152">
+                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                <tr>
+                                    <td>
+                                        <img alt="Visual Basic接口设计与工程实践（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115158864.jpg" style="border:1px   solid   #B0B0B0" title="Visual Basic接口设计与工程实践（附光盘）" width="150" /></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td valign="top" width="564">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：许永和　编著，张丹　改编
+                                        <br />
+                                        书名：Visual Basic接口设计与工程实践（附光盘）<br />
+                                        字数：731000<br />
+                                        出版时间：2007年6月1日<br />
+                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
+                                        <br />
+		                <!-- 印刷时间： 2008/03/01<br>  -->
+		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                        I S B N ： 9787115158864<br />
+                                        <font color="#CC3300">本网价：<strong>￥55.00</strong></font></font></td>
+                                    <td align="left" class="L14" valign="top" width="50%">
+                                        <p>
+                                            <br />
+                                            <br />
+                                            <font class="F24">&nbsp;<br />
+                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
+                                            <br />
+                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
+                                            <br />
+                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
+                                            <br />
+                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                                        &nbsp;&nbsp; </font> </td>
+                                </tr>
+                                <tr>
+                                    <td height="43">
+                                        <table border="0" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
+                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td height="25">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+       <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                  
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="center" valign="middle" width="20">
+                            <img height="7" src="/Template/image/11x.jpg" /></td>
+                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" height="10"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
+                            供货：商品均由品牌商或一级经销商供货<br />
+                            送货：全国送达<br />
+                            运费：全中国各省市地区全部免运费<br />
+                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">目录内容</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">第1章　Visual Basic 6.0简介　<br>　1.1　初识Visual Basic　<br>　1.2　集成开发环境介绍<br>　1.3　变量类型和常数　<br>　1.4　基本语法　<br>　1.5　工具箱<br>　1.6　编写第一个Visual Basic应用程序　<br>　　1.6.1　第一个Visual Basic应用程序<br>　　1.6.2　保存程序文件<br>　　1.6.3　高级程序设计　<br>第2章　并行端口的基本概念<br>　2.1　并行端口的基本介绍<br>　2.2　硬件特性<br>　2.3　并行端口程序设计　<br>　2.4　Centronics并行端口　<br>　2.5　软件寄存器——标准并行端口（SPP）	　<br>　2.6　双向端口　<br>　2.7　使用并行端口执行8位输入<br>　2.8　Nibble模式　<br>　2.9　BIOS的并行端口模式　<br>　2.10　系统资源<br>　　2.10.1　并行端口地址<br>　　2.10.2　中断<br>　　2.10.3　DMA通道　<br>　　2.10.4　增加并行端口　<br>第3章　并行端口的基本测试<br>　3.1　硬件设计<br>　3.2　Visual Basic程序设计<br>　3.3　步进马达输出<br>　　3.3.1　1相激磁<br>　　3.3.2　2相激磁<br>　　3.3.3　1-2相激磁　<br>　　3.3.4　步进马达的驱动电路<br>第4章　并行端口的输入/输出　<br>　4.1　并行端口的输出应用<br>　4.2　使用Visual Basic程序执行输出控制<br>　4.3　并行端口的输入应用　<br>　　4.3.1　单一字节输入硬件的设计<br>　　4.3.2　读取5个字节的硬件设计<br>　4.4　输出应用<br>　　4.4.1　逻辑电平输出　<br>　　4.4.2　机械式继电器和电子式固态继电器<br>　　4.4.3　ULN2003A驱动器　<br>　4.5　输入应用<br>第5章　并行端口模拟/数字转换实验　<br>　5.1　什么是A/D转换器　<br>　5.2　A/D转换器类型　<br>　5.3　A/D转换器芯片组<br>　　5.3.1　ADC0804的特性和规格　<br>　　5.3.2　ADC0809的特性和规格<br>　5.4　8位A/D转换电路设计<br>　　5.4.1　电路设计原理<br>　　5.4.2　Visual Basic程序设计<br>　5.5　多信道A/D转换电路设计<br>　　5.5.1　ADC0804多信道电路设计　<br>　　5.5.2　ADC0809多信道电路设计<br>　5.6　电路设计注意事项　<br>　　5.6.1　解决和降低噪声<br>　　5.6.2　信号调整　<br>　　5.6.3　传感器接口　<br>　　5.6.4　仪表放大器　<br>第6章　并行端口数字/模拟转换实验<br>　6.1　D/A转换器简介<br>　　6.1.1　D/A转换器的线性度　<br>　　6.1.2　D/A转换器的分辨率　<br>　　6.1.3　D/A转换器的精确度　<br>　　6.1.4　D/A转换器的建立时间<br>　6.2　D/A转换器类型　<br>　　6.2.1　电流切换D/A转换器<br>　　6.2.2　加权电阻型D/A转换器<br>　　6.2.3　R-2R梯型D/A转换器<br>　6.3　D/A转换器的应用和实现<br>　　6.3.1　D/A转换器——DAC0800<br>　　6.3.2　D/A转换器——AD558<br>第7章　ECP和EPP的特性　<br>　7.1　IEEE 1284标准　<br>　7.2　EPP——增强型并行端口<br>　7.3　EPP寄存器接口　<br>　7.4　ECP——扩展功能并行端口　<br>　7.5　ECP硬件特性<br>　7.6　ECP握手步骤<br>　7.7　ECP软件及寄存器接口<br>第8章　EPP模式的应用设计<br>　8.1　EPP并行端口的基本应用　<br>　　8.1.1　硬件电路设计　<br>　　8.1.2　Visual Basic程序设计<br>　8.2　使用8255芯片组扩展EPP并行端口模式<br>　8.3　并行端口连接8255芯片组的电路设计<br>　　8.3.1　硬件电路设计<br>　　8.3.2　Visual Basic程序设计<br>第9章　串行外围端口的基本概念　<br>　9.1　串行传输的格式和协议<br>　9.2　通信的基本概念　<br>　9.3　RS-232C规格介绍<br>　　9.3.1　电气特性<br>　　9.3.2　连接器的机械特性<br>　　9.3.3　RS-232接口信号　<br>　9.4　RS-232常用的接线方式　<br>　　9.4.1　虚拟（NULL）Modem的应用　<br>　　9.4.2　回路（LOOPBACK）测试<br>　9.5　RS-232数据格式<br>　9.6　UART的概念　<br>　9.7　UART和RS-232的信号电平转换　<br>　9.8　PC主机的资源<br>第10章　RS-232 Visual Basic程序设计<br>　10.1　基本概念<br>　10.2　单信道A/D转换<br>　　10.2.1　单芯片微处理器端<br>　　10.2.2　PC主机端的Visual Basic程序<br>　10.3　4信道RS-232串行传输　<br>　10.4　从并行端口转换到RS-232串行端口<br>第11章　RS-485串行接口的应用<br>　11.1　RS-422和RS-485的基本概念　<br>　11.2　RS-232、RS-422和RS-485串行接口的比较<br>　11.3　RS-422和RS-485串行接口标准<br>　　11.3.1　RS-422电气规定　<br>　　11.3.2　RS-485电气规定　<br>　　11.3.3　RS-422和RS-485的系统配置<br>　　11.3.4　RS-422/485的接地问题　<br>　　11.3.5　RS-422和RS-485的瞬间保护<br>　11.4　增加RS-485串行端口<br>　11.5　RS-485串行传输的设计和应用　<br>第12章　IrDA红外线传输接口　<br>　12.1　IrDA红外线通信简介　<br>　12.2　IrDA规范的差异<br>　12.3　IrDA技术标准<br>　12.4　IrDA的调变特性　<br>　12.5　IrDA技术规范<br>　12.6　IrDA Control<br>　12.7　Windows操作系统下的IrDA技术探讨<br>　12.8　Windows操作系统的测试<br>第13章　IrDA红外线的接收和发射　<br>　13.1　硬件设计<br>　　13.1.1　IrDA收发器——HSDL3201<br>　　13.1.2　IrDA编码和解码器——HSDL7001<br>　13.2　电路设计<br>　13.3　Visual Basic程序设计<br>第14章　USB的基本架构和特性<br>　14.1　什么是USB<br>　14.2　如何安装USB设备<br>　14.3　USB的总线结构<br>　14.4　USB数据流的模式和引脚的概念<br>　14.5　USB的传输类型<br>　14.6　USB的连接器和缆线　<br>　　14.6.1　机械结构<br>　　14.6.2　USB接口的电气特性<br>　　14.6.3　USB总线状态　<br>　　14.6.4　USB的电源管理<br>　14.7　USB的编码方式<br>　14.8　USB接口的通信协议　<br>　　14.8.1　字段格式<br>　　14.8.2　封包格式<br>　　14.8.3　数据事务格式<br>　14.9　分割数据事务<br>　14.10　USB描述符　<br>　14.11　USB的标准请求　<br>　14.12　设备群组<br>第15章　USB芯片组和外围设备的设计<br>　15.1　USB芯片简介　<br>　15.2　USB接口芯片　<br>　15.3　包含USB单元的微处理器<br>　15.4　USB 2.0微处理器和接口芯片组　<br>　15.5　USB芯片组的选择<br>　15.6　USB外围设备和驱动程序　<br>　15.7　USB外围设备的开发重点<br>第16章　人性化接口设备群组的基本概念　<br>　16.1　HID群组简介<br>　16.2　HID群组的特性和限制<br>　16.3　HID群组的基本要求　<br>　16.4　HID群组的软件要求<br>　16.5　识别HID群组　<br>　　16.5.1　描述符的内容　<br>　　16.5.2　启动接口<br>　　16.5.3　版本修订的兼容性　<br>　　16.5.4　HID群组描述符<br>　16.6　报告描述符　<br>　　16.6.1　描述符工具<br>　　16.6.2　兼容测试程序<br>　16.7　HID群组请求<br>第17章　USB应用程序的设计概念<br>　17.1　主机通信的基本概念<br>　17.2　主机如何发现设备<br>　17.3　所需的API相关文件　<br>　17.4　HID设备驱动程序和DLL的特性　<br>　17.5　HID API函数　<br>　17.6　API函数和Visual Basic的基本概念　<br>　　17.6.1　声明<br>　　17.6.2　ByRef和ByVal传递方式<br>　　17.6.3　传递空值<br>　　17.6.4　函数和子程序<br>　　17.6.5　DLL名称的使用　<br>　　17.6.6　字符串格式<br>　　17.6.7　结构<br>　　17.6.8　如何调用API函数　<br>第18章　API函数的基本介绍<br>　18.1　Windows与HID设备通信的API函数<br>　18.2　寻找所有的HID设备　<br>　　18.2.1　返回HID群组的GUID——HidD-GetHidGuid函数　<br>　　18.2.2　返回所有HID信息——SetupDiGetClassDevs函数　<br>　　18.2.3　识别每一个HID接口——SetupDiEnumDeviceInterfaces函数<br>　　18.2.4　返回设备的路径——SetupDiGetDeviceInterfaceDetail函数<br>　　18.2.5　返回设备的句柄——CreateFile函数<br>　　18.2.6　返回厂商和产品ID——HidD-GetAttributes函数　<br>　18.3　检查HID设备功能　<br>　　18.3.1　返回包含设备特征的缓冲区指针——HidD-GetPreparsedData函数<br>　　18.3.2　返回设备的特征——HidP-GetCaps函数　<br>　　18.3.3　返回设备的数值特征——HidP-GetValueCaps函数<br>　18.4　读取和写入数据　366<br>　　18.4.1　向设备传送输出报告——WriteFile函数　<br>　　18.4.2　从设备读取输入报告——ReadFile函数<br>　　18.4.3　传送特征报告给设备——HidD-SetFeature函数<br>　　18.4.4　从设备读取特征报告——Get-Feature函数　<br>　18.5　关闭通信——CloseHandle函数<br>第19章　USB接口应用程序设计　<br>　19.1　HID API函数的引用<br>　19.2　打开HID设备的通信步骤<br>　19.3　Visual Basic窗体程序设计<br>　　19.3.1　返回HID群组的GUID——HidD-GetHidGuid函数<br>　　19.3.2　返回所有HID信息——SetupDiGetClassDevs函数　<br>　　19.3.3　识别每一个HID接口——SetupDiEnumDeviceInterfaces函数　<br>　　19.3.4　返回设备的路径——SetupDiGetDeviceInterfaceDetail函数<br>　　19.3.5　返回设备的句柄——CreateFile函数　<br>　　19.3.6　返回厂商和产品ID——HidD-GetAttributes函数<br>　　19.3.7　返回包含设备特征的缓冲区指针——HidD-GetPreparsedData函数<br>　　19.3.8　返回设备的特征——HidP-GetCaps函数　<br>　　19.3.9　返回设备的数值特征——HidP-GetValueCaps函数　<br>　　19.3.10　向设备传送输出报告——WriteFile函数　<br>　　19.3.11　从设备读取输入报告——ReadFile函数<br>　19.4　完整的测试程序<br>第20章　动态链接库（DLL）文件的设计和制作　<br>　20.1　DLL文件的设计方法和步骤<br>　20.2　多个USB设备控制的DLL设计　<br>　20.3　单个字节传输的DLL设计　<br>第21章　USB I/O控制设计——应用CY7C63101芯片组<br>　21.1　USB外围设备设计　<br>　21.2　CY7C63x系列芯片组介绍<br>　21.3　USB外围设备的程序设计<br>　　21.3.1　固化程序代码设计　<br>　　21.3.2　应用程序设计——使用Visual Basic　<br>第22章　USB I/O控制设计——应用EZ-USB（FX）芯片组　<br>　22.1　USB外围设备的硬件设计<br>　22.2　设备列举和重新设备列举　<br>　22.3　固化程序代码的下载功能　<br>　　22.3.1　固化程序代码下载的设备要求<br>　　22.3.2　重新设备列举的模式<br>　22.4　固化程序代码的下载程序　<br>　　22.4.1　控制平台的烧录方式<br>　　22.4.2　EEPROM数据的回复和烧录　<br>　　22.4.3　重新设备列举<br>　22.5　应用程序设计——使用Visual Basic<br>　22.6　多个HID设备与单个字节的控制程序设计<br>第23章　USB I/O控制设计——应用PDIUSBD11芯片组　<br>　23.1　PDIUSBD11简介<br>　23.2　USB外围设备设计　<br>　23.3　应用程序设计——使用Visual Basic </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">内容简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">本书全面介绍了如何使用Visual Basic程序语言来设计和测试接口电路。全书分为23章，主要内容包括：VB的集成开发环境、并行端口和串行端口的基本概念与相关应用、IrDA红外线传输接口的基本概念与相关应用、USB接口的基本概念与相关应用等，详细讲解了主流接口的设计与编程。本书面向实际应用，示例丰富。 <br>　　本书适合于Visual Basic开发人员、从事接口设计和开发的工程人员阅读和参考。 </td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                    </tr>
+                </table>
+                <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                    <tr>
+                        <td align="left" valign="middle" width="10">
+                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
+                        <td align="left" class="F25" valign="middle">作者简介</td>
+                    </tr>
+                    <tr>
+                        <td align="left" height="25" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">&nbsp;</td>
+                        <td align="left" class="L15" valign="top">许永和　编著，张丹　改编Desc</td>
+                    </tr>
+                </table>
+                <style type="text/css">
+
+A.new_A8:link {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:active {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.new_A8:visited {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.new_A8:hover {
+	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+
+</style>
+
+                <a name="reviewsummary"></a>
+                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                    <tr>
+                        <td align="left" valign="top">
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td>
+                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                            <tr>
+                                                <td height="26" width="1%">&nbsp;</td>
+                                                <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                <td align="left" width="75">&nbsp;</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+			    <!---->
+                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                <tr>
+                                    <td >
+
+                                        <ul id="commentList" >
+
+                                        </ul>
+
+                                    </td>
+                                </tr>
+                            </table>
+                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" height="321" valign="middle">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                            <tr>
+                                                <td align="left" height="39">
+                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                        <tr>
+                                                            <td align="left" height="25">我要评论</td>
+                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">
+                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35" valign="bottom">
+                                                    <span id="userspan">
+                                                  
+                                                    不需要登录，点发表评论即可！ </span></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" height="35">
+                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    </div>
+<div id="footer">
+    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+        <tr>
+            <td height="37" rowspan="2"></td>
+            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+        </tr>
+        <tr>
+            <td align="left" height="13" valign="middle">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+            <td align="left" class="style_14_000000" valign="middle" width="150">
+                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
+        </tr>
+        <tr>
+            <td height="100" width="100">&nbsp;</td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+            </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
+            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+            </td>
+        </tr>
+    </table>
+            </div>
+</center>
+   <!-- 
+  
+-->
+ <div id="dialog-message" title="错误提示!!">
+	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+     <a href="javascript:void(0)" id="locationLogin">请登录</a>
+</div>
+    
+</body>
+
+</html>

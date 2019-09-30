@@ -38,5 +38,10 @@ namespace BookShop.Web
         {
             return content.Length > length ? content.Substring(0, 150) + "..........." : content;
         }
+
+        public static string GetStaticPagePath(DateTime date)
+        {
+            return "/"+ "StaticPage" + "/"+date.Year + "/" + date.Month + "/" + date.Day+"/";
+        }
     }
 }
