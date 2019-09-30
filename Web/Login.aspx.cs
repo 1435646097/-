@@ -57,7 +57,7 @@ namespace BookShop.Web
                     if (!string.IsNullOrEmpty(Request.Form["chkRember"]))//勾选了自动登录
                     {
                         HttpCookie cookie1 = new HttpCookie("cp1", name);
-                        HttpCookie cookie2 = new HttpCookie("cp2", pwd);
+                        HttpCookie cookie2 = new HttpCookie("cp2", Common.Common.GetMd5(pwd));
                         cookie1.Expires = DateTime.Now.AddDays(7);
                         cookie2.Expires = DateTime.Now.AddDays(7);
                         Response.Cookies.Add(cookie1);
