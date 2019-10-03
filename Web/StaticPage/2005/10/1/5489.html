@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5489, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5489 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">Visral Basic.NET企业级开发案例精解 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="Visral Basic.NET企业级开发案例精解" border="1" height="216"  src="/Images/BookCovers/9787115137098.jpg" style="border:1px   solid   #B0B0B0" title="Visral Basic.NET企业级开发案例精解" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：陈娴，刘旭辉，陈颖  编著
-                                        <br />
-                                        书名：Visral Basic.NET企业级开发案例精解<br />
-                                        字数：1026000<br />
-                                        出版时间：2005年10月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115137098<br />
-                                        <font color="#CC3300">本网价：<strong>￥49.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        Visral Basic.NET企业级开发案例精解 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第一部分　FotoVision——智能客户端图像处理<br><br>第1章　FotoVision简介　3<br>1.1　运行FotoVision　3<br>1.1.1　下载安装FotoVision　3<br>1.1.2　安装FotoVision　4<br>1.1.3　打开FotoVision解决方案　5<br>1.2　FotoVision业务简介　6<br>1.3　智能客户端程序的部署　6<br>1.4　智能客户端介绍　7<br><br>第2章　FotoVision的架构设计　9<br>2.1　系统总体概览　9<br>2.2　FotoVision桌面应用程序　10<br>2.3　FotoVision Web应用程序　11<br><br>第3章　FotoVision的系统基础设计　13<br>3.1　配置管理　14<br>3.1.1　图片存储格式　14<br>3.1.2　资源文件　16<br>3.1.3　实现Windows XP风格界面——Manifest文件　17<br>3.2　常用工具类　20<br>3.2.1　实现图片操作列表——Actions.vb　20<br>3.2.2　实现存储并读写相册元数据——Album.vb　25<br>3.2.3　实现剪裁选取图片——CropHelper.vb　27<br>3.2.4　实现加密和解密数据——DataProtection.vb　34<br>3.2.5　实现拖放操作——DropData.vb　37<br>3.2.6　实现自定义事件的参数——EventArgs.vb　40<br>3.2.7　实现操作图片中的EXIF数据——Exif.vb　46<br>3.2.8　实现文件管理功能——FileManager.vb　49<br>3.2.9　实现获取文件或字符串的哈希值——Hash.vb　56<br>3.2.10　实现存储指定质量的JPEG图片——JpegQuality.vb　57<br>3.2.11　实现图片操作的优化处理——OptimizeActions.vb　58<br>3.2.12　实现创建和存储图片——Photo.vb　63<br>3.2.13　实现图片的所有操作例程——PhotoHelper.vb　67<br>3.2.14　实现存储图片信息——PhotoInfo.vb　73<br>3.2.15　实现以向导方式提供图片打印功能——Print.vb　74<br>3.2.16　实现主窗体上的进度条——Progress.vb　77<br>3.2.17　实现可读写的配置文件——Settings.vb　78<br>3.2.18　实现存储配置文件的配置节信息——SettingValues.vb　82<br>3.2.19　实现存储图片亮度、对比度、gamma参数以及饱和度——SliderValues.vb　83<br>3.3　全局信息类Global.vb　84<br><br>第4章　FotoVision的组件　86<br>4.1　FotoVision的组件　86<br>4.2　集成图片操作所需控件——DetailsActions用户控件　87<br>4.2.1　DetailsActions用户控件的效果　87<br>4.2.2　DetailsActions用户控件的实现　88<br>4.3　显示当前相册相关信息——DetailsAlbum用户控件　95<br>4.3.1　DetailsAlbum用户控件的效果　95<br>4.3.2　DetailsAlbum用户控件的实现　95<br>4.4　实现自绘制列表以显示多张图片信息——DetailsPhotos组件类　100<br>4.4.1　DetailsPhotos组件类的效果　100<br>4.4.2　DetailsPhotos组件类的实现　100<br>4.5　实现拖放操作的上下文菜单——DropContextMenu类　109<br>4.5.1　DropContextMenu类的效果　109<br>4.5.2　DropContextMenu类的实现　109<br>4.6　实现在列表中显示多张图片缩略图——PhotoListView组件类　111<br>4.6.1　PhotoListView组件类的效果　111<br>4.6.2　PhotoListView组件类的实现　111<br>4.7　实现单张图片显示——PhotoViewer组件类　119<br>4.7.1　PhotoViewer组件类的效果　119<br>4.7.2　PhotoViewer组件类的实现　121<br>4.8　实现支持Tab键控制输入焦点——TabTextBox组件类　130<br>4.8.1　TabTextBox组件类的效果　130<br>4.8.2　TabTextBox组件类的实现　131<br><br>第5章　FotoVision的面板系统　132<br>5.1　FotoVision的面板系统　132<br>5.2　PaneCaption面板　133<br>5.2.1　PaneCaption面板的效果　133<br>5.2.2　PaneCaption面板的实现　133<br>5.3　BasePane面板　138<br>5.3.1　BasePane面板的效果　138<br>5.3.2　BasePane面板的实现　138<br>5.4　AlbumsPane面板　140<br>5.4.1　AlbumsPane面板的效果　140<br>5.4.2　AlbumsPane面板的实现　140<br>5.5　PhotosPane面板　154<br>5.5.1　PhotosPane面板的效果　154<br>5.5.2　PhotosPane面板的实现　154<br>5.6　DetailsPane面板　167<br>5.6.1　DetailsPane面板的效果　167<br>5.6.2　DetailsPane面板的实现　168<br><br>第6章　FotoVision的文件上载系统　172<br>6.1　登录窗体——LoginForm窗体　172<br>6.1.1　LoginForm窗体的效果　172<br>6.1.2　LoginForm窗体的实现　172<br>6.2　上载文件窗体——UploadForm窗体　173<br>6.2.1　UploadForm窗体的效果　173<br>6.2.2　关键技术　174<br>6.2.3　UploadForm窗体的实现　175<br>6.2.4　业务逻辑处理类　181<br><br>第7章　FotoVision的主窗体　199<br>7.1　FotoVision的主窗体　199<br>7.1.1　MainForm窗体的效果　200<br>7.1.2　MainForm窗体的实现　201<br>7.2　PropertiesForm窗体　232<br>7.2.1　PropertiesForm窗体的效果　232<br>7.2.2　PropertiesForm窗体的实现　232<br>7.3　SettingsForm窗体　238<br>7.3.1　SettingsForm窗体的效果　239<br>7.3.2　SettingsForm窗体的实现　239<br>7.4　InitialMessageForm窗体　241<br>7.4.1　InitialMessageForm窗体的效果　241<br>7.4.2　InitialMessageForm窗体的实现　241<br>7.5　ConfirmPhotoForm窗体　242<br>7.5.1　ConfirmPhotoForm窗体的效果　242<br>7.5.2　ConfirmPhotoForm窗体的实现　243<br>7.6　DeletePhotoForm窗体　245<br>7.6.1　DeletePhotoForm窗体的效果　245<br>7.6.2　DeletePhotoForm窗体的实现　245<br>7.7　ErrorForm窗体　247<br>7.7.1　ErrorForm窗体的效果　247<br>7.7.2　ErrorForm窗体的实现　247<br>7.8　AboutForm窗体　248<br>7.8.1　AboutForm窗体的效果　249<br>7.8.2　AboutForm窗体的实现　249<br><br>第8章　FotoVision的LoginManager工具　251<br>8.1　LoginManager的常用工具类　251<br>8.1.1　关键技术　251<br>8.1.2　常用工具类　253<br>8.2　LoginManager的MainForm窗体　257<br>8.2.1　MainForm窗体的效果　257<br>8.2.2　MainForm窗体的实现　258<br><br>第9章　FotoVision的Web浏览　263<br>9.1　FotoVision的Web版　263<br>9.1.1　关键技术　264<br>9.1.2　配置管理　265<br>9.1.3　图片路径及信息存储　266<br>9.1.4　常用工具类　266<br>9.2　Web版首页default.aspx　278<br>9.2.1　Web版首页的效果　278<br>9.2.2　关键技术　279<br>9.2.3　用户表示层　279<br>9.3　相册浏览页面　282<br>9.3.1　相册浏览的效果　283<br>9.3.2　关键技术　283<br>9.3.3　用户表示层　283<br>9.4　图片浏览页面　292<br>9.4.1　图片浏览页面的效果　292<br>9.4.2　用户表示层　293<br>9.5　FotoVision中Web Services的应用　297<br>9.5.1　Web Services的效果　297<br>9.5.2　关键技术　298<br>9.5.3　用户表示层　299<br><br>第二部分　Portal Starter Kit——企业门户站点系统<br><br>第10章　Portal简介　311<br>10.1　运行Portal　311<br>10.1.1　下载安装Portal　311<br>10.1.2　安装Portal　312<br>10.1.3　打开Portal解决方案　312<br>10.2　Portal业务简介　313<br>10.3　Portal的部署　313<br>10.3.1　部署　313<br>10.3.2　物理设计　315<br><br>第11章　Portal的架构设计　316<br>11.1　需求分析　316<br>11.1.1　系统设计构想　316<br>11.1.2　系统设计开发环境介绍　316<br>11.1.3　内容管理与展现服务　317<br>11.2　功能设计——三层结构设计　318<br>11.3　数据库设计与实现　320<br>11.3.1　数据库的需求分析　320<br>11.3.2　数据库的逻辑设计　320<br>11.3.3　数据库存储过程　324<br>11.4　开发启示　325<br>11.4.1　Portal架构特点　325<br>11.4.2　Portal设计特点　325<br>11.4.3　Portal其他特点　325<br><br>第12章　Portal的系统基础设计　326<br>12.1　配置管理——整个Portal站点的配置文件　326<br>12.1.1　Global.asax　327<br>12.1.2　Portal站点的CSS文件　329<br>12.1.3　Web.config　330<br>12.1.4　FormsAuthenticationTicket类　333<br>12.2　常用工具类　334<br>12.2.1　处理Portal配置的Configuration.vb　334<br>12.2.2　处理XML文件的数据访问层PortalCfg.vb　347<br><br>第13章　Portal的框架　381<br>13.1　框架概述　381<br>13.1.1　Portal的tab页面　382<br>13.1.2　Portal模块　382<br>13.1.3　框架总结　383<br>13.2　Portal的站点配置文件及处理类　383<br>13.2.1　关键技术　383<br>13.2.2　PortalCfg.xml　384<br>13.2.3　PortalCfg.xsd　385<br>13.3　前台页面使用的用户控件　386<br>13.3.1　关键技术　386<br>13.3.2　DesktopPortalBanner用户控件　392<br>13.3.3　DesktopModuleTitle用户控件　394<br>13.4　Portal的前台页面　395<br>13.4.1　前台页面的效果　396<br>13.4.2　用户表示层　396<br>13.5　ASP.NET访问数据库的相关知识　398<br>13.5.1　ADO.NET　398<br>13.5.2　Connection对象　399<br>13.5.3　Command对象　401<br>13.5.4　DataReader对象　402<br>13.5.5　DataAdapter对象　404<br><br>第14章　Portal的模块　406<br>14.1　Portal模块系统的设计　406<br>14.2　Announcements(公告)模块　408<br>14.2.1　Announcements模块的效果　408<br>14.2.2　关键技术　410<br>14.2.3　用户表示层　412<br>14.2.4　数据访问层　416<br>14.2.5　存储过程　419<br>14.3　Contacts(雇员联系)模块　422<br>14.3.1　Contacts模块的效果　423<br>14.3.2　关键技术　424<br>14.3.3　用户表示层　425<br>14.3.4　数据访问层和存储过程　430<br>14.4　Discussion(消息)模块　430<br>14.4.1　Discussion模块的效果　430<br>14.4.2　关键技术　431<br>14.4.3　用户表示层　432<br>14.4.4　数据访问层和存储过程　438<br>14.5　Documents(文档)模块　438<br>14.5.1　Documents模块的效果　438<br>14.5.2　关键技术　440<br>14.5.3　用户表示层　441<br>14.5.4　数据访问层和存储过程　446<br>14.6　Events(事件)模块　446<br>14.6.1　Events模块的效果　447<br>14.6.2　用户表示层　448<br>14.6.3　数据访问层和存储过程　452<br>14.7　HTML(HTML文本)模块　452<br>14.7.1　HtmlModule模块的效果　453<br>14.7.2　用户表示层　453<br>14.7.3　数据访问层和存储过程　456<br>14.8　Image(图像)模块　456<br>14.8.1　Image模块的效果　456<br>14.8.2　用户表示层　457<br>14.8.3　数据访问层和存储过程　460<br>14.9　Links(链接广告)模块　460<br>14.9.1　Links模块的效果　460<br>14.9.2　用户表示层　461<br>14.9.3　数据访问层和存储过程　465<br>14.10　QuickLinks(快速链接)模块　466<br>14.10.1　QuickLinks模块的效果　466<br>14.10.2　用户表示层　466<br>14.10.3　数据访问层和存储过程　468<br>14.11　XML(基于XML的商品排名)模块　468<br>14.11.1　XmlModule模块的效果　468<br>14.11.2　用户表示层　469<br>14.11.3　数据访问层和存储过程　471<br><br>第15章　Portal的后台管理　472<br>15.1　后台管理概述　473<br>15.1.1　需求分析　473<br>15.1.2　功能设计　473<br>15.1.3　公用模块　474<br>15.2　用户注册、登录和退出　481<br>15.2.1　用户注册、登录和退出的效果　482<br>15.2.2　关键技术　483<br>15.2.3　用户表示层　486<br>15.3　站点管理　488<br>15.3.1　站点管理的效果　489<br>15.3.2　用户表示层　489<br>15.4　布局管理　490<br>15.4.1　布局管理的效果　490<br>15.4.2　关键技术　491<br>15.4.3　用户表示层　492<br>15.5　角色管理　504<br>15.5.1　角色管理的效果　504<br>15.5.2　用户表示层　505<br>15.5.3　数据访问层　510<br>15.5.4　存储过程　513<br>15.6　用户管理　516<br>15.6.1　用户管理的效果　516<br>15.6.2　用户表示层　517<br>15.7　模块管理　523<br>15.7.1　模块管理的效果　523<br>15.7.2　用户表示层　524 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">“Smart Client——智能客户端图像处理系统”和“Portal——企业门户站点”是微软公司提供的免费下载的.NET企业级解决方案。它们功能实用、代码编写规范，包含了.NET核心技术，是学习和进行.NET开发可借鉴的理想范例。但是在没有指导的情况下，初学者很难将其读懂并且应用到实际当中。本书从应用的角度出发，按照功能模块对其做了详尽的解析，并指出了其中的设计思想和开发技巧。本书的范例采用的编程语言是Visual Basic.NET。<br>　　本书从实用的角度出发，结合微软官方提供的企业级精典范例讲解.NET技术，适合正在从事和希望学习.NET开发的人员阅读。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">陈娴，刘旭辉，陈颖  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="Visral Basic.NET企业级开发案例精解" border="1" height="216" src="/Images/BookCovers/9787115137098.jpg" style="border:1px   solid   #B0B0B0" title="Visral Basic.NET企业级开发案例精解" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：陈娴，刘旭辉，陈颖  编著
+                                                                    <br />
+                                                                    书名：Visral Basic.NET企业级开发案例精解<br />
+                                                                    字数：1026000<br />
+                                                                    出版时间：2005年10月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115137098<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥49.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第一部分　FotoVision——智能客户端图像处理<br><br>第1章　FotoVision简介　3<br>1.1　运行FotoVision　3<br>1.1.1　下载安装FotoVision　3<br>1.1.2　安装FotoVision　4<br>1.1.3　打开FotoVision解决方案　5<br>1.2　FotoVision业务简介　6<br>1.3　智能客户端程序的部署　6<br>1.4　智能客户端介绍　7<br><br>第2章　FotoVision的架构设计　9<br>2.1　系统总体概览　9<br>2.2　FotoVision桌面应用程序　10<br>2.3　FotoVision Web应用程序　11<br><br>第3章　FotoVision的系统基础设计　13<br>3.1　配置管理　14<br>3.1.1　图片存储格式　14<br>3.1.2　资源文件　16<br>3.1.3　实现Windows XP风格界面——Manifest文件　17<br>3.2　常用工具类　20<br>3.2.1　实现图片操作列表——Actions.vb　20<br>3.2.2　实现存储并读写相册元数据——Album.vb　25<br>3.2.3　实现剪裁选取图片——CropHelper.vb　27<br>3.2.4　实现加密和解密数据——DataProtection.vb　34<br>3.2.5　实现拖放操作——DropData.vb　37<br>3.2.6　实现自定义事件的参数——EventArgs.vb　40<br>3.2.7　实现操作图片中的EXIF数据——Exif.vb　46<br>3.2.8　实现文件管理功能——FileManager.vb　49<br>3.2.9　实现获取文件或字符串的哈希值——Hash.vb　56<br>3.2.10　实现存储指定质量的JPEG图片——JpegQuality.vb　57<br>3.2.11　实现图片操作的优化处理——OptimizeActions.vb　58<br>3.2.12　实现创建和存储图片——Photo.vb　63<br>3.2.13　实现图片的所有操作例程——PhotoHelper.vb　67<br>3.2.14　实现存储图片信息——PhotoInfo.vb　73<br>3.2.15　实现以向导方式提供图片打印功能——Print.vb　74<br>3.2.16　实现主窗体上的进度条——Progress.vb　77<br>3.2.17　实现可读写的配置文件——Settings.vb　78<br>3.2.18　实现存储配置文件的配置节信息——SettingValues.vb　82<br>3.2.19　实现存储图片亮度、对比度、gamma参数以及饱和度——SliderValues.vb　83<br>3.3　全局信息类Global.vb　84<br><br>第4章　FotoVision的组件　86<br>4.1　FotoVision的组件　86<br>4.2　集成图片操作所需控件——DetailsActions用户控件　87<br>4.2.1　DetailsActions用户控件的效果　87<br>4.2.2　DetailsActions用户控件的实现　88<br>4.3　显示当前相册相关信息——DetailsAlbum用户控件　95<br>4.3.1　DetailsAlbum用户控件的效果　95<br>4.3.2　DetailsAlbum用户控件的实现　95<br>4.4　实现自绘制列表以显示多张图片信息——DetailsPhotos组件类　100<br>4.4.1　DetailsPhotos组件类的效果　100<br>4.4.2　DetailsPhotos组件类的实现　100<br>4.5　实现拖放操作的上下文菜单——DropContextMenu类　109<br>4.5.1　DropContextMenu类的效果　109<br>4.5.2　DropContextMenu类的实现　109<br>4.6　实现在列表中显示多张图片缩略图——PhotoListView组件类　111<br>4.6.1　PhotoListView组件类的效果　111<br>4.6.2　PhotoListView组件类的实现　111<br>4.7　实现单张图片显示——PhotoViewer组件类　119<br>4.7.1　PhotoViewer组件类的效果　119<br>4.7.2　PhotoViewer组件类的实现　121<br>4.8　实现支持Tab键控制输入焦点——TabTextBox组件类　130<br>4.8.1　TabTextBox组件类的效果　130<br>4.8.2　TabTextBox组件类的实现　131<br><br>第5章　FotoVision的面板系统　132<br>5.1　FotoVision的面板系统　132<br>5.2　PaneCaption面板　133<br>5.2.1　PaneCaption面板的效果　133<br>5.2.2　PaneCaption面板的实现　133<br>5.3　BasePane面板　138<br>5.3.1　BasePane面板的效果　138<br>5.3.2　BasePane面板的实现　138<br>5.4　AlbumsPane面板　140<br>5.4.1　AlbumsPane面板的效果　140<br>5.4.2　AlbumsPane面板的实现　140<br>5.5　PhotosPane面板　154<br>5.5.1　PhotosPane面板的效果　154<br>5.5.2　PhotosPane面板的实现　154<br>5.6　DetailsPane面板　167<br>5.6.1　DetailsPane面板的效果　167<br>5.6.2　DetailsPane面板的实现　168<br><br>第6章　FotoVision的文件上载系统　172<br>6.1　登录窗体——LoginForm窗体　172<br>6.1.1　LoginForm窗体的效果　172<br>6.1.2　LoginForm窗体的实现　172<br>6.2　上载文件窗体——UploadForm窗体　173<br>6.2.1　UploadForm窗体的效果　173<br>6.2.2　关键技术　174<br>6.2.3　UploadForm窗体的实现　175<br>6.2.4　业务逻辑处理类　181<br><br>第7章　FotoVision的主窗体　199<br>7.1　FotoVision的主窗体　199<br>7.1.1　MainForm窗体的效果　200<br>7.1.2　MainForm窗体的实现　201<br>7.2　PropertiesForm窗体　232<br>7.2.1　PropertiesForm窗体的效果　232<br>7.2.2　PropertiesForm窗体的实现　232<br>7.3　SettingsForm窗体　238<br>7.3.1　SettingsForm窗体的效果　239<br>7.3.2　SettingsForm窗体的实现　239<br>7.4　InitialMessageForm窗体　241<br>7.4.1　InitialMessageForm窗体的效果　241<br>7.4.2　InitialMessageForm窗体的实现　241<br>7.5　ConfirmPhotoForm窗体　242<br>7.5.1　ConfirmPhotoForm窗体的效果　242<br>7.5.2　ConfirmPhotoForm窗体的实现　243<br>7.6　DeletePhotoForm窗体　245<br>7.6.1　DeletePhotoForm窗体的效果　245<br>7.6.2　DeletePhotoForm窗体的实现　245<br>7.7　ErrorForm窗体　247<br>7.7.1　ErrorForm窗体的效果　247<br>7.7.2　ErrorForm窗体的实现　247<br>7.8　AboutForm窗体　248<br>7.8.1　AboutForm窗体的效果　249<br>7.8.2　AboutForm窗体的实现　249<br><br>第8章　FotoVision的LoginManager工具　251<br>8.1　LoginManager的常用工具类　251<br>8.1.1　关键技术　251<br>8.1.2　常用工具类　253<br>8.2　LoginManager的MainForm窗体　257<br>8.2.1　MainForm窗体的效果　257<br>8.2.2　MainForm窗体的实现　258<br><br>第9章　FotoVision的Web浏览　263<br>9.1　FotoVision的Web版　263<br>9.1.1　关键技术　264<br>9.1.2　配置管理　265<br>9.1.3　图片路径及信息存储　266<br>9.1.4　常用工具类　266<br>9.2　Web版首页default.aspx　278<br>9.2.1　Web版首页的效果　278<br>9.2.2　关键技术　279<br>9.2.3　用户表示层　279<br>9.3　相册浏览页面　282<br>9.3.1　相册浏览的效果　283<br>9.3.2　关键技术　283<br>9.3.3　用户表示层　283<br>9.4　图片浏览页面　292<br>9.4.1　图片浏览页面的效果　292<br>9.4.2　用户表示层　293<br>9.5　FotoVision中Web Services的应用　297<br>9.5.1　Web Services的效果　297<br>9.5.2　关键技术　298<br>9.5.3　用户表示层　299<br><br>第二部分　Portal Starter Kit——企业门户站点系统<br><br>第10章　Portal简介　311<br>10.1　运行Portal　311<br>10.1.1　下载安装Portal　311<br>10.1.2　安装Portal　312<br>10.1.3　打开Portal解决方案　312<br>10.2　Portal业务简介　313<br>10.3　Portal的部署　313<br>10.3.1　部署　313<br>10.3.2　物理设计　315<br><br>第11章　Portal的架构设计　316<br>11.1　需求分析　316<br>11.1.1　系统设计构想　316<br>11.1.2　系统设计开发环境介绍　316<br>11.1.3　内容管理与展现服务　317<br>11.2　功能设计——三层结构设计　318<br>11.3　数据库设计与实现　320<br>11.3.1　数据库的需求分析　320<br>11.3.2　数据库的逻辑设计　320<br>11.3.3　数据库存储过程　324<br>11.4　开发启示　325<br>11.4.1　Portal架构特点　325<br>11.4.2　Portal设计特点　325<br>11.4.3　Portal其他特点　325<br><br>第12章　Portal的系统基础设计　326<br>12.1　配置管理——整个Portal站点的配置文件　326<br>12.1.1　Global.asax　327<br>12.1.2　Portal站点的CSS文件　329<br>12.1.3　Web.config　330<br>12.1.4　FormsAuthenticationTicket类　333<br>12.2　常用工具类　334<br>12.2.1　处理Portal配置的Configuration.vb　334<br>12.2.2　处理XML文件的数据访问层PortalCfg.vb　347<br><br>第13章　Portal的框架　381<br>13.1　框架概述　381<br>13.1.1　Portal的tab页面　382<br>13.1.2　Portal模块　382<br>13.1.3　框架总结　383<br>13.2　Portal的站点配置文件及处理类　383<br>13.2.1　关键技术　383<br>13.2.2　PortalCfg.xml　384<br>13.2.3　PortalCfg.xsd　385<br>13.3　前台页面使用的用户控件　386<br>13.3.1　关键技术　386<br>13.3.2　DesktopPortalBanner用户控件　392<br>13.3.3　DesktopModuleTitle用户控件　394<br>13.4　Portal的前台页面　395<br>13.4.1　前台页面的效果　396<br>13.4.2　用户表示层　396<br>13.5　ASP.NET访问数据库的相关知识　398<br>13.5.1　ADO.NET　398<br>13.5.2　Connection对象　399<br>13.5.3　Command对象　401<br>13.5.4　DataReader对象　402<br>13.5.5　DataAdapter对象　404<br><br>第14章　Portal的模块　406<br>14.1　Portal模块系统的设计　406<br>14.2　Announcements(公告)模块　408<br>14.2.1　Announcements模块的效果　408<br>14.2.2　关键技术　410<br>14.2.3　用户表示层　412<br>14.2.4　数据访问层　416<br>14.2.5　存储过程　419<br>14.3　Contacts(雇员联系)模块　422<br>14.3.1　Contacts模块的效果　423<br>14.3.2　关键技术　424<br>14.3.3　用户表示层　425<br>14.3.4　数据访问层和存储过程　430<br>14.4　Discussion(消息)模块　430<br>14.4.1　Discussion模块的效果　430<br>14.4.2　关键技术　431<br>14.4.3　用户表示层　432<br>14.4.4　数据访问层和存储过程　438<br>14.5　Documents(文档)模块　438<br>14.5.1　Documents模块的效果　438<br>14.5.2　关键技术　440<br>14.5.3　用户表示层　441<br>14.5.4　数据访问层和存储过程　446<br>14.6　Events(事件)模块　446<br>14.6.1　Events模块的效果　447<br>14.6.2　用户表示层　448<br>14.6.3　数据访问层和存储过程　452<br>14.7　HTML(HTML文本)模块　452<br>14.7.1　HtmlModule模块的效果　453<br>14.7.2　用户表示层　453<br>14.7.3　数据访问层和存储过程　456<br>14.8　Image(图像)模块　456<br>14.8.1　Image模块的效果　456<br>14.8.2　用户表示层　457<br>14.8.3　数据访问层和存储过程　460<br>14.9　Links(链接广告)模块　460<br>14.9.1　Links模块的效果　460<br>14.9.2　用户表示层　461<br>14.9.3　数据访问层和存储过程　465<br>14.10　QuickLinks(快速链接)模块　466<br>14.10.1　QuickLinks模块的效果　466<br>14.10.2　用户表示层　466<br>14.10.3　数据访问层和存储过程　468<br>14.11　XML(基于XML的商品排名)模块　468<br>14.11.1　XmlModule模块的效果　468<br>14.11.2　用户表示层　469<br>14.11.3　数据访问层和存储过程　471<br><br>第15章　Portal的后台管理　472<br>15.1　后台管理概述　473<br>15.1.1　需求分析　473<br>15.1.2　功能设计　473<br>15.1.3　公用模块　474<br>15.2　用户注册、登录和退出　481<br>15.2.1　用户注册、登录和退出的效果　482<br>15.2.2　关键技术　483<br>15.2.3　用户表示层　486<br>15.3　站点管理　488<br>15.3.1　站点管理的效果　489<br>15.3.2　用户表示层　489<br>15.4　布局管理　490<br>15.4.1　布局管理的效果　490<br>15.4.2　关键技术　491<br>15.4.3　用户表示层　492<br>15.5　角色管理　504<br>15.5.1　角色管理的效果　504<br>15.5.2　用户表示层　505<br>15.5.3　数据访问层　510<br>15.5.4　存储过程　513<br>15.6　用户管理　516<br>15.6.1　用户管理的效果　516<br>15.6.2　用户表示层　517<br>15.7　模块管理　523<br>15.7.1　模块管理的效果　523<br>15.7.2　用户表示层　524 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">“Smart Client——智能客户端图像处理系统”和“Portal——企业门户站点”是微软公司提供的免费下载的.NET企业级解决方案。它们功能实用、代码编写规范，包含了.NET核心技术，是学习和进行.NET开发可借鉴的理想范例。但是在没有指导的情况下，初学者很难将其读懂并且应用到实际当中。本书从应用的角度出发，按照功能模块对其做了详尽的解析，并指出了其中的设计思想和开发技巧。本书的范例采用的编程语言是Visual Basic.NET。<br>　　本书从实用的角度出发，结合微软官方提供的企业级精典范例讲解.NET技术，适合正在从事和希望学习.NET开发的人员阅读。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">陈娴，刘旭辉，陈颖  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

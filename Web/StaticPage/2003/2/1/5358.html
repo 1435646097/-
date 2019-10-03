@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5358, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5358 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">net Crystal Report实战演练（含盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="net Crystal Report实战演练（含盘）" border="1" height="216"  src="/Images/BookCovers/9787113049249.jpg" style="border:1px   solid   #B0B0B0" title="net Crystal Report实战演练（含盘）" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：郑淑芬，恒逸资讯
-                                        <br />
-                                        书名：net Crystal Report实战演练（含盘）<br />
-                                        字数：613000<br />
-                                        出版时间：2003年2月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787113049249<br />
-                                        <font color="#CC3300">本网价：<strong>￥43.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        net Crystal Report实战演练（含盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1篇 报表设计<br>第1章 报表与.NET程序概念 3<br>1-1 数据与信息 4<br>1-1-1 报表是信息的表现方式 4<br>1-2 报表设计基本概念 4<br>1-2-1 用户的需求 4<br>1-2-2 报表数据源——数据库 5<br>1-2-3 报表中的内容 5<br>1-2-4 报表数据的表现方式 6<br>1-2-5 报表打印设置 6<br>1-3 数据库基本概念 6<br>1-4 Visual Studio.NET与Crystal Report 8<br>1-4-1 Windows报表 9<br>1-4-2 Web报表 9<br>1-5 创建第一个报表程序 12<br>1-5-1 第一阶段：创建Windows应用程序 12<br>1-5-2 第二阶段：设计Crystal Report报表 14<br>1-5-3 第三阶段：编写程序 17<br>1-5-4 编译并执行你的第一个报表程序 18<br>第2章 Visual Studio.net与Crystal Report设计环境 19<br>2-1 Visual Studio.NET 20<br>2-1-1 Visual Studio.NET的项目类型 20<br>2-1-2 项目开发环境 21<br>2-1-3 引用 25<br>2-1-4 创建新项目 25<br>2-1-5 方案与项目 26<br>2-2 Crystal Reports for Visual Studio.NET 28<br>2-2-1 Crystal Report Designer 28<br>2-2-2 Crystal Report工具条 28<br>2-2-3 节 29<br>2-2-4 字段资源管理器 32<br>2-2-5 Crystal Report专家 36<br>2-3 报表设计基本技巧 39<br>2-3-1 添加文本对象 39<br>2-3-2 添加数据库字段及其他字段 40<br>2-3-3 添加线、框、图片、图表 40<br>2-3-4 样式设置 41<br>2-3-5 大小调整 42<br>2-3-6 移动 43<br>2-3-7 对齐多个对象及大小 43<br>2-3-8 报表大小 44<br>结论 44<br>第3章 数据选取与排序 45<br>3-1 选择专家(Select Expert) 46<br>3-2 选择字段 49<br>3-3 选择条件 49<br>3-3-1 “属于(is one of)”与“不属于(is not one of)” 51<br>3-3-2 “起始为(starts with)”与“起始不为(does not start with)” 51<br>3-3-3 “类似(is like)”与“不类似(is not like)” 52<br>3-4 日期数据的查询 53<br>3-4-1 “在周期内(in the period)”与“不在周期内(not in the period)” 53<br>3-4-2 指定报表打印日期 54<br>3-5 大小写视为相异/同 56<br>3-6 套用多个选择条件 56<br>3-7 排序(Sort) 60<br>3-7-1 排序字段与排序方式 62<br>3-7-2 多重排序 64<br>第4章 组 67<br>4-1 设置组 69<br>4-1-1 字段 69<br>4-1-2 排序方式 70<br>4-1-3 将组放在同一页上 70<br>4-1-4 在每个页面上重复组页眉 71<br>4-2 组的首尾 73<br>4-2-1 组页眉 74<br>4-2-2 组页脚 77<br>4-3 组树状结构 77<br>4-4 嵌套组(Nested Groups) 78<br>4-4-1 组间的次序 79<br>4-4-2 调整嵌套组的次序 80<br>4-5 自定义组 82<br>4-5-1 设置组条件 82<br>4-5-2 “其他”组 84<br>4-6 依日期组 87<br>4-7 组排序及选取 88<br>4-8 组汇总(Summary) 90<br>4-8-1 小计(Subtotal) 91<br>4-8-2 汇总(Summary)vs.小计(Subtotal) 91<br>4-8-3 总计(Grand Total) 92<br>4-8-4 以百分比显示 94<br>4-9 累加值(Running Total) 95<br>4-9-1 可做到与“总计”或“汇总”相同的效果 95<br>4-9-2 “求值”决定何时计算 95<br>4-9-3 “重置”条件决定累加值的范围 96<br>4-9-4 累加值的放置节 98<br>4-10 层次式组(Hierarchical Group) 99<br>4-10-1 “父ID字段”及“次ID字段” 100<br>结论 102<br>第5章 公式的创建与应用 103<br>5-1 公式字段（Formula Fields） 104<br>5-2 公式编辑器（Formula Editor） 105<br>5-2-1 报表字段 105<br>5-2-2 Crystal Reports内置函数 106<br>5-2-3 运算符 106<br>5-2-4 决定公式语法 107<br>5-2-5 公式编辑区 108<br>5-3 编写公式的基本规则 109<br>5-3-1 文字都需放在引号中 109<br>5-3-2 程序注释 109<br>5-3-3 字段以{…}标识 110<br>5-3-4 参数需放在（…）中 110<br>5-3-5 大小写视为相同 110<br>5-4 公式返回值 110<br>5-4-1 Basic语法以Formula返回值 110<br>5-4-2 只能有一个返回值 111<br>5-4-3 返回值可重复设置，但是只接受相同类型的数据 111<br>5-4-4 返回值决定格式化的方式 111<br>5-5 公式基本应用 113<br>5-5-1 数学运算 113<br>5-5-2 布尔判断 114<br>5-5-3 字符串处理 114<br>5-5-4 日期计算 114<br>5-5-5 条件判断 115<br>5-6 新建公式字段至报表 116<br>5-7 公式的应用 117<br>5-7-1 样式设置 117<br>5-7-2 数据选取（Record Selection） 122<br>5-7-3 组 127<br>5-7-4 条件式累加值 130<br>结论 131<br>第6章 再谈公式与Basic语法 133<br>6-1 公式中的限制 134<br>6-2 Basic语法 134<br>6-3 简单数据类型 134<br>6-3-1 数字（Number） 135<br>6-3-2 货币（Currency） 135<br>6-3-3 字符串（String） 135<br>6-3-4 布尔值（Boolean） 135<br>6-3-5 日期及时间（Date、Time及Date Time） 135<br>6-4 变量声明 136<br>6-4-1 变量名称 136<br>6-4-2 数据类型 136<br>6-4-3 在同一行声明多个变量 137<br>6-4-4 指定变量值 137<br>6-4-5 善用变量让公式更有效率 138<br>6-5 范围变量 138<br>6-5-1 使用To指定封闭式范围 139<br>6-5-2 使用Is指定开放式范围 139<br>6-5-3 以In判断是否在范围内 139<br>6-6 自动类型转换 139<br>6-7 数组 140<br>6-7-1 存放简单类型的数组 140<br>6-7-2 访问数组中的元素 141<br>6-7-3 访问数组中的部分元素 141<br>6-7-4 存放范围变量的数组 142<br>6-8 运算符 142<br>6-8-1 比较运算符 142<br>6-8-2 布尔运算符 143<br>6-8-3 算术运算符 143<br>6-8-4 运算符的优先级 144<br>6-9 控制程序流程 145<br>6-9-1 If-Then-Else 145<br>6-9-2 Select Case 147<br>6-9-3 For/Next 149<br>6-9-4 While 151<br>6-9-5 Do 152<br>6-9-6 避免无限循环 154<br>6-9-7 循环的限制 154<br>6-10 全局变量与共享变量 155<br>6-10-1 跨公式的全局变量 156<br>6-10-2 跨主报表与子报表的共享变量 157<br>6-11 公式执行顺序 158<br>6-11-1 报表处理模型 158<br>6-12 Crystal Reports内置函数 160<br>6-12-1 字符串 160<br>6-12-2 日期时间 165<br>6-12-3 数据类型转换 170<br>6-12-4 数组 172<br>6-12-5 格式化 174<br>6-12-6 判断Null 177<br>6-12-7 打印状态 177<br>结论 178<br>第7章 参数 179<br>7-1 创建参数字段 181<br>7-1-1 参数名称 182<br>7-1-2 提示信息 182<br>7-2 数据类型 182<br>7-3 方便用户选取的默认值列表框 183<br>7-3-1 创建默认值列表框 184<br>7-3-2 添加自定义默认值 184<br>7-3-3 导入选取列表框 185<br>7-3-4 由表提供默认值 185<br>7-4 允许修改默认值 186<br>7-5 多重数值 188<br>7-5-1 离散值（Discrete Value） 189<br>7-5-2 区域值（Range Value） 189<br>7-5-3 离散和区域值（Discrete and Range Values） 190<br>7-6 参数的应用 191<br>7-6-1 文本对象 191<br>7-6-2 设置报表格式 192<br>7-6-3 公式 194<br>7-6-4 数据选取 197<br>7-6-5 组选取 199<br>7-6-6 排序 203<br>结论 206<br>第8章 子报表 207<br>8-1 什么是子报表 208<br>8-1-1 子报表与主报表的差别 208<br>8-1-2 什么时候该用子报表 208<br>8-2 新建子报表 209<br>8-3 未连接子报表与已连接子报表 210<br>8-3-1 未连接子报表（Unlinked Subreport） 210<br>8-3-2 已连接子报表（Linked Subreport） 210<br>8-4 未连接子报表 211<br>8-5 已连接子报表 213<br>8-5-1 主报表如何连接子报表 213<br>8-5-2 创建连接子报表 215<br>8-5-3 再谈连接子报表 218<br>8-5-4 利用子报表克服报表的限制 221<br>8-6 按需要显示子报表（On-demand Subreport） 224<br>8-6-1 创建按需要显示子报表 225<br>8-6-2 自定义子报表标题 227<br>8-6-3 动态标题 228<br>8-7 更新子报表 228<br>8-8 更改子报表的类型 229<br>8-8-1 切换为连接子报表 229<br>8-8-2 切换为按需要显示子报表 230<br>8-8-3 切换为未连接子报表 230<br>结论 230<br>第9章 样式与图表 231<br>9-1 样式 232<br>9-1-1 对象的属性窗口 232<br>9-1-2 样式专家 232<br>9-2 节 233<br>9-2-1 节专家 237<br>9-3 线与框 239<br>9-4 图片 240<br>9-4-1 添加背景图 240<br>9-5 超级链接 242<br>9-6 OLE对象 244<br>9-7 图表 245<br>9-7-1 位置对图表的影响 245<br>9-7-2 图表类型 245<br>9-7-3 深化（Drill-Down） 246<br>9-7-4 数据配置方式 247<br>9-7-5 饼图 249<br>9-7-6 编辑标题文字 252<br>9-7-7 图例 253<br>9-7-8 数值坐标网格与刻度 254<br>9-8 添加交叉表 254<br>结论 257<br>第2篇 报表与.NET应用程序的集成<br>第10章 在Windows应用程序中查看报表 261<br>10-1 与Windows应用程序集成基本步骤 262<br>10-1-1 Windows 窗体 262<br>10-1-2 添加CrystalReportViewer控件 264<br>10-1-3 编译及执行Windows程序 266<br>10-2 使用报表查看器——CrystalReportViewer 267<br>10-2-1 报表查看器工具条 267<br>10-2-2 组树状结构 269<br>10-2-3 指定报表文件 270<br>10-2-4 浏览报表 272<br>10-3 BlueSky报表查看程序 274<br>10-3-1 窗体的背景图片 274<br>10-3-2 创建Windows应用程序 275<br>10-3-3 新建frmBlueSky窗体 275<br>10-3-4 添加CrystalReportViewer报表查看控件 276<br>10-3-5 以OpenFileDialog控件打开报表文件 276<br>10-3-6 添加按钮 277<br>10-3-7 调用CrystalReportViewer的方法函数 278<br>10-3-8 编译并执行 280<br>10-4 筛选数据 280<br>10-4-1 SelectionFormula 281<br>10-4-2 刷新 281<br>10-4-3 大小写视为相同 281<br>10-5 导出报表 282<br>10-6 打印报表 283<br>10-7 异常处理 283<br>结论 287<br>第11章 Web应用程序与报表 289<br>11-1 Web Form Viewer与Windows Form Viewer的比较 290<br>11-2 集成Web应用程序与报表的基本步骤 292<br>11-2-1 Web应用程序项目 292<br>11-2-2 Web 窗体 293<br>11-2-3 添加Web Form Viewer控件 295<br>11-2-4 以DataBindings数据绑定报表文件 296<br>11-2-5 生成与浏览Web 窗体 299<br>11-3 使用Web Form Viewer 300<br>11-3-1 报表查看器工具条 300<br>11-3-2 组树状结构 302<br>11-3-3 调整Web Form Viewer的大小 304<br>11-3-4 页数切换 305<br>11-3-5 大小缩放 306<br>11-3-6 搜索文本 307<br>11-4 my Viewer报表查看网页 308<br>11-4-1 ASP.NET Web应用程序 308<br>11-4-2 添加Web 窗体——myViewer.aspx 309<br>11-4-3 报表查看面板 310<br>11-4-4 CrystalReportViewer报表查看控件 312<br>11-4-5 处理页面切换 312<br>11-4-6 改变组树结构比例 313<br>11-4-7 搜索报表内容 314<br>11-4-8 跳向页 315<br>11-4-9 确保输入值为数字 316<br>11-4-10 调整缩放大小 316<br>11-4-11 指定报表文件 318<br>11-4-12 执行结果 322<br>结论 322<br>第12章 使用ReportDocument做高级处理 323<br>12-1 CrystalReportViewer与ReportDocument 324<br>12-1-1 使用ReprotDocument的注意事项 324<br>12-1-2 查看报表仍旧需要CrystalReportViewer 325<br>12-2 使用ReportDocument 325<br>12-2-1 引用组件 325<br>12-2-2 导入命名空间 326<br>12-3 登录数据库 326<br>12-3-1 加载报表 327<br>12-3-2 设定数据库登录信息 328<br>12-3-3 文件型数据库 329<br>12-3-4 套用登录信息 329<br>12-4 设置参数 330<br>12-4-1 离散值(Discrete Value) 330<br>12-4-2 区域值(Range Value) 332<br>12-4-3 离散和区域值 333<br>12-5 自定义选择公式 335<br>12-6 设置排序字段 337<br>12-6-1 SortFields集合 337<br>12-6-2 取得表字段 338<br>12-7 组 338<br>12-7-1 Groups集合 338<br>12-7-2 取得表字段 340<br>12-7-3 排序组 340<br>12-8 打印 346<br>12-9 导出报表 347<br>12-9-1 导出目的地类型 349<br>12-9-2 导出文件名 350<br>12-9-3 导出文件格式 350<br>12-10 异常处理 351<br>结论 354<br>第13章 再谈ReportDocument 355<br>13-1 非类型报表组件(UntypedeportDocument) 356<br>13-1-1 一般的报表组件 356<br>13-1-2 添加非类型报表组件 357<br>13-1-3 加载报表 358<br>13-1-4 使用非类型报表组件 359<br>13-1-5 非类型报表组件的好处——通用性与弹性 359<br>13-2 强类型报表组件(Strongly-typed ReportDocument) 360<br>13-2-1 将报表添加项目 360<br>13-2-2 添加强类型报表组件 361<br>13-2-3 使用强类型报表组件 362<br>13-3 缓存报表 363<br>13-3-1 使用缓存报表 364<br>13-3-2 自定义缓存规则 365<br>13-3-3 “刷新”与缓存 366<br>结论 366<br>第14章 与ADO.NET的集成 367<br>14-1 提取(PULL)与推入(PUSH)模式 368<br>14-1-1 数据库驱动程序 369<br>14-2 Crystal reports报表与ADO.NET 370<br>14-2-1 创建ADO.NET数据集 370<br>14-2-2 以ADO.NET数据集做为数据源的报表 372<br>14-2-3 添加报表组件 374<br>14-2-4 生成ADO.NET数据集的内容 374<br>14-3 访问存储过程 379<br>14-3-1 在Crystal Report Designer中显示数据库中的存储过程 382<br>14-4 与XML数据的集成 382<br>14-4-1 将Dataset存储成XML文件 383<br>14-4-2 将XML文件内容加载数据集 384<br>结论 385<br>第15章 报表与Web Service 387<br>15-1 分布式程序架构 388<br>15-1-1 单机式的Windows应用程序 388<br>15-1-2 Web应用程序 388<br>15-1-3 报表Web服务 389<br>15-2 Crystal服务 389<br>15-2-1 开放ASPNET的访问权限 390<br>15-2-2 服务器文件 391<br>15-2-3 使用“服务器文件” 392<br>15-2-4 “服务器文件”与Web Service 393<br>15-3 将报表变成Web服务 394<br>15-3-1 报表Web服务的好处 395<br>15-4 使用报表Web服务 396<br>结论 398  <br>  <br> </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书特色 <br> 1.从报表设计概念及技巧出发，协助程序开发人员应用Crystal Report设计报表 ，并进一步了解如何在Windows及Web应用程序中整合报表。<br>2.详述各种报表与应用程序的整合做法，包括Windows\Web环境与Web Service技 术的应用，以及如何以报表展现ADO.NET数据等高级议题。<br>3.随书附赠光盘内含大量实例，帮助读者更好地掌握快速、精美以及互动性的设计方式。  <br> </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">郑淑芬，恒逸资讯Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="net Crystal Report实战演练（含盘）" border="1" height="216" src="/Images/BookCovers/9787113049249.jpg" style="border:1px   solid   #B0B0B0" title="net Crystal Report实战演练（含盘）" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：郑淑芬，恒逸资讯
+                                                                    <br />
+                                                                    书名：net Crystal Report实战演练（含盘）<br />
+                                                                    字数：613000<br />
+                                                                    出版时间：2003年2月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787113049249<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥43.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1篇 报表设计<br>第1章 报表与.NET程序概念 3<br>1-1 数据与信息 4<br>1-1-1 报表是信息的表现方式 4<br>1-2 报表设计基本概念 4<br>1-2-1 用户的需求 4<br>1-2-2 报表数据源——数据库 5<br>1-2-3 报表中的内容 5<br>1-2-4 报表数据的表现方式 6<br>1-2-5 报表打印设置 6<br>1-3 数据库基本概念 6<br>1-4 Visual Studio.NET与Crystal Report 8<br>1-4-1 Windows报表 9<br>1-4-2 Web报表 9<br>1-5 创建第一个报表程序 12<br>1-5-1 第一阶段：创建Windows应用程序 12<br>1-5-2 第二阶段：设计Crystal Report报表 14<br>1-5-3 第三阶段：编写程序 17<br>1-5-4 编译并执行你的第一个报表程序 18<br>第2章 Visual Studio.net与Crystal Report设计环境 19<br>2-1 Visual Studio.NET 20<br>2-1-1 Visual Studio.NET的项目类型 20<br>2-1-2 项目开发环境 21<br>2-1-3 引用 25<br>2-1-4 创建新项目 25<br>2-1-5 方案与项目 26<br>2-2 Crystal Reports for Visual Studio.NET 28<br>2-2-1 Crystal Report Designer 28<br>2-2-2 Crystal Report工具条 28<br>2-2-3 节 29<br>2-2-4 字段资源管理器 32<br>2-2-5 Crystal Report专家 36<br>2-3 报表设计基本技巧 39<br>2-3-1 添加文本对象 39<br>2-3-2 添加数据库字段及其他字段 40<br>2-3-3 添加线、框、图片、图表 40<br>2-3-4 样式设置 41<br>2-3-5 大小调整 42<br>2-3-6 移动 43<br>2-3-7 对齐多个对象及大小 43<br>2-3-8 报表大小 44<br>结论 44<br>第3章 数据选取与排序 45<br>3-1 选择专家(Select Expert) 46<br>3-2 选择字段 49<br>3-3 选择条件 49<br>3-3-1 “属于(is one of)”与“不属于(is not one of)” 51<br>3-3-2 “起始为(starts with)”与“起始不为(does not start with)” 51<br>3-3-3 “类似(is like)”与“不类似(is not like)” 52<br>3-4 日期数据的查询 53<br>3-4-1 “在周期内(in the period)”与“不在周期内(not in the period)” 53<br>3-4-2 指定报表打印日期 54<br>3-5 大小写视为相异/同 56<br>3-6 套用多个选择条件 56<br>3-7 排序(Sort) 60<br>3-7-1 排序字段与排序方式 62<br>3-7-2 多重排序 64<br>第4章 组 67<br>4-1 设置组 69<br>4-1-1 字段 69<br>4-1-2 排序方式 70<br>4-1-3 将组放在同一页上 70<br>4-1-4 在每个页面上重复组页眉 71<br>4-2 组的首尾 73<br>4-2-1 组页眉 74<br>4-2-2 组页脚 77<br>4-3 组树状结构 77<br>4-4 嵌套组(Nested Groups) 78<br>4-4-1 组间的次序 79<br>4-4-2 调整嵌套组的次序 80<br>4-5 自定义组 82<br>4-5-1 设置组条件 82<br>4-5-2 “其他”组 84<br>4-6 依日期组 87<br>4-7 组排序及选取 88<br>4-8 组汇总(Summary) 90<br>4-8-1 小计(Subtotal) 91<br>4-8-2 汇总(Summary)vs.小计(Subtotal) 91<br>4-8-3 总计(Grand Total) 92<br>4-8-4 以百分比显示 94<br>4-9 累加值(Running Total) 95<br>4-9-1 可做到与“总计”或“汇总”相同的效果 95<br>4-9-2 “求值”决定何时计算 95<br>4-9-3 “重置”条件决定累加值的范围 96<br>4-9-4 累加值的放置节 98<br>4-10 层次式组(Hierarchical Group) 99<br>4-10-1 “父ID字段”及“次ID字段” 100<br>结论 102<br>第5章 公式的创建与应用 103<br>5-1 公式字段（Formula Fields） 104<br>5-2 公式编辑器（Formula Editor） 105<br>5-2-1 报表字段 105<br>5-2-2 Crystal Reports内置函数 106<br>5-2-3 运算符 106<br>5-2-4 决定公式语法 107<br>5-2-5 公式编辑区 108<br>5-3 编写公式的基本规则 109<br>5-3-1 文字都需放在引号中 109<br>5-3-2 程序注释 109<br>5-3-3 字段以{…}标识 110<br>5-3-4 参数需放在（…）中 110<br>5-3-5 大小写视为相同 110<br>5-4 公式返回值 110<br>5-4-1 Basic语法以Formula返回值 110<br>5-4-2 只能有一个返回值 111<br>5-4-3 返回值可重复设置，但是只接受相同类型的数据 111<br>5-4-4 返回值决定格式化的方式 111<br>5-5 公式基本应用 113<br>5-5-1 数学运算 113<br>5-5-2 布尔判断 114<br>5-5-3 字符串处理 114<br>5-5-4 日期计算 114<br>5-5-5 条件判断 115<br>5-6 新建公式字段至报表 116<br>5-7 公式的应用 117<br>5-7-1 样式设置 117<br>5-7-2 数据选取（Record Selection） 122<br>5-7-3 组 127<br>5-7-4 条件式累加值 130<br>结论 131<br>第6章 再谈公式与Basic语法 133<br>6-1 公式中的限制 134<br>6-2 Basic语法 134<br>6-3 简单数据类型 134<br>6-3-1 数字（Number） 135<br>6-3-2 货币（Currency） 135<br>6-3-3 字符串（String） 135<br>6-3-4 布尔值（Boolean） 135<br>6-3-5 日期及时间（Date、Time及Date Time） 135<br>6-4 变量声明 136<br>6-4-1 变量名称 136<br>6-4-2 数据类型 136<br>6-4-3 在同一行声明多个变量 137<br>6-4-4 指定变量值 137<br>6-4-5 善用变量让公式更有效率 138<br>6-5 范围变量 138<br>6-5-1 使用To指定封闭式范围 139<br>6-5-2 使用Is指定开放式范围 139<br>6-5-3 以In判断是否在范围内 139<br>6-6 自动类型转换 139<br>6-7 数组 140<br>6-7-1 存放简单类型的数组 140<br>6-7-2 访问数组中的元素 141<br>6-7-3 访问数组中的部分元素 141<br>6-7-4 存放范围变量的数组 142<br>6-8 运算符 142<br>6-8-1 比较运算符 142<br>6-8-2 布尔运算符 143<br>6-8-3 算术运算符 143<br>6-8-4 运算符的优先级 144<br>6-9 控制程序流程 145<br>6-9-1 If-Then-Else 145<br>6-9-2 Select Case 147<br>6-9-3 For/Next 149<br>6-9-4 While 151<br>6-9-5 Do 152<br>6-9-6 避免无限循环 154<br>6-9-7 循环的限制 154<br>6-10 全局变量与共享变量 155<br>6-10-1 跨公式的全局变量 156<br>6-10-2 跨主报表与子报表的共享变量 157<br>6-11 公式执行顺序 158<br>6-11-1 报表处理模型 158<br>6-12 Crystal Reports内置函数 160<br>6-12-1 字符串 160<br>6-12-2 日期时间 165<br>6-12-3 数据类型转换 170<br>6-12-4 数组 172<br>6-12-5 格式化 174<br>6-12-6 判断Null 177<br>6-12-7 打印状态 177<br>结论 178<br>第7章 参数 179<br>7-1 创建参数字段 181<br>7-1-1 参数名称 182<br>7-1-2 提示信息 182<br>7-2 数据类型 182<br>7-3 方便用户选取的默认值列表框 183<br>7-3-1 创建默认值列表框 184<br>7-3-2 添加自定义默认值 184<br>7-3-3 导入选取列表框 185<br>7-3-4 由表提供默认值 185<br>7-4 允许修改默认值 186<br>7-5 多重数值 188<br>7-5-1 离散值（Discrete Value） 189<br>7-5-2 区域值（Range Value） 189<br>7-5-3 离散和区域值（Discrete and Range Values） 190<br>7-6 参数的应用 191<br>7-6-1 文本对象 191<br>7-6-2 设置报表格式 192<br>7-6-3 公式 194<br>7-6-4 数据选取 197<br>7-6-5 组选取 199<br>7-6-6 排序 203<br>结论 206<br>第8章 子报表 207<br>8-1 什么是子报表 208<br>8-1-1 子报表与主报表的差别 208<br>8-1-2 什么时候该用子报表 208<br>8-2 新建子报表 209<br>8-3 未连接子报表与已连接子报表 210<br>8-3-1 未连接子报表（Unlinked Subreport） 210<br>8-3-2 已连接子报表（Linked Subreport） 210<br>8-4 未连接子报表 211<br>8-5 已连接子报表 213<br>8-5-1 主报表如何连接子报表 213<br>8-5-2 创建连接子报表 215<br>8-5-3 再谈连接子报表 218<br>8-5-4 利用子报表克服报表的限制 221<br>8-6 按需要显示子报表（On-demand Subreport） 224<br>8-6-1 创建按需要显示子报表 225<br>8-6-2 自定义子报表标题 227<br>8-6-3 动态标题 228<br>8-7 更新子报表 228<br>8-8 更改子报表的类型 229<br>8-8-1 切换为连接子报表 229<br>8-8-2 切换为按需要显示子报表 230<br>8-8-3 切换为未连接子报表 230<br>结论 230<br>第9章 样式与图表 231<br>9-1 样式 232<br>9-1-1 对象的属性窗口 232<br>9-1-2 样式专家 232<br>9-2 节 233<br>9-2-1 节专家 237<br>9-3 线与框 239<br>9-4 图片 240<br>9-4-1 添加背景图 240<br>9-5 超级链接 242<br>9-6 OLE对象 244<br>9-7 图表 245<br>9-7-1 位置对图表的影响 245<br>9-7-2 图表类型 245<br>9-7-3 深化（Drill-Down） 246<br>9-7-4 数据配置方式 247<br>9-7-5 饼图 249<br>9-7-6 编辑标题文字 252<br>9-7-7 图例 253<br>9-7-8 数值坐标网格与刻度 254<br>9-8 添加交叉表 254<br>结论 257<br>第2篇 报表与.NET应用程序的集成<br>第10章 在Windows应用程序中查看报表 261<br>10-1 与Windows应用程序集成基本步骤 262<br>10-1-1 Windows 窗体 262<br>10-1-2 添加CrystalReportViewer控件 264<br>10-1-3 编译及执行Windows程序 266<br>10-2 使用报表查看器——CrystalReportViewer 267<br>10-2-1 报表查看器工具条 267<br>10-2-2 组树状结构 269<br>10-2-3 指定报表文件 270<br>10-2-4 浏览报表 272<br>10-3 BlueSky报表查看程序 274<br>10-3-1 窗体的背景图片 274<br>10-3-2 创建Windows应用程序 275<br>10-3-3 新建frmBlueSky窗体 275<br>10-3-4 添加CrystalReportViewer报表查看控件 276<br>10-3-5 以OpenFileDialog控件打开报表文件 276<br>10-3-6 添加按钮 277<br>10-3-7 调用CrystalReportViewer的方法函数 278<br>10-3-8 编译并执行 280<br>10-4 筛选数据 280<br>10-4-1 SelectionFormula 281<br>10-4-2 刷新 281<br>10-4-3 大小写视为相同 281<br>10-5 导出报表 282<br>10-6 打印报表 283<br>10-7 异常处理 283<br>结论 287<br>第11章 Web应用程序与报表 289<br>11-1 Web Form Viewer与Windows Form Viewer的比较 290<br>11-2 集成Web应用程序与报表的基本步骤 292<br>11-2-1 Web应用程序项目 292<br>11-2-2 Web 窗体 293<br>11-2-3 添加Web Form Viewer控件 295<br>11-2-4 以DataBindings数据绑定报表文件 296<br>11-2-5 生成与浏览Web 窗体 299<br>11-3 使用Web Form Viewer 300<br>11-3-1 报表查看器工具条 300<br>11-3-2 组树状结构 302<br>11-3-3 调整Web Form Viewer的大小 304<br>11-3-4 页数切换 305<br>11-3-5 大小缩放 306<br>11-3-6 搜索文本 307<br>11-4 my Viewer报表查看网页 308<br>11-4-1 ASP.NET Web应用程序 308<br>11-4-2 添加Web 窗体——myViewer.aspx 309<br>11-4-3 报表查看面板 310<br>11-4-4 CrystalReportViewer报表查看控件 312<br>11-4-5 处理页面切换 312<br>11-4-6 改变组树结构比例 313<br>11-4-7 搜索报表内容 314<br>11-4-8 跳向页 315<br>11-4-9 确保输入值为数字 316<br>11-4-10 调整缩放大小 316<br>11-4-11 指定报表文件 318<br>11-4-12 执行结果 322<br>结论 322<br>第12章 使用ReportDocument做高级处理 323<br>12-1 CrystalReportViewer与ReportDocument 324<br>12-1-1 使用ReprotDocument的注意事项 324<br>12-1-2 查看报表仍旧需要CrystalReportViewer 325<br>12-2 使用ReportDocument 325<br>12-2-1 引用组件 325<br>12-2-2 导入命名空间 326<br>12-3 登录数据库 326<br>12-3-1 加载报表 327<br>12-3-2 设定数据库登录信息 328<br>12-3-3 文件型数据库 329<br>12-3-4 套用登录信息 329<br>12-4 设置参数 330<br>12-4-1 离散值(Discrete Value) 330<br>12-4-2 区域值(Range Value) 332<br>12-4-3 离散和区域值 333<br>12-5 自定义选择公式 335<br>12-6 设置排序字段 337<br>12-6-1 SortFields集合 337<br>12-6-2 取得表字段 338<br>12-7 组 338<br>12-7-1 Groups集合 338<br>12-7-2 取得表字段 340<br>12-7-3 排序组 340<br>12-8 打印 346<br>12-9 导出报表 347<br>12-9-1 导出目的地类型 349<br>12-9-2 导出文件名 350<br>12-9-3 导出文件格式 350<br>12-10 异常处理 351<br>结论 354<br>第13章 再谈ReportDocument 355<br>13-1 非类型报表组件(UntypedeportDocument) 356<br>13-1-1 一般的报表组件 356<br>13-1-2 添加非类型报表组件 357<br>13-1-3 加载报表 358<br>13-1-4 使用非类型报表组件 359<br>13-1-5 非类型报表组件的好处——通用性与弹性 359<br>13-2 强类型报表组件(Strongly-typed ReportDocument) 360<br>13-2-1 将报表添加项目 360<br>13-2-2 添加强类型报表组件 361<br>13-2-3 使用强类型报表组件 362<br>13-3 缓存报表 363<br>13-3-1 使用缓存报表 364<br>13-3-2 自定义缓存规则 365<br>13-3-3 “刷新”与缓存 366<br>结论 366<br>第14章 与ADO.NET的集成 367<br>14-1 提取(PULL)与推入(PUSH)模式 368<br>14-1-1 数据库驱动程序 369<br>14-2 Crystal reports报表与ADO.NET 370<br>14-2-1 创建ADO.NET数据集 370<br>14-2-2 以ADO.NET数据集做为数据源的报表 372<br>14-2-3 添加报表组件 374<br>14-2-4 生成ADO.NET数据集的内容 374<br>14-3 访问存储过程 379<br>14-3-1 在Crystal Report Designer中显示数据库中的存储过程 382<br>14-4 与XML数据的集成 382<br>14-4-1 将Dataset存储成XML文件 383<br>14-4-2 将XML文件内容加载数据集 384<br>结论 385<br>第15章 报表与Web Service 387<br>15-1 分布式程序架构 388<br>15-1-1 单机式的Windows应用程序 388<br>15-1-2 Web应用程序 388<br>15-1-3 报表Web服务 389<br>15-2 Crystal服务 389<br>15-2-1 开放ASPNET的访问权限 390<br>15-2-2 服务器文件 391<br>15-2-3 使用“服务器文件” 392<br>15-2-4 “服务器文件”与Web Service 393<br>15-3 将报表变成Web服务 394<br>15-3-1 报表Web服务的好处 395<br>15-4 使用报表Web服务 396<br>结论 398  <br>  <br> </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书特色 <br> 1.从报表设计概念及技巧出发，协助程序开发人员应用Crystal Report设计报表 ，并进一步了解如何在Windows及Web应用程序中整合报表。<br>2.详述各种报表与应用程序的整合做法，包括Windows\Web环境与Web Service技 术的应用，以及如何以报表展现ADO.NET数据等高级议题。<br>3.随书附赠光盘内含大量实例，帮助读者更好地掌握快速、精美以及互动性的设计方式。  <br> </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">郑淑芬，恒逸资讯Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

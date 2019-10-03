@@ -40,7 +40,7 @@ namespace BookShop.BLL
             {
                 string filePath = Context.Server.MapPath("/Template/BookTemplate.html");
                 string content = File.ReadAllText(filePath);
-                content = content.Replace("$author", model.Author).Replace("$title", model.Title).Replace("$wordCount", model.WordsCount.ToString()).Replace("$publishDate", model.PublishDate.ToLongDateString()).Replace("$isbn", model.ISBN).Replace("$unitPrice", model.UnitPrice.ToString("0.00")).Replace("$toc", model.TOC).Replace("$content", model.ContentDescription).Replace("$authorDesc", model.Author);
+                content = content.Replace("$author", model.Author).Replace("$title", model.Title).Replace("$wordCount", model.WordsCount.ToString()).Replace("$publishDate", model.PublishDate.ToLongDateString()).Replace("$isbn", model.ISBN).Replace("$unitPrice", model.UnitPrice.ToString("0.00")).Replace("$toc", model.TOC).Replace("$content", model.ContentDescription).Replace("$authorDesc", model.Author).Replace("$bookId",model.Id.ToString());
                 string dir = "StaticPage"+"/" + model.PublishDate.Year + "/" + model.PublishDate.Month + "/" + model.PublishDate.Day + "/";
                 if (!Directory.Exists(Context.Server.MapPath(dir)))
                 {

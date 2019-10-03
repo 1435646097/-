@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5147, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5147 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">专家门诊：JSP开发答疑200问（附CD-ROM光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="专家门诊：JSP开发答疑200问（附CD-ROM光盘一张）" border="1" height="216"  src="/Images/BookCovers/9787115137449.jpg" style="border:1px   solid   #B0B0B0" title="专家门诊：JSP开发答疑200问（附CD-ROM光盘一张）" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：马斗，邱哲，王俊标  编著
-                                        <br />
-                                        书名：专家门诊：JSP开发答疑200问（附CD-ROM光盘一张）<br />
-                                        字数：771000<br />
-                                        出版时间：2005年10月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115137449<br />
-                                        <font color="#CC3300">本网价：<strong>￥52.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        专家门诊：JSP开发答疑200问（附CD-ROM光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章　开发环境的搭建　1<br>1. 如何配置Eclipse+Tomcat+Lomboz开发环境　2<br>2. 如何配置JBuilder + Tomcat开发环境　7<br>3. 如何将Tomcat的默认首页换成自定义的首页　9<br>4. 如何集成Tomcat与Apache服务器　10<br>5. 如何集成Tomcat与IIS　15<br>6. 如何将Tomcat嵌入到Java应用程序中　18<br>7. JSP相比于其他技术(ASP和PHP等)有什么优势　19<br>8. 在Tomcat下有哪几种发布JSP应用程序的方法　20<br><br>第2章　JSP基本应用　23<br>9. 如何记录一个页面被访问的次数　24<br>10. 如何使用JSP page指令生成动态网页　25<br>11. 如何通过使用JSP指令生成Word和Excel文档　27<br>12. include指令和include动作的区别是什么　28<br>13. 如何使用<jsp:include>动作保护Web页面　30<br>14. 有哪几种方法可以实现页面间跳转　30<br>15. 如何在JSP页面间传递参数　31<br>16. 如何实现JSP网页模板　33<br>17. 如何在JSP页面中包含Applet　34<br>18. 如何实现Applet与JavaScript的通信　36<br>19. 如何在Applet中显示另一个HTML页面　37<br>20. 如何正确显示文本域的内容　38<br>21. 如何给页面添加打印功能　40<br>22. 如何为JSP页面添加日期选择功能　42<br>23. 如何为JSP页面添加日历功能　43<br>24. 如何实现二级联动下拉菜单功能　44<br>25. 如何判断字符串是否以指定字符串开头或结束　46<br>26. 如何检测一个字符串的出现次数　46<br>27. 如何判断字符是否是英文字符或数字　47<br>28. 如何判断两个对象是否相等　48<br>29. 如何使用迭代器遍历集合　50<br>30. 如何使用枚举对象　51<br>31. 如何使用特定字符串对一个字符串进行分割　52<br>32. 如何对较长的字符串省略显示　53<br>33. 如何格式化输出数字和字符串　54<br>34. 如何进行String类型和其他原生数据类型之间的转化　57<br>35. 如何进行日期时间有关的操作　57<br>36. 如何生成一定范围内的随机数　60<br>37. 如何调用其他应用程序　61<br>38. 如何操作大整数　63<br><br>第3章　JSP内建对象　65<br>39. 什么是变量作用域　66<br>40. 如何使用request对象进行参数存取　67<br>41. 如何使用session对象进行参数存取　71<br>42. 如何使用application对象进行参数存取　73<br>43. session和cookie的区别是什么　74<br>44. 如何使用cookie记录用户的偏好　75<br>45. 如何使用cookie记录用户访问次数　76<br>46. 如何使用session对象防止表单重复提交　78<br>47. 如何使session强制失效　80<br>48. 如何获取用户真实的IP地址　81<br>49. 如何获取用户的浏览器信息　82<br>50. 如何在JSP中获取当前绝对路径　84<br>51. 如何取得请求中的所有参数　85<br>52. 如何获取完整的请求URL　86<br>53. 如何判断session是否过期　89<br>54. 如何利用Referer报头跟踪广告在不同网站的点击率　90<br>55. 如何在重新显示表单时保留用户已输入的合法数据　91<br>56. 如何在response对象中控制页面缓存　95<br>57. 如何利用application对象进行站点访问计数　97<br><br>第4章　Servlet基础　101<br>58. Servlet和JSP之间的关系是什么　102<br>59. 如何理解Servlet的生命周期　102<br>60. 有哪些常用的Servlet API　103<br>61. 如何开发并部署一个Servlet　107<br>62. 如何取得配置文件中Servlet的参数　109<br>63. 如何取得配置文件中的全局参数　111<br>64. 如何使服务器启动时就加载并初始化Servlet的实例　112<br>65. 如何使Servlet成为线程安全的　112<br>66. sendRedirect和forward的区别是什么　114<br>67. 在Servlet中如何压缩响应的Web页面　115<br>68. 如何处理含有文件上传和正常参数混合的表单提交　116<br>69. 如何访问标准的CGI变量　118<br>70. 如何使用ServletContext　120<br>71. 如何使用RequestDispatcher　121<br>72. Servlet之间以及与JSP间如何通信　122<br>73. 如何获取当前绝对路径　124<br>74. 如何在Servlet中操作cookie　125<br>75. 如何使用Servlet生成JPEG图像　127<br>76. 如何实现Applet与Servlet的通信　129<br>77. 如何使用JavaBean由Servlet向JSP传递数据　130<br>78. 如何在Servlet中根据请求参数自动填充Java对象　132<br>79. 如何将一个JSP应用程序打成war包　134<br>80. 如何实现投票系统　135<br>81. 如何设置HTTP应答头　137<br>82. 如何在JSP或Servlet中调用DLL　138<br>83. 如何在JSP中调用ActiveX控件　140<br><br>第5章　JavaBean及高级应用技巧　143<br>84. 如何在JSP页面中使用JavaBean　144<br>85. 如何设置和获取JavaBean的属性　145<br>86. 如何在不同范围内共享JavaBean　147<br>87. 如何设置JavaBean的一个属性与输入参数关联　149<br>88. 如何将Bean的所有属性与请求参数关联　150<br>89. 如何使用JavaBean访问数据库　150<br>90. 如何使用JavaBean实现分页处理　152<br>91. 如何实现对服务器上的目录结构的浏览　156<br>92. 如何实现三层Web应用　158<br>93. 如何使用SmartUpload实现文件上传　158<br>94. 如何生成JSP彩色验证码　160<br>95. 如何在JSP中用JavaBean生成柱状图　163<br>96. 如何提高JSP性能　166<br>97. 如何使用iReport和Jasperreport整合开发Web报表　168<br>98. 如何用JavaBean在JSP页面实现进度条　171<br>99. 如何实现支持HTML标记的留言本　174<br>100. 如何实现基于数据库的站内检索　178<br>101. 如何实现电子邮件自动发送　179<br>102. 如何发送HTML格式的邮件　182<br>103. 如何发送带有附件的邮件　184<br>104. 如何发送邮件给多个接收者　186<br>105. 如何查看服务器上的邮件列表信息　187<br>106. 如何删除服务器上的邮件　190<br>107. 如何使用POI组件操作Excel　191<br>108. 如何使用JXL组件操作Excel　193<br>109. 使用iText生成PDF　195<br>110. 如何不借助第三方组件实现Word、Excel报表格式打印　196<br><br>第6章　JSP高级组件　203<br>111. 如何开发并部署自己的标记　204<br>112. 如何使用自定义标记实现分页　207<br>113. 如何使用DisplayTag标记库　217<br>114. 如何使用JSTL实现条件性输出　219<br>115. 如何使用JSTL实现迭代　221<br>116. 如何使用表达式语言　226<br>117. 如何阻止表达式语言的求值　229<br>118. 如何阻止脚本元素的使用　231<br>119. 如何访问作用域变量　231<br>120. 如何访问Bean的属性　234<br>121. 如何访问集合　238<br>122. 如何引用隐式对象　240<br>123. 如何使用过滤器对响应页面中的敏感字进行过滤　241<br>124. 如何使用过滤器实现身份验证　243<br>125. 如何使用过滤器进行网站流量统计记录　244<br>126. 如何使用过滤器给图片加入水印　246<br>127. Servlet有哪些监听器，可以监听哪些事件　250<br>128. 如何利用监听器实现在线人数统计　251<br>129. 如何利用监听器记录session中属性信息的变化　253<br>130. 如何利用session监听器记录用户登录日志　254<br><br>第7章　表单验证　257<br>131. get和post方法的区别　258<br>132. 如何解决表单下拉框元素遮挡层元素的问题　258<br>133. 如何取得表单中提交的所有数据　262<br>134. 如何处理表单提交数据中的特殊字符　264<br>135. 为什么服务器端的验证是必需的　266<br>136. 如何验证字符串为空和不超过指定长度　266<br>137. 如何验证数字、整数、电子邮件　268<br>138. 如何验证字符串中包含有效字符　272<br>139. 如何验证IP地址　274<br>140. 如何验证日期时间　276<br>141. 如何验证汉字　278<br><br>第8章　文件处理和XML技术　281<br>142. 如何使用遍历文件目录　282<br>143. 如何访问Windows注册表　284<br>144. 如何访问类路径上的资源文件　287<br>145. 如何操作文件和目录　289<br>146. 如何使用Java I/O流技术读写文件　291<br>147. 如何获取文件属性　293<br>148. 如何使用XML文件存储持久化对象　294<br>149. 如何结合XML和XSL输出HTML页面　297<br>150. 如何使用JSP技术生成XML文档　300<br>151. 如何使用XML配置文件　302<br>152. 如何使用SAX和DOM读取XML文件　304<br>153. 如何将HTML文件转换成XML文件　309<br><br>第9章　数据库连接和访问技术　313<br>154. 什么是JDBC　314<br>155. 如何使用JDBC访问各种数据库　315<br>156. 如何使数据库连接信息可配置化　316<br>157. 如何防范SQL注入　318<br>158. 为何不宜在页面中操纵ResultSet　320<br>159. 如何获取数据库信息　321<br>160. 如何实现分段读取和排行　322<br>161. 如何存取Blob/Clob类型的大对象　324<br>162. 如何选取和生成主键　325<br>163. 如何理解数据库连接池　327<br>164. 如何配置Tomcat连接池和数据源　328<br>165. 如何配置WebLogic连接池和数据源　332<br>166. 如何应用DAO设计模式操作数据库　343<br>167. 如何用事务保证数据一致性和安全性　347<br><br>第10章　JSP技术安全　351<br>168. 如何禁止列出站点文件目录　352<br>169. 如何防止用户直接输入地址访问JSP文件　353<br>170. 如何防止表单重复提交　356<br>171. 如何使页面全屏显示　359<br>172. 如何在页面中屏蔽鼠标右键　361<br>173. 如何在页面中屏蔽键盘功能键　362<br>174. 如何禁止用户复制网页内容　363<br>175. 如何在web.xml中进行安全性配置　365<br>176. JSP提供了哪些登录和验证方式　366<br>177. 如何实现基本验证方式　368<br>178. 如何实现表单验证方式　369<br>179. 如何实现摘要验证方式　371<br>180. 什么是客户凭证验证方式　372<br>181. 如何实现数字签名加密技术　373<br>182. 如何使用JAAS实现用户登录认证　375<br>183. 如何使用LDAP实现权限控制　378<br>184. 如何使用MD5对密码等进行加密　378<br>185. 如何使用户安全退出　385<br>186. 如何建立SSL方式连接　388<br>187. 如何保护Java代码不被暴露　390<br>188. 如何使用混淆器保护Java代码　391<br>189. 如何拒绝Get方式的请求　393<br>190. 如何向客户隐藏底层错误信息　395<br>191. 如何覆盖Invoker Servlet和部署Servlet　397<br>192. 如何将出现在地址栏中的参数变为乱码　398<br>193. 如何实现不在地址栏显示当前URL　399<br><br>第11章　编码专题　401<br>194. 如何进行各种字符编码间的转换　402<br>195. 如何正确显示JSP文件中的中文　403<br>196. 如何正确显示MySQL数据库中的中文　404<br>197. 如何处理表单输入域的中文　405<br>198. 如何处理上传中的中文乱码问题　408<br>199. 如何使用过滤器设置请求编码　410<br>200. 如何使JSP程序国际化　412<br><br>第12章　异常处理、调试及发布　415<br>201. 如何理解Java的异常处理机制　416<br>202. 页面中抛出NullPointerException异常可能有哪些原因　418<br>203. Web应用未能被服务器启动是怎么回事　419<br>204. JSP开发中有哪些常见错误　422<br>205. 如何对错误准确定位　425<br>206. 如何使浏览器显示友好的错误信息　426<br>207. 调试JSP和Servlet有哪些方法　428<br>208. 如何在Eclipse中调试JSP　432<br>209. 对JSP页面修改后为什么没有反应　435<br>210. 如何使用Log4j打印调试信息　436<br>211. 如何使用JUnit测试JSP程序　439<br>212. 如何使用Cactus进行测试　441<br>213. 如何使用HttpUnit进行集成测试　444<br>214. 如何将Web应用打为war包　447<br>215. 如何利用Ant实现自动发布　448<br>216. 如何在Eclipse中进行版本控制　451<br>217. 如何使用Log4j记录日志　453<br><br>第13章　Struts专题　457<br>218. Struts带来的好处是什么　458<br>219. 如何开发一个Struts应用程序　459<br>220. Struts配置文件的功能是什么　464<br>221. 如何使用Validator框架实现表单自动验证　468<br>222. 如何使用动态ActionForm　471<br>223. Struts中有哪些标记库　472<br>224. 如何使用Struts HTML标记库　473<br>225. 如何使用Struts Bean标记库　477<br>226. 如何使用Struts Logic标记库　481<br>227. 如何使用Struts Template标记库　484<br>228. 如何使用Token防止表单重复提交　485<br>229. 如何使用资源包实现国际化　487<br>230. 如何扩展Struts框架核心类　489<br>231. 如何实现Struts应用分模块开发　490 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书精选了230多个实用性很强的问题和常用需求，旨在帮助读者解决在JSP应用程序开发中经常遇到的实际问题，提高程序开发效率。本书内容涵盖了搭建开发环境、JSP基础知识、JavaBean高级应用、JSP高级组件、表单验证、文件处理与XML技术、数据库连接与访问技术、JSP安全、异常处理与调试发布、Struts专题等内容。本书所列出的问题均是在经过充分调研的基础上，从实际开发项目中总结出来的典型问题，问题的解决方法也注重实用性。本书每节都提供有程序设计示例代码。<br>　　本书适合于已经初步掌握JSP编程概念、方法的读者阅读，可以帮助读者迅速掌握实际应用中的开发技巧。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">马斗，邱哲，王俊标  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="专家门诊：JSP开发答疑200问（附CD-ROM光盘一张）" border="1" height="216" src="/Images/BookCovers/9787115137449.jpg" style="border:1px   solid   #B0B0B0" title="专家门诊：JSP开发答疑200问（附CD-ROM光盘一张）" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：马斗，邱哲，王俊标  编著
+                                                                    <br />
+                                                                    书名：专家门诊：JSP开发答疑200问（附CD-ROM光盘一张）<br />
+                                                                    字数：771000<br />
+                                                                    出版时间：2005年10月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115137449<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥52.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章　开发环境的搭建　1<br>1. 如何配置Eclipse+Tomcat+Lomboz开发环境　2<br>2. 如何配置JBuilder + Tomcat开发环境　7<br>3. 如何将Tomcat的默认首页换成自定义的首页　9<br>4. 如何集成Tomcat与Apache服务器　10<br>5. 如何集成Tomcat与IIS　15<br>6. 如何将Tomcat嵌入到Java应用程序中　18<br>7. JSP相比于其他技术(ASP和PHP等)有什么优势　19<br>8. 在Tomcat下有哪几种发布JSP应用程序的方法　20<br><br>第2章　JSP基本应用　23<br>9. 如何记录一个页面被访问的次数　24<br>10. 如何使用JSP page指令生成动态网页　25<br>11. 如何通过使用JSP指令生成Word和Excel文档　27<br>12. include指令和include动作的区别是什么　28<br>13. 如何使用<jsp:include>动作保护Web页面　30<br>14. 有哪几种方法可以实现页面间跳转　30<br>15. 如何在JSP页面间传递参数　31<br>16. 如何实现JSP网页模板　33<br>17. 如何在JSP页面中包含Applet　34<br>18. 如何实现Applet与JavaScript的通信　36<br>19. 如何在Applet中显示另一个HTML页面　37<br>20. 如何正确显示文本域的内容　38<br>21. 如何给页面添加打印功能　40<br>22. 如何为JSP页面添加日期选择功能　42<br>23. 如何为JSP页面添加日历功能　43<br>24. 如何实现二级联动下拉菜单功能　44<br>25. 如何判断字符串是否以指定字符串开头或结束　46<br>26. 如何检测一个字符串的出现次数　46<br>27. 如何判断字符是否是英文字符或数字　47<br>28. 如何判断两个对象是否相等　48<br>29. 如何使用迭代器遍历集合　50<br>30. 如何使用枚举对象　51<br>31. 如何使用特定字符串对一个字符串进行分割　52<br>32. 如何对较长的字符串省略显示　53<br>33. 如何格式化输出数字和字符串　54<br>34. 如何进行String类型和其他原生数据类型之间的转化　57<br>35. 如何进行日期时间有关的操作　57<br>36. 如何生成一定范围内的随机数　60<br>37. 如何调用其他应用程序　61<br>38. 如何操作大整数　63<br><br>第3章　JSP内建对象　65<br>39. 什么是变量作用域　66<br>40. 如何使用request对象进行参数存取　67<br>41. 如何使用session对象进行参数存取　71<br>42. 如何使用application对象进行参数存取　73<br>43. session和cookie的区别是什么　74<br>44. 如何使用cookie记录用户的偏好　75<br>45. 如何使用cookie记录用户访问次数　76<br>46. 如何使用session对象防止表单重复提交　78<br>47. 如何使session强制失效　80<br>48. 如何获取用户真实的IP地址　81<br>49. 如何获取用户的浏览器信息　82<br>50. 如何在JSP中获取当前绝对路径　84<br>51. 如何取得请求中的所有参数　85<br>52. 如何获取完整的请求URL　86<br>53. 如何判断session是否过期　89<br>54. 如何利用Referer报头跟踪广告在不同网站的点击率　90<br>55. 如何在重新显示表单时保留用户已输入的合法数据　91<br>56. 如何在response对象中控制页面缓存　95<br>57. 如何利用application对象进行站点访问计数　97<br><br>第4章　Servlet基础　101<br>58. Servlet和JSP之间的关系是什么　102<br>59. 如何理解Servlet的生命周期　102<br>60. 有哪些常用的Servlet API　103<br>61. 如何开发并部署一个Servlet　107<br>62. 如何取得配置文件中Servlet的参数　109<br>63. 如何取得配置文件中的全局参数　111<br>64. 如何使服务器启动时就加载并初始化Servlet的实例　112<br>65. 如何使Servlet成为线程安全的　112<br>66. sendRedirect和forward的区别是什么　114<br>67. 在Servlet中如何压缩响应的Web页面　115<br>68. 如何处理含有文件上传和正常参数混合的表单提交　116<br>69. 如何访问标准的CGI变量　118<br>70. 如何使用ServletContext　120<br>71. 如何使用RequestDispatcher　121<br>72. Servlet之间以及与JSP间如何通信　122<br>73. 如何获取当前绝对路径　124<br>74. 如何在Servlet中操作cookie　125<br>75. 如何使用Servlet生成JPEG图像　127<br>76. 如何实现Applet与Servlet的通信　129<br>77. 如何使用JavaBean由Servlet向JSP传递数据　130<br>78. 如何在Servlet中根据请求参数自动填充Java对象　132<br>79. 如何将一个JSP应用程序打成war包　134<br>80. 如何实现投票系统　135<br>81. 如何设置HTTP应答头　137<br>82. 如何在JSP或Servlet中调用DLL　138<br>83. 如何在JSP中调用ActiveX控件　140<br><br>第5章　JavaBean及高级应用技巧　143<br>84. 如何在JSP页面中使用JavaBean　144<br>85. 如何设置和获取JavaBean的属性　145<br>86. 如何在不同范围内共享JavaBean　147<br>87. 如何设置JavaBean的一个属性与输入参数关联　149<br>88. 如何将Bean的所有属性与请求参数关联　150<br>89. 如何使用JavaBean访问数据库　150<br>90. 如何使用JavaBean实现分页处理　152<br>91. 如何实现对服务器上的目录结构的浏览　156<br>92. 如何实现三层Web应用　158<br>93. 如何使用SmartUpload实现文件上传　158<br>94. 如何生成JSP彩色验证码　160<br>95. 如何在JSP中用JavaBean生成柱状图　163<br>96. 如何提高JSP性能　166<br>97. 如何使用iReport和Jasperreport整合开发Web报表　168<br>98. 如何用JavaBean在JSP页面实现进度条　171<br>99. 如何实现支持HTML标记的留言本　174<br>100. 如何实现基于数据库的站内检索　178<br>101. 如何实现电子邮件自动发送　179<br>102. 如何发送HTML格式的邮件　182<br>103. 如何发送带有附件的邮件　184<br>104. 如何发送邮件给多个接收者　186<br>105. 如何查看服务器上的邮件列表信息　187<br>106. 如何删除服务器上的邮件　190<br>107. 如何使用POI组件操作Excel　191<br>108. 如何使用JXL组件操作Excel　193<br>109. 使用iText生成PDF　195<br>110. 如何不借助第三方组件实现Word、Excel报表格式打印　196<br><br>第6章　JSP高级组件　203<br>111. 如何开发并部署自己的标记　204<br>112. 如何使用自定义标记实现分页　207<br>113. 如何使用DisplayTag标记库　217<br>114. 如何使用JSTL实现条件性输出　219<br>115. 如何使用JSTL实现迭代　221<br>116. 如何使用表达式语言　226<br>117. 如何阻止表达式语言的求值　229<br>118. 如何阻止脚本元素的使用　231<br>119. 如何访问作用域变量　231<br>120. 如何访问Bean的属性　234<br>121. 如何访问集合　238<br>122. 如何引用隐式对象　240<br>123. 如何使用过滤器对响应页面中的敏感字进行过滤　241<br>124. 如何使用过滤器实现身份验证　243<br>125. 如何使用过滤器进行网站流量统计记录　244<br>126. 如何使用过滤器给图片加入水印　246<br>127. Servlet有哪些监听器，可以监听哪些事件　250<br>128. 如何利用监听器实现在线人数统计　251<br>129. 如何利用监听器记录session中属性信息的变化　253<br>130. 如何利用session监听器记录用户登录日志　254<br><br>第7章　表单验证　257<br>131. get和post方法的区别　258<br>132. 如何解决表单下拉框元素遮挡层元素的问题　258<br>133. 如何取得表单中提交的所有数据　262<br>134. 如何处理表单提交数据中的特殊字符　264<br>135. 为什么服务器端的验证是必需的　266<br>136. 如何验证字符串为空和不超过指定长度　266<br>137. 如何验证数字、整数、电子邮件　268<br>138. 如何验证字符串中包含有效字符　272<br>139. 如何验证IP地址　274<br>140. 如何验证日期时间　276<br>141. 如何验证汉字　278<br><br>第8章　文件处理和XML技术　281<br>142. 如何使用遍历文件目录　282<br>143. 如何访问Windows注册表　284<br>144. 如何访问类路径上的资源文件　287<br>145. 如何操作文件和目录　289<br>146. 如何使用Java I/O流技术读写文件　291<br>147. 如何获取文件属性　293<br>148. 如何使用XML文件存储持久化对象　294<br>149. 如何结合XML和XSL输出HTML页面　297<br>150. 如何使用JSP技术生成XML文档　300<br>151. 如何使用XML配置文件　302<br>152. 如何使用SAX和DOM读取XML文件　304<br>153. 如何将HTML文件转换成XML文件　309<br><br>第9章　数据库连接和访问技术　313<br>154. 什么是JDBC　314<br>155. 如何使用JDBC访问各种数据库　315<br>156. 如何使数据库连接信息可配置化　316<br>157. 如何防范SQL注入　318<br>158. 为何不宜在页面中操纵ResultSet　320<br>159. 如何获取数据库信息　321<br>160. 如何实现分段读取和排行　322<br>161. 如何存取Blob/Clob类型的大对象　324<br>162. 如何选取和生成主键　325<br>163. 如何理解数据库连接池　327<br>164. 如何配置Tomcat连接池和数据源　328<br>165. 如何配置WebLogic连接池和数据源　332<br>166. 如何应用DAO设计模式操作数据库　343<br>167. 如何用事务保证数据一致性和安全性　347<br><br>第10章　JSP技术安全　351<br>168. 如何禁止列出站点文件目录　352<br>169. 如何防止用户直接输入地址访问JSP文件　353<br>170. 如何防止表单重复提交　356<br>171. 如何使页面全屏显示　359<br>172. 如何在页面中屏蔽鼠标右键　361<br>173. 如何在页面中屏蔽键盘功能键　362<br>174. 如何禁止用户复制网页内容　363<br>175. 如何在web.xml中进行安全性配置　365<br>176. JSP提供了哪些登录和验证方式　366<br>177. 如何实现基本验证方式　368<br>178. 如何实现表单验证方式　369<br>179. 如何实现摘要验证方式　371<br>180. 什么是客户凭证验证方式　372<br>181. 如何实现数字签名加密技术　373<br>182. 如何使用JAAS实现用户登录认证　375<br>183. 如何使用LDAP实现权限控制　378<br>184. 如何使用MD5对密码等进行加密　378<br>185. 如何使用户安全退出　385<br>186. 如何建立SSL方式连接　388<br>187. 如何保护Java代码不被暴露　390<br>188. 如何使用混淆器保护Java代码　391<br>189. 如何拒绝Get方式的请求　393<br>190. 如何向客户隐藏底层错误信息　395<br>191. 如何覆盖Invoker Servlet和部署Servlet　397<br>192. 如何将出现在地址栏中的参数变为乱码　398<br>193. 如何实现不在地址栏显示当前URL　399<br><br>第11章　编码专题　401<br>194. 如何进行各种字符编码间的转换　402<br>195. 如何正确显示JSP文件中的中文　403<br>196. 如何正确显示MySQL数据库中的中文　404<br>197. 如何处理表单输入域的中文　405<br>198. 如何处理上传中的中文乱码问题　408<br>199. 如何使用过滤器设置请求编码　410<br>200. 如何使JSP程序国际化　412<br><br>第12章　异常处理、调试及发布　415<br>201. 如何理解Java的异常处理机制　416<br>202. 页面中抛出NullPointerException异常可能有哪些原因　418<br>203. Web应用未能被服务器启动是怎么回事　419<br>204. JSP开发中有哪些常见错误　422<br>205. 如何对错误准确定位　425<br>206. 如何使浏览器显示友好的错误信息　426<br>207. 调试JSP和Servlet有哪些方法　428<br>208. 如何在Eclipse中调试JSP　432<br>209. 对JSP页面修改后为什么没有反应　435<br>210. 如何使用Log4j打印调试信息　436<br>211. 如何使用JUnit测试JSP程序　439<br>212. 如何使用Cactus进行测试　441<br>213. 如何使用HttpUnit进行集成测试　444<br>214. 如何将Web应用打为war包　447<br>215. 如何利用Ant实现自动发布　448<br>216. 如何在Eclipse中进行版本控制　451<br>217. 如何使用Log4j记录日志　453<br><br>第13章　Struts专题　457<br>218. Struts带来的好处是什么　458<br>219. 如何开发一个Struts应用程序　459<br>220. Struts配置文件的功能是什么　464<br>221. 如何使用Validator框架实现表单自动验证　468<br>222. 如何使用动态ActionForm　471<br>223. Struts中有哪些标记库　472<br>224. 如何使用Struts HTML标记库　473<br>225. 如何使用Struts Bean标记库　477<br>226. 如何使用Struts Logic标记库　481<br>227. 如何使用Struts Template标记库　484<br>228. 如何使用Token防止表单重复提交　485<br>229. 如何使用资源包实现国际化　487<br>230. 如何扩展Struts框架核心类　489<br>231. 如何实现Struts应用分模块开发　490 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书精选了230多个实用性很强的问题和常用需求，旨在帮助读者解决在JSP应用程序开发中经常遇到的实际问题，提高程序开发效率。本书内容涵盖了搭建开发环境、JSP基础知识、JavaBean高级应用、JSP高级组件、表单验证、文件处理与XML技术、数据库连接与访问技术、JSP安全、异常处理与调试发布、Struts专题等内容。本书所列出的问题均是在经过充分调研的基础上，从实际开发项目中总结出来的典型问题，问题的解决方法也注重实用性。本书每节都提供有程序设计示例代码。<br>　　本书适合于已经初步掌握JSP编程概念、方法的读者阅读，可以帮助读者迅速掌握实际应用中的开发技巧。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">马斗，邱哲，王俊标  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

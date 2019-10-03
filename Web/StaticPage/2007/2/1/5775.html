@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5775, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5775 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张）" border="1" height="216"  src="/Images/BookCovers/9787115138378.jpg" style="border:1px   solid   #B0B0B0" title="精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张）" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：吴亚峰，王鑫磊  编著
-                                        <br />
-                                        书名：精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张）<br />
-                                        字数：931000<br />
-                                        出版时间：2007年2月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115138378<br />
-                                        <font color="#CC3300">本网价：<strong>￥75.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张） <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1篇  起步篇<br>　第1章  NetBeans集成开发环境　<br>　　1.1  NetBeans开发环境的搭建　<br>　　1.2  NetBeans的更新　<br>　　1.3  创建第一个NetBeans项目　<br>　　1.4  NetBeans中的项目模板　<br>　　1.5  NetBeans示例项目的使用　<br>　　1.6  NetBeans开发环境组件介绍　<br>　　1.7  NetBeans常用的快捷键<br>　　1.8  自定义NetBeans开发环境　<br>　　1.9  小结　<br>第2篇  GUI程序设计：Swing/JFC篇<br>　第2章  Swing概述　<br>　　2.1  初识Swing　<br>　　2.2  Swing的特性　<br>　　2.3  Swing与AWT　<br>　　2.4  使用NetBeans开发Swing应用程序　<br>　　2.5  小结　<br>　第3章  Swing/JFC的事件模型基础　<br>　　3.1  概述　<br>　　3.2  AWT与Swing事件　<br>　　3.3  动作事件　<br>　　3.4  键盘事件　<br>　　3.5  鼠标事件　<br>　　3.6  窗口事件　<br>　　3.7  事件适配器　<br>　　3.8  小结<br>　第4章  Swing常用基本控件　<br>　　4.1  Swing控件类　<br>　　4.2  Swing标签　<br>　　4.3  Swing按钮<br>　　4.4  Swing文本框<br>　　4.5  格式化文本框　<br>　　4.6  Swing文本区<br>　　4.7  单选按钮与复选框<br>　　4.8  编辑器面板　<br>　　4.9  小结　<br>　第5章  Swing常用高级控件　<br>　　5.1  Swing列表　<br>　　5.2  Swing组合框　<br>　　5.3  Swing分割窗口　<br>　　5.4  实战：使用NetBeans构建Swing的综合例程<br>　　5.5  小结　<br>　第6章  Swing容器类　<br>　　6.1  Swing框架——JFrame<br>　　6.2  Swing窗口——JWindow05<br>　　6.3  小应用程序——JApplet<br>　　6.4  小结　<br>　第7章  布局管理器　<br>　　7.1  为什么使用布局管理器　<br>　　7.2  Java中的布局管理器　<br>　　7.3  流布局　<br>　　7.4  边框布局<br>　　7.5  网格布局　<br>　　7.6  卡片布局　<br>　　7.7  箱式布局　<br>　　7.8  使用GroupLayout布局管理器<br>　　7.9  空布局<br>　　7.10  用NetBeans开发使用复合布局管理器的程序<br>　　7.11  小结　<br>　第8章  Swing对话框　<br>　　8.1  Swing对话框类——JDialog　<br>　　8.2  使用JOptionPane　<br>　　8.3  文件选择器　<br>　　8.4  颜色选择器　<br>　　8.5  实战：在NetBeans中开发复合对话框的程序　<br>　　8.6  小结　<br>　第9章  Swing菜单　<br>　　9.1  Swing菜单简介　<br>　　9.2  菜单栏——JMenuBar　<br>　　9.3  菜单项——JMenuItem<br>　　9.4  菜单——JMenu　180<br>　　9.5  在NetBeans中使用菜单控件　<br>　　9.6  单选与复选菜单项　<br>　　9.7  弹出式菜单——JPopupMenu<br>　　9.8  小结　<br>　第10章  Java与图像处理　<br>　　10.1  图像类Image　<br>　　10.2  Swing图标ImageIcon　<br>　　10.3  图像处理的高级应用——JPEG编码器　<br>　　10.4  其他编码器介绍　<br>　　10.5  在NetBeans中进行图像处理的案例<br>　　10.6  小结　<br>　第11章  树状列表——JTree　<br>　　11.1  与树有关的一些概念　<br>　　11.2  JTree介绍　<br>　　11.3  默认树模型　<br>　　11.4  默认树节点<br>　　11.5  树路径　<br>　　11.6  树的事件<br>　　11.7  树单元绘制器　<br>　　11.8  在NetBeans中开发树状结构的程序实例　<br>　　11.9  小结<br>　第12章  表格的高级应用　<br>　　12.1  一个使用表格的简单程序　<br>　　12.2  JTable控件介绍用实例　<br>　　12.3  表格模型——TableModel的程序　<br>　　12.4  表格列——TableColumn　<br>　　12.5  表格列模型<br>　　12.6  与表格有关的事件<br>　　12.7  表格编辑器与绘制器　<br>　　12.8  小结　<br>　第13章  Swing线程　<br>　　13.1  一个存在BUG的简单程序　<br>　　13.2  Swing线程的工作原理　<br>　　13.3  解决Swing单线程问题　<br>　　13.4  小结　<br>第3篇  Web开发篇<br>　第14章  Tomcat配置及应用　<br>　　14.1  Tomcat简介<br>　　14.2  安装与配置Tomcat<br>　　14.3  在NetBeans中使用Tomcat　<br>　　14.4  其他Web服务器简介　<br>　　14.5  小结<br>　第15章  JSP技术及应用　<br>　　15.1  JSP概述　<br>　　15.2  在NetBeans中使用JSP　<br>　　15.3  JSP的模板元素　<br>　　15.4  JSP的脚本元素　<br>　　15.5  JSP注释　<br>　　15.6  JSP的指令元素<br>　　15.7  JSP动作元素<br>　　15.8  常用的JSP内建对象　<br>　　15.9  在NetBeans中开发完整的JSP程序<br>　　15.10  小结　<br>　第16章  Servlet技术及应用　<br>　　16.1  Servlet技术简介　<br>　　16.2  开发并部署一个简单的Servlet　<br>　　16.3  在NetBeans中开发与配置Servlet<br>　　16.4  与Servlet有关的常用接口和类<br>　　16.5  使用HttpServlet处理客户端请求　<br>　　16.6  配置Servlet　<br>　　16.7  在NetBeans使用Servlet实现文件上传　<br>　　16.8  小结　<br>　第17章  JavaBean组件模型　<br>　　17.1  JavaBean简介　<br>　　17.2  与JavaBean有关的概念<br>　　17.3  在JSP中使用JavaBean　<br>　　17.4  使用JavaBean封装数据库连接　<br>　　17.5  用JavaBean实现购物车　<br>　　17.6  在Servlet中使用JavaBean<br>　　17.7  HTTP监视器<br>　　17.8  小结　<br>　第18章  开发MVC架构的网上商店　<br>　　18.1  MVC架构介绍　<br>　　18.1.1  JSP的Model 1与Model 2架构　<br>　　18.1.2  MVC模式简介　<br>　　18.2  项目功能演示　<br>　　18.3  模块功能及相互关系说明　<br>　　18.4  查询购买模块的开发<br>　　18.5  开发管理模块　<br>　　18.6  小结　<br>第4篇  Java EE篇<br>　第19章  NetBeans与Java EE　<br>　　19.1  Java EE概述　<br>　　19.2  Enterprise JavaBeans概述<br>　　19.3  NetBeans对Java EE的支持　<br>　　19.4  MySQL数据库<br>　　19.5  在NetBeans中连接Oracle10g　<br>　　19.6  在NetBeans中配置Weblogic 9.0　<br>　　19.7  配置JBoss4.0　<br>　　19.8  在NetBeans中管理DTD/XML库　<br>　　19.9  小结　<br>　第20章  无状态会话Bean——用户消费信息登记　<br>　　20.1  无状态会话Bean简介　<br>　　20.2  项目简介　<br>　　20.3  建立数据库表　<br>　　20.4  创建项目　<br>　　20.5  开发EJB模块　<br>　　20.6  开发Web模块　<br>　　20.7  编译运行整个项目　<br>　　20.8  小结　<br>　第21章  有状态会话Bean——实现购物车　<br>　　21.1  有状态会话Bean简介　<br>　　21.2  项目功能简介　<br>　　21.3  开发EJB模块　<br>　　21.4  开发Web模块<br>　　21.5  编译运行整个项目　<br>　　21.6  小结　<br>　第22章  开发CMP实体Bean——图书信息管理　<br>　　22.1  CMP简介　<br>　　22.2  项目功能介绍　<br>　　22.3  项目的结构及模块功能说明　<br>　　22.4  数据库准备工作　<br>　　22.5  开发CMP模块　<br>　　22.6  开发Web模块<br>　　22.7  编译运行整个项目　<br>　　22.8  小结　<br>　第23章  消息驱动Bean——商品问题反馈系统　<br>　　23.1  Java消息服务<br>　　23.2  基于JMS的消息驱动Bean　<br>　　23.3  开发一个简单的使用消息驱动Bean的程序<br>　　23.4  在NetBeans中开发消息驱动Bean　<br>　　23.4.1  项目功能简介　<br>　　23.5  小结　<br>第5篇  高级工具篇<br>　第24章  使用NetBeans集成已存在的Ant脚本　<br>　　24.1  在NetBeans中使用Ant脚本<br>　　24.2  创建自由格式项目　<br>　　24.3  为项目设置命令令　<br>　　24.4  为文件设置命令<br>　　24.5  更改自由格式项目的目标JDK　<br>　　24.6  小结　<br>　第25章  在NetBeans中使用JUnit　<br>　　25.1  什么是单元测试　<br>　　25.2  JUnit简介　<br>　　25.3  TestCase类简介<br>　　25.4  TestSuite类简介　<br>　　25.5  在NetBean中使用JUnit进行测试　<br>　　25.6  小结　<br>　第26章  NetBeans Profiler：监控应用程序的执行　<br>　　26.1  NetBeans Profiler简介　<br>　　26.2  NetBeans Profiler安装配置　<br>　　26.3  监控Swing应用中的线程状态<br>　　26.4  监控指定方法的CPU使用情况<br>　　26.5  通过NetBeans Profiler寻找内存漏洞　<br>　　26.6  小结　<br>　第27章  将Eclipse项目导入NetBeans　<br>　　27.1  概述　<br>　　27.2  获取与安装Eclipse项目导入器　<br>　　27.3  导入Eclipse项目　<br>　　27.4  小结　<br>附录A  NetBeans 5.0的下载过程　<br>附录B  JDK的简单使用　<br>附录C  NetBeans常用菜单项的中英文对照表　<br>附录D  术语表 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">NetBeans是目前市场上流行的、使用方便的Java集成开发环境。本书结合丰富的程序实例讲述了NetBeans集成开发环境的使用，读者在阅读本书的同时，不仅能够掌握NetBeans的使用，还能学习如何进行项目的开发。 <br>　　本书共分为5篇，第1篇是起步篇，详细地讲述了NetBeans开发环境的各个功能组件。第2篇是Swing/JFC篇，结合具体的实例对开发Swing程序用到的功能组件进行了介绍。第3篇为Web开发篇，结合Tomcat详细地讲述了如何在NetBeans中进行Web程序开发。第4篇为Java EE篇，结合具体的实例讲述了如何在NetBeans中开发企业级程序，以及开发企业级程序需要用到的Java知识。第5篇为高级工具篇介绍了如何在NetBeans中集成已存在的Ant脚本，如何使用JUnit进行单元测试，如何使用NetBeans Profiler进行分析，以及如何将已有的Eclipse项目导入到NetBeans中。<br>　　本书适用于具有一定开发经验的开发人员参考学习使用。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">吴亚峰，王鑫磊  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张）" border="1" height="216" src="/Images/BookCovers/9787115138378.jpg" style="border:1px   solid   #B0B0B0" title="精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张）" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：吴亚峰，王鑫磊  编著
+                                                                    <br />
+                                                                    书名：精通NetBeans——Java桌面、Web与企业级程序开发详解（附光盘一张）<br />
+                                                                    字数：931000<br />
+                                                                    出版时间：2007年2月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115138378<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥75.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1篇  起步篇<br>　第1章  NetBeans集成开发环境　<br>　　1.1  NetBeans开发环境的搭建　<br>　　1.2  NetBeans的更新　<br>　　1.3  创建第一个NetBeans项目　<br>　　1.4  NetBeans中的项目模板　<br>　　1.5  NetBeans示例项目的使用　<br>　　1.6  NetBeans开发环境组件介绍　<br>　　1.7  NetBeans常用的快捷键<br>　　1.8  自定义NetBeans开发环境　<br>　　1.9  小结　<br>第2篇  GUI程序设计：Swing/JFC篇<br>　第2章  Swing概述　<br>　　2.1  初识Swing　<br>　　2.2  Swing的特性　<br>　　2.3  Swing与AWT　<br>　　2.4  使用NetBeans开发Swing应用程序　<br>　　2.5  小结　<br>　第3章  Swing/JFC的事件模型基础　<br>　　3.1  概述　<br>　　3.2  AWT与Swing事件　<br>　　3.3  动作事件　<br>　　3.4  键盘事件　<br>　　3.5  鼠标事件　<br>　　3.6  窗口事件　<br>　　3.7  事件适配器　<br>　　3.8  小结<br>　第4章  Swing常用基本控件　<br>　　4.1  Swing控件类　<br>　　4.2  Swing标签　<br>　　4.3  Swing按钮<br>　　4.4  Swing文本框<br>　　4.5  格式化文本框　<br>　　4.6  Swing文本区<br>　　4.7  单选按钮与复选框<br>　　4.8  编辑器面板　<br>　　4.9  小结　<br>　第5章  Swing常用高级控件　<br>　　5.1  Swing列表　<br>　　5.2  Swing组合框　<br>　　5.3  Swing分割窗口　<br>　　5.4  实战：使用NetBeans构建Swing的综合例程<br>　　5.5  小结　<br>　第6章  Swing容器类　<br>　　6.1  Swing框架——JFrame<br>　　6.2  Swing窗口——JWindow05<br>　　6.3  小应用程序——JApplet<br>　　6.4  小结　<br>　第7章  布局管理器　<br>　　7.1  为什么使用布局管理器　<br>　　7.2  Java中的布局管理器　<br>　　7.3  流布局　<br>　　7.4  边框布局<br>　　7.5  网格布局　<br>　　7.6  卡片布局　<br>　　7.7  箱式布局　<br>　　7.8  使用GroupLayout布局管理器<br>　　7.9  空布局<br>　　7.10  用NetBeans开发使用复合布局管理器的程序<br>　　7.11  小结　<br>　第8章  Swing对话框　<br>　　8.1  Swing对话框类——JDialog　<br>　　8.2  使用JOptionPane　<br>　　8.3  文件选择器　<br>　　8.4  颜色选择器　<br>　　8.5  实战：在NetBeans中开发复合对话框的程序　<br>　　8.6  小结　<br>　第9章  Swing菜单　<br>　　9.1  Swing菜单简介　<br>　　9.2  菜单栏——JMenuBar　<br>　　9.3  菜单项——JMenuItem<br>　　9.4  菜单——JMenu　180<br>　　9.5  在NetBeans中使用菜单控件　<br>　　9.6  单选与复选菜单项　<br>　　9.7  弹出式菜单——JPopupMenu<br>　　9.8  小结　<br>　第10章  Java与图像处理　<br>　　10.1  图像类Image　<br>　　10.2  Swing图标ImageIcon　<br>　　10.3  图像处理的高级应用——JPEG编码器　<br>　　10.4  其他编码器介绍　<br>　　10.5  在NetBeans中进行图像处理的案例<br>　　10.6  小结　<br>　第11章  树状列表——JTree　<br>　　11.1  与树有关的一些概念　<br>　　11.2  JTree介绍　<br>　　11.3  默认树模型　<br>　　11.4  默认树节点<br>　　11.5  树路径　<br>　　11.6  树的事件<br>　　11.7  树单元绘制器　<br>　　11.8  在NetBeans中开发树状结构的程序实例　<br>　　11.9  小结<br>　第12章  表格的高级应用　<br>　　12.1  一个使用表格的简单程序　<br>　　12.2  JTable控件介绍用实例　<br>　　12.3  表格模型——TableModel的程序　<br>　　12.4  表格列——TableColumn　<br>　　12.5  表格列模型<br>　　12.6  与表格有关的事件<br>　　12.7  表格编辑器与绘制器　<br>　　12.8  小结　<br>　第13章  Swing线程　<br>　　13.1  一个存在BUG的简单程序　<br>　　13.2  Swing线程的工作原理　<br>　　13.3  解决Swing单线程问题　<br>　　13.4  小结　<br>第3篇  Web开发篇<br>　第14章  Tomcat配置及应用　<br>　　14.1  Tomcat简介<br>　　14.2  安装与配置Tomcat<br>　　14.3  在NetBeans中使用Tomcat　<br>　　14.4  其他Web服务器简介　<br>　　14.5  小结<br>　第15章  JSP技术及应用　<br>　　15.1  JSP概述　<br>　　15.2  在NetBeans中使用JSP　<br>　　15.3  JSP的模板元素　<br>　　15.4  JSP的脚本元素　<br>　　15.5  JSP注释　<br>　　15.6  JSP的指令元素<br>　　15.7  JSP动作元素<br>　　15.8  常用的JSP内建对象　<br>　　15.9  在NetBeans中开发完整的JSP程序<br>　　15.10  小结　<br>　第16章  Servlet技术及应用　<br>　　16.1  Servlet技术简介　<br>　　16.2  开发并部署一个简单的Servlet　<br>　　16.3  在NetBeans中开发与配置Servlet<br>　　16.4  与Servlet有关的常用接口和类<br>　　16.5  使用HttpServlet处理客户端请求　<br>　　16.6  配置Servlet　<br>　　16.7  在NetBeans使用Servlet实现文件上传　<br>　　16.8  小结　<br>　第17章  JavaBean组件模型　<br>　　17.1  JavaBean简介　<br>　　17.2  与JavaBean有关的概念<br>　　17.3  在JSP中使用JavaBean　<br>　　17.4  使用JavaBean封装数据库连接　<br>　　17.5  用JavaBean实现购物车　<br>　　17.6  在Servlet中使用JavaBean<br>　　17.7  HTTP监视器<br>　　17.8  小结　<br>　第18章  开发MVC架构的网上商店　<br>　　18.1  MVC架构介绍　<br>　　18.1.1  JSP的Model 1与Model 2架构　<br>　　18.1.2  MVC模式简介　<br>　　18.2  项目功能演示　<br>　　18.3  模块功能及相互关系说明　<br>　　18.4  查询购买模块的开发<br>　　18.5  开发管理模块　<br>　　18.6  小结　<br>第4篇  Java EE篇<br>　第19章  NetBeans与Java EE　<br>　　19.1  Java EE概述　<br>　　19.2  Enterprise JavaBeans概述<br>　　19.3  NetBeans对Java EE的支持　<br>　　19.4  MySQL数据库<br>　　19.5  在NetBeans中连接Oracle10g　<br>　　19.6  在NetBeans中配置Weblogic 9.0　<br>　　19.7  配置JBoss4.0　<br>　　19.8  在NetBeans中管理DTD/XML库　<br>　　19.9  小结　<br>　第20章  无状态会话Bean——用户消费信息登记　<br>　　20.1  无状态会话Bean简介　<br>　　20.2  项目简介　<br>　　20.3  建立数据库表　<br>　　20.4  创建项目　<br>　　20.5  开发EJB模块　<br>　　20.6  开发Web模块　<br>　　20.7  编译运行整个项目　<br>　　20.8  小结　<br>　第21章  有状态会话Bean——实现购物车　<br>　　21.1  有状态会话Bean简介　<br>　　21.2  项目功能简介　<br>　　21.3  开发EJB模块　<br>　　21.4  开发Web模块<br>　　21.5  编译运行整个项目　<br>　　21.6  小结　<br>　第22章  开发CMP实体Bean——图书信息管理　<br>　　22.1  CMP简介　<br>　　22.2  项目功能介绍　<br>　　22.3  项目的结构及模块功能说明　<br>　　22.4  数据库准备工作　<br>　　22.5  开发CMP模块　<br>　　22.6  开发Web模块<br>　　22.7  编译运行整个项目　<br>　　22.8  小结　<br>　第23章  消息驱动Bean——商品问题反馈系统　<br>　　23.1  Java消息服务<br>　　23.2  基于JMS的消息驱动Bean　<br>　　23.3  开发一个简单的使用消息驱动Bean的程序<br>　　23.4  在NetBeans中开发消息驱动Bean　<br>　　23.4.1  项目功能简介　<br>　　23.5  小结　<br>第5篇  高级工具篇<br>　第24章  使用NetBeans集成已存在的Ant脚本　<br>　　24.1  在NetBeans中使用Ant脚本<br>　　24.2  创建自由格式项目　<br>　　24.3  为项目设置命令令　<br>　　24.4  为文件设置命令<br>　　24.5  更改自由格式项目的目标JDK　<br>　　24.6  小结　<br>　第25章  在NetBeans中使用JUnit　<br>　　25.1  什么是单元测试　<br>　　25.2  JUnit简介　<br>　　25.3  TestCase类简介<br>　　25.4  TestSuite类简介　<br>　　25.5  在NetBean中使用JUnit进行测试　<br>　　25.6  小结　<br>　第26章  NetBeans Profiler：监控应用程序的执行　<br>　　26.1  NetBeans Profiler简介　<br>　　26.2  NetBeans Profiler安装配置　<br>　　26.3  监控Swing应用中的线程状态<br>　　26.4  监控指定方法的CPU使用情况<br>　　26.5  通过NetBeans Profiler寻找内存漏洞　<br>　　26.6  小结　<br>　第27章  将Eclipse项目导入NetBeans　<br>　　27.1  概述　<br>　　27.2  获取与安装Eclipse项目导入器　<br>　　27.3  导入Eclipse项目　<br>　　27.4  小结　<br>附录A  NetBeans 5.0的下载过程　<br>附录B  JDK的简单使用　<br>附录C  NetBeans常用菜单项的中英文对照表　<br>附录D  术语表 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">NetBeans是目前市场上流行的、使用方便的Java集成开发环境。本书结合丰富的程序实例讲述了NetBeans集成开发环境的使用，读者在阅读本书的同时，不仅能够掌握NetBeans的使用，还能学习如何进行项目的开发。 <br>　　本书共分为5篇，第1篇是起步篇，详细地讲述了NetBeans开发环境的各个功能组件。第2篇是Swing/JFC篇，结合具体的实例对开发Swing程序用到的功能组件进行了介绍。第3篇为Web开发篇，结合Tomcat详细地讲述了如何在NetBeans中进行Web程序开发。第4篇为Java EE篇，结合具体的实例讲述了如何在NetBeans中开发企业级程序，以及开发企业级程序需要用到的Java知识。第5篇为高级工具篇介绍了如何在NetBeans中集成已存在的Ant脚本，如何使用JUnit进行单元测试，如何使用NetBeans Profiler进行分析，以及如何将已有的Eclipse项目导入到NetBeans中。<br>　　本书适用于具有一定开发经验的开发人员参考学习使用。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">吴亚峰，王鑫磊  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

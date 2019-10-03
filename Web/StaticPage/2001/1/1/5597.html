@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5597, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5597 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">HTML&XML网页标记语言易学通 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="HTML&XML网页标记语言易学通" border="1" height="216"  src="/Images/BookCovers/9787115090614.jpg" style="border:1px   solid   #B0B0B0" title="HTML&XML网页标记语言易学通" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：韩江
-                                        <br />
-                                        书名：HTML&XML网页标记语言易学通<br />
-                                        字数：0<br />
-                                        出版时间：2001年1月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115090614<br />
-                                        <font color="#CC3300">本网价：<strong>￥42.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        HTML&XML网页标记语言易学通 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章  HTML简介	1<br>1.1  HTML与SGML	2<br>1.2  HTML的发展简介	4<br>1.2.1  回眸HTML 3.2	4<br>1.2.2  最新的标记语言HTML 4.0	5<br>1.3  开发网页的好帮手--HTML编辑器	6<br>1.3.1  InterDev	6<br>1.3.2  FrontPage	6<br>1.3.3  其他	7<br>1.4  网络浏览器	8<br>第2章  HTML的基础知识	11<br>2.1  快速掌握HTML的标记及属性	12<br>2.2  从"流行音乐时空"开始	15<br>2.3  透析HTML文档结构	17<br>2.3.1  HTML文档结构简述	17<br>2.2.2  主体标记<BODY>详解	18<br>第3章  文本管理	35<br>3.1  文本基本的格式化标记	36<br>3.1.1  使文本以粗体（黑体）显示	37<br>3.1.2  使文本以斜体显示	37<br>3.1.3  使字体以固定宽度显示	38<br>3.1.4  改变字体大小	40<br>3.1.5  改变文本颜色	43<br>3.1.6  添加上、下标	47<br>3.1.7  给指定的文字增加下划线和删除线	47<br>3.2  简单的文本样式	50<br>3.2.1  标题格式的设置	50<br>3.2.2  其他特殊样式的设置	54<br>3.3  有效布置文档空间	55<br>3.3.1  使用<DIV>标记	56<br>3.3.2  使用<BLOCKQUOTE>标记	57<br>3.3.3  使用<PRE>标记	58<br>3.3.4  使用<P>、<BR>标记	60<br>3.3.5  使用<NOBR>标记	61<br>3.3.6  使用<CENTER>标记	63<br>3.3.7  使用<HR>标记	64<br>3.3.8  使用<SPAN>标记	67<br>3.4  让自己的文本漂亮起来	68<br>第4章  建立链接	71<br>4.1  超链接的通道--URL	72<br>4.2  建立链接的主体--锚点	76<br>4.2.1  在本地计算机网页之间跳转	77<br>4.2.2  链接到Internet上其他的页面	79<br>4.3  指定超链接颜色	82<br>4.4  使用TARGET属性调整窗口	82<br>4.5  在文档间漫游	87<br>第5章  列表和表格	93<br>5.1  列表的使用	94<br>5.1.1  如何创建无标志列表	95<br>5.1.2  创建有标志列表	98<br>5.1.3  轻松生成列表嵌套	106<br>5.2  表格的使用	111<br>5.2.1  生成一个表格	114<br>5.2.2  表格单元的操作	115<br>5.2.3  表格的深入使用	121<br>第6章  文档中的图像处理	129<br>6.1  如何在页面中添加图像	130<br>6.2  插入带有格式的图像	132<br>6.3  建立可单击的图像映射	135<br>第7章  样式表	139<br>7.1  级联式样式表的介绍	140<br>7.1.1  级联式样式表的基本规则	141<br>7.1.2  级联式样式表的属性	144<br>7.1.3  应用样式表的几种常用标记	145<br>7.2  级联式样式表的创建方式	148<br>7.2.1  声明方式	148<br>7.2.2  限定范围方式	152<br>7.2.3  归类引用方式	154<br>7.2.4  组合声明方式	155<br>7.2.5  应用ID方式	157<br>7.3  样式遗传与样式冲突的解决	159<br>7.3.1  样式表的继承（遗传）	159<br>7.3.2  样式冲突的解决	161<br>7.4  应用样式表	163<br>7.4.1  文本和字体的属性(Text and Font Properties)	163<br>7.4.2  颜色和背景的属性(Color and Background Properties)	175<br>7.4.3  布局属性(Layout Properties)	182<br>7.4.4  分类属性(Classification Properties)	199<br>7.4.5  位置控制属性(Positioning Properties)	202<br>7.4.6  打印显示属性(Printing Properties)	209<br>7.4.7  过滤属性(Filter Properties)	209<br>7.4.8  虚类属性和其他的属性(Pseudo-Classes and Other Properties)	210<br>7.5  级联样式表的实现	214<br>第8章  表单的应用	219<br>8.1  创建表单	220<br>8.1.1  创建表单的格式	220<br>8.1.2  <FORM>标记的属性	222<br>8.2  表单中应具备的元素	223<br>8.2.1  <INPUT>标记及其属性	224<br>8.2.2  常用的几种表单元素	227<br>8.3  提交表单	235<br>第9章  利用脚本语言开发功能强大的网页	243<br>9.1  JavaScript	245<br>9.1.1  如何使用Java程序	245<br>9.1.2  JavaScript脚本介绍	246<br>9.1.3  JavaScript脚本中的控制语句	249<br>9.1.4  JavaScript脚本的应用	254<br>9.2  VBScript	258<br>9.2.1  VBScript脚本简介	258<br>9.2.2  VBScript脚本变量	259<br>9.2.3  VBScript脚本常量	261<br>9.2.4  VBScript脚本操作符	261<br>9.2.5  VBScript脚本的函数调用	262<br>9.2.6  VBScript脚本控制语句	265<br>9.2.7  VBScript脚本的其他要素	270<br>9.2.8  VBScript脚本的应用	274<br>9.3  动态HTML（DHTML）	276<br>9.3.1  动态过滤效果	276<br>9.3.2  动态转换效果	283<br>9.3.3  动态对象、事件、属性	286<br>9.3.4  动态改变网页内容	293<br>9.3.5  DHTML应用实例	294<br>第10章  HTML文档的发布	297<br>10.1  如何选择浏览器	298<br>10.2  几种优秀的编译平台	298<br>10.3  多文档链接的检验	299<br>10.4  发布文档	300<br>第11章  XML可扩展标记语言	303<br>11.1  HTML的不足	304<br>11.2  XML的特点	305<br>11.3  XML文档的结构	308<br>11.4  XML的发展史	312<br>11.5  XML的应用	313<br>第12章  XML语言入门	315<br>12.1  创建XML文档使用的工具及创建过程	316<br>12.1.1  使用XMLwriter创建"Hello Xml"文档	317<br>12.1.2  分析"Hello Xml"文档	319<br>12.2  给"Hello Xml"添加外部DTD和样式表	321<br>12.2.1  添加DTD来描述数据	321<br>12.2.2  使用XSL对文档进行格式化	322<br>第13章  XML语法浅析	327<br>13.1  XML语法细则	328<br>13.1.1  XML中的文本	328<br>13.1.2  字符的大小写	328<br>13.1.3  XML文档的注释	329<br>13.1.4  实体参考与CDATA	331<br>13.2  XML语法结构	333<br>13.3  XML语言中的标记	336<br>第14章  文档类型定义	339<br>14.1  使用自己的DTD	340<br>14.2  文档类型声明	342<br>14.3  元素类型声明	346<br>14.4  属性类型声明	353<br>14.4.1　书写属性声明	353<br>14.4.2　属性的默认值	360<br>14.4.3  XML文档中默认的两种属性	361<br>14.5  实体类型声明	364<br>14.5.1　通用实体声明	364<br>14.5.2　参数实体声明	367<br>14.6  表示法声明	370<br>14.7  DTD中其他语法应用	371<br>第15章  XSL的开发	375<br>15.1　XHTML的作用	376<br>15.2　XSL文档的基本结构	377<br>15.3　XSL语法初步分析	382<br>15.4　元素节点的位置	386<br>15.5　对XML数据进行处理	389<br>15.5.1　对XML数据排序	389<br>15.5.2  给标记添加数据并输出数据	394<br>15.5.3　对XML文档的数据进行条件处理	398<br>15.6　其他XSL标记	404<br>15.6.1　修饰输出文档的XSL标记	405<br>15.6.2　用于计算数据的标记	409<br>第16章  Schema的作用	411<br>16.1  XML Schema的作用	412<br>16.2  XML Schema的元素定义	412<br>16.3  XML Schema中属性的定义	419<br>16.4  在XML文档中引用XML Schema	421<br>第17章  使用XML DOM	423<br>17.1  使用DOM读取XML文档	424<br>17.2  DOMDocument对象	426<br>17.3  获取XML文档的数据	428 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书循序渐进地讲解了HTML和XML语言，逐步引导读者学习和掌握开发高水平HTML和XML文档所需要的知识。<br>全书分为两部分，分别介绍HTML和XML。HTML部分详细介绍了HTML语言的重要标记以及如何创建表格、列表、超链接，添加图像和表单，并介绍了如何应用脚本语言实现动态HTML和如何应用样式表实现对页面的格式化。XML部分详细介绍了XML语言的特点以及XML的基本语法，并重点介绍了如何创建文档定义（DTD和SCHEMA）和如何创建扩展样式表（XSL）。<br>本书适合HTML和XML的初中级读者学习使用。<br> </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">韩江Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="HTML&XML网页标记语言易学通" border="1" height="216" src="/Images/BookCovers/9787115090614.jpg" style="border:1px   solid   #B0B0B0" title="HTML&XML网页标记语言易学通" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：韩江
+                                                                    <br />
+                                                                    书名：HTML&XML网页标记语言易学通<br />
+                                                                    字数：0<br />
+                                                                    出版时间：2001年1月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115090614<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥42.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章  HTML简介	1<br>1.1  HTML与SGML	2<br>1.2  HTML的发展简介	4<br>1.2.1  回眸HTML 3.2	4<br>1.2.2  最新的标记语言HTML 4.0	5<br>1.3  开发网页的好帮手--HTML编辑器	6<br>1.3.1  InterDev	6<br>1.3.2  FrontPage	6<br>1.3.3  其他	7<br>1.4  网络浏览器	8<br>第2章  HTML的基础知识	11<br>2.1  快速掌握HTML的标记及属性	12<br>2.2  从"流行音乐时空"开始	15<br>2.3  透析HTML文档结构	17<br>2.3.1  HTML文档结构简述	17<br>2.2.2  主体标记<BODY>详解	18<br>第3章  文本管理	35<br>3.1  文本基本的格式化标记	36<br>3.1.1  使文本以粗体（黑体）显示	37<br>3.1.2  使文本以斜体显示	37<br>3.1.3  使字体以固定宽度显示	38<br>3.1.4  改变字体大小	40<br>3.1.5  改变文本颜色	43<br>3.1.6  添加上、下标	47<br>3.1.7  给指定的文字增加下划线和删除线	47<br>3.2  简单的文本样式	50<br>3.2.1  标题格式的设置	50<br>3.2.2  其他特殊样式的设置	54<br>3.3  有效布置文档空间	55<br>3.3.1  使用<DIV>标记	56<br>3.3.2  使用<BLOCKQUOTE>标记	57<br>3.3.3  使用<PRE>标记	58<br>3.3.4  使用<P>、<BR>标记	60<br>3.3.5  使用<NOBR>标记	61<br>3.3.6  使用<CENTER>标记	63<br>3.3.7  使用<HR>标记	64<br>3.3.8  使用<SPAN>标记	67<br>3.4  让自己的文本漂亮起来	68<br>第4章  建立链接	71<br>4.1  超链接的通道--URL	72<br>4.2  建立链接的主体--锚点	76<br>4.2.1  在本地计算机网页之间跳转	77<br>4.2.2  链接到Internet上其他的页面	79<br>4.3  指定超链接颜色	82<br>4.4  使用TARGET属性调整窗口	82<br>4.5  在文档间漫游	87<br>第5章  列表和表格	93<br>5.1  列表的使用	94<br>5.1.1  如何创建无标志列表	95<br>5.1.2  创建有标志列表	98<br>5.1.3  轻松生成列表嵌套	106<br>5.2  表格的使用	111<br>5.2.1  生成一个表格	114<br>5.2.2  表格单元的操作	115<br>5.2.3  表格的深入使用	121<br>第6章  文档中的图像处理	129<br>6.1  如何在页面中添加图像	130<br>6.2  插入带有格式的图像	132<br>6.3  建立可单击的图像映射	135<br>第7章  样式表	139<br>7.1  级联式样式表的介绍	140<br>7.1.1  级联式样式表的基本规则	141<br>7.1.2  级联式样式表的属性	144<br>7.1.3  应用样式表的几种常用标记	145<br>7.2  级联式样式表的创建方式	148<br>7.2.1  声明方式	148<br>7.2.2  限定范围方式	152<br>7.2.3  归类引用方式	154<br>7.2.4  组合声明方式	155<br>7.2.5  应用ID方式	157<br>7.3  样式遗传与样式冲突的解决	159<br>7.3.1  样式表的继承（遗传）	159<br>7.3.2  样式冲突的解决	161<br>7.4  应用样式表	163<br>7.4.1  文本和字体的属性(Text and Font Properties)	163<br>7.4.2  颜色和背景的属性(Color and Background Properties)	175<br>7.4.3  布局属性(Layout Properties)	182<br>7.4.4  分类属性(Classification Properties)	199<br>7.4.5  位置控制属性(Positioning Properties)	202<br>7.4.6  打印显示属性(Printing Properties)	209<br>7.4.7  过滤属性(Filter Properties)	209<br>7.4.8  虚类属性和其他的属性(Pseudo-Classes and Other Properties)	210<br>7.5  级联样式表的实现	214<br>第8章  表单的应用	219<br>8.1  创建表单	220<br>8.1.1  创建表单的格式	220<br>8.1.2  <FORM>标记的属性	222<br>8.2  表单中应具备的元素	223<br>8.2.1  <INPUT>标记及其属性	224<br>8.2.2  常用的几种表单元素	227<br>8.3  提交表单	235<br>第9章  利用脚本语言开发功能强大的网页	243<br>9.1  JavaScript	245<br>9.1.1  如何使用Java程序	245<br>9.1.2  JavaScript脚本介绍	246<br>9.1.3  JavaScript脚本中的控制语句	249<br>9.1.4  JavaScript脚本的应用	254<br>9.2  VBScript	258<br>9.2.1  VBScript脚本简介	258<br>9.2.2  VBScript脚本变量	259<br>9.2.3  VBScript脚本常量	261<br>9.2.4  VBScript脚本操作符	261<br>9.2.5  VBScript脚本的函数调用	262<br>9.2.6  VBScript脚本控制语句	265<br>9.2.7  VBScript脚本的其他要素	270<br>9.2.8  VBScript脚本的应用	274<br>9.3  动态HTML（DHTML）	276<br>9.3.1  动态过滤效果	276<br>9.3.2  动态转换效果	283<br>9.3.3  动态对象、事件、属性	286<br>9.3.4  动态改变网页内容	293<br>9.3.5  DHTML应用实例	294<br>第10章  HTML文档的发布	297<br>10.1  如何选择浏览器	298<br>10.2  几种优秀的编译平台	298<br>10.3  多文档链接的检验	299<br>10.4  发布文档	300<br>第11章  XML可扩展标记语言	303<br>11.1  HTML的不足	304<br>11.2  XML的特点	305<br>11.3  XML文档的结构	308<br>11.4  XML的发展史	312<br>11.5  XML的应用	313<br>第12章  XML语言入门	315<br>12.1  创建XML文档使用的工具及创建过程	316<br>12.1.1  使用XMLwriter创建"Hello Xml"文档	317<br>12.1.2  分析"Hello Xml"文档	319<br>12.2  给"Hello Xml"添加外部DTD和样式表	321<br>12.2.1  添加DTD来描述数据	321<br>12.2.2  使用XSL对文档进行格式化	322<br>第13章  XML语法浅析	327<br>13.1  XML语法细则	328<br>13.1.1  XML中的文本	328<br>13.1.2  字符的大小写	328<br>13.1.3  XML文档的注释	329<br>13.1.4  实体参考与CDATA	331<br>13.2  XML语法结构	333<br>13.3  XML语言中的标记	336<br>第14章  文档类型定义	339<br>14.1  使用自己的DTD	340<br>14.2  文档类型声明	342<br>14.3  元素类型声明	346<br>14.4  属性类型声明	353<br>14.4.1　书写属性声明	353<br>14.4.2　属性的默认值	360<br>14.4.3  XML文档中默认的两种属性	361<br>14.5  实体类型声明	364<br>14.5.1　通用实体声明	364<br>14.5.2　参数实体声明	367<br>14.6  表示法声明	370<br>14.7  DTD中其他语法应用	371<br>第15章  XSL的开发	375<br>15.1　XHTML的作用	376<br>15.2　XSL文档的基本结构	377<br>15.3　XSL语法初步分析	382<br>15.4　元素节点的位置	386<br>15.5　对XML数据进行处理	389<br>15.5.1　对XML数据排序	389<br>15.5.2  给标记添加数据并输出数据	394<br>15.5.3　对XML文档的数据进行条件处理	398<br>15.6　其他XSL标记	404<br>15.6.1　修饰输出文档的XSL标记	405<br>15.6.2　用于计算数据的标记	409<br>第16章  Schema的作用	411<br>16.1  XML Schema的作用	412<br>16.2  XML Schema的元素定义	412<br>16.3  XML Schema中属性的定义	419<br>16.4  在XML文档中引用XML Schema	421<br>第17章  使用XML DOM	423<br>17.1  使用DOM读取XML文档	424<br>17.2  DOMDocument对象	426<br>17.3  获取XML文档的数据	428 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书循序渐进地讲解了HTML和XML语言，逐步引导读者学习和掌握开发高水平HTML和XML文档所需要的知识。<br>全书分为两部分，分别介绍HTML和XML。HTML部分详细介绍了HTML语言的重要标记以及如何创建表格、列表、超链接，添加图像和表单，并介绍了如何应用脚本语言实现动态HTML和如何应用样式表实现对页面的格式化。XML部分详细介绍了XML语言的特点以及XML的基本语法，并重点介绍了如何创建文档定义（DTD和SCHEMA）和如何创建扩展样式表（XSL）。<br>本书适合HTML和XML的初中级读者学习使用。<br> </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">韩江Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

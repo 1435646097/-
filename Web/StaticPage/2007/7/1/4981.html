@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 4981, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 4981 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">Visral C++程序开发范例宝典（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="Visral C++程序开发范例宝典（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115159700.jpg" style="border:1px   solid   #B0B0B0" title="Visral C++程序开发范例宝典（附光盘）" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：明日科技　编著
-                                        <br />
-                                        书名：Visral C++程序开发范例宝典（附光盘）<br />
-                                        字数：1268000<br />
-                                        出版时间：2007年7月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115159700<br />
-                                        <font color="#CC3300">本网价：<strong>￥89.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        Visral C++程序开发范例宝典（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章　窗体与界面设计　<br>　1.1　菜单应用实例　<br>　  实例001　在系统菜单中添加菜单项　<br>　  实例002　带图标的程序菜单　<br>　  实例003　根据表中数据动态生成菜单　<br>　  实例004　浮动的菜单　<br>　1.2　弹出菜单应用实例　<br>　  实例005　在控件上单击右键弹出菜单　<br>　  实例006　个性化的弹出菜单　<br>　  实例007　任务栏托盘弹出菜单　<br>　1.3　工具栏应用实例　<br>　  实例008　带背景的工具栏　<br>　  实例009　带图标的工具栏　<br>　  实例010　带下拉菜单的工具栏　<br>　  实例011　可调整按钮位置的工具栏　<br>　  实例012　浮动工具栏　<br>　  实例013　根据表中数据动态生成工具栏　<br>　  实例014　具有提示功能的工具栏　<br>　1.4　状态栏应用实例　<br>　  实例015　带进度条的状态栏　<br>　  实例016　动画效果的状态栏　<br>　  实例017　滚动字幕的状态栏　<br>　1.5　导航界面应用实例　<br>　  实例018　Outlook导航界面　<br>　  实例019　树状导航界面　<br>　  实例020　按钮导航界面　<br>　  实例021　类QQ导航菜单　<br>　1.6　界面窗体应用实例　<br>　  实例022　背景为渐变色的程序界面　<br>　  实例023　椭圆形的程序界面　<br>　  实例024　自绘窗体界面　<br>　  实例025　类似Windows XP的程序界面　<br>　  实例026　窗体融合技术　<br>　  实例027　限制对话框最大时的窗口大小　<br>　1.7　多媒体宣传光盘应用实例　<br>　  实例028　多媒体宣传光盘主界面　<br>　  实例029　自动运行的多媒体宣传光盘　<br>　1.8　多媒体触摸屏程序应用实例　<br>　  实例030　采购中心多媒体触摸屏程序　<br>　  实例031　为触摸屏程序添加虚拟键盘　<br>　1.9　窗体位置应用实例　<br>　  实例032　不可移动的窗体　<br>　  实例033　始终在最上面的窗体　<br>　  实例034　动画显示窗体　<br>　  实例035　以时钟显示界面窗体　<br>　1.10　窗体标题栏应用实例　<br>　  实例036　闪烁的窗体标题栏　<br>　  实例037　拖动没有标题栏的窗体　<br>　  实例038　禁用标题栏上的最大化、最小化或关闭按钮　<br>　1.11　窗体形状及应用　<br>　  实例039　半透明窗体　<br>　  实例040　创建字型窗体　<br>　  实例041　百叶窗窗体　<br>　  实例042　类似Office助手　<br>第2章　控件应用　<br>　2.1　按钮控件典型实例　<br>　  实例043　AVI动画按钮　<br>　  实例044　GIF动画按钮　<br>　  实例045　图文按钮　<br>　  实例046　不规则按钮　<br>　2.2　EditBox控件典型实例　<br>　  实例047　为EditBox设置新的系统菜单　<br>　  实例048　为EditBox控件添加列表选择框　<br>　  实例049　多彩边框的编辑框　<br>　  实例050　改变编辑框文本颜色　<br>　2.3　ListBox控件典型实例　<br>　  实例051　利用ListBox控件实现标签式数据选择　<br>　  实例052　在ListBox控件间实现数据交换　<br>　  实例053　列表项的提示条　<br>　2.4　ComboBox控件典型实例　<br>　  实例054　将数据表中的字段添加到ComboBox控件　<br>　  实例055　带查询功能的ComboBox控件　<br>　  实例056　自动调整组合框的宽度　<br>　  实例057　颜色组合框　<br>　  实例058　多列显示的组合框　<br>　2.5　ListControl控件典型实例　<br>　  实例059　将数据库中的数据表添加到ListControl控件　<br>　  实例060　利用ListControl控件浏览数据　<br>　  实例061　利用ListControl控件制作导航界面　<br>　  实例062　在列表视图中拖动视图项　<br>　  实例063　利用列标题对列表视图进行数据排序　<br>　  实例064　具有文本录入功能的ListControl控件　<br>　2.6　TreeControl控件典型实例　<br>　  实例065　多级数据库树状结构数据显示　<br>　  实例066　可动态修改节点的树状结构　<br>　  实例067　带复选功能的树状结构　<br>　  实例068　显示磁盘目录　<br>　  实例069　树型提示框　<br>　2.7　RichEdit控件典型实例　<br>　  实例070　利用RichEdit显示Word文档　<br>　  实例071　利用RichEdit控件实现文字定位与标识　<br>　  实例072　利用RichEdit控件显示图文数据　<br>　2.8　图形类控件典型实例　<br>　  实例073　图文数据录入　<br>　  实例074　带有滚动条的图形控件　<br>　2.9　滚动条控件典型实例　<br>　  实例075　自定义滚动条控件　<br>　2.10　控件数组典型实例　<br>　  实例076　向窗体中动态添加控件　<br>  　实例077　公交线路模拟　<br>第3章　图形技术　<br>　3.1　绘制图形　<br>　  实例078　绘制正弦曲线　<br>　  实例079　绘制艺术图案　<br>　  实例080　画图程序　<br>　  实例081　绘制立体模型　<br>　  实例082　利用IFS算法绘制自然景物　<br>　3.2　图像预览　<br>　  实例083　图片自动预览程序　<br>　  实例084　图片批量浏览　<br>　  实例085　浏览大幅BMP图片　<br>　  实例086　放大和缩小图片　<br>　  实例087　可随鼠标移动的图形　<br>　  实例088　随图像大小变换的图像浏览器　<br>　3.3　图片效果　<br>　  实例089　图片马赛克效果　<br>　  实例090　图片百叶窗效果　<br>　  实例091　电影胶片特效　<br>　  实例092　翻转图片效果　<br>　3.4　图片颜色转换　<br>　  实例093　图像的锐化处理　<br>　  实例094　图片反色处理　<br>　  实例095　图像的灰度化转换　<br>　  实例096　显示JPG图片　<br>　3.5　图形转换与缩放　<br>　  实例097　将位图转换为JPG　<br>　  实例098　将位图转为GIF图标　<br>　  实例099　图片的平滑缩放　<br>　3.6　图像的剪切与合成　<br>　  实例100　图像的剪切　<br>　  实例101　图像的合成<br>　3.7　图像识别　<br>　  实例102　获取鼠标任意位置的颜色值　<br>　  实例103　提取图片中的对象　<br>　  实例104　手写数字识别　<br>　3.8　图像字体　<br>  　实例105　旋转的文字　<br>　  实例106　当前系统字体列表　<br>　  实例107　空心文字　<br>　  实例108　如何在图片上平滑移动文字　<br>　3.9　图像管理　<br>　  实例109　管理计算机内图片文件的程序　<br>　  实例110　提取并保存应用程序图标　<br>　3.10　图片动画　<br>　  实例111　利用图片制作屏幕保护程序　<br>　  实例112　图片动画　<br>　3.11　简单游戏设计　<br>　  实例113　拼图游戏　<br>　  实例114　网络五子棋　<br>　  实例115　彩票抽奖机　<br>　3.12　OpenGL程序设计　<br>　  实例116　制作OpenGL动画　<br>　  实例117　利用OpenGL绘制立体模型　<br>　  实例118　利用OpenGL绘制NURBS曲线　<br>第4章　多媒体技术　<br>　4.1　动画　<br>　  实例119　利用Image控件制作小动画　<br>　  实例120　透明的Flash动画　<br>　  实例121　播放GIF动画　<br>　  实例122　播放AVI动画　<br>　  实例123　播放VCD　<br>　4.2　制作与播放音频　<br>　  实例124　可以选择播放曲目的CD播放器　<br>　  实例125　MP3播放器　<br>　  实例126　声音录制与播放　<br>　  实例127　制作RealOne播放器　<br>　4.3　多媒体控制　<br>　  实例128　部队早起军号程序　<br>　  实例129　利用PC喇叭播放声音　<br>　  实例130　 控制左右声道　<br>　4.4　屏幕保护相关程序　<br>　  实例131　电子相册屏幕保护程序　<br>　  实例132　产品宣传屏幕保护程序　<br>　4.5　DirectShow程序设计　<br>　  实例133　音频捕捉　<br>　  实例134　视频捕捉　<br>第5章　文件系统　<br>　5.1　文件的基本操作　<br>　  实例135　创建和删除文件夹　<br>　  实例136　把文件删除到回收站中　<br>　  实例137　清空回收站　<br>　5.2　查找文件　<br>　  实例138　搜索文件　<br>　  实例139　检查文件是否存在　<br>　  实例140　提取指定文件夹目录到INI文件　<br>　5.3　与文件目录相关的命令操作　<br>　  实例141　删除文件目录　<br>　  实例142　重命名文件目录　<br>　5.4　文件、文件夹的复制和移动　<br>　  实例143　批量移动文件　<br>　  实例144　网络文件夹复制　<br>　  实例145　文件复制过程中显示进度条　<br>　5.5　文件修改　<br>　  实例146　更改文件夹图标　<br>　  实例147　批量删除指定类型的文件　<br>　  实例148　批量重命名文件　<br>　  实例149　修改文件属性　<br>　  实例150　修改文件及目录的名称　<br>　5.6　文件的读取与保存　<br>　  实例151　顺序读取文件　<br>　  实例152　制作日志文件　<br>　5.7　文件管理　<br>　  实例153　分类整理磁盘文件　<br>　  实例154　计算机磁盘空间报警程序　<br>　  实例155　批量改变指定文件的属性　<br>　5.8　加密与解密　<br>　  实例156　文件的加密与解密　<br>　  实例157　文件夹加密　<br>　5.9　其他文件管理知识　<br>　  实例158　文件分割器　<br>　  实例159　帮助文件　<br>　  实例160　用WinRar压缩和解压文件　<br>　  实例161　判断文件是否被改动　<br>　第6章　操作系统与Windows相关程序　<br>　6.1　启动相关设置　<br>　  实例162　进入Windows XP前发出警告　<br>　  实例163　实现关机、重启计算机　<br>　  实例164　将程序设置成为开机自动执行的程序　<br>　6.2　磁盘相关设置　<br>　  实例165　判断驱动器属性　<br>　  实例166　获取磁盘空间信息　<br>　  实例167　获取磁盘序列号　<br>　  实例168　取消磁盘共享　<br>　  实例169　格式化磁盘　<br>　6.3　桌面相关设置　<br>　  实例170　隐藏、显示“开始”按钮　<br>　  实例171　隐藏、显示桌面文件　<br>　  实例172　隐藏、显示Windows任务栏　<br>　6.4　系统相关设置　<br>　  实例173　获得Windows和System的路径　<br>　  实例174　控制光驱的弹开与关闭　<br>　  实例175　启动控制面板　<br>　  实例176　为程序添加快捷键　<br>　6.5　系统监控　<br>　  实例177　检测系统启动模式　<br>　  实例178　内存使用状态　<br>　  实例179　监视剪贴板内容　<br>　  实例180　利用钩子技术实现键盘监控　<br>　6.6　程序相关设置　<br>　  实例181　用列表显示系统正在运行的程序　<br>　  实例182　为程序添加快捷方式　<br>　  实例183　设置其他程序中编辑框内的文本　<br>　  实例184　执行一个外部程序直到其结束　<br>　  实例185　调用具有参数的可执行程序　<br>　6.7　线程同步　<br>　  实例186　利用事件对象实现线程同步　<br>　  实例187　利用互斥对象实现线程同步　<br>　  实例188　利用临界区实现线程同步　<br>　  实例189　用信号量实现线程同步　<br>　  实例190　多线程  实例　<br>　6.8　鼠标、键盘相关设置　<br>　  实例191　动画鼠标　<br>　  实例192　限制鼠标移动区域　<br>第7章　注册表　<br>　7.1　显示与隐藏　<br>  　实例193　隐藏、显示“我的电脑”、“回收站”、“网上邻居”　<br>　  实例194　隐藏、显示驱动器　<br>　7.2　IE设置　<br>　  实例195　修改IE标题栏内容　<br>　  实例196　隐藏IE浏览器的右键关联菜单　<br>　  实例197　设置IE的默认主页　<br>　  实例198　清空上网历史记录　<br>　7.3　文件控制　<br>　  实例199　如何建立文件关联　<br>　  实例200　控制光驱的自动运行功能　<br>　7.4　游戏设置　<br>　  实例201　设置“蜘蛛纸牌”游戏　<br>　  实例202　修改“扫雷”游戏的设置　<br>　7.5　应用软件设置　<br>　  实例203　设置Word 2000文档及图片的保存路径　<br>　  实例204　更改Photoshop安装时的登记信息　<br>第8章　数据库技术　<br>　8.1　连接数据库　<br>　  实例205　使用ODBC DSN连接SQL Server数据库　<br>　  实例206　用ADO动态连接数据库　<br>　  实例207 连接Oracle数据库　<br>　8.2　添加数据　<br>　  实例208　利用INSERT语句批量插入数据　<br>　  实例209　利用SELECT INTO生成临时表　<br>　8.3　更新数据　<br>　  实例210　批量修改数据　<br>　  实例211　将指定字段数据为空的记录添上数据　<br>　8.4　删除数据　<br>　  实例212　删除单条数据　<br>　  实例213　删除数据库中无用处的记录　<br>　8.5　视图　<br>　  实例214　动态创建视图　<br>　  实例215　通过视图更改数据　<br>　  实例216　删除视图　<br>　8.6　触发器　<br>　  实例217　创建触发器　<br>　  实例218　在程序中使用触发器　<br>　8.7　存储过程　<br>　  实例219　创建存储过程　<br>　  实例220　删除存储过程　<br>　  实例221　在程序中使用存储过程　<br>　  实例222　调用具有输出参数的存储过程　<br>　8.8　数据库结构的读取与修改　<br>　  实例223　读取Access数据库结构　<br>　  实例224　读取SQL Server数据库结构　<br>　8.9　图片、多媒体数据录入技术　<br>　  实例225　对Access数据库进行录入和提取图片　<br>　  实例226　对SQLServer数据库进行录入和提取多媒体文件　<br>　  实例227　对SQL Server数据库进行录入和存储Word文档　<br>　8.10　数据备份恢复　<br>　  实例228　Access数据库备份与还原　<br>　  实例229　SQL Server数据库备份与恢复　<br>　  实例230　定时数据备份　<br>　8.11　其他数据库技术　<br>　　实例231　断开SQL Server数据库与其他应用程序的连接　<br>　  实例232　在Visual C++中执行事务　<br>　  实例233　在程序中执行SQL脚本　<br>　  实例234　利用SQL语句执行外围命令　<br>第9章　SQL查询相关技术　<br>　9.1　通用查询　<br>　  实例235　SQL语句的应用方法　<br>　  实例236　SQL语句的模糊查询　<br>　  实例237　利用查询语句复制表结构　<br>　9.2　查询控件　<br>　  实例238　查询指定控件内字符串　<br>　  实例239　查询日期控件内数据　<br>　  实例240　控件作为字段、操作符和内容进行查询　<br>　  实例241　巧妙获取年龄　<br>　  实例242　格式化金额　<br>　  实例243　如何随机显示记录　<br>　9.3　查询前若干名数据　<br>　  实例244　查询前10名数据　<br>　  实例245　取出数据统计结果前3名数据　<br>　9.4　周期、日期查询　<br>　  实例246　查询指定日期的数据　<br>　  实例247　查询指定时间段的数据　<br>　  实例248　按月查询数据　<br>　9.5　大小比较、逻辑查询、重复记录查询　<br>　  实例249　查询数据大于指定条件的数据　<br>　  实例250　NOT与谓词进行组合条件的查询　<br>　  实例251　查询时不显示重复记录　<br>　9.6　排序、分组统计　<br>　  实例252　对数据进行降序查询　<br>　  实例253　对数据进行多条件排序　<br>　  实例254　按仓库分组统计图书库存(多列)　<br>　  实例255　多表分组统计　<br>　9.7　HAVING语句应用　<br>　  实例256　利用HAVING语句过滤分组数据　<br>　  实例257　将HAVING语句应用在多表查询中　<br>　9.8　聚集函数　<br>　  实例258　利用聚集函数SUM对销售额进行汇总　<br>　  实例259　利用聚集函数AVG求某班学生的平均年龄　<br>　  实例260　利用聚集函数COUNT求日销售额大于某值的商品数　<br>　9.9　多表查询　<br>　  实例261　利用FROM子句进行多表查询　<br>　  实例262　合并多个结果集　<br>　9.10　嵌套查询　<br>　  实例263　简单嵌套查询　<br>　  实例264　复杂嵌套查询　<br>　9.11　子查询　<br>　  实例265　用子查询作派生的表　<br>　  实例266　把子查询作为表达式　<br>　  实例267　在UPDATE语句中应用子查询　<br>　9.12　联合语句UNION　<br>　  实例268　使用联合查询　<br>　  实例269　多表联合查询　<br>　  实例270　对联合查询后的结果进行排序　<br>　9.13　内连接查询　<br>　  实例271　简单内连接查询　<br>　  实例272　复杂内连接查询　<br>　  实例273　使用内连接选择一个表与另一个表中行相关的所有行　<br>　9.14　外连接查询　<br>　  实例274　LEFT OUTER JOIN查询　<br>　  实例275　RIGHT OUTER JOIN查询　<br>　  实例276　使用外连接进行多表联合查询　<br>　9.15　利用IN进行查询　<br>　  实例277　使用IN引入子查询限定查询范围　<br>　  实例278　用IN查询表中的记录信息　<br>　9.16　交叉表查询　<br>　  实例279　利用TRANSFORM分析数据　<br>　  实例280　利用TRANSFORM动态分析数据　<br>　  实例281　静态交叉表(SQL Server 2000)　<br>　  实例282　动态交叉表(SQL Server 2000)　<br>　9.17　函数查询　<br>　  实例283　在查询语句中使用字符串函数　<br>　  实例284　在查询中使用日期函数　<br>　  实例285　在查询时为表中的空字段添加默认信息　<br>第10章　打印与报表技术　<br>　10.1　基础报表打印　<br>　  实例286　基于文档/视图结构的打印　<br>　  实例287　基于对话框结构的打印程序　<br>　10.2　打印窗体　<br>　  实例288　打印对话框及其控件中的数据　<br>　  实例289　打印对话框文本　<br>　10.3　打印图片　<br>　  实例290　打印图片　<br>　  实例291　打印简历　<br>　10.4　利用报表生成器设计报表　<br>　  实例292　简单报表　<br>　  实例293　分组统计报表　<br>　  实例294　主明细报表　<br>　10.5　打印邮寄单　<br>　  实例295　打印汇款单　<br>　  实例296　打印信封标签　<br>　10.6　打印证件　<br>　  实例297　批量打印工作证　<br>　  实例298　批量打印证书　<br>　10.7　打印单据　<br>　  实例299　库存盘点单打印　<br>　  实例300　连续纸销售单打印　<br>　  实例301　发票打印　<br>　10.8　打印条形码和标签　<br>　  实例302　批量打印条形码　<br>　  实例303　打印连续号码的标签　<br>　10.9　其他格式报表打印　<br>　  实例304　将DataGrid表格中的查询结果输出到Excel中　<br>　  实例305　利用Word打印　<br>　  实例306　利用Excel打印　<br>　10.10　控制打印　<br>　  实例307　打印超长字符串自动换行　<br>　  实例308　批量打印文档　<br>　  实例309　实现横向打印　<br>　  实例310　设置打印纸大小　<br>　  实例311　获取打印纸的左边距和上边距　<br>　10.11　打印预览　<br>　  实例312　修改文档/视图结构默认的打印预栏工具栏　<br>　  实例313　自定义具有滚动条的打印预览窗口　<br>第11章　图表技术　<br>　11.1　简单图表　<br>　  实例314　利用图表分析产品价格行情　<br>　  实例315　对图表数据进行打印　<br>　11.2　柱形图表　<br>　  实例316　将汇总数据利用图表分析　<br>　  实例317　对比数据分析　<br>　11.3　饼形图表　<br>　  实例318　饼形图分析公司男女比例　<br>　  实例319　商品日销售额图表分析　<br>第12章　硬件相关开发技术　<br>　12.1　串口控制　<br>　  实例320　通过串口传递数据　<br>　  实例321　通过串口控制对方计算机关闭　<br>　12.2　加密狗　<br>　  实例322　将密码写入加密狗　<br>　  实例323　使用加密狗进行身份验证　<br>　12.3　IC卡的应用　<br>　  实例324　向IC卡中写入数据　<br>　  实例325　读取IC卡中的数据　<br>　  实例326　利用IC卡制作考勤程序　<br>　12.4　监控　<br>　  实例327　利用简易摄像头编写监控程序　<br>　  实例328　编写监控录像程序　<br>　  实例329　定时监控程序　<br>　  实例330　医疗行业数字视频监控系统　<br>　  实例331　远程视频监控系统　<br>　12.5　扫描、条形码、POS控制　<br>　  实例332　利用条形码扫描器销售商品　<br>　  实例333　设计钱箱控制程序　<br>　  实例334　设计扫描仪控制程序　<br>　  实例335　设计发票机控制程序　<br>　12.6　语音卡控制　<br>　  实例336　语音卡电话呼叫系统　<br>　  实例337　语音卡实现来电显示　<br>　  实例338　利用语音卡实现电话录音　<br>　  实例339　利用语音卡实现点歌祝福　<br>　12.7　手机程序的开发　<br>　  实例340　利用短信猫发送短信　<br>　  实例341　利用短信远程关闭计算机　<br>　12.8　其他程序　<br>　  实例342　利用神龙卡制作练歌房程序　<br>第13章　网络开发技术　<br>　13.1　获取计算机信息　<br>　  实例343　获取计算机名称和工作组　<br>  　实例344　通过计算机名获取IP地址　<br>　  实例345　获取本机MAC地址　<br>　  实例346　获得系统打开的端口和状态　<br>　13.2　局域网控制与管理　<br>　  实例347　获取局域网中的计算机名称和IP地址　<br>　  实例348　远程控制局域网中的计算机　<br>　13.3　局域网资源管理　<br>　  实例349　局域网屏幕监控　<br>　  实例350　提取局域网信息到数据库　<br>　13.4　网上资源共享　<br>　  实例351　获得网上共享资源　<br>　  实例352　映射网络驱动器　<br>　  实例353　定时网络共享控制　<br>　13.5　网络连接与通信　<br>　  实例354　编程实现ping操作　<br>　  实例355　网络语音电话　<br>　  实例356　网络流量监控　<br>　  实例357　取得Modem的状态　<br>　  实例358　检测TCP/IP是否安装　<br>　  实例359　实现进程间的通信　<br>　  实例360　利用内存映射实现进程间的通信　<br>　13.6　局域网应用　<br>　  实例361　局域网聊天程序　<br>　  实例362　网上调查　<br>　13.7　其他　<br>　  实例363　获得拨号网络的列表　<br>　  实例364　获取计算机上串口的数量　<br>　  实例365　检测系统中安装的协议　<br>　  实例366　域名解析　<br>第14章　Web编程　<br>　14.1　上网控制　<br>　  实例367　定时登录Internet　<br>　  实例368　根据网络连接控制IE启动　<br>　14.2　文件上传与下载　<br>　  实例369　FTP文件上传程序　<br>　  实例370　利用Visual C++实现软件下载　<br>　  实例371　HTTP服务器多线程文件下载　<br>　14.3　邮件管理　<br>　  实例372　邮件接收程序　<br>  　实例373　发送电子邮件附件　<br>　14.4　上网监控　<br>　  实例374　监控上网过程　<br>　  实例375　网络监听工具　<br>　14.5　浏览器应用　<br>　  实例376　制作自己的网络浏览软件　<br>　  实例377　XML数据库文档的浏览　<br>　14.6　网上信息提取　<br>　  实例378　定时提取网页源码　<br>　  实例379　网上天气预报　<br>　  实例380　网页链接提取器　<br>　14.7　其他　<br>　  实例381　利用TAPI实现网络拨号　<br>第15章　加密、安全与软件注册　<br>　15.1　数据加密与解密　<br>　  实例382　数据加密技术　<br>　  实例383　文本文件的加密与解密　<br>  　实例384　利用图片加密文件　<br>　15.2　Access数据库安全　<br>　  实例385　编程修复Access数据库　<br>　  实例386　对数据库中的表锁定和解锁　<br>　  实例387　改变Access 2000数据库头文件来加密数据库　<br>　15.3　软件注册与加密　<br>　  实例388　利用INI文件对软件进行注册　<br>　  实例389　利用注册表设计软件注册程序　<br>　  实例390　利用网卡序列号设计软件注册程序　<br>　  实例391　根据CPU序列号和磁盘序列号设计软件注册程序　<br>　15.4　计算机安全　<br>　  实例392　设置计算机的安全等级　<br>第16章　实用工具　<br>　16.1　数据库工具　<br>　  实例393　自动配置ODBC的程序　<br>　  实例394　制作SQL Server提取器　<br>　  实例395　自动附加SQL Server数据库　<br>　16.2　个人工具　<br>　  实例396　个人通讯录　<br>　  实例397　电子名片盒　<br>　16.3　单位应用　<br>　  实例398　局域网投票管理　<br>　  实例399　加班网上管理　<br>附录 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书以开发人员在编程中遇到的实际问题和开发中应该掌握的技术为中心，全面介绍运用Visual C++进行程序开发的各方面技术和技巧。全书分为 16章，分别是窗体与界面设计，控件应用，图形技术，多媒体技术，文件系统，操作系统与Windows相关程序，注册表，数据库技术，SQL查询相关技术，打印与报表技术，图表技术，硬件相关开发技术，网络开发技术，Web编程，加密、安全与软件注册，实用工具等共399个实例。每个实例都突出实用性，其中大部分是程序开发者梦寐以求的问题解决方案。<br>　　本书附有配套光盘。光盘提供了书中所有实例的源代码，所有代码都经过精心调试，在Windows XP/Windows 2000下测试通过，均能正常运行。<br>　　本书适合广大计算机爱好者和编程人员阅读使用，也可供大中专院校师生学习参考。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">明日科技　编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="Visral C++程序开发范例宝典（附光盘）" border="1" height="216" src="/Images/BookCovers/9787115159700.jpg" style="border:1px   solid   #B0B0B0" title="Visral C++程序开发范例宝典（附光盘）" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：明日科技　编著
+                                                                    <br />
+                                                                    书名：Visral C++程序开发范例宝典（附光盘）<br />
+                                                                    字数：1268000<br />
+                                                                    出版时间：2007年7月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115159700<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥89.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章　窗体与界面设计　<br>　1.1　菜单应用实例　<br>　  实例001　在系统菜单中添加菜单项　<br>　  实例002　带图标的程序菜单　<br>　  实例003　根据表中数据动态生成菜单　<br>　  实例004　浮动的菜单　<br>　1.2　弹出菜单应用实例　<br>　  实例005　在控件上单击右键弹出菜单　<br>　  实例006　个性化的弹出菜单　<br>　  实例007　任务栏托盘弹出菜单　<br>　1.3　工具栏应用实例　<br>　  实例008　带背景的工具栏　<br>　  实例009　带图标的工具栏　<br>　  实例010　带下拉菜单的工具栏　<br>　  实例011　可调整按钮位置的工具栏　<br>　  实例012　浮动工具栏　<br>　  实例013　根据表中数据动态生成工具栏　<br>　  实例014　具有提示功能的工具栏　<br>　1.4　状态栏应用实例　<br>　  实例015　带进度条的状态栏　<br>　  实例016　动画效果的状态栏　<br>　  实例017　滚动字幕的状态栏　<br>　1.5　导航界面应用实例　<br>　  实例018　Outlook导航界面　<br>　  实例019　树状导航界面　<br>　  实例020　按钮导航界面　<br>　  实例021　类QQ导航菜单　<br>　1.6　界面窗体应用实例　<br>　  实例022　背景为渐变色的程序界面　<br>　  实例023　椭圆形的程序界面　<br>　  实例024　自绘窗体界面　<br>　  实例025　类似Windows XP的程序界面　<br>　  实例026　窗体融合技术　<br>　  实例027　限制对话框最大时的窗口大小　<br>　1.7　多媒体宣传光盘应用实例　<br>　  实例028　多媒体宣传光盘主界面　<br>　  实例029　自动运行的多媒体宣传光盘　<br>　1.8　多媒体触摸屏程序应用实例　<br>　  实例030　采购中心多媒体触摸屏程序　<br>　  实例031　为触摸屏程序添加虚拟键盘　<br>　1.9　窗体位置应用实例　<br>　  实例032　不可移动的窗体　<br>　  实例033　始终在最上面的窗体　<br>　  实例034　动画显示窗体　<br>　  实例035　以时钟显示界面窗体　<br>　1.10　窗体标题栏应用实例　<br>　  实例036　闪烁的窗体标题栏　<br>　  实例037　拖动没有标题栏的窗体　<br>　  实例038　禁用标题栏上的最大化、最小化或关闭按钮　<br>　1.11　窗体形状及应用　<br>　  实例039　半透明窗体　<br>　  实例040　创建字型窗体　<br>　  实例041　百叶窗窗体　<br>　  实例042　类似Office助手　<br>第2章　控件应用　<br>　2.1　按钮控件典型实例　<br>　  实例043　AVI动画按钮　<br>　  实例044　GIF动画按钮　<br>　  实例045　图文按钮　<br>　  实例046　不规则按钮　<br>　2.2　EditBox控件典型实例　<br>　  实例047　为EditBox设置新的系统菜单　<br>　  实例048　为EditBox控件添加列表选择框　<br>　  实例049　多彩边框的编辑框　<br>　  实例050　改变编辑框文本颜色　<br>　2.3　ListBox控件典型实例　<br>　  实例051　利用ListBox控件实现标签式数据选择　<br>　  实例052　在ListBox控件间实现数据交换　<br>　  实例053　列表项的提示条　<br>　2.4　ComboBox控件典型实例　<br>　  实例054　将数据表中的字段添加到ComboBox控件　<br>　  实例055　带查询功能的ComboBox控件　<br>　  实例056　自动调整组合框的宽度　<br>　  实例057　颜色组合框　<br>　  实例058　多列显示的组合框　<br>　2.5　ListControl控件典型实例　<br>　  实例059　将数据库中的数据表添加到ListControl控件　<br>　  实例060　利用ListControl控件浏览数据　<br>　  实例061　利用ListControl控件制作导航界面　<br>　  实例062　在列表视图中拖动视图项　<br>　  实例063　利用列标题对列表视图进行数据排序　<br>　  实例064　具有文本录入功能的ListControl控件　<br>　2.6　TreeControl控件典型实例　<br>　  实例065　多级数据库树状结构数据显示　<br>　  实例066　可动态修改节点的树状结构　<br>　  实例067　带复选功能的树状结构　<br>　  实例068　显示磁盘目录　<br>　  实例069　树型提示框　<br>　2.7　RichEdit控件典型实例　<br>　  实例070　利用RichEdit显示Word文档　<br>　  实例071　利用RichEdit控件实现文字定位与标识　<br>　  实例072　利用RichEdit控件显示图文数据　<br>　2.8　图形类控件典型实例　<br>　  实例073　图文数据录入　<br>　  实例074　带有滚动条的图形控件　<br>　2.9　滚动条控件典型实例　<br>　  实例075　自定义滚动条控件　<br>　2.10　控件数组典型实例　<br>　  实例076　向窗体中动态添加控件　<br>  　实例077　公交线路模拟　<br>第3章　图形技术　<br>　3.1　绘制图形　<br>　  实例078　绘制正弦曲线　<br>　  实例079　绘制艺术图案　<br>　  实例080　画图程序　<br>　  实例081　绘制立体模型　<br>　  实例082　利用IFS算法绘制自然景物　<br>　3.2　图像预览　<br>　  实例083　图片自动预览程序　<br>　  实例084　图片批量浏览　<br>　  实例085　浏览大幅BMP图片　<br>　  实例086　放大和缩小图片　<br>　  实例087　可随鼠标移动的图形　<br>　  实例088　随图像大小变换的图像浏览器　<br>　3.3　图片效果　<br>　  实例089　图片马赛克效果　<br>　  实例090　图片百叶窗效果　<br>　  实例091　电影胶片特效　<br>　  实例092　翻转图片效果　<br>　3.4　图片颜色转换　<br>　  实例093　图像的锐化处理　<br>　  实例094　图片反色处理　<br>　  实例095　图像的灰度化转换　<br>　  实例096　显示JPG图片　<br>　3.5　图形转换与缩放　<br>　  实例097　将位图转换为JPG　<br>　  实例098　将位图转为GIF图标　<br>　  实例099　图片的平滑缩放　<br>　3.6　图像的剪切与合成　<br>　  实例100　图像的剪切　<br>　  实例101　图像的合成<br>　3.7　图像识别　<br>　  实例102　获取鼠标任意位置的颜色值　<br>　  实例103　提取图片中的对象　<br>　  实例104　手写数字识别　<br>　3.8　图像字体　<br>  　实例105　旋转的文字　<br>　  实例106　当前系统字体列表　<br>　  实例107　空心文字　<br>　  实例108　如何在图片上平滑移动文字　<br>　3.9　图像管理　<br>　  实例109　管理计算机内图片文件的程序　<br>　  实例110　提取并保存应用程序图标　<br>　3.10　图片动画　<br>　  实例111　利用图片制作屏幕保护程序　<br>　  实例112　图片动画　<br>　3.11　简单游戏设计　<br>　  实例113　拼图游戏　<br>　  实例114　网络五子棋　<br>　  实例115　彩票抽奖机　<br>　3.12　OpenGL程序设计　<br>　  实例116　制作OpenGL动画　<br>　  实例117　利用OpenGL绘制立体模型　<br>　  实例118　利用OpenGL绘制NURBS曲线　<br>第4章　多媒体技术　<br>　4.1　动画　<br>　  实例119　利用Image控件制作小动画　<br>　  实例120　透明的Flash动画　<br>　  实例121　播放GIF动画　<br>　  实例122　播放AVI动画　<br>　  实例123　播放VCD　<br>　4.2　制作与播放音频　<br>　  实例124　可以选择播放曲目的CD播放器　<br>　  实例125　MP3播放器　<br>　  实例126　声音录制与播放　<br>　  实例127　制作RealOne播放器　<br>　4.3　多媒体控制　<br>　  实例128　部队早起军号程序　<br>　  实例129　利用PC喇叭播放声音　<br>　  实例130　 控制左右声道　<br>　4.4　屏幕保护相关程序　<br>　  实例131　电子相册屏幕保护程序　<br>　  实例132　产品宣传屏幕保护程序　<br>　4.5　DirectShow程序设计　<br>　  实例133　音频捕捉　<br>　  实例134　视频捕捉　<br>第5章　文件系统　<br>　5.1　文件的基本操作　<br>　  实例135　创建和删除文件夹　<br>　  实例136　把文件删除到回收站中　<br>　  实例137　清空回收站　<br>　5.2　查找文件　<br>　  实例138　搜索文件　<br>　  实例139　检查文件是否存在　<br>　  实例140　提取指定文件夹目录到INI文件　<br>　5.3　与文件目录相关的命令操作　<br>　  实例141　删除文件目录　<br>　  实例142　重命名文件目录　<br>　5.4　文件、文件夹的复制和移动　<br>　  实例143　批量移动文件　<br>　  实例144　网络文件夹复制　<br>　  实例145　文件复制过程中显示进度条　<br>　5.5　文件修改　<br>　  实例146　更改文件夹图标　<br>　  实例147　批量删除指定类型的文件　<br>　  实例148　批量重命名文件　<br>　  实例149　修改文件属性　<br>　  实例150　修改文件及目录的名称　<br>　5.6　文件的读取与保存　<br>　  实例151　顺序读取文件　<br>　  实例152　制作日志文件　<br>　5.7　文件管理　<br>　  实例153　分类整理磁盘文件　<br>　  实例154　计算机磁盘空间报警程序　<br>　  实例155　批量改变指定文件的属性　<br>　5.8　加密与解密　<br>　  实例156　文件的加密与解密　<br>　  实例157　文件夹加密　<br>　5.9　其他文件管理知识　<br>　  实例158　文件分割器　<br>　  实例159　帮助文件　<br>　  实例160　用WinRar压缩和解压文件　<br>　  实例161　判断文件是否被改动　<br>　第6章　操作系统与Windows相关程序　<br>　6.1　启动相关设置　<br>　  实例162　进入Windows XP前发出警告　<br>　  实例163　实现关机、重启计算机　<br>　  实例164　将程序设置成为开机自动执行的程序　<br>　6.2　磁盘相关设置　<br>　  实例165　判断驱动器属性　<br>　  实例166　获取磁盘空间信息　<br>　  实例167　获取磁盘序列号　<br>　  实例168　取消磁盘共享　<br>　  实例169　格式化磁盘　<br>　6.3　桌面相关设置　<br>　  实例170　隐藏、显示“开始”按钮　<br>　  实例171　隐藏、显示桌面文件　<br>　  实例172　隐藏、显示Windows任务栏　<br>　6.4　系统相关设置　<br>　  实例173　获得Windows和System的路径　<br>　  实例174　控制光驱的弹开与关闭　<br>　  实例175　启动控制面板　<br>　  实例176　为程序添加快捷键　<br>　6.5　系统监控　<br>　  实例177　检测系统启动模式　<br>　  实例178　内存使用状态　<br>　  实例179　监视剪贴板内容　<br>　  实例180　利用钩子技术实现键盘监控　<br>　6.6　程序相关设置　<br>　  实例181　用列表显示系统正在运行的程序　<br>　  实例182　为程序添加快捷方式　<br>　  实例183　设置其他程序中编辑框内的文本　<br>　  实例184　执行一个外部程序直到其结束　<br>　  实例185　调用具有参数的可执行程序　<br>　6.7　线程同步　<br>　  实例186　利用事件对象实现线程同步　<br>　  实例187　利用互斥对象实现线程同步　<br>　  实例188　利用临界区实现线程同步　<br>　  实例189　用信号量实现线程同步　<br>　  实例190　多线程  实例　<br>　6.8　鼠标、键盘相关设置　<br>　  实例191　动画鼠标　<br>　  实例192　限制鼠标移动区域　<br>第7章　注册表　<br>　7.1　显示与隐藏　<br>  　实例193　隐藏、显示“我的电脑”、“回收站”、“网上邻居”　<br>　  实例194　隐藏、显示驱动器　<br>　7.2　IE设置　<br>　  实例195　修改IE标题栏内容　<br>　  实例196　隐藏IE浏览器的右键关联菜单　<br>　  实例197　设置IE的默认主页　<br>　  实例198　清空上网历史记录　<br>　7.3　文件控制　<br>　  实例199　如何建立文件关联　<br>　  实例200　控制光驱的自动运行功能　<br>　7.4　游戏设置　<br>　  实例201　设置“蜘蛛纸牌”游戏　<br>　  实例202　修改“扫雷”游戏的设置　<br>　7.5　应用软件设置　<br>　  实例203　设置Word 2000文档及图片的保存路径　<br>　  实例204　更改Photoshop安装时的登记信息　<br>第8章　数据库技术　<br>　8.1　连接数据库　<br>　  实例205　使用ODBC DSN连接SQL Server数据库　<br>　  实例206　用ADO动态连接数据库　<br>　  实例207 连接Oracle数据库　<br>　8.2　添加数据　<br>　  实例208　利用INSERT语句批量插入数据　<br>　  实例209　利用SELECT INTO生成临时表　<br>　8.3　更新数据　<br>　  实例210　批量修改数据　<br>　  实例211　将指定字段数据为空的记录添上数据　<br>　8.4　删除数据　<br>　  实例212　删除单条数据　<br>　  实例213　删除数据库中无用处的记录　<br>　8.5　视图　<br>　  实例214　动态创建视图　<br>　  实例215　通过视图更改数据　<br>　  实例216　删除视图　<br>　8.6　触发器　<br>　  实例217　创建触发器　<br>　  实例218　在程序中使用触发器　<br>　8.7　存储过程　<br>　  实例219　创建存储过程　<br>　  实例220　删除存储过程　<br>　  实例221　在程序中使用存储过程　<br>　  实例222　调用具有输出参数的存储过程　<br>　8.8　数据库结构的读取与修改　<br>　  实例223　读取Access数据库结构　<br>　  实例224　读取SQL Server数据库结构　<br>　8.9　图片、多媒体数据录入技术　<br>　  实例225　对Access数据库进行录入和提取图片　<br>　  实例226　对SQLServer数据库进行录入和提取多媒体文件　<br>　  实例227　对SQL Server数据库进行录入和存储Word文档　<br>　8.10　数据备份恢复　<br>　  实例228　Access数据库备份与还原　<br>　  实例229　SQL Server数据库备份与恢复　<br>　  实例230　定时数据备份　<br>　8.11　其他数据库技术　<br>　　实例231　断开SQL Server数据库与其他应用程序的连接　<br>　  实例232　在Visual C++中执行事务　<br>　  实例233　在程序中执行SQL脚本　<br>　  实例234　利用SQL语句执行外围命令　<br>第9章　SQL查询相关技术　<br>　9.1　通用查询　<br>　  实例235　SQL语句的应用方法　<br>　  实例236　SQL语句的模糊查询　<br>　  实例237　利用查询语句复制表结构　<br>　9.2　查询控件　<br>　  实例238　查询指定控件内字符串　<br>　  实例239　查询日期控件内数据　<br>　  实例240　控件作为字段、操作符和内容进行查询　<br>　  实例241　巧妙获取年龄　<br>　  实例242　格式化金额　<br>　  实例243　如何随机显示记录　<br>　9.3　查询前若干名数据　<br>　  实例244　查询前10名数据　<br>　  实例245　取出数据统计结果前3名数据　<br>　9.4　周期、日期查询　<br>　  实例246　查询指定日期的数据　<br>　  实例247　查询指定时间段的数据　<br>　  实例248　按月查询数据　<br>　9.5　大小比较、逻辑查询、重复记录查询　<br>　  实例249　查询数据大于指定条件的数据　<br>　  实例250　NOT与谓词进行组合条件的查询　<br>　  实例251　查询时不显示重复记录　<br>　9.6　排序、分组统计　<br>　  实例252　对数据进行降序查询　<br>　  实例253　对数据进行多条件排序　<br>　  实例254　按仓库分组统计图书库存(多列)　<br>　  实例255　多表分组统计　<br>　9.7　HAVING语句应用　<br>　  实例256　利用HAVING语句过滤分组数据　<br>　  实例257　将HAVING语句应用在多表查询中　<br>　9.8　聚集函数　<br>　  实例258　利用聚集函数SUM对销售额进行汇总　<br>　  实例259　利用聚集函数AVG求某班学生的平均年龄　<br>　  实例260　利用聚集函数COUNT求日销售额大于某值的商品数　<br>　9.9　多表查询　<br>　  实例261　利用FROM子句进行多表查询　<br>　  实例262　合并多个结果集　<br>　9.10　嵌套查询　<br>　  实例263　简单嵌套查询　<br>　  实例264　复杂嵌套查询　<br>　9.11　子查询　<br>　  实例265　用子查询作派生的表　<br>　  实例266　把子查询作为表达式　<br>　  实例267　在UPDATE语句中应用子查询　<br>　9.12　联合语句UNION　<br>　  实例268　使用联合查询　<br>　  实例269　多表联合查询　<br>　  实例270　对联合查询后的结果进行排序　<br>　9.13　内连接查询　<br>　  实例271　简单内连接查询　<br>　  实例272　复杂内连接查询　<br>　  实例273　使用内连接选择一个表与另一个表中行相关的所有行　<br>　9.14　外连接查询　<br>　  实例274　LEFT OUTER JOIN查询　<br>　  实例275　RIGHT OUTER JOIN查询　<br>　  实例276　使用外连接进行多表联合查询　<br>　9.15　利用IN进行查询　<br>　  实例277　使用IN引入子查询限定查询范围　<br>　  实例278　用IN查询表中的记录信息　<br>　9.16　交叉表查询　<br>　  实例279　利用TRANSFORM分析数据　<br>　  实例280　利用TRANSFORM动态分析数据　<br>　  实例281　静态交叉表(SQL Server 2000)　<br>　  实例282　动态交叉表(SQL Server 2000)　<br>　9.17　函数查询　<br>　  实例283　在查询语句中使用字符串函数　<br>　  实例284　在查询中使用日期函数　<br>　  实例285　在查询时为表中的空字段添加默认信息　<br>第10章　打印与报表技术　<br>　10.1　基础报表打印　<br>　  实例286　基于文档/视图结构的打印　<br>　  实例287　基于对话框结构的打印程序　<br>　10.2　打印窗体　<br>　  实例288　打印对话框及其控件中的数据　<br>　  实例289　打印对话框文本　<br>　10.3　打印图片　<br>　  实例290　打印图片　<br>　  实例291　打印简历　<br>　10.4　利用报表生成器设计报表　<br>　  实例292　简单报表　<br>　  实例293　分组统计报表　<br>　  实例294　主明细报表　<br>　10.5　打印邮寄单　<br>　  实例295　打印汇款单　<br>　  实例296　打印信封标签　<br>　10.6　打印证件　<br>　  实例297　批量打印工作证　<br>　  实例298　批量打印证书　<br>　10.7　打印单据　<br>　  实例299　库存盘点单打印　<br>　  实例300　连续纸销售单打印　<br>　  实例301　发票打印　<br>　10.8　打印条形码和标签　<br>　  实例302　批量打印条形码　<br>　  实例303　打印连续号码的标签　<br>　10.9　其他格式报表打印　<br>　  实例304　将DataGrid表格中的查询结果输出到Excel中　<br>　  实例305　利用Word打印　<br>　  实例306　利用Excel打印　<br>　10.10　控制打印　<br>　  实例307　打印超长字符串自动换行　<br>　  实例308　批量打印文档　<br>　  实例309　实现横向打印　<br>　  实例310　设置打印纸大小　<br>　  实例311　获取打印纸的左边距和上边距　<br>　10.11　打印预览　<br>　  实例312　修改文档/视图结构默认的打印预栏工具栏　<br>　  实例313　自定义具有滚动条的打印预览窗口　<br>第11章　图表技术　<br>　11.1　简单图表　<br>　  实例314　利用图表分析产品价格行情　<br>　  实例315　对图表数据进行打印　<br>　11.2　柱形图表　<br>　  实例316　将汇总数据利用图表分析　<br>　  实例317　对比数据分析　<br>　11.3　饼形图表　<br>　  实例318　饼形图分析公司男女比例　<br>　  实例319　商品日销售额图表分析　<br>第12章　硬件相关开发技术　<br>　12.1　串口控制　<br>　  实例320　通过串口传递数据　<br>　  实例321　通过串口控制对方计算机关闭　<br>　12.2　加密狗　<br>　  实例322　将密码写入加密狗　<br>　  实例323　使用加密狗进行身份验证　<br>　12.3　IC卡的应用　<br>　  实例324　向IC卡中写入数据　<br>　  实例325　读取IC卡中的数据　<br>　  实例326　利用IC卡制作考勤程序　<br>　12.4　监控　<br>　  实例327　利用简易摄像头编写监控程序　<br>　  实例328　编写监控录像程序　<br>　  实例329　定时监控程序　<br>　  实例330　医疗行业数字视频监控系统　<br>　  实例331　远程视频监控系统　<br>　12.5　扫描、条形码、POS控制　<br>　  实例332　利用条形码扫描器销售商品　<br>　  实例333　设计钱箱控制程序　<br>　  实例334　设计扫描仪控制程序　<br>　  实例335　设计发票机控制程序　<br>　12.6　语音卡控制　<br>　  实例336　语音卡电话呼叫系统　<br>　  实例337　语音卡实现来电显示　<br>　  实例338　利用语音卡实现电话录音　<br>　  实例339　利用语音卡实现点歌祝福　<br>　12.7　手机程序的开发　<br>　  实例340　利用短信猫发送短信　<br>　  实例341　利用短信远程关闭计算机　<br>　12.8　其他程序　<br>　  实例342　利用神龙卡制作练歌房程序　<br>第13章　网络开发技术　<br>　13.1　获取计算机信息　<br>　  实例343　获取计算机名称和工作组　<br>  　实例344　通过计算机名获取IP地址　<br>　  实例345　获取本机MAC地址　<br>　  实例346　获得系统打开的端口和状态　<br>　13.2　局域网控制与管理　<br>　  实例347　获取局域网中的计算机名称和IP地址　<br>　  实例348　远程控制局域网中的计算机　<br>　13.3　局域网资源管理　<br>　  实例349　局域网屏幕监控　<br>　  实例350　提取局域网信息到数据库　<br>　13.4　网上资源共享　<br>　  实例351　获得网上共享资源　<br>　  实例352　映射网络驱动器　<br>　  实例353　定时网络共享控制　<br>　13.5　网络连接与通信　<br>　  实例354　编程实现ping操作　<br>　  实例355　网络语音电话　<br>　  实例356　网络流量监控　<br>　  实例357　取得Modem的状态　<br>　  实例358　检测TCP/IP是否安装　<br>　  实例359　实现进程间的通信　<br>　  实例360　利用内存映射实现进程间的通信　<br>　13.6　局域网应用　<br>　  实例361　局域网聊天程序　<br>　  实例362　网上调查　<br>　13.7　其他　<br>　  实例363　获得拨号网络的列表　<br>　  实例364　获取计算机上串口的数量　<br>　  实例365　检测系统中安装的协议　<br>　  实例366　域名解析　<br>第14章　Web编程　<br>　14.1　上网控制　<br>　  实例367　定时登录Internet　<br>　  实例368　根据网络连接控制IE启动　<br>　14.2　文件上传与下载　<br>　  实例369　FTP文件上传程序　<br>　  实例370　利用Visual C++实现软件下载　<br>　  实例371　HTTP服务器多线程文件下载　<br>　14.3　邮件管理　<br>　  实例372　邮件接收程序　<br>  　实例373　发送电子邮件附件　<br>　14.4　上网监控　<br>　  实例374　监控上网过程　<br>　  实例375　网络监听工具　<br>　14.5　浏览器应用　<br>　  实例376　制作自己的网络浏览软件　<br>　  实例377　XML数据库文档的浏览　<br>　14.6　网上信息提取　<br>　  实例378　定时提取网页源码　<br>　  实例379　网上天气预报　<br>　  实例380　网页链接提取器　<br>　14.7　其他　<br>　  实例381　利用TAPI实现网络拨号　<br>第15章　加密、安全与软件注册　<br>　15.1　数据加密与解密　<br>　  实例382　数据加密技术　<br>　  实例383　文本文件的加密与解密　<br>  　实例384　利用图片加密文件　<br>　15.2　Access数据库安全　<br>　  实例385　编程修复Access数据库　<br>　  实例386　对数据库中的表锁定和解锁　<br>　  实例387　改变Access 2000数据库头文件来加密数据库　<br>　15.3　软件注册与加密　<br>　  实例388　利用INI文件对软件进行注册　<br>　  实例389　利用注册表设计软件注册程序　<br>　  实例390　利用网卡序列号设计软件注册程序　<br>　  实例391　根据CPU序列号和磁盘序列号设计软件注册程序　<br>　15.4　计算机安全　<br>　  实例392　设置计算机的安全等级　<br>第16章　实用工具　<br>　16.1　数据库工具　<br>　  实例393　自动配置ODBC的程序　<br>　  实例394　制作SQL Server提取器　<br>　  实例395　自动附加SQL Server数据库　<br>　16.2　个人工具　<br>　  实例396　个人通讯录　<br>　  实例397　电子名片盒　<br>　16.3　单位应用　<br>　  实例398　局域网投票管理　<br>　  实例399　加班网上管理　<br>附录 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书以开发人员在编程中遇到的实际问题和开发中应该掌握的技术为中心，全面介绍运用Visual C++进行程序开发的各方面技术和技巧。全书分为 16章，分别是窗体与界面设计，控件应用，图形技术，多媒体技术，文件系统，操作系统与Windows相关程序，注册表，数据库技术，SQL查询相关技术，打印与报表技术，图表技术，硬件相关开发技术，网络开发技术，Web编程，加密、安全与软件注册，实用工具等共399个实例。每个实例都突出实用性，其中大部分是程序开发者梦寐以求的问题解决方案。<br>　　本书附有配套光盘。光盘提供了书中所有实例的源代码，所有代码都经过精心调试，在Windows XP/Windows 2000下测试通过，均能正常运行。<br>　　本书适合广大计算机爱好者和编程人员阅读使用，也可供大中专院校师生学习参考。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">明日科技　编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

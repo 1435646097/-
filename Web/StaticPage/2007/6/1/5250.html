@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5250, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5250 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘）" border="1" height="216"  src="/Images/BookCovers/9787115160003.jpg" style="border:1px   solid   #B0B0B0" title="开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘）" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：邱哲，符滔滔  编著
-                                        <br />
-                                        书名：开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘）<br />
-                                        字数：662000<br />
-                                        出版时间：2007年6月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115160003<br />
-                                        <font color="#CC3300">本网价：<strong>￥65.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第一篇　搜索引擎入门<br>  第1章　搜索引擎与信息检索基础　<br>    1.1　搜索引擎的历史　<br>      1.1.1　萌芽：Archie、Gopher　<br>      1.1.2　起步：Robot(网络机器人)的出现与Spider(网络爬虫)　<br>      1.1.3　发展：Excite、Galaxy、Yahoo等　<br>      1.1.4　繁荣：Infoseek、AltaVista、Google和Baidu　<br>    1.2　信息检索系统的基本知识　<br>      1.2.1　什么是信息检索系统　<br>      1.2.2　信息检索的过程　<br>      1.2.3　传统查找的优点和不足　<br>      1.2.4　使用索引提高检索速度　<br>      1.2.5　倒排索引　<br>      1.2.6　评价信息检索系统的标准　<br>    1.3　Lucene简介　<br>    1.4　小结　<br>第二篇　Lucene开发详解<br>  第2章　Lucene入门实例　<br>    2.1　实例介绍　<br>      2.1.1　实例说明　<br>      2.1.2　开发过程　<br>    2.2　准备工作　<br>      2.2.1　将文档的全角标点转换成半角标点　<br>      2.2.2　将大文档切分成多个小文档　<br>      2.2.3　预处理源文件的统一接口　<br>    2.3　创建Eclipse工程　<br>      2.3.1　准备工作　<br>      2.3.2　创建工程并引入Lucene的JAR包　<br>      2.3.3　运行文档预处理类　<br>      2.3.4　创建处理文档的索引类：IndexProcessor　<br>      2.3.5　创建检索索引的搜索类　<br>    2.4　运行效果　<br>    2.5　小结　<br>  第3章　Lucene索引的建立　<br>    3.1　Document逻辑文件　<br>      3.1.1　Lucene的Document　<br>      3.1.2　为Document添加多种Field　<br>      3.1.3　Document的内部实现　<br>    3.2　Field的内部实现　<br>      3.2.1　Field包含的类　<br>      3.2.2　Field类的构造方法　<br>    3.3　Lucene的索引工具IndexWriter　<br>      3.3.1　IndexWriter的初始化　<br>      3.3.2　向索引添加文档　<br>      3.3.3　限制每个Field中的词条的数量　<br>    3.4　Lucene索引过程详解　<br>      3.4.1　Lucene索引建立过程概述　      <br>      3.4.2　使用addDocument方法向索引添加文档　<br>      3.4.3　DocumentWriter的addDocument方法　                        <br>      3.4.4　文档的倒排　<br>      3.4.5　对postingTable进行排序　<br>      3.4.6　将Posting信息写入索引　<br>    3.5　索引文件格式　<br>      3.5.1　索引的segment　<br>      3.5.2　.fnm格式　<br>      3.5.3　.fdx与.fdt格式　<br>      3.5.4　.tii与.tis格式　<br>      3.5.5　deletable格式　            <br>      3.5.6　复合索引格式.cfs　      <br>    3.6　索引过程的优化　            <br>      3.6.1　合并因子mergeFactor　      <br>      3.6.2　maxMergeDocs　                        <br>      3.6.3　minMergeDocs　      <br>    3.7　索引的合并与索引的优化　<br>      3.7.1　FSDirectory与RAMDirectory　<br>      3.7.2　使用IndexWriter来合并索引　                              <br>      3.7.3　索引的优化　<br>    3.8　从索引中删除文档　                                                     3.8.1　索引的读取工具IndexReader　      <br>      3.8.2　使用文档ID号来删除特定文档　<br>      3.8.3　使用Field信息来删除批量文档　<br>    3.9　Lucene的同步问题　<br>      3.9.1　为什么要进行同步以及Lucene的同步法则　<br>      3.9.2　commit.lock与write.lock　            <br>    3.10　Lucene 2.0的新类：IndexModifier类　<br>    3.11　小结　<br>  第4章　Lucene的搜索　<br>    4.1　使用IndexSearcher进行搜索　<br>      4.1.1　初始化IndexSearcher　<br>      4.1.2　IndexSearcher最简单的使用　<br>      4.1.3　IndexSearcher的多种search方法　<br>    4.2　Hits类详解　<br>      4.2.1　Hits类的公有接口　<br>      4.2.2　效率分析　<br>      4.2.3　Hits内部的缓存　<br>      4.2.4　Hits类的工作原理　<br>    4.3　对搜索结果的评分　<br>      4.3.1　文档与词条的向量空间　<br>      4.3.2　Lucene的文档得分算法　<br>    4.4　构建各种Lucene内建的Query对象　<br>      4.4.1　toString查看原子查询　<br>      4.4.2　查询重写与权重　<br>      4.4.3　TermQuery词条搜索　<br>      4.4.4　BooleanQuery布尔搜索　<br>      4.4.5　RangeQuery范围搜索　<br>      4.4.6　PrefixQuery前缀搜索　<br>      4.4.7　PhraseQuery短语搜索　<br>      4.4.8　MultiPhraseQuery多短语搜索　<br>      4.4.9　FuzzyQuery模糊搜索　<br>      4.4.10　WildcardQuery通配符搜索　<br>      4.4.11　SpanQuery跨度搜索　      <br>    4.5　第三方提供的Query对象：RegexQuery　                  <br>    4.6　通过QueryParser转换用户关键字　                                        4.6.1　词条的定义　<br>      4.6.2　QueryParser初始化　<br>      4.6.3　改变QueryParser默认的布尔逻辑　            <br>      4.6.4　短语和QueryParser　<br>      4.6.5　FuzzyQuery和QueryParser　<br>      4.6.6　通配符与QueryParser　                              <br>      4.6.7　查找指定的Field　<br>      4.6.8　RangeQuery与QueryParser　<br>      4.6.9　QueryParser和SpanQuery　<br>    4.7　多Field搜索与多索引搜索　<br>      4.7.1　多域搜索MultiFieldQueryParser　      <br>      4.7.2　MultiSearcher在多个索引上搜索　      <br>      4.7.3　ParalellMultiSearcher：多线程搜索　      <br>      4.7.4　Searchable和RMI　      <br>    4.8　小结　<br>  第5章　排序、过滤和分页　<br>    5.1　相关度排序　<br>      5.1.1　使用Score进行自然排序　<br>      5.1.2　Searcher的explain方法　<br>      5.1.3　通过改变boost值来改变文档的得分　<br>    5.2　使用Sort来排序　<br>      5.2.1　Sort简介　<br>      5.2.2　SortField　<br>      5.2.3　按文档得分进行排序　<br>      5.2.4　按文档的内部ID号来排序　<br>      5.2.5　按一个或多个Field来排序　<br>      5.2.6　改变SortField中的Locale信息　<br>    5.3　搜索的过滤器　<br>      5.3.1　过滤器的基本结构　                              <br>      5.3.2　一个简单的Filter：建立索引　<br>      5.3.3　一个简单的Filter：打印索引文档信息　            <br>      5.3.4　一个简单的Filter：安全级别与过滤器代码　<br>      5.3.5　一个简单的Filter：在搜索时应用过滤器　      <br>      5.3.6　一个简单的Filter：总结　<br>      5.3.7　按范围过滤RangeFilter　<br>      5.3.8　在结果中查询QueryFilter　<br>      5.3.9　缓存结果：CachingWrapperFilter　<br>    5.4　翻页问题　<br>      5.4.1　依赖于session的翻页　      <br>      5.4.2　多次查询　<br>      5.4.3　缓存+多次查询　      <br>      5.4.4　缓存+多次查询+数据库　<br>    5.5　小结　<br>  第6章　Lucene的分析器　      <br>    6.1　分析　<br>      6.1.1　分词　      <br>      6.1.2　Lucene的分析器的结构　<br>      6.1.3　Lucene的分析器的实现　            <br>    6.2　Lucene与JavaCC　<br>      6.2.1　JavaCC简介　                  <br>      6.2.2　JavaCC为Lucene提供的分析器脚本　<br>      6.2.3　Lucene的标准分析器　<br>      6.2.4　标准过滤器：StandardFilter　<br>      6.2.5　大小写转换器：LowerCaseFilter　      <br>      6.2.6　忽略词过滤器：StopFilter　<br>    6.3　分析器的进阶　<br>      6.3.1　再看StandardAnalyzer中的管道过滤器结构　<br>      6.3.2　长度过滤器：LengthFilter　<br>      6.3.3　PerFieldAnalyzerWrapper　<br>      6.3.4　其他　<br>    6.4　对中文的分析　<br>      6.4.1　现有的中文分词方式简介　<br>      6.4.2　中科院的分词软件和JE分词　<br>    6.5　小结　<br>第三篇　Lucene相关话题<br>  第7章　对Word、Excel 和PDF的处理　<br>    7.1　使用PDFBox处理PDF文档　<br>      7.1.1　PDFBox的下载　<br>      7.1.2　在Eclipse中配置　<br>      7.1.3　使用PDFBox解析PDF内容　<br>      7.1.4　运行效果　<br>      7.1.5　与Lucene的集成　<br>    7.2　使用xpdf来处理中文PDF文档　<br>      7.2.1　xpdf的下载　<br>      7.2.2　配置　<br>      7.2.3　提取中文　<br>      7.2.4　运行效果　<br>    7.3　使用POI来处理Excel和Word文件格式　<br>      7.3.1　对Excel的处理类　<br>      7.3.2　ExcelReader的运行效果　<br>      7.3.3　POI中Excel文件Cell的类型　<br>      7.3.4　对Word的处理类　<br>    7.4　使用Jacob来处理Word文档　<br>      7.4.1　Jacob的下载　<br>      7.4.2　在Eclipse中配置　      <br>    7.5　小结　<br>  第8章　Compass：封装了Lucene的框架　<br>    8.1　Compass简介　<br>      8.1.1　Compass的下载　<br>      8.1.2　Compass的代码片断　<br>    8.2　Compass的初始配置　<br>      8.2.1　Compass的配置文件　<br>      8.2.2　将索引存放于内存中　<br>      8.2.3　使用JDBC来存储索引　      <br>      8.2.4　使用连接池来存储索引　<br>      8.2.5　加载compass.cfg.xml文件　<br>    8.3　域模型的配置　<br>      8.3.1　实体代码　<br>      8.3.2　实体关系　      <br>      8.3.3　实体Book的配置文件　<br>      8.3.4　通用元数据定义文件(.cmd.xml)　<br>      8.3.5　Author和Article的配置文件　<br>    8.4　使用Compass来建立索引　      <br>      8.4.1　索引代码　<br>      8.4.2　对象关系图和运行结果　<br>    8.5　使用Compass来搜索　<br>      8.5.1　使用find()方法搜索　<br>      8.5.2　CompassHits类型　                        <br>      8.5.3　CompassHit类型　<br>      8.5.4　使用Lucene语法来查找　<br>    8.6　配置Analyzer和Optimizer　<br>    8.7　小结　<br>  第9章　Lucene分布式和Google Search API　<br>    9.1　Lucene与分布式　<br>      9.1.1　什么是GFS　<br>      9.1.2　为Lucene提供分布式的几点设想　<br>    9.2　Google的Search API　<br>      9.2.1　搭建环境　<br>      9.2.2　构建搜索类　<br>      9.2.3　设置查询时的参数和查询语法　<br>      9.2.4　运行测试　<br>    9.3　小结　<br>第四篇　网络爬虫Heritrix<br>  第10章　无比强大的网络爬虫Heritrix　<br>    10.1　Heritrix使用入门　<br>      10.1.1　下载和运行Heritrix　<br>      10.1.2　在Eclipse里配置Heritrix的开发环境　<br>      10.1.3　创建一个新的抓取任务　<br>      10.1.4　设置抓取时的处理链　<br>      10.1.5　设置运行时的参数　      <br>      10.1.6　运行抓取任务　<br>      10.1.7　Heritrix的镜像存储结构　<br>      10.1.8　终止抓取或终止Heritrix的运行　<br>    10.2　Heritrix的架构　<br>      10.2.1　抓取任务CrawlOrder　<br>      10.2.2　中央控制器CrawlController　<br>      10.2.3　Frontier链接制造工厂　<br>      10.2.4　用Berkeley DB实现的BdbFrontier　<br>      10.2.5　Heritrix的多线程ToeThread和ToePool　<br>      10.2.6　处理链和Processor　<br>    10.3　扩展和定制Heritrix　<br>      10.3.1　向Heritrix中添加自己的Extractor　<br>      10.3.2　定制Queue-assignment-policy的两个问题　<br>      10.3.3　定制Queue-assignment-policy继承QueueAssignmentPolicy类　<br>      10.3.4　扩展FrontierScheduler来抓取特定的内容　<br>      10.3.5　在Prefetcher中取消robots.txt的限制　<br>    10.4　小结　<br>第五篇　构建垂直搜索引擎<br>  第11章　搜索引擎综合实例：准备篇　<br>    11.1　实例简介以及实现途径　<br>      11.1.1　选择网站　<br>      11.1.2　太平洋电脑网和网易手机频道　<br>      11.1.3　分析网站内容并准备抓取清单　<br>      11.1.4　从下拉列表获得手机品牌首页　<br>      11.1.5　解析手机品牌页面　<br>    11.2　在Heritrix中为pconline开发抓取所需的定制类　<br>      11.2.1　保存所有产品的页面和图片　<br>      11.2.2　不保存其他无关页面　<br>      11.2.3　开始抓取　<br>    11.3　在Heritrix中为网易手机频道开发抓取所需的定制类　<br>      11.3.1　分析网易手机频道　<br>      11.3.2　设计抓取代码　<br>    11.4　在Eclipse中创建工程结构　<br>      11.4.1　下载插件　<br>      11.4.2　在Eclipse中配置插件　<br>      11.4.3　创建工程　<br>      11.4.4　设置工程的Context　<br>      11.4.5　设定源代码存放和输出路径　<br>      11.4.6　添加Java代码　<br>      11.4.7　添加Jar包　<br>      11.4.8　创建JSP文件　<br>      11.4.9　工程整体结构一览　<br>    11.5　设定配置文件及其相关类　<br>      11.5.1　系统属性配置文件　<br>      11.5.2　封装配置文件　<br>    11.6　产品详细信息文件格式　<br>    11.7　解析网页信息的基类Extractor　<br>    11.8　太平洋电脑网手机产品页面Extractor　<br>    11.9　pconline产品信息运行效果测试　<br>      11.9.1　编写测试函数　<br>      11.9.2　执行测试　<br>    11.10　网易手机频道的产品信息运行效果　<br>    11.11　构建产品信息词库　<br>    11.12　数据库与索引结构　<br>      11.12.1　定义Product类　<br>      11.12.2　确定数据库与索引的结构　<br>    11.13　数据库处理和索引处理　<br>      11.13.1　对数据库进行操作　<br>      11.13.2　对索引进行操作　<br>    11.14　调用数据库处理类和索引处理类　<br>    11.15　运行　<br>    11.16　小结　<br>  第12章　使用正则表达式与HTMLParser提取网页内容　<br>    12.1　HTML的基本知识　<br>    12.2　JDK中的正则表达式提取网页内容　<br>      12.2.1　java.util.regex包　<br>      12.2.2　正则表达式提取网页内容实例　<br>    12.3　HTMLParser提取网页内容　<br>      12.3.1　HTMLParser的下载　<br>      12.3.2　HTMLParser概述　<br>      12.3.3　Lexer的功能及实现　<br>      12.3.4　HTMLParser的功能及实现　<br>      12.3.5　HTMLParser实例　<br>    12.4　小结　<br>  第13章　搜索引擎综合实例：DWR　<br>    13.1　DWR的下载　<br>    13.2　DWR入门与实例演示　<br>      13.2.1　创建工程结构　<br>      13.2.2　在web.xml中配置DWR　<br>      13.2.3　配置dwr.xml　<br>      13.2.4　页面代码　<br>      13.2.5　运行效果　<br>      13.2.6　DWR与直接使用XMLHttpRequest对象的比较　<br>      13.2.7　在DWR中操纵自定义的对象　<br>      13.2.8　查看DWR的输出日志　<br>    13.3　dwr.xml的配置　<br>      13.3.1　dwr.xml的标准结构　<br>      13.3.2　<init>标签与DWR自带的converter和creator　<br>      13.3.3　<allow>标签　<br>      13.3.4　<signature>标签　<br>      13.3.5　另一个例子　<br>    13.4　util.js　<br>      13.4.1　调用util.js　<br>      13.4.2　使用useLoadingMessage方法显示提示图标　<br>      13.4.3　DWRUtil.setValue和DWRUtil.getValue　<br>      13.4.4　DWRUtil.getValues和DWRUtil.setValues　<br>      13.4.5　DWRUtil.addOptions和DWRUtil.removeAllOptions　<br>      13.4.6　DWRUtil.addRows和DWRUtil.removeAllRows　<br>      13.4.7　DWRUtil.toDescriptiveString方法　<br>    13.5　小结　<br>  第14章　搜索引擎综合实例：Web篇　<br>    14.1　配置文件　<br>      14.1.1　Spring配置文件　<br>      14.1.2　DWR配置文件　<br>      14.1.3　web.xml　            <br>    14.2　各种Bean类　      <br>      14.2.1　SearchResult　<br>      14.2.2　SearchResults　<br>      14.2.3　SearchRequest　<br>    14.3　SearchService的实现　<br>    14.4　SearchResultDao　<br>    14.5　前台部分　<br>      14.5.1　搜索主页面main.jsp　<br>      14.5.2　图片的显示　<br>      14.5.3　详细信息页面detail.jsp　<br>    14.6　问题　<br>    14.7　小结 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书是一本针对搜索引擎开发的书籍。通过学习本书，读者可以独立构建出一个企业级的搜索引擎网站。本书详细讲解了搜索引擎与信息检索基础，Lucene入门实例，Lucene索引的建立，使用Lucene进行搜索，排序，过滤和分页，Lucene的分析器，对Word、Excel和PDF格式文档的处理，Compass搜索引擎框架，Lucene分布式和Google Search API，爬虫Heritrix，HTMLParser，DWR等内容。最后综合使用所讲述的技术，构建了一个典型的垂直搜索系统，该系统具有很强的商业实用价值。<br>　　本书是一本介绍如何使用Lucene 2.0和Heritrix来构建搜索引擎的书。通过对相关API和源代码的分析，力求使读者在掌握应用的基础上能够深入其核心，自行扩展和开发相应组件，开发出更有创意的搜索引擎产品。<br>　　本书适合从事计算机软件开发的人员阅读，同时也可以作为搜索引擎爱好者的入门书籍。阅读本书需要具备Java语言基础。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">邱哲，符滔滔  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘）" border="1" height="216" src="/Images/BookCovers/9787115160003.jpg" style="border:1px   solid   #B0B0B0" title="开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘）" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：邱哲，符滔滔  编著
+                                                                    <br />
+                                                                    书名：开发自己的搜索引擎——Lucene 2.0+Heritrix（含光盘）<br />
+                                                                    字数：662000<br />
+                                                                    出版时间：2007年6月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115160003<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥65.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第一篇　搜索引擎入门<br>  第1章　搜索引擎与信息检索基础　<br>    1.1　搜索引擎的历史　<br>      1.1.1　萌芽：Archie、Gopher　<br>      1.1.2　起步：Robot(网络机器人)的出现与Spider(网络爬虫)　<br>      1.1.3　发展：Excite、Galaxy、Yahoo等　<br>      1.1.4　繁荣：Infoseek、AltaVista、Google和Baidu　<br>    1.2　信息检索系统的基本知识　<br>      1.2.1　什么是信息检索系统　<br>      1.2.2　信息检索的过程　<br>      1.2.3　传统查找的优点和不足　<br>      1.2.4　使用索引提高检索速度　<br>      1.2.5　倒排索引　<br>      1.2.6　评价信息检索系统的标准　<br>    1.3　Lucene简介　<br>    1.4　小结　<br>第二篇　Lucene开发详解<br>  第2章　Lucene入门实例　<br>    2.1　实例介绍　<br>      2.1.1　实例说明　<br>      2.1.2　开发过程　<br>    2.2　准备工作　<br>      2.2.1　将文档的全角标点转换成半角标点　<br>      2.2.2　将大文档切分成多个小文档　<br>      2.2.3　预处理源文件的统一接口　<br>    2.3　创建Eclipse工程　<br>      2.3.1　准备工作　<br>      2.3.2　创建工程并引入Lucene的JAR包　<br>      2.3.3　运行文档预处理类　<br>      2.3.4　创建处理文档的索引类：IndexProcessor　<br>      2.3.5　创建检索索引的搜索类　<br>    2.4　运行效果　<br>    2.5　小结　<br>  第3章　Lucene索引的建立　<br>    3.1　Document逻辑文件　<br>      3.1.1　Lucene的Document　<br>      3.1.2　为Document添加多种Field　<br>      3.1.3　Document的内部实现　<br>    3.2　Field的内部实现　<br>      3.2.1　Field包含的类　<br>      3.2.2　Field类的构造方法　<br>    3.3　Lucene的索引工具IndexWriter　<br>      3.3.1　IndexWriter的初始化　<br>      3.3.2　向索引添加文档　<br>      3.3.3　限制每个Field中的词条的数量　<br>    3.4　Lucene索引过程详解　<br>      3.4.1　Lucene索引建立过程概述　      <br>      3.4.2　使用addDocument方法向索引添加文档　<br>      3.4.3　DocumentWriter的addDocument方法　                        <br>      3.4.4　文档的倒排　<br>      3.4.5　对postingTable进行排序　<br>      3.4.6　将Posting信息写入索引　<br>    3.5　索引文件格式　<br>      3.5.1　索引的segment　<br>      3.5.2　.fnm格式　<br>      3.5.3　.fdx与.fdt格式　<br>      3.5.4　.tii与.tis格式　<br>      3.5.5　deletable格式　            <br>      3.5.6　复合索引格式.cfs　      <br>    3.6　索引过程的优化　            <br>      3.6.1　合并因子mergeFactor　      <br>      3.6.2　maxMergeDocs　                        <br>      3.6.3　minMergeDocs　      <br>    3.7　索引的合并与索引的优化　<br>      3.7.1　FSDirectory与RAMDirectory　<br>      3.7.2　使用IndexWriter来合并索引　                              <br>      3.7.3　索引的优化　<br>    3.8　从索引中删除文档　                                                     3.8.1　索引的读取工具IndexReader　      <br>      3.8.2　使用文档ID号来删除特定文档　<br>      3.8.3　使用Field信息来删除批量文档　<br>    3.9　Lucene的同步问题　<br>      3.9.1　为什么要进行同步以及Lucene的同步法则　<br>      3.9.2　commit.lock与write.lock　            <br>    3.10　Lucene 2.0的新类：IndexModifier类　<br>    3.11　小结　<br>  第4章　Lucene的搜索　<br>    4.1　使用IndexSearcher进行搜索　<br>      4.1.1　初始化IndexSearcher　<br>      4.1.2　IndexSearcher最简单的使用　<br>      4.1.3　IndexSearcher的多种search方法　<br>    4.2　Hits类详解　<br>      4.2.1　Hits类的公有接口　<br>      4.2.2　效率分析　<br>      4.2.3　Hits内部的缓存　<br>      4.2.4　Hits类的工作原理　<br>    4.3　对搜索结果的评分　<br>      4.3.1　文档与词条的向量空间　<br>      4.3.2　Lucene的文档得分算法　<br>    4.4　构建各种Lucene内建的Query对象　<br>      4.4.1　toString查看原子查询　<br>      4.4.2　查询重写与权重　<br>      4.4.3　TermQuery词条搜索　<br>      4.4.4　BooleanQuery布尔搜索　<br>      4.4.5　RangeQuery范围搜索　<br>      4.4.6　PrefixQuery前缀搜索　<br>      4.4.7　PhraseQuery短语搜索　<br>      4.4.8　MultiPhraseQuery多短语搜索　<br>      4.4.9　FuzzyQuery模糊搜索　<br>      4.4.10　WildcardQuery通配符搜索　<br>      4.4.11　SpanQuery跨度搜索　      <br>    4.5　第三方提供的Query对象：RegexQuery　                  <br>    4.6　通过QueryParser转换用户关键字　                                        4.6.1　词条的定义　<br>      4.6.2　QueryParser初始化　<br>      4.6.3　改变QueryParser默认的布尔逻辑　            <br>      4.6.4　短语和QueryParser　<br>      4.6.5　FuzzyQuery和QueryParser　<br>      4.6.6　通配符与QueryParser　                              <br>      4.6.7　查找指定的Field　<br>      4.6.8　RangeQuery与QueryParser　<br>      4.6.9　QueryParser和SpanQuery　<br>    4.7　多Field搜索与多索引搜索　<br>      4.7.1　多域搜索MultiFieldQueryParser　      <br>      4.7.2　MultiSearcher在多个索引上搜索　      <br>      4.7.3　ParalellMultiSearcher：多线程搜索　      <br>      4.7.4　Searchable和RMI　      <br>    4.8　小结　<br>  第5章　排序、过滤和分页　<br>    5.1　相关度排序　<br>      5.1.1　使用Score进行自然排序　<br>      5.1.2　Searcher的explain方法　<br>      5.1.3　通过改变boost值来改变文档的得分　<br>    5.2　使用Sort来排序　<br>      5.2.1　Sort简介　<br>      5.2.2　SortField　<br>      5.2.3　按文档得分进行排序　<br>      5.2.4　按文档的内部ID号来排序　<br>      5.2.5　按一个或多个Field来排序　<br>      5.2.6　改变SortField中的Locale信息　<br>    5.3　搜索的过滤器　<br>      5.3.1　过滤器的基本结构　                              <br>      5.3.2　一个简单的Filter：建立索引　<br>      5.3.3　一个简单的Filter：打印索引文档信息　            <br>      5.3.4　一个简单的Filter：安全级别与过滤器代码　<br>      5.3.5　一个简单的Filter：在搜索时应用过滤器　      <br>      5.3.6　一个简单的Filter：总结　<br>      5.3.7　按范围过滤RangeFilter　<br>      5.3.8　在结果中查询QueryFilter　<br>      5.3.9　缓存结果：CachingWrapperFilter　<br>    5.4　翻页问题　<br>      5.4.1　依赖于session的翻页　      <br>      5.4.2　多次查询　<br>      5.4.3　缓存+多次查询　      <br>      5.4.4　缓存+多次查询+数据库　<br>    5.5　小结　<br>  第6章　Lucene的分析器　      <br>    6.1　分析　<br>      6.1.1　分词　      <br>      6.1.2　Lucene的分析器的结构　<br>      6.1.3　Lucene的分析器的实现　            <br>    6.2　Lucene与JavaCC　<br>      6.2.1　JavaCC简介　                  <br>      6.2.2　JavaCC为Lucene提供的分析器脚本　<br>      6.2.3　Lucene的标准分析器　<br>      6.2.4　标准过滤器：StandardFilter　<br>      6.2.5　大小写转换器：LowerCaseFilter　      <br>      6.2.6　忽略词过滤器：StopFilter　<br>    6.3　分析器的进阶　<br>      6.3.1　再看StandardAnalyzer中的管道过滤器结构　<br>      6.3.2　长度过滤器：LengthFilter　<br>      6.3.3　PerFieldAnalyzerWrapper　<br>      6.3.4　其他　<br>    6.4　对中文的分析　<br>      6.4.1　现有的中文分词方式简介　<br>      6.4.2　中科院的分词软件和JE分词　<br>    6.5　小结　<br>第三篇　Lucene相关话题<br>  第7章　对Word、Excel 和PDF的处理　<br>    7.1　使用PDFBox处理PDF文档　<br>      7.1.1　PDFBox的下载　<br>      7.1.2　在Eclipse中配置　<br>      7.1.3　使用PDFBox解析PDF内容　<br>      7.1.4　运行效果　<br>      7.1.5　与Lucene的集成　<br>    7.2　使用xpdf来处理中文PDF文档　<br>      7.2.1　xpdf的下载　<br>      7.2.2　配置　<br>      7.2.3　提取中文　<br>      7.2.4　运行效果　<br>    7.3　使用POI来处理Excel和Word文件格式　<br>      7.3.1　对Excel的处理类　<br>      7.3.2　ExcelReader的运行效果　<br>      7.3.3　POI中Excel文件Cell的类型　<br>      7.3.4　对Word的处理类　<br>    7.4　使用Jacob来处理Word文档　<br>      7.4.1　Jacob的下载　<br>      7.4.2　在Eclipse中配置　      <br>    7.5　小结　<br>  第8章　Compass：封装了Lucene的框架　<br>    8.1　Compass简介　<br>      8.1.1　Compass的下载　<br>      8.1.2　Compass的代码片断　<br>    8.2　Compass的初始配置　<br>      8.2.1　Compass的配置文件　<br>      8.2.2　将索引存放于内存中　<br>      8.2.3　使用JDBC来存储索引　      <br>      8.2.4　使用连接池来存储索引　<br>      8.2.5　加载compass.cfg.xml文件　<br>    8.3　域模型的配置　<br>      8.3.1　实体代码　<br>      8.3.2　实体关系　      <br>      8.3.3　实体Book的配置文件　<br>      8.3.4　通用元数据定义文件(.cmd.xml)　<br>      8.3.5　Author和Article的配置文件　<br>    8.4　使用Compass来建立索引　      <br>      8.4.1　索引代码　<br>      8.4.2　对象关系图和运行结果　<br>    8.5　使用Compass来搜索　<br>      8.5.1　使用find()方法搜索　<br>      8.5.2　CompassHits类型　                        <br>      8.5.3　CompassHit类型　<br>      8.5.4　使用Lucene语法来查找　<br>    8.6　配置Analyzer和Optimizer　<br>    8.7　小结　<br>  第9章　Lucene分布式和Google Search API　<br>    9.1　Lucene与分布式　<br>      9.1.1　什么是GFS　<br>      9.1.2　为Lucene提供分布式的几点设想　<br>    9.2　Google的Search API　<br>      9.2.1　搭建环境　<br>      9.2.2　构建搜索类　<br>      9.2.3　设置查询时的参数和查询语法　<br>      9.2.4　运行测试　<br>    9.3　小结　<br>第四篇　网络爬虫Heritrix<br>  第10章　无比强大的网络爬虫Heritrix　<br>    10.1　Heritrix使用入门　<br>      10.1.1　下载和运行Heritrix　<br>      10.1.2　在Eclipse里配置Heritrix的开发环境　<br>      10.1.3　创建一个新的抓取任务　<br>      10.1.4　设置抓取时的处理链　<br>      10.1.5　设置运行时的参数　      <br>      10.1.6　运行抓取任务　<br>      10.1.7　Heritrix的镜像存储结构　<br>      10.1.8　终止抓取或终止Heritrix的运行　<br>    10.2　Heritrix的架构　<br>      10.2.1　抓取任务CrawlOrder　<br>      10.2.2　中央控制器CrawlController　<br>      10.2.3　Frontier链接制造工厂　<br>      10.2.4　用Berkeley DB实现的BdbFrontier　<br>      10.2.5　Heritrix的多线程ToeThread和ToePool　<br>      10.2.6　处理链和Processor　<br>    10.3　扩展和定制Heritrix　<br>      10.3.1　向Heritrix中添加自己的Extractor　<br>      10.3.2　定制Queue-assignment-policy的两个问题　<br>      10.3.3　定制Queue-assignment-policy继承QueueAssignmentPolicy类　<br>      10.3.4　扩展FrontierScheduler来抓取特定的内容　<br>      10.3.5　在Prefetcher中取消robots.txt的限制　<br>    10.4　小结　<br>第五篇　构建垂直搜索引擎<br>  第11章　搜索引擎综合实例：准备篇　<br>    11.1　实例简介以及实现途径　<br>      11.1.1　选择网站　<br>      11.1.2　太平洋电脑网和网易手机频道　<br>      11.1.3　分析网站内容并准备抓取清单　<br>      11.1.4　从下拉列表获得手机品牌首页　<br>      11.1.5　解析手机品牌页面　<br>    11.2　在Heritrix中为pconline开发抓取所需的定制类　<br>      11.2.1　保存所有产品的页面和图片　<br>      11.2.2　不保存其他无关页面　<br>      11.2.3　开始抓取　<br>    11.3　在Heritrix中为网易手机频道开发抓取所需的定制类　<br>      11.3.1　分析网易手机频道　<br>      11.3.2　设计抓取代码　<br>    11.4　在Eclipse中创建工程结构　<br>      11.4.1　下载插件　<br>      11.4.2　在Eclipse中配置插件　<br>      11.4.3　创建工程　<br>      11.4.4　设置工程的Context　<br>      11.4.5　设定源代码存放和输出路径　<br>      11.4.6　添加Java代码　<br>      11.4.7　添加Jar包　<br>      11.4.8　创建JSP文件　<br>      11.4.9　工程整体结构一览　<br>    11.5　设定配置文件及其相关类　<br>      11.5.1　系统属性配置文件　<br>      11.5.2　封装配置文件　<br>    11.6　产品详细信息文件格式　<br>    11.7　解析网页信息的基类Extractor　<br>    11.8　太平洋电脑网手机产品页面Extractor　<br>    11.9　pconline产品信息运行效果测试　<br>      11.9.1　编写测试函数　<br>      11.9.2　执行测试　<br>    11.10　网易手机频道的产品信息运行效果　<br>    11.11　构建产品信息词库　<br>    11.12　数据库与索引结构　<br>      11.12.1　定义Product类　<br>      11.12.2　确定数据库与索引的结构　<br>    11.13　数据库处理和索引处理　<br>      11.13.1　对数据库进行操作　<br>      11.13.2　对索引进行操作　<br>    11.14　调用数据库处理类和索引处理类　<br>    11.15　运行　<br>    11.16　小结　<br>  第12章　使用正则表达式与HTMLParser提取网页内容　<br>    12.1　HTML的基本知识　<br>    12.2　JDK中的正则表达式提取网页内容　<br>      12.2.1　java.util.regex包　<br>      12.2.2　正则表达式提取网页内容实例　<br>    12.3　HTMLParser提取网页内容　<br>      12.3.1　HTMLParser的下载　<br>      12.3.2　HTMLParser概述　<br>      12.3.3　Lexer的功能及实现　<br>      12.3.4　HTMLParser的功能及实现　<br>      12.3.5　HTMLParser实例　<br>    12.4　小结　<br>  第13章　搜索引擎综合实例：DWR　<br>    13.1　DWR的下载　<br>    13.2　DWR入门与实例演示　<br>      13.2.1　创建工程结构　<br>      13.2.2　在web.xml中配置DWR　<br>      13.2.3　配置dwr.xml　<br>      13.2.4　页面代码　<br>      13.2.5　运行效果　<br>      13.2.6　DWR与直接使用XMLHttpRequest对象的比较　<br>      13.2.7　在DWR中操纵自定义的对象　<br>      13.2.8　查看DWR的输出日志　<br>    13.3　dwr.xml的配置　<br>      13.3.1　dwr.xml的标准结构　<br>      13.3.2　<init>标签与DWR自带的converter和creator　<br>      13.3.3　<allow>标签　<br>      13.3.4　<signature>标签　<br>      13.3.5　另一个例子　<br>    13.4　util.js　<br>      13.4.1　调用util.js　<br>      13.4.2　使用useLoadingMessage方法显示提示图标　<br>      13.4.3　DWRUtil.setValue和DWRUtil.getValue　<br>      13.4.4　DWRUtil.getValues和DWRUtil.setValues　<br>      13.4.5　DWRUtil.addOptions和DWRUtil.removeAllOptions　<br>      13.4.6　DWRUtil.addRows和DWRUtil.removeAllRows　<br>      13.4.7　DWRUtil.toDescriptiveString方法　<br>    13.5　小结　<br>  第14章　搜索引擎综合实例：Web篇　<br>    14.1　配置文件　<br>      14.1.1　Spring配置文件　<br>      14.1.2　DWR配置文件　<br>      14.1.3　web.xml　            <br>    14.2　各种Bean类　      <br>      14.2.1　SearchResult　<br>      14.2.2　SearchResults　<br>      14.2.3　SearchRequest　<br>    14.3　SearchService的实现　<br>    14.4　SearchResultDao　<br>    14.5　前台部分　<br>      14.5.1　搜索主页面main.jsp　<br>      14.5.2　图片的显示　<br>      14.5.3　详细信息页面detail.jsp　<br>    14.6　问题　<br>    14.7　小结 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书是一本针对搜索引擎开发的书籍。通过学习本书，读者可以独立构建出一个企业级的搜索引擎网站。本书详细讲解了搜索引擎与信息检索基础，Lucene入门实例，Lucene索引的建立，使用Lucene进行搜索，排序，过滤和分页，Lucene的分析器，对Word、Excel和PDF格式文档的处理，Compass搜索引擎框架，Lucene分布式和Google Search API，爬虫Heritrix，HTMLParser，DWR等内容。最后综合使用所讲述的技术，构建了一个典型的垂直搜索系统，该系统具有很强的商业实用价值。<br>　　本书是一本介绍如何使用Lucene 2.0和Heritrix来构建搜索引擎的书。通过对相关API和源代码的分析，力求使读者在掌握应用的基础上能够深入其核心，自行扩展和开发相应组件，开发出更有创意的搜索引擎产品。<br>　　本书适合从事计算机软件开发的人员阅读，同时也可以作为搜索引擎爱好者的入门书籍。阅读本书需要具备Java语言基础。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">邱哲，符滔滔  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

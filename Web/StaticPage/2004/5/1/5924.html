@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5924, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5924 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">VISUVL BASIC硬件设计与开发——数据采集卡控制 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="VISUVL BASIC硬件设计与开发——数据采集卡控制" border="1" height="216"  src="/Images/BookCovers/9787302083139.jpg" style="border:1px   solid   #B0B0B0" title="VISUVL BASIC硬件设计与开发——数据采集卡控制" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：范逸之，廖锦棋  编著
-                                        <br />
-                                        书名：VISUVL BASIC硬件设计与开发——数据采集卡控制<br />
-                                        字数：786000<br />
-                                        出版时间：2004年5月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787302083139<br />
-                                        <font color="#CC3300">本网价：<strong>￥43.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        VISUVL BASIC硬件设计与开发——数据采集卡控制 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章 信号与传感器基本原理<br>  1.1 信号<br>  1.2 信号的处理<br>    1.2.1 放大<br>    1.2.2 衰减<br>    1.2.3 滤波<br>    1.2.4 隔离<br>  1.3 传感器<br>    1.3.1 传感器分类<br>    1.3.2 温度传感器<br>    1.3.3 力量及压力传感器<br>    1.3.4 位移及位置传感器<br>    1.3.5 加速度传感器<br>第2章 数据采集卡介绍<br>  2.1 数据采集常用接口<br>    2.1.1 接口种类<br>    2.1.2 ISA接口<br>    2.1.3 PCI接口<br>    2.1.4 Compact PCI接口<br>  2.2 资源<br>    2.2.1 地址<br>    2.2.2 中断<br>    2.2.3 直接内存访问<br>    2.2.4 如何调整地址、中断及DMA    <br>  2.3 数据采集卡<br>    2.3.1 采集卡外观<br>    2.3.2 输出输入分类<br>    2.3.3 引脚定义<br>    2.3.4 测试扩展板<br>  2.4 DAQ卡的启动<br>    2.4.1 MAX的安装及DAQ卡检测<br>    2.4.2 ISA形式的采集卡和MAX<br>  2.5 常用的实验配备<br>    2.5.1 波形产生器<br>    2.5.2 示波器<br>    2.5.3 频谱分析仪<br>    2.5.4 万用表<br>第3章 Visual Basic与数据采集卡的通信<br>  3.1 软件与硬件的通信<br>    3.1.1 程序到硬件<br>    3.1.2 NI－DAQ控制函数的安装<br>    3.1.3 函数格式<br>    3.1.4 数据交换流程    <br>  3.2 DAQ函数分类<br>    3.2.1 模拟输入函数<br>    3.2.2 模拟输出函数<br>    3.2.3 数字输入输出函数<br>    3.2.4 计时／计数函数<br>  3.3 OCX的使用<br>    3.3.1 OCX的载入<br>    3.3.2 OCX的使用步骤<br>    3.3.3 模拟输入控件<br>    3.3.4 模拟输出控件<br>    3.3.5 数字输入输出控件<br>    3.3.6 计时／计数控件<br>第4章 模拟信号的采集<br>  4.1 模拟输入的基本原理<br>    4.1.1 信号的取样<br>    4.1.2 用数字表示模拟<br>    4.1.3 输入范围<br>    4.1.4 取样频率<br>  4.2 硬件说明<br>    4.2.1 引脚定义<br>    4.2.2 信号种类及接线方式<br>    4.2.3 输入信号的范围和增益<br>    4.2.4 触发<br>  4.3 模拟函数说明<br>    4.3.1 OCX<br>    4.3.2 NI－DAQ<br>  4.4 控件信号采集实验    <br>    4.4.1 单点数据的采集<br>    4.4.2 多通道的单点取值<br>    4.4.3 单通道的多笔数据采集<br>    4.4.4 绘图显示单通道的多笔数据<br>    4.4.5 双通道的多笔数据采集<br>    4.4.6 连续数据采集<br>    4.4.7 触发的使用<br>  4.5 NI－DAQ信号采集实验<br>    4.5.1 单点数据的采集<br>    4.5.2 多通道单点数据的采集<br>    4.5.3 单通道波形数据的采集<br>    4.5.4 多通道波形数据的采集<br>    4.5.5 时间轴的显示及光标的制作<br>    4.5.6 起始触发信号的使用<br>    4.5.7 停止取样的触发信号的使用<br>  4.6 本章习题<br>第5章 模拟输出的控制<br>  5.1 模拟输出基本原理<br>    5.1.1 数字转模拟<br>    5.1.2 模拟输出分辨率<br>    5.1.3 输出范围<br>  5.2 DAQ卡中的模拟输出<br>    5.2.1 引脚定义<br>    5.2.2 输出方式<br>    5.2.3 单点输出与波形输出<br>  5.3 模拟输出函数说明<br>    5.3.1 用OCX控制模拟输出<br>    5.3.2 用NI－DAQ控制模拟输出<br>  5.4 控件模拟信号输出实验<br>    5.4.1 单点模拟的输出<br>    5.4.2 双通道的模拟输出<br>    5.4.3 单通道波形输出<br>    5.4.4 双通道波形输出<br>  5.5 DLL模拟输出实验<br>    5.5.1 单点模拟值的输出<br>    5.5.2 单通道波形输出<br>    5.5.3 双通道波形输出<br>    5.5.4 输出信号的触发<br>  5.6 本章习题<br>第6章 数字输入输出控制<br>  6.1 数字输入输出<br>    6.1.1 基本原理<br>    6.1.2 DAQ卡的数字输入输出<br>    6.1.3 数字输入输出函数说明<br>  6.2 数字输入<br>    6.2.1 DAQ卡的数字输入<br>    6.2.2 用OCX读取数字输入状态<br>    6.2.3 用DLL读取数字输入状态<br>  6.3 数字输出<br>    6.3.1 DAQ卡的数字输出<br>    6.3.2 用控件执行数字输出<br>    6.3.3 以DLL执行数字输出<br>  6.4 数字输入及输出的结合<br>    6.4.1 由数字输入读取数字输出（OCX）<br>    6.4.2 由数字输入读取数字输出（DLL）<br>  6.5 本章习题<br>第7章 计时计数器控制<br>  7.1 计时计数基本原理<br>    7.1.1 计时计数原理<br>    7.1.2 计时计数卡使用时机<br>    7.1.3 引脚布置<br>  7.2 计时计数函数<br>    7.2.1 函数说明<br>  7.3 计时计数器的输出实验<br>    7.3.1 脉冲的产生<br>    7.3.2 有限个数脉冲的产生<br>    7.3.3 FSK脉冲输出<br>    7.3.4 连续脉冲输出<br>    7.3.5 单脉冲输出——使用DLL<br>    7.3.6 可重复触发式脉冲输出<br>    7.3.7 FSK脉冲输出——使用DLL<br>    7.3.8 步进马达控制<br>  7.4 计时计数器的输入实验<br>    7.4.1 事件次数的计算<br>    7.4.2 脉冲宽度计算<br>    7.4.3 脉冲宽度计算<br>    7.4.4 信号周期的宽度测量<br>    7.4.5 缓冲式事件计数<br>    7.4.6 缓冲式周期宽度测量<br>  7.5 本章习题<br>第8章 模拟信号的时域与频域<br>  8.1 时域信号<br>    8.1.1 取样时间<br>    8.1.2 周期信号<br>    8.1.3 取样时间比较<br>  8.2 频域转换<br>    8.2.1 快速傅立叶转换<br>    8.2.2 FFT程序的实现<br>    8.2.3 FFT程序的验证<br>    8.2.4 时域数据的窗口处理<br>    8.2.5 频域转换后的数值校正<br>    8.2.6 频域的幅值及相位<br>    8.2.7 假象的发生与防止<br>  8.3 信号量的增加及噪声的处理<br>    8.3.1 信号平均<br>    8.3.2 双缓冲区的使用<br>  8.4 本章习题<br>第9章 系统的建立<br>  9.1 温度测量系统<br>    9.1.1 系统描述<br>    9.1.2 硬件说明<br>    9.1.3 软件说明<br>    9.1.4 程序建立<br>  9.2 振动测量系统<br>    9.2.1 系统描述<br>    9.2.2 硬件说明<br>    9.2.3 软件说明<br>    9.2.4 程序建立<br>  9.3 本章习题<br>附录A 讨论区<br>附录B 参考文献 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书讲述如何通过Visual Basic语言编程实现对多功能采集卡的控制。多功能采集卡可实现自动化控制和测量操作，而Visual Basic则是简单易学的程序语言。二者的结合在当前的工业控制方面用途非常广泛。<br>    全书共分9章和2个附录。第1章和第2章简单介绍了信号与传感器的基本原理和数据采集卡。第3章介绍了Visual Basic和控制卡的通信原理。第4章和第5章介绍了模拟信号的采集。第6章介绍了数字输入输出控制。第7章讲解计时计数器控制。第8章讨论模拟信号的时域与频域。第9章站在全局的角度讨论了系统的建立。全书按照结合实例、逐步讲解的方式进行。附录有参考文献和相关内容。<br>    本书适合对控制卡有一定了解，需要进一步掌握Visual Basic编程来进行控制、实现应用开发的读者阅读，也适合相关工业领域的工程人员自学。 <br> </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">范逸之，廖锦棋  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="VISUVL BASIC硬件设计与开发——数据采集卡控制" border="1" height="216" src="/Images/BookCovers/9787302083139.jpg" style="border:1px   solid   #B0B0B0" title="VISUVL BASIC硬件设计与开发——数据采集卡控制" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：范逸之，廖锦棋  编著
+                                                                    <br />
+                                                                    书名：VISUVL BASIC硬件设计与开发——数据采集卡控制<br />
+                                                                    字数：786000<br />
+                                                                    出版时间：2004年5月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787302083139<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥43.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章 信号与传感器基本原理<br>  1.1 信号<br>  1.2 信号的处理<br>    1.2.1 放大<br>    1.2.2 衰减<br>    1.2.3 滤波<br>    1.2.4 隔离<br>  1.3 传感器<br>    1.3.1 传感器分类<br>    1.3.2 温度传感器<br>    1.3.3 力量及压力传感器<br>    1.3.4 位移及位置传感器<br>    1.3.5 加速度传感器<br>第2章 数据采集卡介绍<br>  2.1 数据采集常用接口<br>    2.1.1 接口种类<br>    2.1.2 ISA接口<br>    2.1.3 PCI接口<br>    2.1.4 Compact PCI接口<br>  2.2 资源<br>    2.2.1 地址<br>    2.2.2 中断<br>    2.2.3 直接内存访问<br>    2.2.4 如何调整地址、中断及DMA    <br>  2.3 数据采集卡<br>    2.3.1 采集卡外观<br>    2.3.2 输出输入分类<br>    2.3.3 引脚定义<br>    2.3.4 测试扩展板<br>  2.4 DAQ卡的启动<br>    2.4.1 MAX的安装及DAQ卡检测<br>    2.4.2 ISA形式的采集卡和MAX<br>  2.5 常用的实验配备<br>    2.5.1 波形产生器<br>    2.5.2 示波器<br>    2.5.3 频谱分析仪<br>    2.5.4 万用表<br>第3章 Visual Basic与数据采集卡的通信<br>  3.1 软件与硬件的通信<br>    3.1.1 程序到硬件<br>    3.1.2 NI－DAQ控制函数的安装<br>    3.1.3 函数格式<br>    3.1.4 数据交换流程    <br>  3.2 DAQ函数分类<br>    3.2.1 模拟输入函数<br>    3.2.2 模拟输出函数<br>    3.2.3 数字输入输出函数<br>    3.2.4 计时／计数函数<br>  3.3 OCX的使用<br>    3.3.1 OCX的载入<br>    3.3.2 OCX的使用步骤<br>    3.3.3 模拟输入控件<br>    3.3.4 模拟输出控件<br>    3.3.5 数字输入输出控件<br>    3.3.6 计时／计数控件<br>第4章 模拟信号的采集<br>  4.1 模拟输入的基本原理<br>    4.1.1 信号的取样<br>    4.1.2 用数字表示模拟<br>    4.1.3 输入范围<br>    4.1.4 取样频率<br>  4.2 硬件说明<br>    4.2.1 引脚定义<br>    4.2.2 信号种类及接线方式<br>    4.2.3 输入信号的范围和增益<br>    4.2.4 触发<br>  4.3 模拟函数说明<br>    4.3.1 OCX<br>    4.3.2 NI－DAQ<br>  4.4 控件信号采集实验    <br>    4.4.1 单点数据的采集<br>    4.4.2 多通道的单点取值<br>    4.4.3 单通道的多笔数据采集<br>    4.4.4 绘图显示单通道的多笔数据<br>    4.4.5 双通道的多笔数据采集<br>    4.4.6 连续数据采集<br>    4.4.7 触发的使用<br>  4.5 NI－DAQ信号采集实验<br>    4.5.1 单点数据的采集<br>    4.5.2 多通道单点数据的采集<br>    4.5.3 单通道波形数据的采集<br>    4.5.4 多通道波形数据的采集<br>    4.5.5 时间轴的显示及光标的制作<br>    4.5.6 起始触发信号的使用<br>    4.5.7 停止取样的触发信号的使用<br>  4.6 本章习题<br>第5章 模拟输出的控制<br>  5.1 模拟输出基本原理<br>    5.1.1 数字转模拟<br>    5.1.2 模拟输出分辨率<br>    5.1.3 输出范围<br>  5.2 DAQ卡中的模拟输出<br>    5.2.1 引脚定义<br>    5.2.2 输出方式<br>    5.2.3 单点输出与波形输出<br>  5.3 模拟输出函数说明<br>    5.3.1 用OCX控制模拟输出<br>    5.3.2 用NI－DAQ控制模拟输出<br>  5.4 控件模拟信号输出实验<br>    5.4.1 单点模拟的输出<br>    5.4.2 双通道的模拟输出<br>    5.4.3 单通道波形输出<br>    5.4.4 双通道波形输出<br>  5.5 DLL模拟输出实验<br>    5.5.1 单点模拟值的输出<br>    5.5.2 单通道波形输出<br>    5.5.3 双通道波形输出<br>    5.5.4 输出信号的触发<br>  5.6 本章习题<br>第6章 数字输入输出控制<br>  6.1 数字输入输出<br>    6.1.1 基本原理<br>    6.1.2 DAQ卡的数字输入输出<br>    6.1.3 数字输入输出函数说明<br>  6.2 数字输入<br>    6.2.1 DAQ卡的数字输入<br>    6.2.2 用OCX读取数字输入状态<br>    6.2.3 用DLL读取数字输入状态<br>  6.3 数字输出<br>    6.3.1 DAQ卡的数字输出<br>    6.3.2 用控件执行数字输出<br>    6.3.3 以DLL执行数字输出<br>  6.4 数字输入及输出的结合<br>    6.4.1 由数字输入读取数字输出（OCX）<br>    6.4.2 由数字输入读取数字输出（DLL）<br>  6.5 本章习题<br>第7章 计时计数器控制<br>  7.1 计时计数基本原理<br>    7.1.1 计时计数原理<br>    7.1.2 计时计数卡使用时机<br>    7.1.3 引脚布置<br>  7.2 计时计数函数<br>    7.2.1 函数说明<br>  7.3 计时计数器的输出实验<br>    7.3.1 脉冲的产生<br>    7.3.2 有限个数脉冲的产生<br>    7.3.3 FSK脉冲输出<br>    7.3.4 连续脉冲输出<br>    7.3.5 单脉冲输出——使用DLL<br>    7.3.6 可重复触发式脉冲输出<br>    7.3.7 FSK脉冲输出——使用DLL<br>    7.3.8 步进马达控制<br>  7.4 计时计数器的输入实验<br>    7.4.1 事件次数的计算<br>    7.4.2 脉冲宽度计算<br>    7.4.3 脉冲宽度计算<br>    7.4.4 信号周期的宽度测量<br>    7.4.5 缓冲式事件计数<br>    7.4.6 缓冲式周期宽度测量<br>  7.5 本章习题<br>第8章 模拟信号的时域与频域<br>  8.1 时域信号<br>    8.1.1 取样时间<br>    8.1.2 周期信号<br>    8.1.3 取样时间比较<br>  8.2 频域转换<br>    8.2.1 快速傅立叶转换<br>    8.2.2 FFT程序的实现<br>    8.2.3 FFT程序的验证<br>    8.2.4 时域数据的窗口处理<br>    8.2.5 频域转换后的数值校正<br>    8.2.6 频域的幅值及相位<br>    8.2.7 假象的发生与防止<br>  8.3 信号量的增加及噪声的处理<br>    8.3.1 信号平均<br>    8.3.2 双缓冲区的使用<br>  8.4 本章习题<br>第9章 系统的建立<br>  9.1 温度测量系统<br>    9.1.1 系统描述<br>    9.1.2 硬件说明<br>    9.1.3 软件说明<br>    9.1.4 程序建立<br>  9.2 振动测量系统<br>    9.2.1 系统描述<br>    9.2.2 硬件说明<br>    9.2.3 软件说明<br>    9.2.4 程序建立<br>  9.3 本章习题<br>附录A 讨论区<br>附录B 参考文献 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书讲述如何通过Visual Basic语言编程实现对多功能采集卡的控制。多功能采集卡可实现自动化控制和测量操作，而Visual Basic则是简单易学的程序语言。二者的结合在当前的工业控制方面用途非常广泛。<br>    全书共分9章和2个附录。第1章和第2章简单介绍了信号与传感器的基本原理和数据采集卡。第3章介绍了Visual Basic和控制卡的通信原理。第4章和第5章介绍了模拟信号的采集。第6章介绍了数字输入输出控制。第7章讲解计时计数器控制。第8章讨论模拟信号的时域与频域。第9章站在全局的角度讨论了系统的建立。全书按照结合实例、逐步讲解的方式进行。附录有参考文献和相关内容。<br>    本书适合对控制卡有一定了解，需要进一步掌握Visual Basic编程来进行控制、实现应用开发的读者阅读，也适合相关工业领域的工程人员自学。 <br> </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">范逸之，廖锦棋  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

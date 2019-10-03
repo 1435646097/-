@@ -79,6 +79,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AddCode.aspx" />
     <Content Include="BookList.aspx" />
     <Content Include="Css\accordion.css" />
     <Content Include="Css\all.css" />
@@ -169,8 +170,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCode.aspx.cs">
+      <DependentUpon>AddCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddCode.aspx.designer.cs">
+      <DependentUpon>AddCode.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\logout.ashx.cs">
       <DependentUpon>logout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\ProcessComment.ashx.cs">
+      <DependentUpon>ProcessComment.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\RetrievePassword.ashx.cs">
       <DependentUpon>RetrievePassword.ashx</DependentUpon>
@@ -234,6 +245,7 @@
     <Compile Include="ashx\validete.ashx.cs">
       <DependentUpon>validete.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ViewCommentModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Css\book_list.css" />
@@ -1764,6 +1776,7 @@
     <Content Include="ashx\SWFUpLoad.ashx" />
     <Content Include="ashx\logout.ashx" />
     <Content Include="ashx\RetrievePassword.ashx" />
+    <Content Include="ashx\ProcessComment.ashx" />
     <None Include="ewebeditor\sysimage\Thumbs.db" />
     <None Include="Images\BookCovers\9787560925110jpg" />
     <None Include="Images\BookCovers\Thumbs.db" />

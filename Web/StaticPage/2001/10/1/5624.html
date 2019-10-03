@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5624, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5624 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">Internet基础与网页制作 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="Internet基础与网页制作" border="1" height="216"  src="/Images/BookCovers/7115082839.jpg" style="border:1px   solid   #B0B0B0" title="Internet基础与网页制作" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：陈强
-                                        <br />
-                                        书名：Internet基础与网页制作<br />
-                                        字数：0<br />
-                                        出版时间：2001年10月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 7115082839<br />
-                                        <font color="#CC3300">本网价：<strong>￥36.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        Internet基础与网页制作 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第一部分  Internet基础	1<br>第一章  Internet概述	2<br>1.1  引言	2<br>1.2  计算机网络的概念和分类	3<br>1.2.1  计算机网络的概念	3<br>1.2.2  计算机网络的分类	4<br>1.3  什么是Internet网	5<br>1.3.1  从不同的角度理解Internet	5<br>1.3.2  Internet的特点	6<br>1.4  Internet的起源、形成及发展	6<br>1.4.1  计算机网络互连的初期	7<br>1.4.2  ARPAnet网的诞生	8<br>1.4.3  NSFnet网的建立	9<br>1.4.4  美国国内互联网(USInternet)的形成	9<br>1.4.5  全球范围Internet的形成和发展	10<br>1.5  Internet在中国的发展	10<br>1.6  Internet的技术管理机构	12<br>1.7  Internet技术应当解决的几个主要问题	13<br>1.7.1  物理连接问题	13<br>1.7.2  通信协议问题	13<br>1.7.3  计算机的主机号与域名问题	13<br>1.7.4  数据的安全与防病毒问题	14<br>1.8  推动Internet迅速普及的几项技术	14<br>1.8.1  WWW(World Wide Web)系统	14<br>1.8.2  浏览器软件技术的发展	15<br>1.8.3  Java程序设计语言的应用	15<br>1.9  Internet上的信息资源和主要服务	15<br>1.9.1  Internet上的信息资源	16<br>1.9.2  Internet提供的主要服务	20<br>思考题	21<br>第二章  数据通信基础知识	22<br>2.1  引言	22<br>2.2  数据通信的基本概念	23<br>2.2.1  信息和数据	23<br>2.2.2  信道	23<br>2.2.3  信道容量	24<br>2.2.4  码元和码字	24<br>2.2.5  数据通信系统主要技术指标	24<br>2.2.6  带宽与数据传输速率	25<br>2.3  数据传输类型	26<br>2.3.1  基带传输	26<br>2.3.2  频带传输	27<br>2.3.3  宽带传输	29<br>2.4  数据传输的重要设备 --- 调制解调器	29<br>2.4.1  调制解调器的基本工作原理	29<br>2.4.2  调制解调器的分类	31<br>2.4.3  调制解调器的选择	31<br>2.4.4  调制解调器的标准	32<br>2.5  数据传输方式	32<br>2.5.1  串行传输与并行传输	32<br>2.5.2  异步传输与同步传输	34<br>2.5.3  多路复用技术	37<br>2.6  数据交换技术	39<br>2.6.1  线路交换	39<br>2.6.2  报文交换	39<br>2.6.3  分组交换	40<br>2.6.4  虚电路与数据报	40<br>2.7  差错检验与校正	41<br>2.7.1  奇偶校验(也称垂直冗余校验VRC)	41<br>2.7.2  方块校验(也称水平垂直冗余校验LRC)	42<br>2.7.3  循环冗余校验CRC	42<br>思考题	43<br>第三章  计算机网络基础	44<br>3.1  引言	44<br>3.2  计算机网络的结构及基本组成	45<br>3.2.1  资源子网	45<br>3.2.2  通信子网	47<br>3.2.3  对应于协议分层的网络结构	48<br>3.3  计算机网络的软件系统	49<br>3.3.1  网络软件的层次	49<br>3.3.2  网络的分层体系结构及相应的协议	49<br>3.3.3  网络通信标准	51<br>3.3.4  网络操作系统	54<br>3.4  计算机局域网	56<br>3.4.1  什么是局域网	56<br>3.4.2  局域网的基本组成	57<br>3.4.3  局域网的拓扑结构	60<br>3.4.4  局域网的访问控制方式	61<br>3.4.5  局域网的硬件体系结构	63<br>3.4.6  局域网的几种系统结构	67<br>3.5  广域网技术	69<br>3.5.1  ARPAnet网	69<br>3.5.2  分组交换网	70<br>3.5.3  中国公用分组交换网－Chinapac网	72<br>3.6  网络互联	74<br>3.6.1  局域网互联的必要与需要解决的主要问题	74<br>3.6.2  网络互联的硬件设备	74<br>3.6.3  Internet中的网络互联	78<br>思考题	79<br>第四章  Internet实现通信的奥秘	81<br>4.1  引言	81<br>4.2  Internet是一个分组交换系统	81<br>4.2.1  计算机网络系统共享底层传输线路的实现	81<br>4.2.2  "分组交换"技术的发明和实验成功	82<br>4.2.3  共享传输线路是自动进行的	82<br>4.3  Internet实现了网络互联	83<br>4.3.1  路由器是Internet实现互联的"标准件"	83<br>4.3.2  Internet主干网的互联	84<br>4.4  TCP/IP是Internet的核心协议	85<br>4.4.1  TCP/IP协议的分层模式及组成	85<br>4.4.2  IP协议	87<br>4.4.3  TCP协议	90<br>4.5  Internet的服务使用客户机/服务器模式	92<br>4.5.1  网络技术从主从式向分布式计算发展	92<br>4.5.2  客户机/服务器计算模式	92<br>思考题	94<br>第五章  Internet的地址和域名管理	95<br>5.1  引言	95<br>5.2  Internet的地址管理	95<br>5.2.1  地址的意义及构成	95<br>5.2.2  IP地址表示方法	97<br>5.2.3  IP地址管理	100<br>5.2.4  地址解析	100<br>5.2.5  正在酝酿的新一代IP地址	101<br>5.3  Internet域名系统	102<br>5.3.1  域名系统与主机命名	102<br>5.3.2  层次型域名系统命名机制及管理	103<br>5.3.3  Internet域名系统的规定	104<br>5.3.4  域名解析	106<br>5.3.5  域名系统的组成及工作原理	107<br>5.4  中国互联网络的域名规定	108<br>5.4.1  中国互联网络信息中心成立	108<br>5.4.2  中国互联网络的用户域名规定	109<br>思考题	109<br>第六章  连入Internet的具体操作	110<br>6.1  引言	110<br>6.2  连入Internet方式的分类	110<br>6.2.1  专线连接	111<br>6.2.2  微机局域网连接	111<br>6.2.3  无线连接	112<br>6.2.4  电话拨号连接	112<br>6.3  电话拨号方式下的终端仿真访问	112<br>6.3.1  终端仿真访问的实际工作过程	113<br>6.3.2  终端仿真访问的优缺点	114<br>6.4  电话拨号方式下的TCP/IP协议访问	114<br>6.4.1  TCP/IP协议访问方式应用软件的运行机制	115<br>6.4.2  TCP/IP协议访问的两种接口协议	116<br>6.4.3  TCP/IP协议访问的优越性	116<br>6.5  电话拨号连接方式的硬件配置	117<br>6.5.1  计算机的配置	117<br>6.5.2  安装调制解调器(Modem)	118<br>6.6  办理连入Internet的手续	119<br>6.6.1  选择Internet服务提供者(ISP)	119<br>6.6.2  选择ISP服务提供者需要考虑的几个因素	120<br>6.7  在Windows 95下连入Internet的软件安装和设置	121<br>6.7.1  安装串行口的具体操作方法	121<br>6.7.2  安装Modem的驱动程序和设置	126<br>6.7.3  安装拨号网络	130<br>6.7.4  安装拨号网络适配器	132<br>6.7.5  安装TCP/IP协议	133<br>6.7.6  设置TCP/IP	134<br>6.7.7  设置拨号网络	136<br>思考题	139<br>第二部分  Internet的基本应用	140<br>第七章  电子邮件	141<br>7.1  引言	141<br>7.2  电子邮件的产生和具有的特点	141<br>7.2.1  电子邮件的产生	141<br>7.2.2  电子邮件的特点	142<br>7.3  电子邮件的传送过程与SMTP协议	143<br>7.3.1  电子邮件的传送过程	143<br>7.3.2  SMTP协议	145<br>7.4  电子邮件的一般格式	146<br>7.4.1  电子邮件头部的格式	146<br>7.4.2  电子邮件的地址	147<br>7.4.3  电子邮件地址在使用中的几个特殊问题	148<br>7.5  电子邮件的其他用法	150<br>7.5.1  利用电子邮件进行文件传送	150<br>7.5.2  利用电子邮件传送汉字二进制文件	150<br>7.5.3  加入邮递表活动	151<br>7.6  Outlook Express软件及其使用方法	151<br>7.6.1  Outlook Express的启动方法	152<br>7.6.2  Outlook Express工作窗口的组成	153<br>7.6.3  设置电子邮件帐号	153<br>7.6.4  撰写和发送电子邮件	156<br>7.6.5  接收和阅读电子邮件	157<br>7.6.6  回复与转发邮件	158<br>7.6.7  邮件管理	159<br>7.6.8  在邮件中插入附件	162<br>7.6.9  设置邮件帐号属性	163<br>7.6.10  通讯簿的使用方法	167<br>7.7  关于建立电子邮件帐号	168<br>7.7.1  提供免费E-mail信箱的WWW站点	169<br>7.7.2  免费电子邮箱(263.net)的申请和使用方法	169<br>思考题	175<br>第八章  WWW及其浏览	176<br>8.1  引言	176<br>8.2  WWW的由来和发展	177<br>8.3  WWW的一些基本概念	178<br>8.3.1  高级信息浏览服务	179<br>8.3.2  超文本与超媒体	179<br>8.3.3  超文本标记语言	181<br>8.3.4  超文本传输协议	181<br>8.3.5  主页	182<br>8.3.6  公共网关界面	182<br>8.4  WWW的应用	183<br>8.4.1  WWW运行机制--客户机/服务器	183<br>8.4.2  WWW浏览器	184<br>8.4.3  统一资源定位器	187<br>8.5  Internet Explorer 5.0及其WWW浏览方法	188<br>8.5.1  Internet Explorer5.0的工作窗口	189<br>8.5.2  浏览网页	190<br>8.5.3  设定缓冲区加速浏览	194<br>8.5.4  处理低速连接的一些办法	197<br>8.5.5  在浏览过程中保存信息	200<br>思考题	203<br>第九章  文件传送	204<br>9.1  引言	204<br>9.2  文件传送协议FTP	204<br>9.2.1  FTP协议的工作原理	204<br>9.2.2  FTP协议使用的一般步骤和界面	205<br>9.3  在字符界面下FTP协议的应用	206<br>9.3.1  Win95下FTP.exe的使用	206<br>9.3.2  FTP命令的形式及功能	211<br>9.3.3  FTP协议的特殊应用	211<br>9.4  Cute_FTP软件的应用	214<br>9.4.1  Cute_FTP的软件及其安装和启动	214<br>9.4.2  Cute_FTP软件的设置	214<br>9.4.3  Cute_FTP软件的启动及工作窗口	216<br>9.4.4  Cute_FTP软件上载和下载文件的基本技巧	216<br>思考题	220<br>第十章  Internet新闻组	221<br>10.1  引言	221<br>10.2  新闻组系统的组成	222<br>10.2.1  网络新闻稿	222<br>10.2.2  新闻组的命名与分类	223<br>10.3  Outlook Express News的使用	225<br>10.3.1  启动Outlook Express News	225<br>10.3.2  连接新闻服务器	226<br>10.3.3  下载新闻组邮件	231<br>10.3.4  阅读新闻组邮件	233<br>10.3.5  发送新邮件与回复	235<br>10.3.6  Outlook Express设置	236<br>思考题	239<br>第三部分  网页制作的实用技术	241<br>第十一章  网页制作概述	242<br>11.1  引言	242<br>11.2  网页制作涉及的一些重要概念	243<br>11.2.1  Web服务器	243<br>11.2.2  Web浏览器	244<br>11.2.3  Web网页	245<br>11.3  网页制作的编程语言与编辑工具	246<br>11.3.1  HTML语言简介	246<br>11.3.2  利用HTML制作简单网页的一般方法	246<br>11.3.3  Web网页编辑器	248<br>11.3.4  对FrontPage的理解	249<br>11.3.5  FrontPage2000是最新的网页编辑器	249<br>11.4  设计Web站点的一般步骤	251<br>思考题	252<br>第十二章　　中文FrontPage2000使用方法	253<br>12.1  引言	253<br>12.2  FrontPage使用界面的设置	253<br>12.3  菜单栏	254<br>12.3.1  文件菜单	255<br>12.3.2  编辑菜单	256<br>12.3.3  查看菜单	257<br>12.3.4  插入菜单	258<br>12.3.5  格式菜单	260<br>12.3.6  工具菜单	261<br>12.3.7  表格菜单	261<br>12.3.8  框架菜单	262<br>12.3.9  窗口菜单	263<br>12.3.10  帮助菜单	263<br>12.4  工具栏	263<br>12.4.1  常用工具条	264<br>12.4.2  格式工具条	264<br>12.4.3  动态效果工具条(DHTML Effects)	264<br>12.4.4  导航工具条(Navigation)	265<br>12.4.5  图片工具条 (Picture)	265<br>12.4.6  定位工具条 (Positioning)	265<br>12.4.7  报表工具条 (Reports)	266<br>12.4.8  样式工具条 (Style)	266<br>12.4.9  表格工具条 (Table)	266<br>12.5  视图栏	267<br>12.5.1  网页视图	267<br>12.5.2  文件夹视图	267<br>12.5.3  报表视图	268<br>12.5.4  导航视图	269<br>12.5.5  超链接视图	269<br>12.5.6  任务视图	271<br>12.6  利用中文FrontPage2000创建新站点	271<br>12.7  创建新的网页	272<br>12.8  框架的创建和应用	273<br>12.8.1  框架页的创建	274<br>12.8.2  框架模板	275<br>12.9  网页的保存	276<br>12.9.1  把网页保存到当前打开的站点中	276<br>12.9.2  把网页保存到本地计算机磁盘中	277<br>思考题	278<br>第十三章  利用FrontPage2000创建站点	279<br>13.1  引言	279<br>13.2  从零开始法	280<br>13.3  导入法	280<br>13.3.1  从本地计算机硬盘中导入文件	281<br>13.3.2  从WWW上的站点导入文件	282<br>13.4  向导法	283<br>13.4.1  利用公司展示向导创建Web原型	284<br>13.4.2  利用讨论站点向导创建Web原型	284<br>13.5  模板法	285<br>13.5.1  利用个人模板创建Web原型	286<br>13.5.2  利用客户支持站点模板创建Web原型	287<br>13.5.3  利用项目站点模板创建Web原型	288<br>13.5.4  利用空站点模板创建Web原型	289<br>13.6  创建Web站点几种方法的比较	291<br>思考题	292<br>第十四章  对主页进行修饰的几项技术	294<br>14.1  引言	294<br>14.2  制作表格	294<br>14.2.1  从零开始创建一个新表格	294<br>14.2.2  将文本与表格相互转换	297<br>14.2.3  表格的属性	298<br>14.2.4  对表格进行其它编辑	299<br>14.2.5  单元格的属性	301<br>14.3  建立超链接	302<br>14.3.1  在FrontPage中建立超链接	303<br>14.3.2  在文本中创建超链接	304<br>14.3.3  创建导航栏	305<br>14.3.4  书签的建立与应用	306<br>14.3.5  改变超链接文本的外观	307<br>14.3.6  建立图片超链接	310<br>14.4  插入图片	311<br>14.4.1  在网页上插入图片	312<br>14.4.2  图片属性	314<br>14.4.3  保存插入图片的网页	319<br>14.5  插入表单	320<br>14.5.1  表单网页的创建	320<br>14.5.2  利用"表单网页向导"制作表单网页	323<br>14.6  应用多样化的背景主题	327<br>14.6.1  在网页中应用背景主题	327<br>14.6.2  对所选背景主题的设置	328<br>思考题	330<br>第十五章  主页制作实例介绍	332<br>15.1  引言	332<br>15.2  利用网页模板制作简单主页实例	332<br>15.2.1  创建新的页面	332<br>15.2.2  创建其它网页	334<br>15.2.3  创建超链接	336<br>15.2.4 对网页进行进一步修饰	337<br>15.3  利用"个人站点"模板创建个人站点实例	338<br>15.3.1  创建新站点框架	338<br>15.3.2  制作主页面	340<br>15.3.3  其它网页的制作	341<br>15.3.4  为站点的页面进行进一步修饰	342<br>15.4  利用框架技术制作公司主页实例	342<br>15.4.1  创建一个新的框架网页	343<br>15.4.2  标题框架页制作	343<br>15.4.3  框架页脚页面的制作	344<br>15.4.4  框架主页面制作	345<br>15.4.5  书签的设置	347<br>15.4.6  图片的链接属性设置	348<br>15.4.7  悬停按钮的插入与设置	350<br>15.4.8  网页的背景主题设置	354<br>思考题	355<br>第十六章  Web网页的发布	356<br>16.1  引言	356<br>16.2  发布Web网页的有关问题	356<br>16.2.1  发布网页的几种情况	357<br>16.2.2  FrontPage服务器扩展	358<br>16.2.3  选择ISP	359<br>16.3  利用FrontPage上载Web网页	359<br>16.4  个人用户申请免费主页空间及发布主页的方法	361<br>16.4.1  Internet上提供免费存放主页的站点	361<br>16.4.2  Geocities站点	362<br>16.4.3  东方网景站点	363<br>16.4.4  Nease(网易新干线)	363<br>16.5  上载个人主页的传输工具及其使用方法	365<br>思考题	367<br><br><br> </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书首先比较全面地介绍Internet各方面的基本知识，包括Internet的基本概念、发展历史及现状，学习和了解Internet所需的数据通信和计算机网络方面的基础知识，Internet的原理和地址域名系统管理以及连入Internet的各种方式等。接着，以最新软件Internet Explorer5.0 (IE5.0)及Outlook Express为工具，详细介绍了Internet的基本应用。最后，介绍利用中文版FrontPage2000制作主页的一些实用技术和主发布页的基本方法。本书配有大量使用实例和操作插图，内容深入浅出，既有比较通俗的原理性说明，又提供了有关Internet应用的最新软件使用知识和技能。本书适用于一切希望了解和学习Internet及其使用操作的读者使用，特别可以作为大专院校非计算机专业的学生学习Internet的试用教材，也可以作为各种Internet培训班的教材。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">陈强Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="Internet基础与网页制作" border="1" height="216" src="/Images/BookCovers/7115082839.jpg" style="border:1px   solid   #B0B0B0" title="Internet基础与网页制作" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：陈强
+                                                                    <br />
+                                                                    书名：Internet基础与网页制作<br />
+                                                                    字数：0<br />
+                                                                    出版时间：2001年10月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 7115082839<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥36.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第一部分  Internet基础	1<br>第一章  Internet概述	2<br>1.1  引言	2<br>1.2  计算机网络的概念和分类	3<br>1.2.1  计算机网络的概念	3<br>1.2.2  计算机网络的分类	4<br>1.3  什么是Internet网	5<br>1.3.1  从不同的角度理解Internet	5<br>1.3.2  Internet的特点	6<br>1.4  Internet的起源、形成及发展	6<br>1.4.1  计算机网络互连的初期	7<br>1.4.2  ARPAnet网的诞生	8<br>1.4.3  NSFnet网的建立	9<br>1.4.4  美国国内互联网(USInternet)的形成	9<br>1.4.5  全球范围Internet的形成和发展	10<br>1.5  Internet在中国的发展	10<br>1.6  Internet的技术管理机构	12<br>1.7  Internet技术应当解决的几个主要问题	13<br>1.7.1  物理连接问题	13<br>1.7.2  通信协议问题	13<br>1.7.3  计算机的主机号与域名问题	13<br>1.7.4  数据的安全与防病毒问题	14<br>1.8  推动Internet迅速普及的几项技术	14<br>1.8.1  WWW(World Wide Web)系统	14<br>1.8.2  浏览器软件技术的发展	15<br>1.8.3  Java程序设计语言的应用	15<br>1.9  Internet上的信息资源和主要服务	15<br>1.9.1  Internet上的信息资源	16<br>1.9.2  Internet提供的主要服务	20<br>思考题	21<br>第二章  数据通信基础知识	22<br>2.1  引言	22<br>2.2  数据通信的基本概念	23<br>2.2.1  信息和数据	23<br>2.2.2  信道	23<br>2.2.3  信道容量	24<br>2.2.4  码元和码字	24<br>2.2.5  数据通信系统主要技术指标	24<br>2.2.6  带宽与数据传输速率	25<br>2.3  数据传输类型	26<br>2.3.1  基带传输	26<br>2.3.2  频带传输	27<br>2.3.3  宽带传输	29<br>2.4  数据传输的重要设备 --- 调制解调器	29<br>2.4.1  调制解调器的基本工作原理	29<br>2.4.2  调制解调器的分类	31<br>2.4.3  调制解调器的选择	31<br>2.4.4  调制解调器的标准	32<br>2.5  数据传输方式	32<br>2.5.1  串行传输与并行传输	32<br>2.5.2  异步传输与同步传输	34<br>2.5.3  多路复用技术	37<br>2.6  数据交换技术	39<br>2.6.1  线路交换	39<br>2.6.2  报文交换	39<br>2.6.3  分组交换	40<br>2.6.4  虚电路与数据报	40<br>2.7  差错检验与校正	41<br>2.7.1  奇偶校验(也称垂直冗余校验VRC)	41<br>2.7.2  方块校验(也称水平垂直冗余校验LRC)	42<br>2.7.3  循环冗余校验CRC	42<br>思考题	43<br>第三章  计算机网络基础	44<br>3.1  引言	44<br>3.2  计算机网络的结构及基本组成	45<br>3.2.1  资源子网	45<br>3.2.2  通信子网	47<br>3.2.3  对应于协议分层的网络结构	48<br>3.3  计算机网络的软件系统	49<br>3.3.1  网络软件的层次	49<br>3.3.2  网络的分层体系结构及相应的协议	49<br>3.3.3  网络通信标准	51<br>3.3.4  网络操作系统	54<br>3.4  计算机局域网	56<br>3.4.1  什么是局域网	56<br>3.4.2  局域网的基本组成	57<br>3.4.3  局域网的拓扑结构	60<br>3.4.4  局域网的访问控制方式	61<br>3.4.5  局域网的硬件体系结构	63<br>3.4.6  局域网的几种系统结构	67<br>3.5  广域网技术	69<br>3.5.1  ARPAnet网	69<br>3.5.2  分组交换网	70<br>3.5.3  中国公用分组交换网－Chinapac网	72<br>3.6  网络互联	74<br>3.6.1  局域网互联的必要与需要解决的主要问题	74<br>3.6.2  网络互联的硬件设备	74<br>3.6.3  Internet中的网络互联	78<br>思考题	79<br>第四章  Internet实现通信的奥秘	81<br>4.1  引言	81<br>4.2  Internet是一个分组交换系统	81<br>4.2.1  计算机网络系统共享底层传输线路的实现	81<br>4.2.2  "分组交换"技术的发明和实验成功	82<br>4.2.3  共享传输线路是自动进行的	82<br>4.3  Internet实现了网络互联	83<br>4.3.1  路由器是Internet实现互联的"标准件"	83<br>4.3.2  Internet主干网的互联	84<br>4.4  TCP/IP是Internet的核心协议	85<br>4.4.1  TCP/IP协议的分层模式及组成	85<br>4.4.2  IP协议	87<br>4.4.3  TCP协议	90<br>4.5  Internet的服务使用客户机/服务器模式	92<br>4.5.1  网络技术从主从式向分布式计算发展	92<br>4.5.2  客户机/服务器计算模式	92<br>思考题	94<br>第五章  Internet的地址和域名管理	95<br>5.1  引言	95<br>5.2  Internet的地址管理	95<br>5.2.1  地址的意义及构成	95<br>5.2.2  IP地址表示方法	97<br>5.2.3  IP地址管理	100<br>5.2.4  地址解析	100<br>5.2.5  正在酝酿的新一代IP地址	101<br>5.3  Internet域名系统	102<br>5.3.1  域名系统与主机命名	102<br>5.3.2  层次型域名系统命名机制及管理	103<br>5.3.3  Internet域名系统的规定	104<br>5.3.4  域名解析	106<br>5.3.5  域名系统的组成及工作原理	107<br>5.4  中国互联网络的域名规定	108<br>5.4.1  中国互联网络信息中心成立	108<br>5.4.2  中国互联网络的用户域名规定	109<br>思考题	109<br>第六章  连入Internet的具体操作	110<br>6.1  引言	110<br>6.2  连入Internet方式的分类	110<br>6.2.1  专线连接	111<br>6.2.2  微机局域网连接	111<br>6.2.3  无线连接	112<br>6.2.4  电话拨号连接	112<br>6.3  电话拨号方式下的终端仿真访问	112<br>6.3.1  终端仿真访问的实际工作过程	113<br>6.3.2  终端仿真访问的优缺点	114<br>6.4  电话拨号方式下的TCP/IP协议访问	114<br>6.4.1  TCP/IP协议访问方式应用软件的运行机制	115<br>6.4.2  TCP/IP协议访问的两种接口协议	116<br>6.4.3  TCP/IP协议访问的优越性	116<br>6.5  电话拨号连接方式的硬件配置	117<br>6.5.1  计算机的配置	117<br>6.5.2  安装调制解调器(Modem)	118<br>6.6  办理连入Internet的手续	119<br>6.6.1  选择Internet服务提供者(ISP)	119<br>6.6.2  选择ISP服务提供者需要考虑的几个因素	120<br>6.7  在Windows 95下连入Internet的软件安装和设置	121<br>6.7.1  安装串行口的具体操作方法	121<br>6.7.2  安装Modem的驱动程序和设置	126<br>6.7.3  安装拨号网络	130<br>6.7.4  安装拨号网络适配器	132<br>6.7.5  安装TCP/IP协议	133<br>6.7.6  设置TCP/IP	134<br>6.7.7  设置拨号网络	136<br>思考题	139<br>第二部分  Internet的基本应用	140<br>第七章  电子邮件	141<br>7.1  引言	141<br>7.2  电子邮件的产生和具有的特点	141<br>7.2.1  电子邮件的产生	141<br>7.2.2  电子邮件的特点	142<br>7.3  电子邮件的传送过程与SMTP协议	143<br>7.3.1  电子邮件的传送过程	143<br>7.3.2  SMTP协议	145<br>7.4  电子邮件的一般格式	146<br>7.4.1  电子邮件头部的格式	146<br>7.4.2  电子邮件的地址	147<br>7.4.3  电子邮件地址在使用中的几个特殊问题	148<br>7.5  电子邮件的其他用法	150<br>7.5.1  利用电子邮件进行文件传送	150<br>7.5.2  利用电子邮件传送汉字二进制文件	150<br>7.5.3  加入邮递表活动	151<br>7.6  Outlook Express软件及其使用方法	151<br>7.6.1  Outlook Express的启动方法	152<br>7.6.2  Outlook Express工作窗口的组成	153<br>7.6.3  设置电子邮件帐号	153<br>7.6.4  撰写和发送电子邮件	156<br>7.6.5  接收和阅读电子邮件	157<br>7.6.6  回复与转发邮件	158<br>7.6.7  邮件管理	159<br>7.6.8  在邮件中插入附件	162<br>7.6.9  设置邮件帐号属性	163<br>7.6.10  通讯簿的使用方法	167<br>7.7  关于建立电子邮件帐号	168<br>7.7.1  提供免费E-mail信箱的WWW站点	169<br>7.7.2  免费电子邮箱(263.net)的申请和使用方法	169<br>思考题	175<br>第八章  WWW及其浏览	176<br>8.1  引言	176<br>8.2  WWW的由来和发展	177<br>8.3  WWW的一些基本概念	178<br>8.3.1  高级信息浏览服务	179<br>8.3.2  超文本与超媒体	179<br>8.3.3  超文本标记语言	181<br>8.3.4  超文本传输协议	181<br>8.3.5  主页	182<br>8.3.6  公共网关界面	182<br>8.4  WWW的应用	183<br>8.4.1  WWW运行机制--客户机/服务器	183<br>8.4.2  WWW浏览器	184<br>8.4.3  统一资源定位器	187<br>8.5  Internet Explorer 5.0及其WWW浏览方法	188<br>8.5.1  Internet Explorer5.0的工作窗口	189<br>8.5.2  浏览网页	190<br>8.5.3  设定缓冲区加速浏览	194<br>8.5.4  处理低速连接的一些办法	197<br>8.5.5  在浏览过程中保存信息	200<br>思考题	203<br>第九章  文件传送	204<br>9.1  引言	204<br>9.2  文件传送协议FTP	204<br>9.2.1  FTP协议的工作原理	204<br>9.2.2  FTP协议使用的一般步骤和界面	205<br>9.3  在字符界面下FTP协议的应用	206<br>9.3.1  Win95下FTP.exe的使用	206<br>9.3.2  FTP命令的形式及功能	211<br>9.3.3  FTP协议的特殊应用	211<br>9.4  Cute_FTP软件的应用	214<br>9.4.1  Cute_FTP的软件及其安装和启动	214<br>9.4.2  Cute_FTP软件的设置	214<br>9.4.3  Cute_FTP软件的启动及工作窗口	216<br>9.4.4  Cute_FTP软件上载和下载文件的基本技巧	216<br>思考题	220<br>第十章  Internet新闻组	221<br>10.1  引言	221<br>10.2  新闻组系统的组成	222<br>10.2.1  网络新闻稿	222<br>10.2.2  新闻组的命名与分类	223<br>10.3  Outlook Express News的使用	225<br>10.3.1  启动Outlook Express News	225<br>10.3.2  连接新闻服务器	226<br>10.3.3  下载新闻组邮件	231<br>10.3.4  阅读新闻组邮件	233<br>10.3.5  发送新邮件与回复	235<br>10.3.6  Outlook Express设置	236<br>思考题	239<br>第三部分  网页制作的实用技术	241<br>第十一章  网页制作概述	242<br>11.1  引言	242<br>11.2  网页制作涉及的一些重要概念	243<br>11.2.1  Web服务器	243<br>11.2.2  Web浏览器	244<br>11.2.3  Web网页	245<br>11.3  网页制作的编程语言与编辑工具	246<br>11.3.1  HTML语言简介	246<br>11.3.2  利用HTML制作简单网页的一般方法	246<br>11.3.3  Web网页编辑器	248<br>11.3.4  对FrontPage的理解	249<br>11.3.5  FrontPage2000是最新的网页编辑器	249<br>11.4  设计Web站点的一般步骤	251<br>思考题	252<br>第十二章　　中文FrontPage2000使用方法	253<br>12.1  引言	253<br>12.2  FrontPage使用界面的设置	253<br>12.3  菜单栏	254<br>12.3.1  文件菜单	255<br>12.3.2  编辑菜单	256<br>12.3.3  查看菜单	257<br>12.3.4  插入菜单	258<br>12.3.5  格式菜单	260<br>12.3.6  工具菜单	261<br>12.3.7  表格菜单	261<br>12.3.8  框架菜单	262<br>12.3.9  窗口菜单	263<br>12.3.10  帮助菜单	263<br>12.4  工具栏	263<br>12.4.1  常用工具条	264<br>12.4.2  格式工具条	264<br>12.4.3  动态效果工具条(DHTML Effects)	264<br>12.4.4  导航工具条(Navigation)	265<br>12.4.5  图片工具条 (Picture)	265<br>12.4.6  定位工具条 (Positioning)	265<br>12.4.7  报表工具条 (Reports)	266<br>12.4.8  样式工具条 (Style)	266<br>12.4.9  表格工具条 (Table)	266<br>12.5  视图栏	267<br>12.5.1  网页视图	267<br>12.5.2  文件夹视图	267<br>12.5.3  报表视图	268<br>12.5.4  导航视图	269<br>12.5.5  超链接视图	269<br>12.5.6  任务视图	271<br>12.6  利用中文FrontPage2000创建新站点	271<br>12.7  创建新的网页	272<br>12.8  框架的创建和应用	273<br>12.8.1  框架页的创建	274<br>12.8.2  框架模板	275<br>12.9  网页的保存	276<br>12.9.1  把网页保存到当前打开的站点中	276<br>12.9.2  把网页保存到本地计算机磁盘中	277<br>思考题	278<br>第十三章  利用FrontPage2000创建站点	279<br>13.1  引言	279<br>13.2  从零开始法	280<br>13.3  导入法	280<br>13.3.1  从本地计算机硬盘中导入文件	281<br>13.3.2  从WWW上的站点导入文件	282<br>13.4  向导法	283<br>13.4.1  利用公司展示向导创建Web原型	284<br>13.4.2  利用讨论站点向导创建Web原型	284<br>13.5  模板法	285<br>13.5.1  利用个人模板创建Web原型	286<br>13.5.2  利用客户支持站点模板创建Web原型	287<br>13.5.3  利用项目站点模板创建Web原型	288<br>13.5.4  利用空站点模板创建Web原型	289<br>13.6  创建Web站点几种方法的比较	291<br>思考题	292<br>第十四章  对主页进行修饰的几项技术	294<br>14.1  引言	294<br>14.2  制作表格	294<br>14.2.1  从零开始创建一个新表格	294<br>14.2.2  将文本与表格相互转换	297<br>14.2.3  表格的属性	298<br>14.2.4  对表格进行其它编辑	299<br>14.2.5  单元格的属性	301<br>14.3  建立超链接	302<br>14.3.1  在FrontPage中建立超链接	303<br>14.3.2  在文本中创建超链接	304<br>14.3.3  创建导航栏	305<br>14.3.4  书签的建立与应用	306<br>14.3.5  改变超链接文本的外观	307<br>14.3.6  建立图片超链接	310<br>14.4  插入图片	311<br>14.4.1  在网页上插入图片	312<br>14.4.2  图片属性	314<br>14.4.3  保存插入图片的网页	319<br>14.5  插入表单	320<br>14.5.1  表单网页的创建	320<br>14.5.2  利用"表单网页向导"制作表单网页	323<br>14.6  应用多样化的背景主题	327<br>14.6.1  在网页中应用背景主题	327<br>14.6.2  对所选背景主题的设置	328<br>思考题	330<br>第十五章  主页制作实例介绍	332<br>15.1  引言	332<br>15.2  利用网页模板制作简单主页实例	332<br>15.2.1  创建新的页面	332<br>15.2.2  创建其它网页	334<br>15.2.3  创建超链接	336<br>15.2.4 对网页进行进一步修饰	337<br>15.3  利用"个人站点"模板创建个人站点实例	338<br>15.3.1  创建新站点框架	338<br>15.3.2  制作主页面	340<br>15.3.3  其它网页的制作	341<br>15.3.4  为站点的页面进行进一步修饰	342<br>15.4  利用框架技术制作公司主页实例	342<br>15.4.1  创建一个新的框架网页	343<br>15.4.2  标题框架页制作	343<br>15.4.3  框架页脚页面的制作	344<br>15.4.4  框架主页面制作	345<br>15.4.5  书签的设置	347<br>15.4.6  图片的链接属性设置	348<br>15.4.7  悬停按钮的插入与设置	350<br>15.4.8  网页的背景主题设置	354<br>思考题	355<br>第十六章  Web网页的发布	356<br>16.1  引言	356<br>16.2  发布Web网页的有关问题	356<br>16.2.1  发布网页的几种情况	357<br>16.2.2  FrontPage服务器扩展	358<br>16.2.3  选择ISP	359<br>16.3  利用FrontPage上载Web网页	359<br>16.4  个人用户申请免费主页空间及发布主页的方法	361<br>16.4.1  Internet上提供免费存放主页的站点	361<br>16.4.2  Geocities站点	362<br>16.4.3  东方网景站点	363<br>16.4.4  Nease(网易新干线)	363<br>16.5  上载个人主页的传输工具及其使用方法	365<br>思考题	367<br><br><br> </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书首先比较全面地介绍Internet各方面的基本知识，包括Internet的基本概念、发展历史及现状，学习和了解Internet所需的数据通信和计算机网络方面的基础知识，Internet的原理和地址域名系统管理以及连入Internet的各种方式等。接着，以最新软件Internet Explorer5.0 (IE5.0)及Outlook Express为工具，详细介绍了Internet的基本应用。最后，介绍利用中文版FrontPage2000制作主页的一些实用技术和主发布页的基本方法。本书配有大量使用实例和操作插图，内容深入浅出，既有比较通俗的原理性说明，又提供了有关Internet应用的最新软件使用知识和技能。本书适用于一切希望了解和学习Internet及其使用操作的读者使用，特别可以作为大专院校非计算机专业的学生学习Internet的试用教材，也可以作为各种Internet培训班的教材。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">陈强Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

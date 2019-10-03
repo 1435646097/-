@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5705, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5705 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">JavaScript入门经典(第4版) <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="JavaScript入门经典(第4版)" border="1" height="216"  src="/Images/BookCovers/9787115155368.jpg" style="border:1px   solid   #B0B0B0" title="JavaScript入门经典(第4版)" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（美）蒙克尔（Moncur，M.）　著，王军　译
-                                        <br />
-                                        书名：JavaScript入门经典(第4版)<br />
-                                        字数：604000<br />
-                                        出版时间：2007年3月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115155368<br />
-                                        <font color="#CC3300">本网价：<strong>￥39.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        JavaScript入门经典(第4版) <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第一部分　Web脚本编写与JavaScript语言的概念<br>  第1章　了解JavaScript　<br>　  1.1　学习Web脚本编写基础　<br>　　  1.1.1　脚本和程序　<br>　  　1.1.2　JavaScript简介　<br>  　1.2　在网页中如何嵌入JavaScript<br>　 　 1.2.1　JavaScript和HTML　<br>　　  1.2.2　使用单独的JavaScript文件　<br>　 　 1.2.3　事件　<br>　  1.3　浏览器和JavaScript　<br>　 　 1.3.1　文档对象模型(DOM)　<br>　　  1.3.2　Internet Explorer　<br>　 　 1.3.3　Netscape和Firefox　<br> 　　 1.3.4　其他浏览器　<br>　　  1.3.5　JavaScript的版本　<br> 　 1.4　指定JavaScript的版本　<br>  　1.5　JavaScript在浏览器之外的应用　<br>　  1.6　JavaScript功能一览　<br>　　  1.6.1　改善导航功能　<br>　　  1.6.2　验证表单　<br>　　  1.6.3　特殊效果　<br>　　  1.6.4　远程脚本技术(AJAX)　<br>　  1.7　JavaScript的替代品　<br>　　  1.7.1　Java　<br> 　　 1.7.2　ActiveX　<br> 　　 1.7.3　VBScript　<br>　　  1.7.4　CGI和服务器端脚本技术　<br>　  1.8　小结　<br>　  1.9　问题与解答　<br>　  1.10　测试题　<br>　  1.11　测试题答案　<br>　  1.12　练习题　<br>  第2章　创建简单的脚本　<br>  　2.1　脚本编写的工具　<br>  　　2.1.1　文本编辑器　<br> 　　 2.1.2　浏览器　<br>　  2.2　在JavaScript中显示时间　<br>  　2.3　开始编写脚本　<br> 　 2.4　添加JavaScript语句　<br>　 　 2.4.1　在变量中储存数据　<br>　  　2.4.2　计算结果　<br>　  2.5　创建输出　<br>　  2.6　在网页中添加脚本　<br>　  2.7　测试脚本　<br> 　　 2.7.1　修改脚本　<br> 　　 2.7.2　处理JavaScript中的错误　<br>　  2.8　实践练习：使用一个单独的JavaScript文件　<br> 　 2.9　小结　<br> 　 2.10　问题与解答　<br>　  2.11　测试题　<br> 　 2.12　测试题答案　<br>　  2.13　练习题　<br>  第3章　开始JavaScript编程　<br> 　 3.1　基本概念　<br>　　  3.1.1　语句　<br>　 　 3.1.2　用函数来组合任务　<br>　  　3.1.3　变量　<br>　 　 3.1.4　理解对象　<br>　　  3.1.5　条件语句　<br> 　　 3.1.6　循环语句　<br> 　　 3.1.7　事件处理程序　<br>　　  3.1.8　最先运行哪个脚本　<br>  　3.2　JavaScript语法规则　<br> 　 　3.2.1　区分大小写　<br> 　　 3.2.2　变量、对象和函数的名称　<br>　 　 3.2.3　保留字　<br>  　　3.2.4　空格　<br> 　 3.3　使用注释　<br>  　3.4　编写JavaScript的好习惯　<br> 　 3.5　实践练习：使用事件处理程序　<br>  　3.6　小结　<br> 　 3.7　问题与解答　<br> 　 3.8　测试题　<br>　  3.9　测试题答案　<br>　  3.10　练习题　<br>  第4章　使用文档对象模型(DOM)　<br> 　 4.1　认识文档对象模型　<br>　　  4.1.1　DOM的历史　<br>　  　4.1.2　DOM的分级标准　<br> 　 4.2　使用window对象　<br>　  4.3　处理Web文档　<br>  　　4.3.1　获得文档的信息　<br> 　　 4.3.2　在文档中写入文字　<br>　　  4.3.3　使用Link和Anchor对象　<br>　  4.4　访问浏览器的history对象　<br>　  4.5　使用location对象　<br>　  4.6　实践练习：创建“后退”和“前进”按钮　<br>　  4.7　小结　<br> 　 4.8　问题与解答　<br> 　 4.9　测试题　<br>  　4.10　测试题答案　<br> 　 4.11　练习题　<br>第二部分　学习JavaScript基础<br>  第5章　使用变量、字符串和数组　<br> 　 5.1　使用变量　<br>　　  5.1.1　选择变量名称　<br>　　  5.1.2　使用局部变量和全局变量　<br>　　  5.1.3　给变量赋值　<br> 　 5.2　理解表达式和运算符　<br> 　 　5.2.1　使用JavaScript运算符　<br>　　  5.2.2　运算符的优先级　<br> 　 5.3　JavaScript的数据类型<br> 　 5.4　数据类型之间的转换　<br>  　5.5　使用String对象　<br> 　　 5.5.1　创建String对象　<br>  　　5.5.2　给变量赋值　<br> 　 　5.5.3　计算字符串长度　<br>　　  5.5.4　字符串大小写转换　<br>　  5.6　使用子字符串　<br>　　  5.6.1　使用字符串的一部分　<br>　　  5.6.2　获取单个字符　<br>　 　 5.6.3　查找子字符串　<br>  　5.7　使用数值数组　<br> 　　 5.7.1　创建数值数组　<br> 　 　5.7.2　理解数组的长度　<br>　 　 5.7.3　存取数组元素　<br> 　 5.8　使用字符串数组　<br>　　  5.8.1　建立字符串数组　<br>　　  5.8.2　分离字符串　<br>　 　 5.8.3　字符串数组的排序　<br> 　 5.9　数值数组的排序　<br> 　 5.10　实践练习：排序并显示名字　<br>　　5.11　小结　<br>　　5.12　问题与解答　<br>　　5.13　测试题　<br>　　5.14　测试题答案　<br>　　5.15　练习题　<br>　第6章　使用函数和对象　<br>　　6.1　使用函数　<br>　　　6.1.1　定义函数　<br>　　　6.1.2　调用函数　<br>　　　6.1.3　返回值　<br>　　6.2　对象简介　<br>　　　6.2.1　创建对象　<br>　　　6.2.2　对象属性和值　<br>　　　6.2.3　了解方法　<br>　　6.3　使用对象来简化脚本　<br>　　　6.3.1　定义对象　<br>　　　6.3.2　定义对象的方法　<br>　　　6.3.3　创建对象实例　<br>　　6.4　扩展内置对象　<br>　　6.5　实践练习：使用对象保存数据　<br>　　6.6　小结　<br>　　6.7　问题与解答　<br>　　6.8　测试题　<br>　　6.9　测试题答案　<br>　　6.10　练习题　<br>　第7章　用条件和循环控制流程　<br>　　7.1　If语句　<br>　　　7.1.1　条件运算符　<br>　　　7.1.2　条件与逻辑运算符　<br>　　　7.1.3　关键字else　<br>　　7.2　使用简写的条件表达式　<br>　　　7.2.1　用if和else测试多种条件　<br>　　　7.2.2　使用带switch的多个条件　<br>　　　7.2.3　使用for循环　<br>　　　7.2.4　使用while循环　<br>　　　7.2.5　使用do…while循环　<br>　　7.3　使用循环　<br>　　　7.3.1　创建无穷循环　<br>　　　7.3.2　退出循环　<br>　　　7.3.3　继续循环　<br>　　7.4　循环遍历对象属性　<br>　　7.5　实践练习：处理数组和循环　<br>　　7.6　小结　<br>　　7.7　问题与解答　<br>　　7.8　测试题　<br>　　7.9　测试题答案　<br>　　7.10　练习题　<br>　第8章　使用内置函数和程序库　<br>　　8.1　使用Math对象　<br>　　　8.1.1　舍入和截取　<br>　　　8.1.2　生成随机数　<br>　　　8.1.3　其他Math函数　<br>　　8.2　使用Math函数　　<br>　　8.3　使用with关键字　　<br>　　8.4　使用日期　　<br>　　　8.4.1　创建Date对象　　<br>　　　8.4.2　设置Date的值　　　　<br>　　　8.4.3　读取Date的值　　<br>　　　8.4.4　使用时区　　<br>　　　8.4.5　日期格式的转换　　<br>　　8.5　使用第三方程序库　　<br>　　　8.5.1　Prototype　　<br>　　　8.5.2　Script.aculo.us　　<br>　　　8.5.3　AJAX框架　　<br>　　8.6　其他程序库　　<br>　　8.7　实践练习：用程序库增添效果　　<br>　　　8.7.1　下载程序库　　<br>　　　8.7.2　包含文件　　<br>　　　8.7.3　使用效果　　<br>　　　8.7.4　构建脚本　　<br>　　8.8　小结　　<br>　　8.9　问题与解答　　<br>　　8.10　测试题　　<br>　　8.11　测试题答案　　<br>　　8.12　练习题　　<br>第三部分　深入学习DOM<br>　第9章　事件响应　　<br>　　9.1　认识事件处理程序　　<br>　　　9.1.1　对象与事件　　<br>　　　9.1.2　创建事件处理程序　　<br>　　　9.1.3　使用JavaScript定义事件处理程序　<br>　　　9.1.4　支持多个事件处理程序　<br>　　　9.1.5　使用event对象　<br>　　　9.1.6　Internet Explorer的event属性<br>　　　9.1.7　Netscape和Firefox的event属性　<br>　　9.2　使用鼠标事件　<br>　　　9.2.1　移至和移开　<br>　　　9.2.2　使用onMouseMove事件　<br>　　　9.2.3　常态和按下(以及单击)　<br>　　9.3　使用键盘事件　<br>　　9.4　使用onLoad和onUnload事件　　<br>　　9.5　实践练习：为网页添加链接说明　<br>　　9.6　小结　　<br>　　9.7　问题与解答　　<br>　　9.8　测试题　　<br>　　9.9　测试题答案　　<br>　　9.10　练习题　　<br>　第10章　使用窗口和框架　　<br>　　10.1　用对象控制窗口　　<br>　　　10.1.1　window对象的属性　　<br>　　　10.1.2　创建新窗口　　<br>　　　10.1.3　打开和关闭窗口　　<br>　　10.2　移动和调整窗口大小　　　<br>　　10.3　使用超时功能　　<br>　　10.4　显示对话框　　<br>　　10.5　使用框架　　<br>　　　10.5.1　为框架使用JavaScript对象　<br>　　　10.5.2　frames数组　<br>　　10.6　实践练习：在JavaScript中使用框架<br>　　10.7　小结　<br>　　10.8　问题与解答　<br>　　10.9　测试题　<br>　　10.10　测试题答案　<br>　　10.11　练习题　<br>　第11章　利用表单获取数据　<br>　　11.1　HTML表单基础　<br>　　11.2　在JavaScript中使用form对象　<br>　　　11.2.1　form对象的属性　<br>　　　11.2.2　提交和重置表单　<br>　　　11.2.3　检测表单事件　<br>　　11.3　编制表单元素的脚本　<br>　　　11.3.1　文本字段　<br>　　　11.3.2　文本区域　<br>　　　11.3.3　处理表单中的文本　<br>　　　11.3.4　按钮　<br>　　　11.3.5　复选框　<br>　　　11.3.6　单选按钮　<br>　　　11.3.7　下拉列表　<br>　　11.4　显示表单数据　<br>　　11.5　通过邮件发送表单结果　<br>　　11.6　实践练习：验证表单　<br>　　11.7　小结　<br>　　11.8　问题与解答　<br>　　11.9　测试题　<br>　　11.10　测试题答案　<br>　　11.11　练习题　<br>　第12章　使用样式表　<br>　　12.1　样式与内容　<br>　　12.2　定义和使用CSS样式　<br>　　　12.2.1　创建规则　<br>　　　12.2.2　设置指定元素的样式　<br>　　　12.2.3　使用id属性　<br>　　　12.2.4　使用类　<br>　　12.3　使用CSS属性　<br>　　　12.3.1　文本对齐　<br>　　　12.3.2　改变颜色和背景图像　<br>　　　12.3.3　使用字体　<br>　　　12.3.4　边距和边框　<br>　　　12.3.5　样式表的单位　<br>　　12.4　创建一个简单的样式表　<br>　　12.5　使用外部样式表　<br>　　　12.5.1　链接外部样式表　<br>　　　12.5.2　创建外部.css文件<br>　　12.6　用JavaScript控制样式　<br>　　12.7　实践练习：创建动态样式　<br>　　12.8　小结　<br>　　12.9　问题与解答　<br>　　12.10　测试题　<br>　　12.11　测试题答案　<br>　　12.12　练习题　<br>　第13章　使用W3C的DOM　<br>　　13.1　DOM和动态HTML　<br>　　13.2　理解DOM结构　<br>　　　13.2.1　节点　<br>　　　13.2.2　父与子　<br>　　　13.2.3　兄弟　<br>　　13.3　创建可定位元素(层)　<br>　　　13.3.1　设置对象的位置和大小　<br>　　　13.3.2　设定溢出属性　<br>　　　13.3.3　使用可见性属性　<br>　　　13.3.4　设置背景和边框属性　<br>　　　13.3.5　用JavaScript控制定位　<br>　　13.4　实践练习：创建可移动的层　<br>　　13.5　小结　<br>　　13.6　问题与解答　<br>　　13.7　测试题　<br>　　13.8　测试题答案　<br>　　13.9　练习题　<br>　第14章　使用高级DOM功能　<br>　　14.1　使用DOM节点　<br>　　　14.1.1　基本节点属性　<br>　　　14.1.2　节点关系属性　<br>　　　14.1.3　文档方法　<br>　　　14.1.4　节点的方法　<br>　　14.2　隐藏和显示对象　<br>　　14.3　在页面中修改文本　<br>　　14.4　为页面添加文本　<br>　　14.5　实践练习：创建导航树　<br>　　14.6　小结　<br>　　14.7　问题与解答　<br>　　14.8　测试题　<br>　　14.9　测试题答案　<br>　　14.10　练习题　<br>第四部分　使用JavaScript的高级功能<br>　第15章　编写规范型脚本　<br>　　15.1　编写脚本的最佳方法　<br>　　　15.1.1　内容、展现和行为　<br>　　　15.1.2　渐进式提高　<br>　　　15.1.3　添加事件处理程序　<br>　　　15.1.4　Web标准：浏览器无关性　<br>　　　15.1.5　为代码编写文档　<br>　　　15.1.6　可用性　<br>　　　15.1.7　设计模型　<br>　　　15.1.8　可访问性　<br>　　15.2　读取浏览器的信息　<br>　　　15.2.1　显示浏览器的信息　<br>　　　15.2.2　处理特殊的浏览器　<br>　　15.3　编写跨浏览器的脚本　<br>　　　15.3.1　功能检测技术　<br>　　　15.3.2　处理浏览器异常　<br>　　15.4　为不支持JavaScript的浏览器提供支持　<br>　　　15.4.1　使用 noscript 标记　<br>　　　15.4.2　保持JavaScript的功能可选　<br>　　　15.4.3　避免错误　<br>　　15.5　实践练习：创建规范型脚本　<br>　　15.6　小结　<br>　　15.7　问题与解答　<br>　　15.8　测试题　<br>　　15.9　测试题答案　<br>　　15.10　练习题　<br>　第16章　调试JavaScript应用程序　<br>　　16.1　防止Bug　<br>　　　16.1.1　养成良好的编程习惯　<br>　　　16.1.2　常见错误的预防　<br>　　16.2　基本调试工具　<br>　　　16.2.1　Firefox的JavaScript控制台　<br>　　　16.2.2　在Internet Explorer中显示错误信息　<br>　　　16.2.3　警告信息　<br>　　　16.2.4　使用注释功能　<br>　　　16.2.5　其他调试工具　<br>　　16.3　创建错误处理程序　<br>　　　16.3.1　使用onerror属性　<br>　　　16.3.2　显示错误信息　<br>　　　16.3.3　使用try和catch　<br>　　16.4　高级调试工具　<br>　　　16.4.1　Web Developer工具栏(用于Firefox)　<br>　　　16.4.2　Developer工具栏(适用于Internet Explorer)　<br>　　　16.4.3　DOM Inspector(用于Firefox)　<br>　　　16.4.4　查看生成的源代码　<br>　　　16.4.5　JavaScript Shell　<br>　　16.5　实践练习：调试脚本　<br>　　　16.5.1　测试脚本　<br>　　　16.5.2　解决问题　<br>　　　16.5.3　重新测试　<br>　　16.6　小结　<br>　　16.7　问题与解答　<br>　　16.8　测试题　<br>　　16.9　测试题答案　<br>　　16.10　练习题　<br>　第17章　AJAX：远程脚本技术　<br>　　17.1　AJAX简介　<br>　　　17.1.1　JavaScript客户端(前端)　<br>　　　17.1.2　后台　<br>　　　17.1.3　XML　<br>　　　17.1.4　AJAX的典型应用　<br>　　　17.1.5　框架和库　<br>　　　17.1.6　AJAX的局限性　<br>　　17.2　使用XMLHttpRequest　<br>　　　17.2.1　创建请求　<br>　　　17.2.2　打开URL　<br>　　　17.2.3　发送请求　<br>　　　17.2.4　等待响应　<br>　　　17.2.5　解释响应数据　<br>　　17.3　创建简单的AJAX库　<br>　　　17.3.1　ajaxRequest()函数　<br>　　　17.3.2　ajaxResponse()函数　<br>　　　17.3.3　使用AJAX库　<br>　　17.4　使用AJAX库编写AJAX测验程序　<br>　　　17.4.1　HTML文件　<br>　　　17.4.2　XML文件　<br>　　　17.4.3　JavaScript文件　<br>　　　17.4.4　测试示例　<br>　　17.5　调试AJAX应用程序　<br>　　17.6　实践练习：制作一个实时查询表单　<br>　　　17.6.1　HTML表单　<br>　　　17.6.2　PHP后台　<br>　　　17.6.3　JavaScript前端　<br>　　　17.6.4　执行程序　<br>　　17.7　小结　<br>　　17.8　问题与解答　<br>　　17.9　测试题　<br>　　17.10　测试题答案　<br>　　17.11　练习题　<br>　第18章　Greasemonkey：使用JavaScript增强页面功能　<br>　　18.1　Greasemonkey插件简介　<br>　　　18.1.1　在Firefox中安装Greasemonkey插件　<br>　　　18.1.2　Internet Explorer的Turnabout插件　<br>　　　18.1.3　其他浏览器　<br>　　　18.1.4　用户脚本的安全性　<br>　　18.2　使用用户脚本　<br>　　　18.2.1　查找脚本　<br>　　　18.2.2　安装脚本　<br>　　　18.2.3　管理脚本　<br>　　　18.2.4　测试用户脚本　<br>　　　18.2.5　激活或禁用Greasemonkey或Turnabout　<br>　　18.3　创建自己的用户脚本　258<br>　　　18.3.1　创建一个简单的用户脚本　<br>　　　18.3.2　描述用户脚本　<br>　　　18.3.3　测试脚本　<br>　　　18.3.4　Greasemonkey API函数　<br>　　　18.3.5　创建专用站点脚本　<br>　　　18.3.6　调试用户脚本　<br>　　18.4　实践练习：创建用户脚本　<br>　　　18.4.1　运行过程　<br>　　　18.4.2　使用脚本　<br>　　18.5　小结　<br>　　18.6　问题与解答　<br>　　18.7　测试题　<br>　　18.8　测试题答案　<br>　　18.9　练习题　<br>第五部分　使用JavaScript创建多媒体应用程序<br>　第19章　使用图像和动画　<br>　　19.1　使用动态图像　<br>　　　19.1.1　使用image对象　<br>　　　19.1.2　预加载图像　<br>　　19.2　创建Rollover(鼠标翻转)效果　<br>　　　19.2.1　通过JavaScript创建Rollover效果　<br>　　　19.2.2　使用CSS而不是JavaScript实现Rollover效果　<br>　　　19.2.3　使用CSS技术创建图形化的rollover效果　<br>　　19.3　制作简单的JavaScript幻灯效果　<br>　　　19.3.1　HTML文件　<br>　　　19.3.2　JavaScript文件　<br>　　19.4　实践练习：向幻灯中添加动画效果　<br>　　　19.4.1　HTML文件　<br>　　　19.4.2　CSS文件　<br>　　　19.4.3　JavaScript脚本　<br>　　　19.4.4　整合所有技术　<br>　　19.5　小结　<br>　　19.6　问题与解答　<br>　　19.7　测试题　<br>　　19.8　测试题答案　<br>　　19.9　练习题　<br>　第20章　使用声音和插件　<br>　　20.1　插件介绍　<br>　　　20.1.1　 embed 和 object 标签　<br>　　　20.1.2　理解ＭIME类型　<br>　　　20.1.3　在JavaScript中使用插件　<br>　　　20.1.4　插件功能检测　289<br>　　20.2　JavaScript和Flash　<br>　　　20.2.1　ActionScript　<br>　　　20.2.2　JavaScript与Flash之间的交互　<br>　　　20.2.3　在JavaScript中嵌入Flash　<br>　　20.3　使用JavaScript处理音频　<br>　　　20.3.1　音频格式　<br>　　　20.3.2　音频插件　<br>　　　20.3.3　嵌入音频　<br>　　　20.3.4　使用JavaScript控制音频　<br>　　　20.3.5　检测当前浏览支持的音频功能　<br>　　　20.3.6　使用Flash　<br>　　20.4　使用JavaScript测试音频　<br>　　20.5　实践练习：使用鼠标播放音乐　<br>　　　20.5.1　示例的HTML文档　<br>　　　20.5.2　CSS样式单　<br>　　　20.5.3　播放音频　<br>　　　20.5.4　嵌入音频　<br>　　　20.5.5　整合所有技术　<br>　　20.6　小结　<br>　　20.7　问题与解答　<br>　　20.8　测试题　<br>　　20.9　测试题答案　<br>　　20.10　练习题　<br>第六部分　创建复杂脚本<br>　第21章　创建JavaScript下拉菜单　<br>　　21.1　设计下拉菜单　<br>　　　21.1.1　创建HTML标记　<br>　　　21.1.2　使用CSS设计菜单布局　<br>　　21.2　使用脚本来设置下拉菜单的行为　<br>　　　21.2.1　设置菜单　<br>　　　21.2.2　显示子菜单　<br>　　　21.2.3　隐藏子菜单　<br>　　　21.2.4　完成脚本　<br>　　21.3　实践练习：利用CSS增强菜单　<br>　　21.4　小结　<br>　　21.5　问题与解答　<br>　　21.6　测试题　<br>　　21.7　测试题答案　<br>　　21.8　练习题　<br>　第22章　创建JavaScript游戏　<br>　　22.1　游戏简介　<br>　　　22.1.1　游戏玩法　<br>　　　22.1.2　得分计算　<br>　　　22.1.3　创建图形　<br>　　22.2　创建HTML文档　<br>　　22.3　创建脚本　<br>　　　22.3.1　使用对象存储纸牌　<br>　　　22.3.2　构建游戏板　<br>　　　22.3.3　洗牌　<br>　　　22.3.4　将牌放到游戏板上　<br>　　　23.3.5　计算行、列和对角线得分　<br>　　　23.3.6　合计得分　<br>　　　23.3.7　结束游戏　<br>　　22.4　利用CSS添加样式　<br>　　22.5　实践练习：组合应用技术　<br>　　22.6　小结　<br>　　22.7　问题与解答<br>　　22.8　测试题　<br>　　22.9　测试题答案　<br>　　22.10　练习题<br>　第23章　创建JavaScript应用程序　<br>　　23.1　创建滚动窗口　<br>　　　23.1.1　HTML文档<br>　　　23.1.2　CSS文件　<br>　　　23.1.3　JavaScript文件　<br>　　23.2　利用JavaScript在CSS样式表之间切换　<br>　　　23.2.1　创建HTML文档　<br>　　　23.2.2　创建第一张样式表<br>　　　23.2.3　创建第二张样式表　<br>　　　23.2.4　创建脚本　<br>　　23.3　实践练习：创建动态表单　<br>　　　23.3.1　创建HTML文档　<br>　　　23.3.2　添加脚本　<br>　　23.4　小结　<br>　　23.5　问题与解答　<br>　　23.6　测试题　<br>　　23.7　测试题答案　<br>　　23.8　练习题　<br>　第24章　JavaScript的未来　<br>　　24.1　学习JavaScript高级技巧　<br>　　24.2　未来的Web技术　<br>　　　24.2.1　JavaScript的未来版本　<br>　　　24.2.2　DOM的未来版本　<br>　　　24.2.3　XML(可扩展标记语言)　<br>　　　24.2.4　XHTML(可扩展超文本标记语言)<br>　　　24.2.5　XSL(可扩展样式表语言)　<br>　　24.3　为未来做好准备　<br>　　　24.3.1　保持脚本兼容性　<br>　　　24.3.2　保持HTML兼容　<br>　　　24.3.3　详细编制文档　<br>　　24.4　继续学习其他语言　<br>　　24.5　实践练习：创建拖放式对象　<br>　　　24.5.1　HTML文档　<br>　　　24.5.2　CSS样式表　<br>　　　24.5.3　实现拖放　<br>　　　24.5.4　JavaScript文件　<br>　　24.6　小结　<br>　　24.7　问题与解答　<br>　　24.8　测试题　<br>　　24.9　测试题答案　<br>　　24.10　练习题　<br>第七部分　附录<br>  附录A　其他JavaScript资源　<br>　　A.1　JavaScript网站　<br>　　A.2　Web开发站点　<br>　附录B　JavaScript开发人员工具　<br>　　B.1　HTML和文本编辑器　<br>　　　B.1.1　HomeSite　<br>　　　B.1.2　TopStyle　<br>　　　B.1.3　FrontPage　<br>　　　B.1.4　BBEdit　<br>　　　B.1.5　文本编辑器　<br>　　B.2　HTML验证工具　<br>　　B.3　调试工具　<br>　附录C　术语表　<br>　附录D　JavaScript快速参考　<br>　　D.1　内置对象　<br>　　　D.1.1　数组　<br>　　　D.1.2　字符串　<br>　　　D.1.3　Math<br>　　　D.1.4　Date　<br>　　D.2　创建和自定义对象　<br>　　　D.2.1　创建对象　<br>　　　D.2.2　自定义对象　<br>　　D.3　JavaScript语句　<br>　　　D.3.1　注释　<br>　　　D.3.2　break　<br>　　　D.3.3　continue　<br>　　　D.3.4　for　378<br>　　　D.3.5　for...in　<br>　　　D.3.6　function　<br>　　　D.3.7　if...else　<br>　　　D.3.8　return　<br>　　　D.3.9　var　<br>　　　D.3.10　while　<br>　　D.4　JavaScript内置函数　<br>　　　D.4.1　eval　<br>　　　D.4.2　parseInt　<br>　　　D.4.3　parseFloat　<br>　附录E　DOM快速参考　<br>　　E.1　DOM Level 0　<br>　　　E.1.1　window　<br>　　　E.1.2　location　<br>　　　E.1.3　history　<br>　　　E.1.4　document　<br>　　　E.1.5　navigator　<br>　　E.2　DOM Level 1　<br>　　　E.2.1　基本的节点属性　<br>　　　E.2.2　关系属性　<br>　　　E.2.3　偏置属性　<br>　　　E.2.4　样式属性　<br>　　　E.2.5　节点方法<br>　　　E.2.6　文档对象方法和属性 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书详细介绍了JavaScript编程。全书共分为24章，分别介绍了Web脚本编写和JavaScript语言的概念、JavaScript的基础知识、文档对象模型、JavaScript的高级功能、使用JavaScript创建多媒体应用程序、创建复杂脚本的技巧等知识。其中，每章内容均以前一章内容为基础。书中提供了简单直接的操作方法，读者能够从基础知识开始领会JavaScript编程的精髓。除了基本内容外，书中还提供了大量解决问题的说明、解决方案、提示信息等内容。另外在每一章的后面，还附加有实践练习、测试题和练习题，以便加深读者对基本概念的理解。 <br>　　本书适合对互联网应用开发感兴趣的初中级用户，也可作为大中专院校相关专业的教材。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">（美）蒙克尔（Moncur，M.）　著，王军　译Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="JavaScript入门经典(第4版)" border="1" height="216" src="/Images/BookCovers/9787115155368.jpg" style="border:1px   solid   #B0B0B0" title="JavaScript入门经典(第4版)" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：（美）蒙克尔（Moncur，M.）　著，王军　译
+                                                                    <br />
+                                                                    书名：JavaScript入门经典(第4版)<br />
+                                                                    字数：604000<br />
+                                                                    出版时间：2007年3月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115155368<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥39.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第一部分　Web脚本编写与JavaScript语言的概念<br>  第1章　了解JavaScript　<br>　  1.1　学习Web脚本编写基础　<br>　　  1.1.1　脚本和程序　<br>　  　1.1.2　JavaScript简介　<br>  　1.2　在网页中如何嵌入JavaScript<br>　 　 1.2.1　JavaScript和HTML　<br>　　  1.2.2　使用单独的JavaScript文件　<br>　 　 1.2.3　事件　<br>　  1.3　浏览器和JavaScript　<br>　 　 1.3.1　文档对象模型(DOM)　<br>　　  1.3.2　Internet Explorer　<br>　 　 1.3.3　Netscape和Firefox　<br> 　　 1.3.4　其他浏览器　<br>　　  1.3.5　JavaScript的版本　<br> 　 1.4　指定JavaScript的版本　<br>  　1.5　JavaScript在浏览器之外的应用　<br>　  1.6　JavaScript功能一览　<br>　　  1.6.1　改善导航功能　<br>　　  1.6.2　验证表单　<br>　　  1.6.3　特殊效果　<br>　　  1.6.4　远程脚本技术(AJAX)　<br>　  1.7　JavaScript的替代品　<br>　　  1.7.1　Java　<br> 　　 1.7.2　ActiveX　<br> 　　 1.7.3　VBScript　<br>　　  1.7.4　CGI和服务器端脚本技术　<br>　  1.8　小结　<br>　  1.9　问题与解答　<br>　  1.10　测试题　<br>　  1.11　测试题答案　<br>　  1.12　练习题　<br>  第2章　创建简单的脚本　<br>  　2.1　脚本编写的工具　<br>  　　2.1.1　文本编辑器　<br> 　　 2.1.2　浏览器　<br>　  2.2　在JavaScript中显示时间　<br>  　2.3　开始编写脚本　<br> 　 2.4　添加JavaScript语句　<br>　 　 2.4.1　在变量中储存数据　<br>　  　2.4.2　计算结果　<br>　  2.5　创建输出　<br>　  2.6　在网页中添加脚本　<br>　  2.7　测试脚本　<br> 　　 2.7.1　修改脚本　<br> 　　 2.7.2　处理JavaScript中的错误　<br>　  2.8　实践练习：使用一个单独的JavaScript文件　<br> 　 2.9　小结　<br> 　 2.10　问题与解答　<br>　  2.11　测试题　<br> 　 2.12　测试题答案　<br>　  2.13　练习题　<br>  第3章　开始JavaScript编程　<br> 　 3.1　基本概念　<br>　　  3.1.1　语句　<br>　 　 3.1.2　用函数来组合任务　<br>　  　3.1.3　变量　<br>　 　 3.1.4　理解对象　<br>　　  3.1.5　条件语句　<br> 　　 3.1.6　循环语句　<br> 　　 3.1.7　事件处理程序　<br>　　  3.1.8　最先运行哪个脚本　<br>  　3.2　JavaScript语法规则　<br> 　 　3.2.1　区分大小写　<br> 　　 3.2.2　变量、对象和函数的名称　<br>　 　 3.2.3　保留字　<br>  　　3.2.4　空格　<br> 　 3.3　使用注释　<br>  　3.4　编写JavaScript的好习惯　<br> 　 3.5　实践练习：使用事件处理程序　<br>  　3.6　小结　<br> 　 3.7　问题与解答　<br> 　 3.8　测试题　<br>　  3.9　测试题答案　<br>　  3.10　练习题　<br>  第4章　使用文档对象模型(DOM)　<br> 　 4.1　认识文档对象模型　<br>　　  4.1.1　DOM的历史　<br>　  　4.1.2　DOM的分级标准　<br> 　 4.2　使用window对象　<br>　  4.3　处理Web文档　<br>  　　4.3.1　获得文档的信息　<br> 　　 4.3.2　在文档中写入文字　<br>　　  4.3.3　使用Link和Anchor对象　<br>　  4.4　访问浏览器的history对象　<br>　  4.5　使用location对象　<br>　  4.6　实践练习：创建“后退”和“前进”按钮　<br>　  4.7　小结　<br> 　 4.8　问题与解答　<br> 　 4.9　测试题　<br>  　4.10　测试题答案　<br> 　 4.11　练习题　<br>第二部分　学习JavaScript基础<br>  第5章　使用变量、字符串和数组　<br> 　 5.1　使用变量　<br>　　  5.1.1　选择变量名称　<br>　　  5.1.2　使用局部变量和全局变量　<br>　　  5.1.3　给变量赋值　<br> 　 5.2　理解表达式和运算符　<br> 　 　5.2.1　使用JavaScript运算符　<br>　　  5.2.2　运算符的优先级　<br> 　 5.3　JavaScript的数据类型<br> 　 5.4　数据类型之间的转换　<br>  　5.5　使用String对象　<br> 　　 5.5.1　创建String对象　<br>  　　5.5.2　给变量赋值　<br> 　 　5.5.3　计算字符串长度　<br>　　  5.5.4　字符串大小写转换　<br>　  5.6　使用子字符串　<br>　　  5.6.1　使用字符串的一部分　<br>　　  5.6.2　获取单个字符　<br>　 　 5.6.3　查找子字符串　<br>  　5.7　使用数值数组　<br> 　　 5.7.1　创建数值数组　<br> 　 　5.7.2　理解数组的长度　<br>　 　 5.7.3　存取数组元素　<br> 　 5.8　使用字符串数组　<br>　　  5.8.1　建立字符串数组　<br>　　  5.8.2　分离字符串　<br>　 　 5.8.3　字符串数组的排序　<br> 　 5.9　数值数组的排序　<br> 　 5.10　实践练习：排序并显示名字　<br>　　5.11　小结　<br>　　5.12　问题与解答　<br>　　5.13　测试题　<br>　　5.14　测试题答案　<br>　　5.15　练习题　<br>　第6章　使用函数和对象　<br>　　6.1　使用函数　<br>　　　6.1.1　定义函数　<br>　　　6.1.2　调用函数　<br>　　　6.1.3　返回值　<br>　　6.2　对象简介　<br>　　　6.2.1　创建对象　<br>　　　6.2.2　对象属性和值　<br>　　　6.2.3　了解方法　<br>　　6.3　使用对象来简化脚本　<br>　　　6.3.1　定义对象　<br>　　　6.3.2　定义对象的方法　<br>　　　6.3.3　创建对象实例　<br>　　6.4　扩展内置对象　<br>　　6.5　实践练习：使用对象保存数据　<br>　　6.6　小结　<br>　　6.7　问题与解答　<br>　　6.8　测试题　<br>　　6.9　测试题答案　<br>　　6.10　练习题　<br>　第7章　用条件和循环控制流程　<br>　　7.1　If语句　<br>　　　7.1.1　条件运算符　<br>　　　7.1.2　条件与逻辑运算符　<br>　　　7.1.3　关键字else　<br>　　7.2　使用简写的条件表达式　<br>　　　7.2.1　用if和else测试多种条件　<br>　　　7.2.2　使用带switch的多个条件　<br>　　　7.2.3　使用for循环　<br>　　　7.2.4　使用while循环　<br>　　　7.2.5　使用do…while循环　<br>　　7.3　使用循环　<br>　　　7.3.1　创建无穷循环　<br>　　　7.3.2　退出循环　<br>　　　7.3.3　继续循环　<br>　　7.4　循环遍历对象属性　<br>　　7.5　实践练习：处理数组和循环　<br>　　7.6　小结　<br>　　7.7　问题与解答　<br>　　7.8　测试题　<br>　　7.9　测试题答案　<br>　　7.10　练习题　<br>　第8章　使用内置函数和程序库　<br>　　8.1　使用Math对象　<br>　　　8.1.1　舍入和截取　<br>　　　8.1.2　生成随机数　<br>　　　8.1.3　其他Math函数　<br>　　8.2　使用Math函数　　<br>　　8.3　使用with关键字　　<br>　　8.4　使用日期　　<br>　　　8.4.1　创建Date对象　　<br>　　　8.4.2　设置Date的值　　　　<br>　　　8.4.3　读取Date的值　　<br>　　　8.4.4　使用时区　　<br>　　　8.4.5　日期格式的转换　　<br>　　8.5　使用第三方程序库　　<br>　　　8.5.1　Prototype　　<br>　　　8.5.2　Script.aculo.us　　<br>　　　8.5.3　AJAX框架　　<br>　　8.6　其他程序库　　<br>　　8.7　实践练习：用程序库增添效果　　<br>　　　8.7.1　下载程序库　　<br>　　　8.7.2　包含文件　　<br>　　　8.7.3　使用效果　　<br>　　　8.7.4　构建脚本　　<br>　　8.8　小结　　<br>　　8.9　问题与解答　　<br>　　8.10　测试题　　<br>　　8.11　测试题答案　　<br>　　8.12　练习题　　<br>第三部分　深入学习DOM<br>　第9章　事件响应　　<br>　　9.1　认识事件处理程序　　<br>　　　9.1.1　对象与事件　　<br>　　　9.1.2　创建事件处理程序　　<br>　　　9.1.3　使用JavaScript定义事件处理程序　<br>　　　9.1.4　支持多个事件处理程序　<br>　　　9.1.5　使用event对象　<br>　　　9.1.6　Internet Explorer的event属性<br>　　　9.1.7　Netscape和Firefox的event属性　<br>　　9.2　使用鼠标事件　<br>　　　9.2.1　移至和移开　<br>　　　9.2.2　使用onMouseMove事件　<br>　　　9.2.3　常态和按下(以及单击)　<br>　　9.3　使用键盘事件　<br>　　9.4　使用onLoad和onUnload事件　　<br>　　9.5　实践练习：为网页添加链接说明　<br>　　9.6　小结　　<br>　　9.7　问题与解答　　<br>　　9.8　测试题　　<br>　　9.9　测试题答案　　<br>　　9.10　练习题　　<br>　第10章　使用窗口和框架　　<br>　　10.1　用对象控制窗口　　<br>　　　10.1.1　window对象的属性　　<br>　　　10.1.2　创建新窗口　　<br>　　　10.1.3　打开和关闭窗口　　<br>　　10.2　移动和调整窗口大小　　　<br>　　10.3　使用超时功能　　<br>　　10.4　显示对话框　　<br>　　10.5　使用框架　　<br>　　　10.5.1　为框架使用JavaScript对象　<br>　　　10.5.2　frames数组　<br>　　10.6　实践练习：在JavaScript中使用框架<br>　　10.7　小结　<br>　　10.8　问题与解答　<br>　　10.9　测试题　<br>　　10.10　测试题答案　<br>　　10.11　练习题　<br>　第11章　利用表单获取数据　<br>　　11.1　HTML表单基础　<br>　　11.2　在JavaScript中使用form对象　<br>　　　11.2.1　form对象的属性　<br>　　　11.2.2　提交和重置表单　<br>　　　11.2.3　检测表单事件　<br>　　11.3　编制表单元素的脚本　<br>　　　11.3.1　文本字段　<br>　　　11.3.2　文本区域　<br>　　　11.3.3　处理表单中的文本　<br>　　　11.3.4　按钮　<br>　　　11.3.5　复选框　<br>　　　11.3.6　单选按钮　<br>　　　11.3.7　下拉列表　<br>　　11.4　显示表单数据　<br>　　11.5　通过邮件发送表单结果　<br>　　11.6　实践练习：验证表单　<br>　　11.7　小结　<br>　　11.8　问题与解答　<br>　　11.9　测试题　<br>　　11.10　测试题答案　<br>　　11.11　练习题　<br>　第12章　使用样式表　<br>　　12.1　样式与内容　<br>　　12.2　定义和使用CSS样式　<br>　　　12.2.1　创建规则　<br>　　　12.2.2　设置指定元素的样式　<br>　　　12.2.3　使用id属性　<br>　　　12.2.4　使用类　<br>　　12.3　使用CSS属性　<br>　　　12.3.1　文本对齐　<br>　　　12.3.2　改变颜色和背景图像　<br>　　　12.3.3　使用字体　<br>　　　12.3.4　边距和边框　<br>　　　12.3.5　样式表的单位　<br>　　12.4　创建一个简单的样式表　<br>　　12.5　使用外部样式表　<br>　　　12.5.1　链接外部样式表　<br>　　　12.5.2　创建外部.css文件<br>　　12.6　用JavaScript控制样式　<br>　　12.7　实践练习：创建动态样式　<br>　　12.8　小结　<br>　　12.9　问题与解答　<br>　　12.10　测试题　<br>　　12.11　测试题答案　<br>　　12.12　练习题　<br>　第13章　使用W3C的DOM　<br>　　13.1　DOM和动态HTML　<br>　　13.2　理解DOM结构　<br>　　　13.2.1　节点　<br>　　　13.2.2　父与子　<br>　　　13.2.3　兄弟　<br>　　13.3　创建可定位元素(层)　<br>　　　13.3.1　设置对象的位置和大小　<br>　　　13.3.2　设定溢出属性　<br>　　　13.3.3　使用可见性属性　<br>　　　13.3.4　设置背景和边框属性　<br>　　　13.3.5　用JavaScript控制定位　<br>　　13.4　实践练习：创建可移动的层　<br>　　13.5　小结　<br>　　13.6　问题与解答　<br>　　13.7　测试题　<br>　　13.8　测试题答案　<br>　　13.9　练习题　<br>　第14章　使用高级DOM功能　<br>　　14.1　使用DOM节点　<br>　　　14.1.1　基本节点属性　<br>　　　14.1.2　节点关系属性　<br>　　　14.1.3　文档方法　<br>　　　14.1.4　节点的方法　<br>　　14.2　隐藏和显示对象　<br>　　14.3　在页面中修改文本　<br>　　14.4　为页面添加文本　<br>　　14.5　实践练习：创建导航树　<br>　　14.6　小结　<br>　　14.7　问题与解答　<br>　　14.8　测试题　<br>　　14.9　测试题答案　<br>　　14.10　练习题　<br>第四部分　使用JavaScript的高级功能<br>　第15章　编写规范型脚本　<br>　　15.1　编写脚本的最佳方法　<br>　　　15.1.1　内容、展现和行为　<br>　　　15.1.2　渐进式提高　<br>　　　15.1.3　添加事件处理程序　<br>　　　15.1.4　Web标准：浏览器无关性　<br>　　　15.1.5　为代码编写文档　<br>　　　15.1.6　可用性　<br>　　　15.1.7　设计模型　<br>　　　15.1.8　可访问性　<br>　　15.2　读取浏览器的信息　<br>　　　15.2.1　显示浏览器的信息　<br>　　　15.2.2　处理特殊的浏览器　<br>　　15.3　编写跨浏览器的脚本　<br>　　　15.3.1　功能检测技术　<br>　　　15.3.2　处理浏览器异常　<br>　　15.4　为不支持JavaScript的浏览器提供支持　<br>　　　15.4.1　使用 noscript 标记　<br>　　　15.4.2　保持JavaScript的功能可选　<br>　　　15.4.3　避免错误　<br>　　15.5　实践练习：创建规范型脚本　<br>　　15.6　小结　<br>　　15.7　问题与解答　<br>　　15.8　测试题　<br>　　15.9　测试题答案　<br>　　15.10　练习题　<br>　第16章　调试JavaScript应用程序　<br>　　16.1　防止Bug　<br>　　　16.1.1　养成良好的编程习惯　<br>　　　16.1.2　常见错误的预防　<br>　　16.2　基本调试工具　<br>　　　16.2.1　Firefox的JavaScript控制台　<br>　　　16.2.2　在Internet Explorer中显示错误信息　<br>　　　16.2.3　警告信息　<br>　　　16.2.4　使用注释功能　<br>　　　16.2.5　其他调试工具　<br>　　16.3　创建错误处理程序　<br>　　　16.3.1　使用onerror属性　<br>　　　16.3.2　显示错误信息　<br>　　　16.3.3　使用try和catch　<br>　　16.4　高级调试工具　<br>　　　16.4.1　Web Developer工具栏(用于Firefox)　<br>　　　16.4.2　Developer工具栏(适用于Internet Explorer)　<br>　　　16.4.3　DOM Inspector(用于Firefox)　<br>　　　16.4.4　查看生成的源代码　<br>　　　16.4.5　JavaScript Shell　<br>　　16.5　实践练习：调试脚本　<br>　　　16.5.1　测试脚本　<br>　　　16.5.2　解决问题　<br>　　　16.5.3　重新测试　<br>　　16.6　小结　<br>　　16.7　问题与解答　<br>　　16.8　测试题　<br>　　16.9　测试题答案　<br>　　16.10　练习题　<br>　第17章　AJAX：远程脚本技术　<br>　　17.1　AJAX简介　<br>　　　17.1.1　JavaScript客户端(前端)　<br>　　　17.1.2　后台　<br>　　　17.1.3　XML　<br>　　　17.1.4　AJAX的典型应用　<br>　　　17.1.5　框架和库　<br>　　　17.1.6　AJAX的局限性　<br>　　17.2　使用XMLHttpRequest　<br>　　　17.2.1　创建请求　<br>　　　17.2.2　打开URL　<br>　　　17.2.3　发送请求　<br>　　　17.2.4　等待响应　<br>　　　17.2.5　解释响应数据　<br>　　17.3　创建简单的AJAX库　<br>　　　17.3.1　ajaxRequest()函数　<br>　　　17.3.2　ajaxResponse()函数　<br>　　　17.3.3　使用AJAX库　<br>　　17.4　使用AJAX库编写AJAX测验程序　<br>　　　17.4.1　HTML文件　<br>　　　17.4.2　XML文件　<br>　　　17.4.3　JavaScript文件　<br>　　　17.4.4　测试示例　<br>　　17.5　调试AJAX应用程序　<br>　　17.6　实践练习：制作一个实时查询表单　<br>　　　17.6.1　HTML表单　<br>　　　17.6.2　PHP后台　<br>　　　17.6.3　JavaScript前端　<br>　　　17.6.4　执行程序　<br>　　17.7　小结　<br>　　17.8　问题与解答　<br>　　17.9　测试题　<br>　　17.10　测试题答案　<br>　　17.11　练习题　<br>　第18章　Greasemonkey：使用JavaScript增强页面功能　<br>　　18.1　Greasemonkey插件简介　<br>　　　18.1.1　在Firefox中安装Greasemonkey插件　<br>　　　18.1.2　Internet Explorer的Turnabout插件　<br>　　　18.1.3　其他浏览器　<br>　　　18.1.4　用户脚本的安全性　<br>　　18.2　使用用户脚本　<br>　　　18.2.1　查找脚本　<br>　　　18.2.2　安装脚本　<br>　　　18.2.3　管理脚本　<br>　　　18.2.4　测试用户脚本　<br>　　　18.2.5　激活或禁用Greasemonkey或Turnabout　<br>　　18.3　创建自己的用户脚本　258<br>　　　18.3.1　创建一个简单的用户脚本　<br>　　　18.3.2　描述用户脚本　<br>　　　18.3.3　测试脚本　<br>　　　18.3.4　Greasemonkey API函数　<br>　　　18.3.5　创建专用站点脚本　<br>　　　18.3.6　调试用户脚本　<br>　　18.4　实践练习：创建用户脚本　<br>　　　18.4.1　运行过程　<br>　　　18.4.2　使用脚本　<br>　　18.5　小结　<br>　　18.6　问题与解答　<br>　　18.7　测试题　<br>　　18.8　测试题答案　<br>　　18.9　练习题　<br>第五部分　使用JavaScript创建多媒体应用程序<br>　第19章　使用图像和动画　<br>　　19.1　使用动态图像　<br>　　　19.1.1　使用image对象　<br>　　　19.1.2　预加载图像　<br>　　19.2　创建Rollover(鼠标翻转)效果　<br>　　　19.2.1　通过JavaScript创建Rollover效果　<br>　　　19.2.2　使用CSS而不是JavaScript实现Rollover效果　<br>　　　19.2.3　使用CSS技术创建图形化的rollover效果　<br>　　19.3　制作简单的JavaScript幻灯效果　<br>　　　19.3.1　HTML文件　<br>　　　19.3.2　JavaScript文件　<br>　　19.4　实践练习：向幻灯中添加动画效果　<br>　　　19.4.1　HTML文件　<br>　　　19.4.2　CSS文件　<br>　　　19.4.3　JavaScript脚本　<br>　　　19.4.4　整合所有技术　<br>　　19.5　小结　<br>　　19.6　问题与解答　<br>　　19.7　测试题　<br>　　19.8　测试题答案　<br>　　19.9　练习题　<br>　第20章　使用声音和插件　<br>　　20.1　插件介绍　<br>　　　20.1.1　 embed 和 object 标签　<br>　　　20.1.2　理解ＭIME类型　<br>　　　20.1.3　在JavaScript中使用插件　<br>　　　20.1.4　插件功能检测　289<br>　　20.2　JavaScript和Flash　<br>　　　20.2.1　ActionScript　<br>　　　20.2.2　JavaScript与Flash之间的交互　<br>　　　20.2.3　在JavaScript中嵌入Flash　<br>　　20.3　使用JavaScript处理音频　<br>　　　20.3.1　音频格式　<br>　　　20.3.2　音频插件　<br>　　　20.3.3　嵌入音频　<br>　　　20.3.4　使用JavaScript控制音频　<br>　　　20.3.5　检测当前浏览支持的音频功能　<br>　　　20.3.6　使用Flash　<br>　　20.4　使用JavaScript测试音频　<br>　　20.5　实践练习：使用鼠标播放音乐　<br>　　　20.5.1　示例的HTML文档　<br>　　　20.5.2　CSS样式单　<br>　　　20.5.3　播放音频　<br>　　　20.5.4　嵌入音频　<br>　　　20.5.5　整合所有技术　<br>　　20.6　小结　<br>　　20.7　问题与解答　<br>　　20.8　测试题　<br>　　20.9　测试题答案　<br>　　20.10　练习题　<br>第六部分　创建复杂脚本<br>　第21章　创建JavaScript下拉菜单　<br>　　21.1　设计下拉菜单　<br>　　　21.1.1　创建HTML标记　<br>　　　21.1.2　使用CSS设计菜单布局　<br>　　21.2　使用脚本来设置下拉菜单的行为　<br>　　　21.2.1　设置菜单　<br>　　　21.2.2　显示子菜单　<br>　　　21.2.3　隐藏子菜单　<br>　　　21.2.4　完成脚本　<br>　　21.3　实践练习：利用CSS增强菜单　<br>　　21.4　小结　<br>　　21.5　问题与解答　<br>　　21.6　测试题　<br>　　21.7　测试题答案　<br>　　21.8　练习题　<br>　第22章　创建JavaScript游戏　<br>　　22.1　游戏简介　<br>　　　22.1.1　游戏玩法　<br>　　　22.1.2　得分计算　<br>　　　22.1.3　创建图形　<br>　　22.2　创建HTML文档　<br>　　22.3　创建脚本　<br>　　　22.3.1　使用对象存储纸牌　<br>　　　22.3.2　构建游戏板　<br>　　　22.3.3　洗牌　<br>　　　22.3.4　将牌放到游戏板上　<br>　　　23.3.5　计算行、列和对角线得分　<br>　　　23.3.6　合计得分　<br>　　　23.3.7　结束游戏　<br>　　22.4　利用CSS添加样式　<br>　　22.5　实践练习：组合应用技术　<br>　　22.6　小结　<br>　　22.7　问题与解答<br>　　22.8　测试题　<br>　　22.9　测试题答案　<br>　　22.10　练习题<br>　第23章　创建JavaScript应用程序　<br>　　23.1　创建滚动窗口　<br>　　　23.1.1　HTML文档<br>　　　23.1.2　CSS文件　<br>　　　23.1.3　JavaScript文件　<br>　　23.2　利用JavaScript在CSS样式表之间切换　<br>　　　23.2.1　创建HTML文档　<br>　　　23.2.2　创建第一张样式表<br>　　　23.2.3　创建第二张样式表　<br>　　　23.2.4　创建脚本　<br>　　23.3　实践练习：创建动态表单　<br>　　　23.3.1　创建HTML文档　<br>　　　23.3.2　添加脚本　<br>　　23.4　小结　<br>　　23.5　问题与解答　<br>　　23.6　测试题　<br>　　23.7　测试题答案　<br>　　23.8　练习题　<br>　第24章　JavaScript的未来　<br>　　24.1　学习JavaScript高级技巧　<br>　　24.2　未来的Web技术　<br>　　　24.2.1　JavaScript的未来版本　<br>　　　24.2.2　DOM的未来版本　<br>　　　24.2.3　XML(可扩展标记语言)　<br>　　　24.2.4　XHTML(可扩展超文本标记语言)<br>　　　24.2.5　XSL(可扩展样式表语言)　<br>　　24.3　为未来做好准备　<br>　　　24.3.1　保持脚本兼容性　<br>　　　24.3.2　保持HTML兼容　<br>　　　24.3.3　详细编制文档　<br>　　24.4　继续学习其他语言　<br>　　24.5　实践练习：创建拖放式对象　<br>　　　24.5.1　HTML文档　<br>　　　24.5.2　CSS样式表　<br>　　　24.5.3　实现拖放　<br>　　　24.5.4　JavaScript文件　<br>　　24.6　小结　<br>　　24.7　问题与解答　<br>　　24.8　测试题　<br>　　24.9　测试题答案　<br>　　24.10　练习题　<br>第七部分　附录<br>  附录A　其他JavaScript资源　<br>　　A.1　JavaScript网站　<br>　　A.2　Web开发站点　<br>　附录B　JavaScript开发人员工具　<br>　　B.1　HTML和文本编辑器　<br>　　　B.1.1　HomeSite　<br>　　　B.1.2　TopStyle　<br>　　　B.1.3　FrontPage　<br>　　　B.1.4　BBEdit　<br>　　　B.1.5　文本编辑器　<br>　　B.2　HTML验证工具　<br>　　B.3　调试工具　<br>　附录C　术语表　<br>　附录D　JavaScript快速参考　<br>　　D.1　内置对象　<br>　　　D.1.1　数组　<br>　　　D.1.2　字符串　<br>　　　D.1.3　Math<br>　　　D.1.4　Date　<br>　　D.2　创建和自定义对象　<br>　　　D.2.1　创建对象　<br>　　　D.2.2　自定义对象　<br>　　D.3　JavaScript语句　<br>　　　D.3.1　注释　<br>　　　D.3.2　break　<br>　　　D.3.3　continue　<br>　　　D.3.4　for　378<br>　　　D.3.5　for...in　<br>　　　D.3.6　function　<br>　　　D.3.7　if...else　<br>　　　D.3.8　return　<br>　　　D.3.9　var　<br>　　　D.3.10　while　<br>　　D.4　JavaScript内置函数　<br>　　　D.4.1　eval　<br>　　　D.4.2　parseInt　<br>　　　D.4.3　parseFloat　<br>　附录E　DOM快速参考　<br>　　E.1　DOM Level 0　<br>　　　E.1.1　window　<br>　　　E.1.2　location　<br>　　　E.1.3　history　<br>　　　E.1.4　document　<br>　　　E.1.5　navigator　<br>　　E.2　DOM Level 1　<br>　　　E.2.1　基本的节点属性　<br>　　　E.2.2　关系属性　<br>　　　E.2.3　偏置属性　<br>　　　E.2.4　样式属性　<br>　　　E.2.5　节点方法<br>　　　E.2.6　文档对象方法和属性 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书详细介绍了JavaScript编程。全书共分为24章，分别介绍了Web脚本编写和JavaScript语言的概念、JavaScript的基础知识、文档对象模型、JavaScript的高级功能、使用JavaScript创建多媒体应用程序、创建复杂脚本的技巧等知识。其中，每章内容均以前一章内容为基础。书中提供了简单直接的操作方法，读者能够从基础知识开始领会JavaScript编程的精髓。除了基本内容外，书中还提供了大量解决问题的说明、解决方案、提示信息等内容。另外在每一章的后面，还附加有实践练习、测试题和练习题，以便加深读者对基本概念的理解。 <br>　　本书适合对互联网应用开发感兴趣的初中级用户，也可作为大中专院校相关专业的教材。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">（美）蒙克尔（Moncur，M.）　著，王军　译Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

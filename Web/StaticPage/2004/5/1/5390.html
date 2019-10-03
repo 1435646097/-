@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5390, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5390 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">VB.NET调试全攻略 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="VB.NET调试全攻略" border="1" height="216"  src="/Images/BookCovers/9787302084006.jpg" style="border:1px   solid   #B0B0B0" title="VB.NET调试全攻略" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：[美]Mark Pearce  著，谢俊，尹浩琼  译
-                                        <br />
-                                        书名：VB.NET调试全攻略<br />
-                                        字数：588000<br />
-                                        出版时间：2004年5月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787302084006<br />
-                                        <font color="#CC3300">本网价：<strong>￥45.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        VB.NET调试全攻略 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第Ⅰ部分 VB.NET环境中的调试<br><br>第1章 战略性调试问题<br><br>1.1 应用程序的可靠性<br>1.1.1 理解可靠性<br>1.1.2 可靠性的衡量<br>1.1.3 软件的可靠性设计<br>1.1.4 改善软件的可靠性<br>1.2 应用程序的可用性<br>1.2.1 理解可用性<br>1.2.2 可用性的衡量<br>1.2.3 设计软件的可用性<br>1.2.4 改善软件的可用性<br>1.3 调试复杂系统<br>1.3.1 根据合同构建<br>1.3.2 理解通信问题<br>1.3.3 可能的解决方案<br>1.4 调试开发人员心理学<br>1.4.1 没有了Edit和Continue<br>1.4.2 心理因素<br>1.5 小结<br>1.6 轶闻趣事<br><br>第2章 VB.NET语言中的新设计<br><br>2.1 VB.NET中True的实际值<br>2.2 类成员重载<br>2.2.1 不确定的重载<br>2.2.2 C#重载及VB.NET重载<br>2.2.3 让C#开发人员为难的重载<br>2.3 理解继承问题<br>2.3.1 偶然的屏蔽<br>2.3.2 更多的屏蔽问题<br>2.3.3 理解等价性<br>2.3.4 更好的等价性<br>2.3.5 继承和方法的可见性<br>2.3.6 遍历继承树<br>2.4 其他各种问题<br>2.4.1 开发人员和编译器之间的误解<br>2.4.2 VB.NET与C#之间的混淆<br>2.4.3 装箱的危险<br>2.4.4 数字不再是数字的情况<br>2.4.5 关于NaN的其他问题<br>2.4.6 关于Double<br>2.4.7 有关Double的问题<br>2.5 小结<br>2.6 轶闻趣事<br><br>第Ⅱ部分 调试工具 <br><br>第3章 Visual Studio.NET调试器<br><br>3.1 Visual Studio调试器简介<br>3.1.1 统一用户界面<br>3.1.2 各种调试模式<br>3.1.3 分布式调试<br>3.1.4 高级断点<br>3.1.5 应用程序可显示的信息<br>3.1.6 远程调试<br>3.1.7 低级访问<br>3.1.8 调试器自动化<br>3.2 Visual Studio调试器的工作机制<br>3.2.1 理解DebuggableAttribute类<br>3.2.2 VB.NET语言编译器的作用<br>3.2.3 JIT编译器的作用<br>3.2.4 Visual Studio调试器的作用<br>3.2.5 生成配置及其对调试器的影响<br>3.3 3种调试模式<br>3.3.1 IDE调试<br>3.3.2 进程调试<br>3.3.3 JIT调试<br>3.4 使用Visual Studio调试器IDE<br>3.4.1 使用Immediate/Command窗口<br>3.4.2 使用Output窗口<br>3.4.3 使用Source窗口<br>3.4.4 使用Breakpoints窗口<br>3.4.5 使用Watch窗口<br>3.4.6 使用QuickWatch窗口<br>3.4.7 使用Locals窗口<br>3.4.8 使用Autos窗口<br>3.4.9 使用Me窗口<br>3.4.10 使用Call Stack窗口<br>3.4.11 使用Modules窗口<br>3.4.12 使用Disassembly窗口<br>3.4.13 使用Threads窗口<br>3.4.14 使用Running Documents窗口<br>3.5 Visual Studio调试器的IDE问题<br>3.5.1 窗口行为<br>3.5.2 解释Chr(0)<br>3.5.3 调试器的单步调试<br>3.6 小结<br>3.7 轶闻趣事<br><br>第4章 使用Visual Studio.NET调试器<br><br>4.1 Visual Studio的准备工作<br>4.1.1 General调试选项<br>4.1.2 Edit and Continue选项<br>4.1.3 Just-In-Time调试选项<br>4.1.4 Native调试选项<br>4.1.5 Project默认选项(只适用于Visual Studio 2003)<br>4.1.6 其他有用的Visual Studio设置<br>4.2 解决方案的准备工作<br>4.2.1 源文件的搜索路径<br>4.2.2 符号文件的搜索路径<br>4.2.3 解决方案的生成配置<br>4.3 项目准备<br>4.3.1 项目的Build选项<br>4.3.2 项目的Start选项<br>4.3.3 项目的Optimization选项<br>4.3.4 项目的生成配置<br>4.4 设置活动调试器进程<br>4.5 调试生产应用程序<br>4.6 调试符号管理<br>4.6.1 应用程序的符号<br>4.6.2 Windows操作系统的符号<br>4.6.3 Framework SDK的符号<br>4.6.4 符号服务器<br>4.7 改进JIT调试<br>4.8 处理没有Edit and Continue的情况<br>4.9 调试公共中间语言<br>4.10 理解代码优化<br>4.10.1 优化是敌人<br>4.10.2 代码优化测试<br>4.11 小结<br>4.12 轶闻趣事<br><br>第5章 其他调试工具<br><br>5.1 Cordbg:控制台调试器<br>5.1.1 使用Cordbg的理由<br>5.1.2 使用Cordbg<br>5.2 Dbgclr:GUI调试器<br>5.3 Ildasm:查看CIL<br>5.3.1 Visual Studio中的Ildasm<br>5.3.2 从命令行调用Ildasm<br>5.3.3 研究Ildasm代码<br>5.4 性能监视器：查看性能信息<br>5.5 ADepends：查看程序集依赖关系<br>5.6 Perm View：查看程序集权限<br>5.6.1 Visual Studio中的Perm View<br>5.6.2 从命令行调用Perm View<br>5.6.3 研究权限<br>5.7 小结<br>5.8 轶闻趣事<br><br>第6章 跟踪和检测<br><br>6.1 有用的诊断信息<br>6.1.1 应用程序的最终用户<br>6.1.2 应用程序的支持团队<br>6.1.3 应用程序的开发团队<br>6.1.4 诊断的类别<br>6.1.5 设计建议<br>6.2 VB.NET跟踪<br>6.2.1 第1步：创建跟踪<br>6.2.2 第2步：激活跟踪<br>6.2.3 第3步：监听跟踪<br>6.2.4 第4步：编译时的跟踪控制<br>6.2.5 第5步：运行时的跟踪控制<br>6.2.6 有关跟踪的小结<br>6.3 使用Debug类<br>6.4 使用定制的性能计数器<br>6.4.1 创建定制的性能计数器<br>6.4.2 操纵性能计数器的实例<br>6.5 小结<br>6.6 轶闻趣事<br><br>第Ⅲ部分 调试应用程序<br><br>第7章 Windows Forms调试<br><br>7.1 调试Windows Forms应用程序<br>7.1.1 生成应用程序<br>7.1.2 中断至应用程序<br>7.1.3 命中断点<br>7.1.4 考查程序状态<br>7.1.5 查找Bug<br>7.1.6 棘手的调试情形<br>7.2 调试其他的Windows Forms应用程序<br>7.2.1 调试类库<br>7.2.2 调试Windows Forms控件<br>7.2.3 调试Visual Studio插件<br>7.2.4 调试控件设计器<br>7.3 小结<br>7.4 轶闻趣事<br><br>第8章 Web服务调试<br><br>8.1 调试ASP.NET工作进程<br>8.2 调试准备<br>8.3 使用Web浏览器进行调试<br>8.4 使用SOAP客户端进行调试<br>8.5 调试客户端代理<br>8.6 调试远程Web服务<br>8.7 调试已部署的Web服务<br>8.8 处理Web服务故障<br>8.8.1 理解Web服务的异常信息流<br>8.8.2 改进Web服务异常<br>8.8.3 隐藏异常细节<br>8.8.4 诱捕未经处理的异常<br>8.9 跟踪SOAP消息<br>8.9.1 构造SoapMonitor的SOAP扩展<br>8.9.2 创建SoapMonitor属性<br>8.9.3 全部组合起来<br>8.9.4 客户端的SOAP记录<br>8.10 跟踪和检测<br>8.11 小结<br>8.12 轶闻趣事<br><br>第9章 ASP.NET调试<br><br>9.1 IIS调试考虑事项<br>9.1.1 使用IIS 5.x进行同时调试<br>9.1.2 使用IIS 6.0进行同时调试<br>9.1.3 IIS 5.x的进程回收<br>9.1.4 IIS 6.0中的进程回收<br>9.1.5 URLScan、IIS和DEBUG谓词<br>9.1.6 IIS 身份验证<br>9.1.7 多线程考虑事项<br>9.1.8 生产调试<br>9.2 调试准备<br>9.2.1 用户账户权限<br>9.2.2 远程服务器调试<br>9.2.3 IE的配置<br>9.2.4 应用程序配置<br>9.3 调试AspNetDebugDemo应用程序<br>9.3.1 ASP.NET错误处理<br>9.3.2 不进行错误处理<br>9.3.3 程序级的错误处理<br>9.3.4 页面级错误处理<br>9.3.5 应用程序级错误处理<br>9.4 使用ASP.NET跟踪<br>9.4.1 页面级跟踪<br>9.4.2 应用程序级跟踪<br>9.5 小结<br>9.6 轶闻趣事<br><br>第10章 Windows服务调试<br><br>10.1 调试ServiceAdmin服务<br>10.1.1 调试准备<br>10.1.2 使用进程附加进行调试<br>10.1.3 从Visual Studio附加<br>10.1.4 确保调试设置的正确性<br>10.1.5 调试不需要安装的服务<br>10.1.6 调试OnStart方法<br>10.2 调试安装问题<br>10.3 注意事项<br>10.4 小结<br>10.5 轶闻趣事<br><br>第11章 VB.Classic应用程序调试<br><br>11.1 VB.Classic版本<br>11.2 托管代码和非托管代码<br>11.3 使用VB 6.0组件的VB.NET应用程序<br>11.3.1 VB.Classic的准备工作<br>11.3.2 VB.NET的准备工作<br>11.3.3 调试第一个COM Interop应用程序<br>11.3.4 调试技巧<br>11.3.5 使用VB 6.0调试器<br>11.4 使用VB.NET组件的VB 6.0应用程序<br>11.4.1 VB.NET的准备工作<br>11.4.2 VB.Classic的准备工作<br>11.4.3 调试第二个COM Interop应用程序<br>11.5 克服COM版本控制问题<br>11.6 小结<br>11.7 轶闻趣事<br><br>第12章 SQL Server调试<br><br>12.1 调试需求<br>12.2 调试组件的安装<br>12.3 权限和sp_sdidebug<br>12.4 远程调试权限<br>12.5 使用Visual Studio直接进行调试<br>12.6 使用Query Analyzer直接进行调试<br>12.7 应用程序调试<br>12.7.1 应用程序调试安装<br>12.7.2 从Visual Studio中进行应用程序调试<br>12.7.3 从Visual Studio之外进行应用程序调试<br>12.8 SQL调试限制<br>12.9 理解SQL安全性<br>12.10 小结<br>12.11 轶闻趣事<br><br>第Ⅳ部分 调试常见情况<br><br>第13章 错误处理和异常管理<br><br>13.1 异常与错误<br>13.2 错误处理需求<br>13.2.1 最终用户需求<br>13.2.2 操作支持需求<br>13.2.3 开发人员需求<br>13.2.4 对异常进行日志记录<br>13.3 异常和异常管理<br>13.3.1 System.Exception类<br>13.3.2 Try…Catch…Finally<br>13.3.3 Try…Catch…Finally机制<br>13.3.4 正确使用Try…Catch…Finally<br>13.3.5 构建定制的异常<br>13.3.6 调试异常<br>13.3.7 处理未处理异常<br>13.3.8 异常管理应用程序块<br>13.3.9 分析异常行为<br>13.3.10 异常示例解决方案<br>13.4 小结<br>13.5 轶闻趣事<br><br>第14章 调试多线程应用程序<br><br>14.1 多线程基础<br>14.1.1 为什么多线程如此难<br>14.1.2 多线程的优点<br>14.1.3 多线程的缺点<br>14.2 多线程问题<br>14.2.1 理解数据争用<br>14.2.2 理解进程死锁<br>14.2.3 理解进程活锁<br>14.2.4 理解线程饿死<br>14.3 ThreadMonitor应用程序<br>14.4 Windows Forms中的多线程<br>14.5 处理线程失败<br>14.5.1 处理线程异常<br>14.5.2 终止托管线程<br>14.6 小结<br>14.7 轶闻趣事<br><br>第15章 调试分布式系统<br><br>15.1 理解分布式应用程序<br>15.1.1 处理失败<br>15.1.2 处理状态<br>15.1.3 理解消息的语义<br>15.1.4 处理有漏洞的抽象<br>15.2 远程调试简介<br>15.3 远程调试准备<br>15.3.1 安装远程调试<br>15.3.2 只安装本机远程调试<br>15.3.3 安装完全远程调试<br>15.3.4 远程调试限制<br>15.4 HeartbeatMonitor应用程序<br>15.4.1 HeartbeatMonitor简介<br>15.4.2 安装HeartbeatMonitor<br>15.4.3 调试HeartbeatMonitor<br>15.5 监控分布式应用程序<br>15.6 小结<br>15.7 轶闻趣事 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书系统全面地介绍了各种功能强大的调试技术，包括所有重要的调试工具和策略，以及WindowsForms、ASP．NET、Web服务、Windows服务和SQLServer等多种应用程序的调试方法，最后还深入浅出地讨论了多线程、继承和资源管理等调试场景。 <br>   本书适合不熟悉调试技术或者希望全面掌握调试技术的VisualBasic与VisualBasic．NET开发人员阅读。		<br> </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">[美]Mark Pearce  著，谢俊，尹浩琼  译Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="VB.NET调试全攻略" border="1" height="216" src="/Images/BookCovers/9787302084006.jpg" style="border:1px   solid   #B0B0B0" title="VB.NET调试全攻略" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：[美]Mark Pearce  著，谢俊，尹浩琼  译
+                                                                    <br />
+                                                                    书名：VB.NET调试全攻略<br />
+                                                                    字数：588000<br />
+                                                                    出版时间：2004年5月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787302084006<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥45.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第Ⅰ部分 VB.NET环境中的调试<br><br>第1章 战略性调试问题<br><br>1.1 应用程序的可靠性<br>1.1.1 理解可靠性<br>1.1.2 可靠性的衡量<br>1.1.3 软件的可靠性设计<br>1.1.4 改善软件的可靠性<br>1.2 应用程序的可用性<br>1.2.1 理解可用性<br>1.2.2 可用性的衡量<br>1.2.3 设计软件的可用性<br>1.2.4 改善软件的可用性<br>1.3 调试复杂系统<br>1.3.1 根据合同构建<br>1.3.2 理解通信问题<br>1.3.3 可能的解决方案<br>1.4 调试开发人员心理学<br>1.4.1 没有了Edit和Continue<br>1.4.2 心理因素<br>1.5 小结<br>1.6 轶闻趣事<br><br>第2章 VB.NET语言中的新设计<br><br>2.1 VB.NET中True的实际值<br>2.2 类成员重载<br>2.2.1 不确定的重载<br>2.2.2 C#重载及VB.NET重载<br>2.2.3 让C#开发人员为难的重载<br>2.3 理解继承问题<br>2.3.1 偶然的屏蔽<br>2.3.2 更多的屏蔽问题<br>2.3.3 理解等价性<br>2.3.4 更好的等价性<br>2.3.5 继承和方法的可见性<br>2.3.6 遍历继承树<br>2.4 其他各种问题<br>2.4.1 开发人员和编译器之间的误解<br>2.4.2 VB.NET与C#之间的混淆<br>2.4.3 装箱的危险<br>2.4.4 数字不再是数字的情况<br>2.4.5 关于NaN的其他问题<br>2.4.6 关于Double<br>2.4.7 有关Double的问题<br>2.5 小结<br>2.6 轶闻趣事<br><br>第Ⅱ部分 调试工具 <br><br>第3章 Visual Studio.NET调试器<br><br>3.1 Visual Studio调试器简介<br>3.1.1 统一用户界面<br>3.1.2 各种调试模式<br>3.1.3 分布式调试<br>3.1.4 高级断点<br>3.1.5 应用程序可显示的信息<br>3.1.6 远程调试<br>3.1.7 低级访问<br>3.1.8 调试器自动化<br>3.2 Visual Studio调试器的工作机制<br>3.2.1 理解DebuggableAttribute类<br>3.2.2 VB.NET语言编译器的作用<br>3.2.3 JIT编译器的作用<br>3.2.4 Visual Studio调试器的作用<br>3.2.5 生成配置及其对调试器的影响<br>3.3 3种调试模式<br>3.3.1 IDE调试<br>3.3.2 进程调试<br>3.3.3 JIT调试<br>3.4 使用Visual Studio调试器IDE<br>3.4.1 使用Immediate/Command窗口<br>3.4.2 使用Output窗口<br>3.4.3 使用Source窗口<br>3.4.4 使用Breakpoints窗口<br>3.4.5 使用Watch窗口<br>3.4.6 使用QuickWatch窗口<br>3.4.7 使用Locals窗口<br>3.4.8 使用Autos窗口<br>3.4.9 使用Me窗口<br>3.4.10 使用Call Stack窗口<br>3.4.11 使用Modules窗口<br>3.4.12 使用Disassembly窗口<br>3.4.13 使用Threads窗口<br>3.4.14 使用Running Documents窗口<br>3.5 Visual Studio调试器的IDE问题<br>3.5.1 窗口行为<br>3.5.2 解释Chr(0)<br>3.5.3 调试器的单步调试<br>3.6 小结<br>3.7 轶闻趣事<br><br>第4章 使用Visual Studio.NET调试器<br><br>4.1 Visual Studio的准备工作<br>4.1.1 General调试选项<br>4.1.2 Edit and Continue选项<br>4.1.3 Just-In-Time调试选项<br>4.1.4 Native调试选项<br>4.1.5 Project默认选项(只适用于Visual Studio 2003)<br>4.1.6 其他有用的Visual Studio设置<br>4.2 解决方案的准备工作<br>4.2.1 源文件的搜索路径<br>4.2.2 符号文件的搜索路径<br>4.2.3 解决方案的生成配置<br>4.3 项目准备<br>4.3.1 项目的Build选项<br>4.3.2 项目的Start选项<br>4.3.3 项目的Optimization选项<br>4.3.4 项目的生成配置<br>4.4 设置活动调试器进程<br>4.5 调试生产应用程序<br>4.6 调试符号管理<br>4.6.1 应用程序的符号<br>4.6.2 Windows操作系统的符号<br>4.6.3 Framework SDK的符号<br>4.6.4 符号服务器<br>4.7 改进JIT调试<br>4.8 处理没有Edit and Continue的情况<br>4.9 调试公共中间语言<br>4.10 理解代码优化<br>4.10.1 优化是敌人<br>4.10.2 代码优化测试<br>4.11 小结<br>4.12 轶闻趣事<br><br>第5章 其他调试工具<br><br>5.1 Cordbg:控制台调试器<br>5.1.1 使用Cordbg的理由<br>5.1.2 使用Cordbg<br>5.2 Dbgclr:GUI调试器<br>5.3 Ildasm:查看CIL<br>5.3.1 Visual Studio中的Ildasm<br>5.3.2 从命令行调用Ildasm<br>5.3.3 研究Ildasm代码<br>5.4 性能监视器：查看性能信息<br>5.5 ADepends：查看程序集依赖关系<br>5.6 Perm View：查看程序集权限<br>5.6.1 Visual Studio中的Perm View<br>5.6.2 从命令行调用Perm View<br>5.6.3 研究权限<br>5.7 小结<br>5.8 轶闻趣事<br><br>第6章 跟踪和检测<br><br>6.1 有用的诊断信息<br>6.1.1 应用程序的最终用户<br>6.1.2 应用程序的支持团队<br>6.1.3 应用程序的开发团队<br>6.1.4 诊断的类别<br>6.1.5 设计建议<br>6.2 VB.NET跟踪<br>6.2.1 第1步：创建跟踪<br>6.2.2 第2步：激活跟踪<br>6.2.3 第3步：监听跟踪<br>6.2.4 第4步：编译时的跟踪控制<br>6.2.5 第5步：运行时的跟踪控制<br>6.2.6 有关跟踪的小结<br>6.3 使用Debug类<br>6.4 使用定制的性能计数器<br>6.4.1 创建定制的性能计数器<br>6.4.2 操纵性能计数器的实例<br>6.5 小结<br>6.6 轶闻趣事<br><br>第Ⅲ部分 调试应用程序<br><br>第7章 Windows Forms调试<br><br>7.1 调试Windows Forms应用程序<br>7.1.1 生成应用程序<br>7.1.2 中断至应用程序<br>7.1.3 命中断点<br>7.1.4 考查程序状态<br>7.1.5 查找Bug<br>7.1.6 棘手的调试情形<br>7.2 调试其他的Windows Forms应用程序<br>7.2.1 调试类库<br>7.2.2 调试Windows Forms控件<br>7.2.3 调试Visual Studio插件<br>7.2.4 调试控件设计器<br>7.3 小结<br>7.4 轶闻趣事<br><br>第8章 Web服务调试<br><br>8.1 调试ASP.NET工作进程<br>8.2 调试准备<br>8.3 使用Web浏览器进行调试<br>8.4 使用SOAP客户端进行调试<br>8.5 调试客户端代理<br>8.6 调试远程Web服务<br>8.7 调试已部署的Web服务<br>8.8 处理Web服务故障<br>8.8.1 理解Web服务的异常信息流<br>8.8.2 改进Web服务异常<br>8.8.3 隐藏异常细节<br>8.8.4 诱捕未经处理的异常<br>8.9 跟踪SOAP消息<br>8.9.1 构造SoapMonitor的SOAP扩展<br>8.9.2 创建SoapMonitor属性<br>8.9.3 全部组合起来<br>8.9.4 客户端的SOAP记录<br>8.10 跟踪和检测<br>8.11 小结<br>8.12 轶闻趣事<br><br>第9章 ASP.NET调试<br><br>9.1 IIS调试考虑事项<br>9.1.1 使用IIS 5.x进行同时调试<br>9.1.2 使用IIS 6.0进行同时调试<br>9.1.3 IIS 5.x的进程回收<br>9.1.4 IIS 6.0中的进程回收<br>9.1.5 URLScan、IIS和DEBUG谓词<br>9.1.6 IIS 身份验证<br>9.1.7 多线程考虑事项<br>9.1.8 生产调试<br>9.2 调试准备<br>9.2.1 用户账户权限<br>9.2.2 远程服务器调试<br>9.2.3 IE的配置<br>9.2.4 应用程序配置<br>9.3 调试AspNetDebugDemo应用程序<br>9.3.1 ASP.NET错误处理<br>9.3.2 不进行错误处理<br>9.3.3 程序级的错误处理<br>9.3.4 页面级错误处理<br>9.3.5 应用程序级错误处理<br>9.4 使用ASP.NET跟踪<br>9.4.1 页面级跟踪<br>9.4.2 应用程序级跟踪<br>9.5 小结<br>9.6 轶闻趣事<br><br>第10章 Windows服务调试<br><br>10.1 调试ServiceAdmin服务<br>10.1.1 调试准备<br>10.1.2 使用进程附加进行调试<br>10.1.3 从Visual Studio附加<br>10.1.4 确保调试设置的正确性<br>10.1.5 调试不需要安装的服务<br>10.1.6 调试OnStart方法<br>10.2 调试安装问题<br>10.3 注意事项<br>10.4 小结<br>10.5 轶闻趣事<br><br>第11章 VB.Classic应用程序调试<br><br>11.1 VB.Classic版本<br>11.2 托管代码和非托管代码<br>11.3 使用VB 6.0组件的VB.NET应用程序<br>11.3.1 VB.Classic的准备工作<br>11.3.2 VB.NET的准备工作<br>11.3.3 调试第一个COM Interop应用程序<br>11.3.4 调试技巧<br>11.3.5 使用VB 6.0调试器<br>11.4 使用VB.NET组件的VB 6.0应用程序<br>11.4.1 VB.NET的准备工作<br>11.4.2 VB.Classic的准备工作<br>11.4.3 调试第二个COM Interop应用程序<br>11.5 克服COM版本控制问题<br>11.6 小结<br>11.7 轶闻趣事<br><br>第12章 SQL Server调试<br><br>12.1 调试需求<br>12.2 调试组件的安装<br>12.3 权限和sp_sdidebug<br>12.4 远程调试权限<br>12.5 使用Visual Studio直接进行调试<br>12.6 使用Query Analyzer直接进行调试<br>12.7 应用程序调试<br>12.7.1 应用程序调试安装<br>12.7.2 从Visual Studio中进行应用程序调试<br>12.7.3 从Visual Studio之外进行应用程序调试<br>12.8 SQL调试限制<br>12.9 理解SQL安全性<br>12.10 小结<br>12.11 轶闻趣事<br><br>第Ⅳ部分 调试常见情况<br><br>第13章 错误处理和异常管理<br><br>13.1 异常与错误<br>13.2 错误处理需求<br>13.2.1 最终用户需求<br>13.2.2 操作支持需求<br>13.2.3 开发人员需求<br>13.2.4 对异常进行日志记录<br>13.3 异常和异常管理<br>13.3.1 System.Exception类<br>13.3.2 Try…Catch…Finally<br>13.3.3 Try…Catch…Finally机制<br>13.3.4 正确使用Try…Catch…Finally<br>13.3.5 构建定制的异常<br>13.3.6 调试异常<br>13.3.7 处理未处理异常<br>13.3.8 异常管理应用程序块<br>13.3.9 分析异常行为<br>13.3.10 异常示例解决方案<br>13.4 小结<br>13.5 轶闻趣事<br><br>第14章 调试多线程应用程序<br><br>14.1 多线程基础<br>14.1.1 为什么多线程如此难<br>14.1.2 多线程的优点<br>14.1.3 多线程的缺点<br>14.2 多线程问题<br>14.2.1 理解数据争用<br>14.2.2 理解进程死锁<br>14.2.3 理解进程活锁<br>14.2.4 理解线程饿死<br>14.3 ThreadMonitor应用程序<br>14.4 Windows Forms中的多线程<br>14.5 处理线程失败<br>14.5.1 处理线程异常<br>14.5.2 终止托管线程<br>14.6 小结<br>14.7 轶闻趣事<br><br>第15章 调试分布式系统<br><br>15.1 理解分布式应用程序<br>15.1.1 处理失败<br>15.1.2 处理状态<br>15.1.3 理解消息的语义<br>15.1.4 处理有漏洞的抽象<br>15.2 远程调试简介<br>15.3 远程调试准备<br>15.3.1 安装远程调试<br>15.3.2 只安装本机远程调试<br>15.3.3 安装完全远程调试<br>15.3.4 远程调试限制<br>15.4 HeartbeatMonitor应用程序<br>15.4.1 HeartbeatMonitor简介<br>15.4.2 安装HeartbeatMonitor<br>15.4.3 调试HeartbeatMonitor<br>15.5 监控分布式应用程序<br>15.6 小结<br>15.7 轶闻趣事 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书系统全面地介绍了各种功能强大的调试技术，包括所有重要的调试工具和策略，以及WindowsForms、ASP．NET、Web服务、Windows服务和SQLServer等多种应用程序的调试方法，最后还深入浅出地讨论了多线程、继承和资源管理等调试场景。 <br>   本书适合不熟悉调试技术或者希望全面掌握调试技术的VisualBasic与VisualBasic．NET开发人员阅读。		<br> </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">[美]Mark Pearce  著，谢俊，尹浩琼  译Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5724, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5724 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘) <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘)" border="1" height="216"  src="/Images/BookCovers/9787115150349.jpg" style="border:1px   solid   #B0B0B0" title="精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘)" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：杨磊，陈凌云  编著
-                                        <br />
-                                        书名：精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘)<br />
-                                        字数：1005000<br />
-                                        出版时间：2006年10月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115150349<br />
-                                        <font color="#CC3300">本网价：<strong>￥69.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘) <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1篇　基础篇<br><br>第1章　Eclipse简介　3<br>1.1　Eclipse的历史　3<br>1.2　Eclipse项目　3<br>1.2.1　Eclipse的平台简介　3<br>1.2.2　Java开发工具　4<br>1.3　Eclipse帮助手册　4<br>1.4　Eclipse的版本　5<br>1.5　Eclipse的安装与获取　5<br>1.6　本书系统配置情况　5<br>1.7　JDK的获取与安装　6<br>1.7.1　JDK的获取　6<br>1.7.2　JDK的安装　6<br>1.7.3　配置Java环境　6<br>1.8　本章小结　7<br><br>第2章　Eclipse的体系结构　8<br>2.1　平台基本机制　8<br>2.2　工作台　9<br>2.3　SWT和JFace　10<br>2.3.1　SWT标准小部件　10<br>2.3.2　JFace工具箱　10<br>2.4　团队开发支持　11<br>2.5　外部的辅助工具　11<br>2.6　Web开发中常用的功能　11<br>2.6.1　文件功能　12<br>2.6.2　源代码功能　14<br>2.6.3　重构功能　16<br>2.6.4　项目功能　17<br>2.6.5　Run功能　17<br>2.6.6　窗口功能　18<br>2.7　本章小结　18<br><br>第2篇　进阶篇<br><br>第3章　Web开发技术简介　21<br>3.1　Servlet简介　21<br>3.2　JSP简介　22<br>3.3　JSP＋Servlet简单开发实例　22<br>3.3.1　创建工程　23<br>3.3.2　编写logon.jsp文件　23<br>3.3.3　编写CheckAccount.java文件　23<br>3.3.4　编写结果页面　24<br>3.4　Hibernate简介　26<br>3.5　Struts简介　26<br>3.5.1　模型　26<br>3.5.2　视图　26<br>3.5.3　控制器　27<br>3.6　Spring简介　27<br>3.7　Tomcat和JBoss　27<br>3.7.1　Tomcat　27<br>3.7.2　JBoss　27<br>3.8　本章小结　27<br><br>第4章　Eclipse和Tomcat　28<br>4.1　Tomcat的简介与安装　28<br>4.1.1　Tomcat简介　28<br>4.1.2　Tomcat的安装　28<br>4.1.3　Tomcat的目录结构　31<br>4.1.4　在Tomcat服务器中运行Web实例　32<br>4.2　TomcatPlugin插件的安装和配置　33<br>4.2.1　TomcatPlugin插件的下载与安装　33<br>4.2.2　TomcatPlugin插件的配置　33<br>4.2.3　使用TomcatPlugin插件　35<br>4.3　在Eclipse平台上开发Web应用程序　36<br>4.3.1　用Eclipse新建Tomcat工程　36<br>4.3.2　创建工程中的Servlet　37<br>4.3.3　创建工程中的部署文件　38<br>4.3.4　运行Servlet　38<br>4.3.5　创建工程中的JSP　39<br>4.3.6　在Eclipse中发布项目　40<br>4.4　疑难解析　40<br>4.4.1　用TomcatPlugin发布工程　40<br>4.4.2　重新启动Tomcat的时机　40<br>4.5　本章小结　41<br><br>第5章　在Eclipse中进行数据库开发　42<br>5.1　MySQL数据库　42<br>5.1.1　MySQL简介　42<br>5.1.2　MySQL的安装与配置　42<br>5.1.3　MySQL的基本操作　44<br>5.1.4　使用MySQL管理工具　46<br>5.2　JDBC编程　49<br>5.2.1　JDBC简介　49<br>5.2.2　JDBC编程方法　49<br>5.2.3　JDBC编程实例　51<br>5.3　疑难解析　53<br>5.4　本章小结　53<br><br>第6章　在Eclipse环境下Struts框架的应用　54<br>6.1　Struts框架简介　54<br>6.1.1　Struts简介　54<br>6.1.2　用Struts实现MVC模式　54<br>6.1.3　Struts的下载　55<br>6.2　一个简单的Struts实例　56<br>6.2.1　创建Tomcat工程　56<br>6.2.2　添加Struts包　56<br>6.2.3　实例功能描述　57<br>6.2.4　设计视图　57<br>6.2.5　设计控制器　58<br>6.2.6　编写配置文件　59<br>6.2.7　运行实例　61<br>6.3　StrutsIDE插件　61<br>6.4　在Eclipse中使用StrutsIDE开发Struts工程　62<br>6.4.1　新建Tomcat工程　62<br>6.4.2　添加Struts支持　62<br>6.4.3　设计视图　63<br>6.4.4　设计控制器　63<br>6.4.5　编写配置文件　63<br>6.4.6　运行实例　66<br>6.5　MyEclipse插件对Struts的支持　66<br>6.5.1　新建MyEclipse下的Tomcat工程　67<br>6.5.2　用MyEclipse编写一个简单的Struts实例　70<br>6.6　疑难解析　74<br>6.6.1　Struts二进制包中的JAR文件和TLD文件的部署　74<br>6.6.2　Action访问失败的原因　74<br>6.6.3　MyEclipse安装以后无法正常使用　74<br>6.6.4　MyEclipse的验证　75<br>6.7　本章小结　75<br><br>第7章　在Eclipse环境下使用Hibernate　76<br>7.1　Hibernate简介　76<br>7.2　简单的Hibernate实例　77<br>7.2.1　创建Hibernate的配置文件　77<br>7.2.2　创建持久化类　78<br>7.2.3　创建映射文件　79<br>7.2.4　使用Hibernate API　79<br>7.2.5　运行程序　82<br>7.3　Hibernate Synchronizer插件　83<br>7.3.1　Hibernate Synchronizer简介　83<br>7.3.2　Hibernate Synchronizer的获取与安装　83<br>7.4　在Eclipse中使用Hibernate Synchronizer进行开发　85<br>7.4.1　在项目中使用Hibernate　85<br>7.4.2　创建Hibernate Configuration File文件　85<br>7.4.3　创建mapping文件　86<br>7.4.4　运行Hibernate实例　87<br>7.5　疑难解析　88<br>7.6　本章小结　89<br><br>第8章　Eclipse环境下Spring框架的应用　90<br>8.1　Spring简介　90<br>8.2　Spring的下载　91<br>8.3　Spring入门实例　91<br>8.3.1　开发平台　92<br>8.3.2　程序功能说明　92<br>8.3.3　创建一个Java应用程序　92<br>8.3.4　添加Spring支持　92<br>8.3.5　编写JavaBean　93<br>8.3.6　编写配置文件　94<br>8.3.7　编写测试程序　94<br>8.3.8　运行程序　95<br>8.4　Spring的反转控制　95<br>8.4.1　BeanFactory　95<br>8.4.2　ApplicationContext　97<br>8.5　使用MyEclipse的Spring支持创建Spring工程　97<br>8.5.1　程序功能描述　97<br>8.5.2　创建Tomcat工程　97<br>8.5.3　添加Spring支持　97<br>8.5.4　创建一个Java类　98<br>8.5.5　在配置文件中进行配置　99<br>8.5.6　运行程序　99<br>8.6　疑难解析　99<br>8.6.1　Spring的配置文件　99<br>8.6.2　配置文件中bean的id属性和name属性　100<br>8.7　本章小结　100<br><br>第9章　在Eclipse中进行J2EE开发　101<br>9.1　常用的J2EE Web服务器　101<br>9.1.1　WebSphere服务器　101<br>9.1.2　WebLogic服务器　102<br>9.1.3　JBoss服务器　102<br>9.2　JBoss　102<br>9.2.1　JBoss的下载与安装　103<br>9.2.2　JBoss目录结构解析　103<br>9.2.3　运行JBoss　104<br>9.3　Lomboz插件的安装　104<br>9.3.1　Lomboz插件的功能　105<br>9.3.2　Lomboz插件的下载与安装　105<br>9.4　配置Lomboz插件　106<br>9.4.1　Lomboz for Eclipse 3.0.x　106<br>9.4.2　Lomboz for Eclipse 3.1.x　108<br>9.5　用Lomboz插件开发简单的应用系统　108<br>9.5.1　程序功能描述　108<br>9.5.2　创建工程　109<br>9.5.3　创建Web模块　110<br>9.5.4　添加Web服务器　110<br>9.5.5　修改构建路径　111<br>9.5.6　编写JSP文件　114<br>9.5.7　工程的部署与运行　115<br>9.6　用Lomboz Eclipse构建J2EE项目　116<br>9.6.1　建立服务器　116<br>9.6.2　开启Tomcat服务器　117<br>9.6.3　新建一个Web工程　117<br>9.6.4　利用Lomboz Eclipse提供的模板创建JSP文件　118<br>9.6.5　在Server上运行实例　120<br>9.7　疑难解析　120<br>9.8　本章小结　121<br><br>第10章　在Eclipse中应用JUnit　122<br>10.1　JUnit　122<br>10.1.1　单元测试简介　122<br>10.1.2　JUnit简介　123<br>10.1.3　JUnit框架　123<br>10.1.4　在Eclipse中设置JUnit　125<br>10.2　测试用例　126<br>10.2.1　被测试项目　126<br>10.2.2　创建第一个测试用例　128<br>10.2.3　运行测试用例　132<br>10.2.4　创建第二个测试用例　133<br>10.3　创建测试套件　135<br>10.4　本章小结　136<br><br>第11章　Eclipse的资源构件与构件工具Ant　137<br>11.1　Ant简介　137<br>11.2　Ant开发　139<br>11.2.1　Ant的构建文件　139<br>11.2.2　Ant的数据类型　143<br>11.2.3　Ant的运行　145<br>11.3　使用Ant插件　145<br>11.3.1　创建Ant构建文件　145<br>11.3.2　运行Ant构建文件　147<br>11.3.3　保存和重用Ant选项　147<br>11.4　Ant和JUnit联合进行开发　148<br>11.5　疑难解析　151<br>11.6　本章小结　152<br><br>第12章　Eclipse的版本控制和CVS　153<br>12.1　Eclipse的本地版本控制　153<br>12.1.1　比较操作　153<br>12.1.2　替换操作　154<br>12.1.3　本地历史记录　154<br>12.2　CVS概述　156<br>12.3　CVS服务器的安装与配置　156<br>12.3.1　CVS服务器的获取与安装　156<br>12.3.2　创建CVS资源库　157<br>12.4　在Eclipse中实施CVS系统　159<br>12.4.1　向资源库提交新项目　159<br>12.4.2　从CVS服务器检出项目　160<br>12.4.3　提交与更新操作　163<br>12.4.4　版本冲突的解决　164<br>12.5　疑难解析　165<br>12.6　本章小结　166<br><br>第13章　通用日志包　167<br>13.1　通用日志包概述　167<br>13.2　配置通用日志接口　167<br>13.2.1　下载相关的JAR文件　168<br>13.2.2　部署日志器　168<br>13.2.3　指定日志器　169<br>13.2.4　设置日志器属性　169<br>13.3　Log4j日志器使用实例　171<br>13.4　Log4E插件　172<br>13.4.1　Log4E插件的下载　172<br>13.4.2　Log4E的安装与配置　173<br>13.5　疑难解析　174<br>13.6　本章小结　174<br><br>第3篇　实战篇<br><br>第14章　网络文件管理系统(Sturts＋MySQL＋JDBC)　177<br>14.1　开发环境和运行实例　177<br>14.1.1　开发环境介绍　177<br>14.1.2　运行光盘实例　178<br>14.2　系统需求　178<br>14.2.1　用户模块　178<br>14.2.2　管理员模块　179<br>14.3　系统功能描述　179<br>14.3.1　用户注册　179<br>14.3.2　用户登录　180<br>14.3.3　用户信息管理　181<br>14.3.4　管理员登录　181<br>14.3.5　管理员查看文件　182<br>14.3.6　上传文件　182<br>14.3.7　删除文件　183<br>14.3.8　共享/撤销共享文件　184<br>14.3.9　下载文件　184<br>14.3.10　发送站内消息　185<br>14.3.11　备忘录　186<br>14.4　系统设计　186<br>14.4.1　系统架构设计　186<br>14.4.2　业务实体设计　186<br>14.4.3　设计数据模型　188<br>14.5　业务逻辑设计　190<br>14.5.1　数据层设计　190<br>14.5.2　服务层设计　194<br>14.6　逻辑主线　194<br>14.6.1　web.xml文件　194<br>14.6.2　struts-config.xml文件　196<br>14.7　系统实现　200<br>14.7.1　创建工程　200<br>14.7.2　添加相关的架包　200<br>14.7.3　导入架包　201<br>14.7.4　导入Struts的标签库及标签类型定义文件　201<br>14.8　编写配置文件　201<br>14.8.1　为工程编写资源文件　202<br>14.8.2　处理资源文件的字符问题　202<br>14.8.3　使用资源文件　203<br>14.8.4　创建Struts的配置文件struts-config.xml　203<br>14.8.5　修改工程文件web.xml　203<br>14.9　界面设计　204<br>14.10　创建系统中的视图　205<br>14.11　创建系统中的包　206<br>14.12　创建系统中的自定义标签　206<br>14.12.1　CampusNewsTag标签类　206<br>14.12.2　ClientVisit标签类　207<br>14.12.3　CreateNewCategory标签类　208<br>14.12.4　InformanceTag标签类　208<br>14.12.5　MusicNewsTag标签类　209<br>14.12.6　MyChooseViewTag标签类　210<br>14.12.7　MyDateTag标签类　210<br>14.12.8　MyShareFile标签类　211<br>14.12.9　创建标签类的标签库文件　211<br>14.13　数据库的访问　213<br>14.13.1　插入、删除和更新操作　213<br>14.13.2　读取操作　213<br>14.13.3　事务操作　214<br>14.13.4　设置MySQL的账户　214<br>14.14　用户功能控制　214<br>14.14.1　MyChooseViewTag标签类　215<br>14.14.2　ChooseAction功能页面选择控制器　217<br>14.14.3　Login.jsp视图中的ClientVisit标签　218<br>14.15　异常控制　220<br>14.16　用户访问主页　220<br>14.16.1　在web.xml中配置主页　221<br>14.16.2　修改相应的代码　221<br>14.17　用户注册　221<br>14.17.1　用户注册功能流程　221<br>14.17.2　修改Register.jsp文件代码　221<br>14.17.3　建立注册模型　223<br>14.17.4　建立注册控制器　225<br>14.17.5　配置模型和控制器　230<br>14.18　用户登录　230<br>14.18.1　用户登录流程　230<br>14.18.2　修改Log.jsp文件代码　230<br>14.18.3　建立登录模型　231<br>14.18.4　建立登录控制器　232<br>14.18.5　配置模型和控制器　233<br>14.19　用户修改信息　234<br>14.19.1　用户修改信息流程　234<br>14.19.2　用户管理业务　234<br>14.19.3　修改Modify.jsp文件代码　236<br>14.19.4　建立修改信息模型　238<br>14.19.5　建立修改信息控制器　239<br>14.19.6　配置模型和控制器　243<br>14.20　用户上传文件　244<br>14.20.1　用户上传文件流程　244<br>14.20.2　修改FileUpload.jsp文件代码　244<br>14.20.3　建立上传文件模型　244<br>14.20.4　建立上传文件控制器　245<br>14.20.5　配置模型和控制器　248<br>14.21　用户删除文件　248<br>14.21.1　用户删除文件流程　248<br>14.21.2　文件管理业务　248<br>14.21.3　建立删除文件控制器　252<br>14.21.4　配置模型和控制器　255<br>14.22　用户共享/撤销共享文件　255<br>14.22.1　共享/撤销共享文件流程　255<br>14.22.2　文件管理业务　255<br>14.22.3　建立共享控制器　255<br>14.22.4　配置共享控制器　257<br>14.23　用户下载文件　258<br>14.24　用户使用站内消息　261<br>14.24.1　用户使用消息功能流程　261<br>14.24.2　站内消息业务　261<br>14.24.3　建立删除站内消息控制器　263<br>14.24.4　配置删除消息控制器　264<br>14.24.5　修改SendMessage.jsp页面　264<br>14.24.6　创建发送消息模型　265<br>14.24.7　创建发送消息控制器　266<br>14.24.8　配置模型和控制器　267<br>14.25　用户使用备忘录　267<br>14.25.1　用户使用备忘录流程　267<br>14.25.2　备忘录业务　268<br>14.25.3　创建删除记录的控制器　271<br>14.25.4　配置删除记录的控制器　273<br>14.25.5　修改AddRemind.jsp文件　273<br>14.25.6　创建添加备忘录模型　274<br>14.25.7　创建添加备忘录控制器　274<br>14.25.8　配置模型和控制器　276<br>14.26　管理员登录　277<br>14.26.1　管理员登录流程　277<br>14.26.2　修改admin.jsp文件代码　277<br>14.26.3　建立登录模型　277<br>14.26.4　建立管理员登录控制器　277<br>14.26.5　配置模型和控制器　278<br>14.27　管理员查询文件　278<br>14.27.1　管理员查询文件流程　278<br>14.27.2　修改ManageFile.jsp页面　278<br>14.27.3　创建查询模型　279<br>14.27.4　创建查询控制器　279<br>14.27.5　配置模型和控制器　280<br>14.28　其他功能　281<br>14.29　本章小结　281<br><br>第15章　网络商店(Struts＋Hibernate)　282<br>15.1　开发环境　282<br>15.1.1　基本配置　282<br>15.1.2　运行光盘实例　282<br>15.2　系统需求　283<br>15.3　系统功能描述　284<br>15.3.1　用户注册　284<br>15.3.2　用户登录　285<br>15.3.3　浏览商品　285<br>15.3.4　购物　287<br>15.3.5　结账　287<br>15.4　系统设计　288<br>15.4.1　系统架构设计　288<br>15.4.2　业务实体设计　289<br>15.4.3　业务逻辑设计　290<br>15.5　系统框架搭建　291<br>15.5.1　数据库的设计与实现　291<br>15.5.2　创建网络商店工程　293<br>15.5.3　持久化层搭建　294<br>15.5.4　BaseAction和BaseForm　296<br>15.5.5　工具类的编写　298<br>15.5.6　过滤器的编写　300<br>15.6　系统实现　302<br>15.7　创建配置文件和包结构　303<br>15.7.1　创建web.xml　303<br>15.7.2　创建struts-config.xml　304<br>15.7.3　创建Hibernate.cfg.xml　305<br>15.7.4　创建Log4j配置文件　305<br>15.7.5　创建包结构　305<br>15.8　注册功能　306<br>15.8.1　欢迎页面　306<br>15.8.2　创建持久化类和映射文件　307<br>15.8.3　创建数据层　308<br>15.8.4　创建服务层　310<br>15.8.5　创建注册模型　311<br>15.8.6　创建视图　313<br>15.8.7　创建控制器　313<br>15.9　登录功能　315<br>15.9.1　创建模型　315<br>15.9.2　创建视图　315<br>15.9.3　创建控制器　316<br>15.10　浏览商品　318<br>15.10.1　创建持久化类和映射文件　318<br>15.10.2　创建持久化层　321<br>15.10.3　创建服务层　325<br>15.10.4　Category的浏览　327<br>15.10.5　Product的浏览　330<br>15.10.6　Item的浏览　333<br>15.11　购物车　336<br>15.11.1　商品的Item　337<br>15.11.2　购物商品项CartItem　337<br>15.11.3　购物车Cart　337<br>15.11.4　购物车的存放　339<br>15.12　购物操作　340<br>15.12.1　添加商品　340<br>15.12.2　购物车的浏览　341<br>15.12.3　删除一个商品　343<br>15.12.4　更新商品数量　344<br>15.13　订单处理　345<br>15.13.1　创建持久化类和映射文件　345<br>15.13.2　创建数据层　348<br>15.13.3　创建服务层　349<br>15.13.4　账单生成　350<br>15.13.5　订单生成　353<br>15.14　本章小结　356<br><br>第16章　学生选课系统(Spring＋Struts＋JDBC)　357<br>16.1　开发环境与运行实例　357<br>16.1.1　开发环境简介　357<br>16.1.2　运行光盘实例　358<br>16.2　需求概述　359<br>16.2.1　学生模块　359<br>16.2.2　教师模块　359<br>16.2.3　管理员模块　359<br>16.3　系统功能描述　361<br>16.3.1　管理员登录　361<br>16.3.2　管理员添加学生　361<br>16.3.3　管理员添加教师　362<br>16.3.4　管理员删除学生　362<br>16.3.5　教师登录　362<br>16.3.6　教师开设课程　362<br>16.3.7　教师删除开设的课程　363<br>16.3.8　教师登录成绩　363<br>16.3.9　学生登录　364<br>16.3.10　学生选课　365<br>16.3.11　学生删除选课　365<br>16.3.12　学生查询成绩　365<br>16.4　系统设计　366<br>16.4.1　系统架构设计　366<br>16.4.2　系统业务实体设计　366<br>16.4.3　设计数据模型　368<br>16.5　业务逻辑设计　369<br>16.5.1　数据层设计　369<br>16.5.2　创建实体类　369<br>16.5.3　创建实体类的DAO　373<br>16.5.4　创建DAO的辅助类　386<br>16.5.5　模拟持久化操作　388<br>16.5.6　服务层设计　388<br>16.6　逻辑主线分析　388<br>16.6.1　web.xml文件　389<br>16.6.2　struts-config.xml文件　389<br>16.6.3　beans.xml文件　393<br>16.7　搭建系统框架　398<br>16.7.1　建立工程　398<br>16.7.2　添加相关的架包　399<br>16.7.3　导入相关的包　399<br>16.7.4　导入Struts的标签库文件　399<br>16.8　编写相关文件和资源配置文件　400<br>16.8.1　为工程编写资源文件　400<br>16.8.2　处理资源文件的字符问题　400<br>16.8.3　使用资源文件　401<br>16.8.4　创建Spring的配置文件beans.xml　401<br>16.8.5　创建Struts的配置文件　402<br>16.8.6　修改工程的web.xml文件　402<br>16.9　实现系统功能　403<br>16.10　创建系统中的视图　403<br>16.11　创建系统的包　404<br>16.12　访问数据库　404<br>16.12.1　数据源　404<br>16.12.2　事务管理　405<br>16.12.3　设置MySQL的账户　406<br>16.13　异常控制　406<br>16.14　Struts＋Spring配置原理解析　407<br>16.14.1　Struts＋Spring原理分析　407<br>16.14.2　Struts＋Spring配置方法　407<br>16.14.3　在Struts中访问Spring的上下文环境　408<br>16.15　管理员登录　408<br>16.15.1　管理员登录流程　408<br>16.15.2　修改AdminLog.jsp　409<br>16.15.3　建立管理员实体的DAO　409<br>16.15.4　建立登录模型　409<br>16.15.5　建立登录控制器　410<br>16.15.6　配置控制器和模型　412<br>16.16　管理员添加学生　413<br>16.16.1　管理员添加学生流程　413<br>16.16.2　修改AddStudent.jsp文件　413<br>16.16.3　建立学生实体的DAO　414<br>16.16.4　建立添加学生账号模型　414<br>16.16.5　建立添加学生控制器　415<br>16.16.6　配置模型和控制器　417<br>16.17　管理员添加教师　418<br>16.17.1　管理员添加教师流程　418<br>16.17.2　修改AddTeacher.jsp文件　418<br>16.17.3　建立教师实体的DAO　419<br>16.17.4　建立添加教师账号模型　419<br>16.17.5　建立添加教师控制器　420<br>16.17.6　配置模型和控制器　422<br>16.18　管理员删除学生　423<br>16.18.1　管理员删除学生流程　423<br>16.18.2　创建ReadStudent业务类　423<br>16.18.3　修改DeleteStudent.jsp文件　424<br>16.18.4　创建删除学生控制器　425<br>16.18.5　配置控制器　426<br>16.19　教师登录　427<br>16.19.1　教师登录流程　427<br>16.19.2　修改TeacherLog.jsp　427<br>16.19.3　建立登录模型　428<br>16.19.4　建立登录控制器　428<br>16.19.5　配置控制器和模型　430<br>16.20　教师开设课程　430<br>16.20.1　开设课程流程　430<br>16.20.2　修改CreateCourse.jsp文件　431<br>16.20.3　建立课程实体的DAO　431<br>16.20.4　建立开设新课程模型　432<br>16.20.5　建立开设课程控制器　432<br>16.20.6　配置模型和控制器　434<br>16.21　教师删除开设的课程　434<br>16.21.1　删除开设课程的流程　434<br>16.21.2　创建ReadCourseForTeacher业务类　435<br>16.21.3　修改DeleteCourse.jsp文件　436<br>16.21.4　创建删除已经开设课程的控制器　436<br>16.21.5　配置控制器　438<br>16.22　教师登录成绩　438<br>16.22.1　教师登录成绩流程　438<br>16.22.2　修改LogScore.jsp文件　439<br>16.22.3　建立登录成绩模型　440<br>16.22.4　建立登录成绩控制器　440<br>16.22.5　配置模型和控制器　442<br>16.23　学生登录　442<br>16.23.1　学生登录流程　442<br>16.23.2　修改StudentLog.jsp　443<br>16.23.3　建立登录模型　443<br>16.23.4　建立登录控制器　443<br>16.23.5　配置控制器和模型　445<br>16.24　学生选课　446<br>16.24.1　学生选课流程　446<br>16.24.2　创建ReadCourseForStudent业务类　446<br>16.24.3　建立选课实体的DAO　448<br>16.24.4　修改SelectCourse.jsp文件　448<br>16.24.5　创建选课控制器　449<br>16.24.6　配置控制器　450<br>16.25　学生删除选课　451<br>16.25.1　学生删除选课流程　451<br>16.25.2　创建ReadSelectedCourseForStudent业务类　451<br>16.25.3　修改DeleteSelectedCourse.jsp文件　453<br>16.25.4　创建删除选课控制器　454<br>16.25.5　配置控制器　455<br>16.26　学生查询成绩　456<br>16.26.1　学生查询成绩流程　456<br>16.26.2　LookupSelectedScore业务类　456<br>16.26.3　修改LookupScore.jsp文件　458<br>16.27　其他功能　458<br>16.28　本章小结　458<br><br>第17章　BBS(Struts＋Hibernate)　459<br>17.1　开发环境　459<br>17.1.1　开发环境简介　459<br>17.1.2　运行光盘实例　459<br>17.2　系统需求　460<br>17.2.1　用户模块　460<br>17.2.2　管理员模块　460<br>17.3　系统功能描述　461<br>17.3.1　用户注册　461<br>17.3.2　用户登录　462<br>17.3.3　用户信息管理　464<br>17.3.4　用户基本操作　464<br>17.3.5　管理员操作　465<br>17.4　系统设计　467<br>17.4.1　系统架构设计　467<br>17.4.2　业务实体设计　468<br>17.4.3　业务逻辑设计　469<br>17.5　系统框架搭建　469<br>17.5.1　数据库的设计与实现　469<br>17.5.2　创建bit论坛工程　471<br>17.5.3　搭建持久化层　473<br>17.5.4　BaseAction和BaseForm　473<br>17.5.5　工具类的编写　477<br>17.5.6　过滤器的编写　479<br>17.6　系统实现　479<br>17.7　创建配置文件和包结构　479<br>17.7.1　创建web.xml　479<br>17.7.2　创建struts-config.xml　480<br>17.7.3　创建Hibernate.cfg.xml　481<br>17.7.4　创建Log4j配置文件　482<br>17.7.5　创建包结构　482<br>17.8　注册功能　482<br>17.8.1　创建持久化类与映射文件　482<br>17.8.2　创建数据层　485<br>17.8.3　创建服务层　489<br>17.8.4　建立注册模型　490<br>17.8.5　创建控制器　491<br>17.8.6　创建视图　493<br>17.9　登录功能　495<br>17.9.1　创建模型　495<br>17.9.2　创建控制器　495<br>17.9.3　创建视图　496<br>17.10　分页功能　497<br>17.10.1　实现机制　497<br>17.10.2　PartialCollection类　498<br>17.10.3　QueryInfo类　499<br>17.10.4　PageDAO接口　500<br>17.10.5　PageBaseManager接口　501<br>17.10.6　PageManager类　501<br>17.10.7　Pager类　502<br>17.10.8　PageController类　503<br>17.10.9　PageForm类　504<br>17.10.10　PageAction类　505<br>17.10.11　BaseDAOHibernate类　507<br>17.11　编辑个人信息　509<br>17.11.1　创建控制器　509<br>17.11.2　创建视图　510<br>17.12　浏览主题　511<br>17.12.1　创建持久化类与映射文件　511<br>17.12.2　创建数据层　513<br>17.12.3　创建服务层　516<br>17.12.4　创建控制层　517<br>17.12.5　创建视图　517<br>17.13　浏览话题　518<br>17.13.1　创建持久化类和映射文件　518<br>17.13.2　创建数据层　520<br>17.13.3　创建服务层　523<br>17.13.4　创建控制层　523<br>17.13.5　创建视图　525<br>17.14　新建话题　527<br>17.14.1　创建模型　527<br>17.14.2　创建控制器　528<br>17.15　删除话题　529<br>17.15.1　创建视图　529<br>17.15.2　创建控制层　530<br>17.16　回复功能　530<br>17.16.1　创建持久化类和映射文件　530<br>17.16.2　创建数据层　532<br>17.16.3　创建服务层　534<br>17.16.4　创建模型层　535<br>17.16.5　创建控制层　535<br>17.16.6　创建视图层　538<br>17.17　用户管理　541<br>17.17.1　查看所有用户　541<br>17.17.2　删除用户　545<br>17.17.3　锁定用户　545<br>17.18　主题管理　546<br>17.18.1　创建视图　546<br>17.18.2　创建控制层　548<br>17.19　本章小结　549<br><br>第18章　航空票务系统(Spring＋Struts＋Hibernate)　550<br>18.1　开发环境与运行实例　550<br>18.1.1　开发环境简介　550<br>18.1.2　运行实例　551<br>18.2　需求概述　551<br>18.2.1　用户模块　551<br>18.2.2　管理员模块　552<br>18.3　系统功能描述　553<br>18.3.1　用户注册　553<br>18.3.2　用户登录　553<br>18.3.3　用户信息管理　554<br>18.3.4　管理员登录　554<br>18.3.5　管理员制定航班　554<br>18.3.6　管理员安排航班　555<br>18.3.7　用户查询航班　555<br>18.3.8　用户预订航班　556<br>18.3.9　用户取消预订的航班　556<br>18.4　系统设计　557<br>18.4.1　系统架构设计　557<br>18.4.2　系统业务实体设计　558<br>18.4.3　设计数据模型　559<br>18.5　业务逻辑设计　561<br>18.5.1　数据层设计　561<br>18.5.2　创建持久化类　572<br>18.5.3　创建对象/关系映射文件　576<br>18.5.4　服务层设计　579<br>18.6　逻辑主线分析　579<br>18.6.1　web.xml文件　579<br>18.6.2　struts-config.xml文件　580<br>18.6.3　beans.xml文件　584<br>18.7　搭建系统框架　589<br>18.7.1　建立工程　589<br>18.7.2　添加相关的架包　589<br>18.7.3　导入相关的架包　590<br>18.7.4　导入Struts的标签库文件　591<br>18.8　编写相关配置文件和资源文件　591<br>18.8.1　为工程编写资源文件　591<br>18.8.2　处理资源文件的字符问题　592<br>18.8.3　使用资源文件　592<br>18.8.4　创建Spring的配置文件beans.xml文件　593<br>18.8.5　创建Struts的struts-config.xml文件　593<br>18.8.6　为Log4j编写配置文件　593<br>18.8.7　修改工程的web.xml文件　594<br>18.9　实现系统功能　595<br>18.10　创建系统中的视图　595<br>18.11　创建系统的包　596<br>18.12　配置数据源和事务管理　596<br>18.12.1　数据源　596<br>18.12.2　事务管理　597<br>18.12.3　设置MySQL的账户　598<br>18.13　异常控制　599<br>18.14　Struts＋Hibernate＋Spring配置原理解析　600<br>18.14.1　Struts＋Spring原理分析　600<br>18.14.2　Struts＋Spring实际操作　600<br>18.14.3　在Struts中访问Spring的上下文环境　601<br>18.14.4　Hibernate＋Spring　601<br>18.14.5　事务管理　601<br>18.15　用户访问主页　602<br>18.16　用户注册　602<br>18.16.1　用户注册流程　602<br>18.16.2　修改reg.jsp文件代码　603<br>18.16.3　建立用户注册的DAO　604<br>18.16.4　建立注册模型　604<br>18.16.5　建立注册控制器　606<br>18.16.6　配置模型和控制器　607<br>18.17　用户登录　608<br>18.17.1　用户登录流程　608<br>18.17.2　修改index.jsp文件　608<br>18.17.3　建立用户登录的DAO　609<br>18.17.4　建立登录模型　609<br>18.17.5　建立登录控制器　610<br>18.17.6　配置模型和控制器　612<br>18.18　管理员登录　612<br>18.18.1　管理员登录流程　612<br>18.18.2　创建admin.jsp文件　613<br>18.18.3　建立管理员登录的DAO　613<br>18.18.4　建立登录模型　613<br>18.18.5　建立登录控制器　614<br>18.18.6　配置模型和控制器　615<br>18.19　管理员制定航班　615<br>18.19.1　管理员制定航班流程　615<br>18.19.2　修改admincontent.jsp文件　616<br>18.19.3　修改CreateFlight.jsp文件　616<br>18.19.4　建立制定航班操作的DAO　617<br>18.19.5　建立航班模型　617<br>18.19.6　建立制定航班控制器　618<br>18.19.7　配置模型和控制器　619<br>18.20　管理员制定航班日程　620<br>18.20.1　管理员制定航班日程流程　620<br>18.20.2　建立读取航班信息的DAO　621<br>18.20.3　创建ReadFlightAction控制器　621<br>18.20.4　修改CreateOrderItem.jsp文件　622<br>18.20.5　建立安排航班日程的DAO　624<br>18.20.6　建立模型OrderItemBean　624<br>18.20.7　建立安排航班日程的控制器CreateOrderItemAction　625<br>18.20.8　配置模型和控制器　627<br>18.21　用户查询航班和预订机票　627<br>18.21.1　用户查询航班和订票流程　627<br>18.21.2　创建purchase.jsp文件　628<br>18.21.3　建立查询航班和预订机票的DAO　629<br>18.21.4　建立业务对象Purchase　629<br>18.21.5　建立订票控制器　631<br>18.21.6　配置模型和视图　632<br>18.22　用户查询购物车和退票　633<br>18.22.1　用户查询购物车和退票流程　633<br>18.22.2　创建shoppingcar.jsp文件　633<br>18.22.3　建立读取购物车信息的DAO　634<br>18.22.4　建立退票的DAO　634<br>18.22.5　建立业务对象ShoppingCar　634<br>18.22.6　建立退票控制器　636<br>18.22.7　配置模型和控制器　637<br>18.23　其他功能　638<br>18.23.1　Purchaseok.jsp页面　638<br>18.23.2　Regok.jsp页面　638<br>18.23.3　IndexReturnAction控制器　638<br>18.23.4　PurchaseReturnAction控制器　639<br>18.24　本章小结　639 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书共分为3篇。“基础篇”对Eclipse平台做了简单的介绍，并列举了一些在Web开发过程中经常用到的Eclipse功能；“进阶篇”主要介绍了在Web开发中常用的技术，如Struts、Hibernate、Tomcat、Spring等以及这些技术在Eclipse平台中可能用到的一些插件和这些插件的下载、安装与配置方法；“实战篇”讲述了5个采用不同开发技术的实例，其中，详细地讲解了实例的分析、设计和实现的步骤。<br>　　本书内容循序渐进，实例丰富，从基础知识到工程的创建与实现，都是按照读者的学习习惯一步一步来实现的，开发步骤讲解十分详细，配套光盘中给出了所有的实例源代码和相关的软件，适合在Eclipse平台下从事Web开发的读者参考阅读。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">杨磊，陈凌云  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘)" border="1" height="216" src="/Images/BookCovers/9787115150349.jpg" style="border:1px   solid   #B0B0B0" title="精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘)" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：杨磊，陈凌云  编著
+                                                                    <br />
+                                                                    书名：精通Eclipse Web开发-Java体系结构.工具.框架及整合应用(含盘)<br />
+                                                                    字数：1005000<br />
+                                                                    出版时间：2006年10月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115150349<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥69.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1篇　基础篇<br><br>第1章　Eclipse简介　3<br>1.1　Eclipse的历史　3<br>1.2　Eclipse项目　3<br>1.2.1　Eclipse的平台简介　3<br>1.2.2　Java开发工具　4<br>1.3　Eclipse帮助手册　4<br>1.4　Eclipse的版本　5<br>1.5　Eclipse的安装与获取　5<br>1.6　本书系统配置情况　5<br>1.7　JDK的获取与安装　6<br>1.7.1　JDK的获取　6<br>1.7.2　JDK的安装　6<br>1.7.3　配置Java环境　6<br>1.8　本章小结　7<br><br>第2章　Eclipse的体系结构　8<br>2.1　平台基本机制　8<br>2.2　工作台　9<br>2.3　SWT和JFace　10<br>2.3.1　SWT标准小部件　10<br>2.3.2　JFace工具箱　10<br>2.4　团队开发支持　11<br>2.5　外部的辅助工具　11<br>2.6　Web开发中常用的功能　11<br>2.6.1　文件功能　12<br>2.6.2　源代码功能　14<br>2.6.3　重构功能　16<br>2.6.4　项目功能　17<br>2.6.5　Run功能　17<br>2.6.6　窗口功能　18<br>2.7　本章小结　18<br><br>第2篇　进阶篇<br><br>第3章　Web开发技术简介　21<br>3.1　Servlet简介　21<br>3.2　JSP简介　22<br>3.3　JSP＋Servlet简单开发实例　22<br>3.3.1　创建工程　23<br>3.3.2　编写logon.jsp文件　23<br>3.3.3　编写CheckAccount.java文件　23<br>3.3.4　编写结果页面　24<br>3.4　Hibernate简介　26<br>3.5　Struts简介　26<br>3.5.1　模型　26<br>3.5.2　视图　26<br>3.5.3　控制器　27<br>3.6　Spring简介　27<br>3.7　Tomcat和JBoss　27<br>3.7.1　Tomcat　27<br>3.7.2　JBoss　27<br>3.8　本章小结　27<br><br>第4章　Eclipse和Tomcat　28<br>4.1　Tomcat的简介与安装　28<br>4.1.1　Tomcat简介　28<br>4.1.2　Tomcat的安装　28<br>4.1.3　Tomcat的目录结构　31<br>4.1.4　在Tomcat服务器中运行Web实例　32<br>4.2　TomcatPlugin插件的安装和配置　33<br>4.2.1　TomcatPlugin插件的下载与安装　33<br>4.2.2　TomcatPlugin插件的配置　33<br>4.2.3　使用TomcatPlugin插件　35<br>4.3　在Eclipse平台上开发Web应用程序　36<br>4.3.1　用Eclipse新建Tomcat工程　36<br>4.3.2　创建工程中的Servlet　37<br>4.3.3　创建工程中的部署文件　38<br>4.3.4　运行Servlet　38<br>4.3.5　创建工程中的JSP　39<br>4.3.6　在Eclipse中发布项目　40<br>4.4　疑难解析　40<br>4.4.1　用TomcatPlugin发布工程　40<br>4.4.2　重新启动Tomcat的时机　40<br>4.5　本章小结　41<br><br>第5章　在Eclipse中进行数据库开发　42<br>5.1　MySQL数据库　42<br>5.1.1　MySQL简介　42<br>5.1.2　MySQL的安装与配置　42<br>5.1.3　MySQL的基本操作　44<br>5.1.4　使用MySQL管理工具　46<br>5.2　JDBC编程　49<br>5.2.1　JDBC简介　49<br>5.2.2　JDBC编程方法　49<br>5.2.3　JDBC编程实例　51<br>5.3　疑难解析　53<br>5.4　本章小结　53<br><br>第6章　在Eclipse环境下Struts框架的应用　54<br>6.1　Struts框架简介　54<br>6.1.1　Struts简介　54<br>6.1.2　用Struts实现MVC模式　54<br>6.1.3　Struts的下载　55<br>6.2　一个简单的Struts实例　56<br>6.2.1　创建Tomcat工程　56<br>6.2.2　添加Struts包　56<br>6.2.3　实例功能描述　57<br>6.2.4　设计视图　57<br>6.2.5　设计控制器　58<br>6.2.6　编写配置文件　59<br>6.2.7　运行实例　61<br>6.3　StrutsIDE插件　61<br>6.4　在Eclipse中使用StrutsIDE开发Struts工程　62<br>6.4.1　新建Tomcat工程　62<br>6.4.2　添加Struts支持　62<br>6.4.3　设计视图　63<br>6.4.4　设计控制器　63<br>6.4.5　编写配置文件　63<br>6.4.6　运行实例　66<br>6.5　MyEclipse插件对Struts的支持　66<br>6.5.1　新建MyEclipse下的Tomcat工程　67<br>6.5.2　用MyEclipse编写一个简单的Struts实例　70<br>6.6　疑难解析　74<br>6.6.1　Struts二进制包中的JAR文件和TLD文件的部署　74<br>6.6.2　Action访问失败的原因　74<br>6.6.3　MyEclipse安装以后无法正常使用　74<br>6.6.4　MyEclipse的验证　75<br>6.7　本章小结　75<br><br>第7章　在Eclipse环境下使用Hibernate　76<br>7.1　Hibernate简介　76<br>7.2　简单的Hibernate实例　77<br>7.2.1　创建Hibernate的配置文件　77<br>7.2.2　创建持久化类　78<br>7.2.3　创建映射文件　79<br>7.2.4　使用Hibernate API　79<br>7.2.5　运行程序　82<br>7.3　Hibernate Synchronizer插件　83<br>7.3.1　Hibernate Synchronizer简介　83<br>7.3.2　Hibernate Synchronizer的获取与安装　83<br>7.4　在Eclipse中使用Hibernate Synchronizer进行开发　85<br>7.4.1　在项目中使用Hibernate　85<br>7.4.2　创建Hibernate Configuration File文件　85<br>7.4.3　创建mapping文件　86<br>7.4.4　运行Hibernate实例　87<br>7.5　疑难解析　88<br>7.6　本章小结　89<br><br>第8章　Eclipse环境下Spring框架的应用　90<br>8.1　Spring简介　90<br>8.2　Spring的下载　91<br>8.3　Spring入门实例　91<br>8.3.1　开发平台　92<br>8.3.2　程序功能说明　92<br>8.3.3　创建一个Java应用程序　92<br>8.3.4　添加Spring支持　92<br>8.3.5　编写JavaBean　93<br>8.3.6　编写配置文件　94<br>8.3.7　编写测试程序　94<br>8.3.8　运行程序　95<br>8.4　Spring的反转控制　95<br>8.4.1　BeanFactory　95<br>8.4.2　ApplicationContext　97<br>8.5　使用MyEclipse的Spring支持创建Spring工程　97<br>8.5.1　程序功能描述　97<br>8.5.2　创建Tomcat工程　97<br>8.5.3　添加Spring支持　97<br>8.5.4　创建一个Java类　98<br>8.5.5　在配置文件中进行配置　99<br>8.5.6　运行程序　99<br>8.6　疑难解析　99<br>8.6.1　Spring的配置文件　99<br>8.6.2　配置文件中bean的id属性和name属性　100<br>8.7　本章小结　100<br><br>第9章　在Eclipse中进行J2EE开发　101<br>9.1　常用的J2EE Web服务器　101<br>9.1.1　WebSphere服务器　101<br>9.1.2　WebLogic服务器　102<br>9.1.3　JBoss服务器　102<br>9.2　JBoss　102<br>9.2.1　JBoss的下载与安装　103<br>9.2.2　JBoss目录结构解析　103<br>9.2.3　运行JBoss　104<br>9.3　Lomboz插件的安装　104<br>9.3.1　Lomboz插件的功能　105<br>9.3.2　Lomboz插件的下载与安装　105<br>9.4　配置Lomboz插件　106<br>9.4.1　Lomboz for Eclipse 3.0.x　106<br>9.4.2　Lomboz for Eclipse 3.1.x　108<br>9.5　用Lomboz插件开发简单的应用系统　108<br>9.5.1　程序功能描述　108<br>9.5.2　创建工程　109<br>9.5.3　创建Web模块　110<br>9.5.4　添加Web服务器　110<br>9.5.5　修改构建路径　111<br>9.5.6　编写JSP文件　114<br>9.5.7　工程的部署与运行　115<br>9.6　用Lomboz Eclipse构建J2EE项目　116<br>9.6.1　建立服务器　116<br>9.6.2　开启Tomcat服务器　117<br>9.6.3　新建一个Web工程　117<br>9.6.4　利用Lomboz Eclipse提供的模板创建JSP文件　118<br>9.6.5　在Server上运行实例　120<br>9.7　疑难解析　120<br>9.8　本章小结　121<br><br>第10章　在Eclipse中应用JUnit　122<br>10.1　JUnit　122<br>10.1.1　单元测试简介　122<br>10.1.2　JUnit简介　123<br>10.1.3　JUnit框架　123<br>10.1.4　在Eclipse中设置JUnit　125<br>10.2　测试用例　126<br>10.2.1　被测试项目　126<br>10.2.2　创建第一个测试用例　128<br>10.2.3　运行测试用例　132<br>10.2.4　创建第二个测试用例　133<br>10.3　创建测试套件　135<br>10.4　本章小结　136<br><br>第11章　Eclipse的资源构件与构件工具Ant　137<br>11.1　Ant简介　137<br>11.2　Ant开发　139<br>11.2.1　Ant的构建文件　139<br>11.2.2　Ant的数据类型　143<br>11.2.3　Ant的运行　145<br>11.3　使用Ant插件　145<br>11.3.1　创建Ant构建文件　145<br>11.3.2　运行Ant构建文件　147<br>11.3.3　保存和重用Ant选项　147<br>11.4　Ant和JUnit联合进行开发　148<br>11.5　疑难解析　151<br>11.6　本章小结　152<br><br>第12章　Eclipse的版本控制和CVS　153<br>12.1　Eclipse的本地版本控制　153<br>12.1.1　比较操作　153<br>12.1.2　替换操作　154<br>12.1.3　本地历史记录　154<br>12.2　CVS概述　156<br>12.3　CVS服务器的安装与配置　156<br>12.3.1　CVS服务器的获取与安装　156<br>12.3.2　创建CVS资源库　157<br>12.4　在Eclipse中实施CVS系统　159<br>12.4.1　向资源库提交新项目　159<br>12.4.2　从CVS服务器检出项目　160<br>12.4.3　提交与更新操作　163<br>12.4.4　版本冲突的解决　164<br>12.5　疑难解析　165<br>12.6　本章小结　166<br><br>第13章　通用日志包　167<br>13.1　通用日志包概述　167<br>13.2　配置通用日志接口　167<br>13.2.1　下载相关的JAR文件　168<br>13.2.2　部署日志器　168<br>13.2.3　指定日志器　169<br>13.2.4　设置日志器属性　169<br>13.3　Log4j日志器使用实例　171<br>13.4　Log4E插件　172<br>13.4.1　Log4E插件的下载　172<br>13.4.2　Log4E的安装与配置　173<br>13.5　疑难解析　174<br>13.6　本章小结　174<br><br>第3篇　实战篇<br><br>第14章　网络文件管理系统(Sturts＋MySQL＋JDBC)　177<br>14.1　开发环境和运行实例　177<br>14.1.1　开发环境介绍　177<br>14.1.2　运行光盘实例　178<br>14.2　系统需求　178<br>14.2.1　用户模块　178<br>14.2.2　管理员模块　179<br>14.3　系统功能描述　179<br>14.3.1　用户注册　179<br>14.3.2　用户登录　180<br>14.3.3　用户信息管理　181<br>14.3.4　管理员登录　181<br>14.3.5　管理员查看文件　182<br>14.3.6　上传文件　182<br>14.3.7　删除文件　183<br>14.3.8　共享/撤销共享文件　184<br>14.3.9　下载文件　184<br>14.3.10　发送站内消息　185<br>14.3.11　备忘录　186<br>14.4　系统设计　186<br>14.4.1　系统架构设计　186<br>14.4.2　业务实体设计　186<br>14.4.3　设计数据模型　188<br>14.5　业务逻辑设计　190<br>14.5.1　数据层设计　190<br>14.5.2　服务层设计　194<br>14.6　逻辑主线　194<br>14.6.1　web.xml文件　194<br>14.6.2　struts-config.xml文件　196<br>14.7　系统实现　200<br>14.7.1　创建工程　200<br>14.7.2　添加相关的架包　200<br>14.7.3　导入架包　201<br>14.7.4　导入Struts的标签库及标签类型定义文件　201<br>14.8　编写配置文件　201<br>14.8.1　为工程编写资源文件　202<br>14.8.2　处理资源文件的字符问题　202<br>14.8.3　使用资源文件　203<br>14.8.4　创建Struts的配置文件struts-config.xml　203<br>14.8.5　修改工程文件web.xml　203<br>14.9　界面设计　204<br>14.10　创建系统中的视图　205<br>14.11　创建系统中的包　206<br>14.12　创建系统中的自定义标签　206<br>14.12.1　CampusNewsTag标签类　206<br>14.12.2　ClientVisit标签类　207<br>14.12.3　CreateNewCategory标签类　208<br>14.12.4　InformanceTag标签类　208<br>14.12.5　MusicNewsTag标签类　209<br>14.12.6　MyChooseViewTag标签类　210<br>14.12.7　MyDateTag标签类　210<br>14.12.8　MyShareFile标签类　211<br>14.12.9　创建标签类的标签库文件　211<br>14.13　数据库的访问　213<br>14.13.1　插入、删除和更新操作　213<br>14.13.2　读取操作　213<br>14.13.3　事务操作　214<br>14.13.4　设置MySQL的账户　214<br>14.14　用户功能控制　214<br>14.14.1　MyChooseViewTag标签类　215<br>14.14.2　ChooseAction功能页面选择控制器　217<br>14.14.3　Login.jsp视图中的ClientVisit标签　218<br>14.15　异常控制　220<br>14.16　用户访问主页　220<br>14.16.1　在web.xml中配置主页　221<br>14.16.2　修改相应的代码　221<br>14.17　用户注册　221<br>14.17.1　用户注册功能流程　221<br>14.17.2　修改Register.jsp文件代码　221<br>14.17.3　建立注册模型　223<br>14.17.4　建立注册控制器　225<br>14.17.5　配置模型和控制器　230<br>14.18　用户登录　230<br>14.18.1　用户登录流程　230<br>14.18.2　修改Log.jsp文件代码　230<br>14.18.3　建立登录模型　231<br>14.18.4　建立登录控制器　232<br>14.18.5　配置模型和控制器　233<br>14.19　用户修改信息　234<br>14.19.1　用户修改信息流程　234<br>14.19.2　用户管理业务　234<br>14.19.3　修改Modify.jsp文件代码　236<br>14.19.4　建立修改信息模型　238<br>14.19.5　建立修改信息控制器　239<br>14.19.6　配置模型和控制器　243<br>14.20　用户上传文件　244<br>14.20.1　用户上传文件流程　244<br>14.20.2　修改FileUpload.jsp文件代码　244<br>14.20.3　建立上传文件模型　244<br>14.20.4　建立上传文件控制器　245<br>14.20.5　配置模型和控制器　248<br>14.21　用户删除文件　248<br>14.21.1　用户删除文件流程　248<br>14.21.2　文件管理业务　248<br>14.21.3　建立删除文件控制器　252<br>14.21.4　配置模型和控制器　255<br>14.22　用户共享/撤销共享文件　255<br>14.22.1　共享/撤销共享文件流程　255<br>14.22.2　文件管理业务　255<br>14.22.3　建立共享控制器　255<br>14.22.4　配置共享控制器　257<br>14.23　用户下载文件　258<br>14.24　用户使用站内消息　261<br>14.24.1　用户使用消息功能流程　261<br>14.24.2　站内消息业务　261<br>14.24.3　建立删除站内消息控制器　263<br>14.24.4　配置删除消息控制器　264<br>14.24.5　修改SendMessage.jsp页面　264<br>14.24.6　创建发送消息模型　265<br>14.24.7　创建发送消息控制器　266<br>14.24.8　配置模型和控制器　267<br>14.25　用户使用备忘录　267<br>14.25.1　用户使用备忘录流程　267<br>14.25.2　备忘录业务　268<br>14.25.3　创建删除记录的控制器　271<br>14.25.4　配置删除记录的控制器　273<br>14.25.5　修改AddRemind.jsp文件　273<br>14.25.6　创建添加备忘录模型　274<br>14.25.7　创建添加备忘录控制器　274<br>14.25.8　配置模型和控制器　276<br>14.26　管理员登录　277<br>14.26.1　管理员登录流程　277<br>14.26.2　修改admin.jsp文件代码　277<br>14.26.3　建立登录模型　277<br>14.26.4　建立管理员登录控制器　277<br>14.26.5　配置模型和控制器　278<br>14.27　管理员查询文件　278<br>14.27.1　管理员查询文件流程　278<br>14.27.2　修改ManageFile.jsp页面　278<br>14.27.3　创建查询模型　279<br>14.27.4　创建查询控制器　279<br>14.27.5　配置模型和控制器　280<br>14.28　其他功能　281<br>14.29　本章小结　281<br><br>第15章　网络商店(Struts＋Hibernate)　282<br>15.1　开发环境　282<br>15.1.1　基本配置　282<br>15.1.2　运行光盘实例　282<br>15.2　系统需求　283<br>15.3　系统功能描述　284<br>15.3.1　用户注册　284<br>15.3.2　用户登录　285<br>15.3.3　浏览商品　285<br>15.3.4　购物　287<br>15.3.5　结账　287<br>15.4　系统设计　288<br>15.4.1　系统架构设计　288<br>15.4.2　业务实体设计　289<br>15.4.3　业务逻辑设计　290<br>15.5　系统框架搭建　291<br>15.5.1　数据库的设计与实现　291<br>15.5.2　创建网络商店工程　293<br>15.5.3　持久化层搭建　294<br>15.5.4　BaseAction和BaseForm　296<br>15.5.5　工具类的编写　298<br>15.5.6　过滤器的编写　300<br>15.6　系统实现　302<br>15.7　创建配置文件和包结构　303<br>15.7.1　创建web.xml　303<br>15.7.2　创建struts-config.xml　304<br>15.7.3　创建Hibernate.cfg.xml　305<br>15.7.4　创建Log4j配置文件　305<br>15.7.5　创建包结构　305<br>15.8　注册功能　306<br>15.8.1　欢迎页面　306<br>15.8.2　创建持久化类和映射文件　307<br>15.8.3　创建数据层　308<br>15.8.4　创建服务层　310<br>15.8.5　创建注册模型　311<br>15.8.6　创建视图　313<br>15.8.7　创建控制器　313<br>15.9　登录功能　315<br>15.9.1　创建模型　315<br>15.9.2　创建视图　315<br>15.9.3　创建控制器　316<br>15.10　浏览商品　318<br>15.10.1　创建持久化类和映射文件　318<br>15.10.2　创建持久化层　321<br>15.10.3　创建服务层　325<br>15.10.4　Category的浏览　327<br>15.10.5　Product的浏览　330<br>15.10.6　Item的浏览　333<br>15.11　购物车　336<br>15.11.1　商品的Item　337<br>15.11.2　购物商品项CartItem　337<br>15.11.3　购物车Cart　337<br>15.11.4　购物车的存放　339<br>15.12　购物操作　340<br>15.12.1　添加商品　340<br>15.12.2　购物车的浏览　341<br>15.12.3　删除一个商品　343<br>15.12.4　更新商品数量　344<br>15.13　订单处理　345<br>15.13.1　创建持久化类和映射文件　345<br>15.13.2　创建数据层　348<br>15.13.3　创建服务层　349<br>15.13.4　账单生成　350<br>15.13.5　订单生成　353<br>15.14　本章小结　356<br><br>第16章　学生选课系统(Spring＋Struts＋JDBC)　357<br>16.1　开发环境与运行实例　357<br>16.1.1　开发环境简介　357<br>16.1.2　运行光盘实例　358<br>16.2　需求概述　359<br>16.2.1　学生模块　359<br>16.2.2　教师模块　359<br>16.2.3　管理员模块　359<br>16.3　系统功能描述　361<br>16.3.1　管理员登录　361<br>16.3.2　管理员添加学生　361<br>16.3.3　管理员添加教师　362<br>16.3.4　管理员删除学生　362<br>16.3.5　教师登录　362<br>16.3.6　教师开设课程　362<br>16.3.7　教师删除开设的课程　363<br>16.3.8　教师登录成绩　363<br>16.3.9　学生登录　364<br>16.3.10　学生选课　365<br>16.3.11　学生删除选课　365<br>16.3.12　学生查询成绩　365<br>16.4　系统设计　366<br>16.4.1　系统架构设计　366<br>16.4.2　系统业务实体设计　366<br>16.4.3　设计数据模型　368<br>16.5　业务逻辑设计　369<br>16.5.1　数据层设计　369<br>16.5.2　创建实体类　369<br>16.5.3　创建实体类的DAO　373<br>16.5.4　创建DAO的辅助类　386<br>16.5.5　模拟持久化操作　388<br>16.5.6　服务层设计　388<br>16.6　逻辑主线分析　388<br>16.6.1　web.xml文件　389<br>16.6.2　struts-config.xml文件　389<br>16.6.3　beans.xml文件　393<br>16.7　搭建系统框架　398<br>16.7.1　建立工程　398<br>16.7.2　添加相关的架包　399<br>16.7.3　导入相关的包　399<br>16.7.4　导入Struts的标签库文件　399<br>16.8　编写相关文件和资源配置文件　400<br>16.8.1　为工程编写资源文件　400<br>16.8.2　处理资源文件的字符问题　400<br>16.8.3　使用资源文件　401<br>16.8.4　创建Spring的配置文件beans.xml　401<br>16.8.5　创建Struts的配置文件　402<br>16.8.6　修改工程的web.xml文件　402<br>16.9　实现系统功能　403<br>16.10　创建系统中的视图　403<br>16.11　创建系统的包　404<br>16.12　访问数据库　404<br>16.12.1　数据源　404<br>16.12.2　事务管理　405<br>16.12.3　设置MySQL的账户　406<br>16.13　异常控制　406<br>16.14　Struts＋Spring配置原理解析　407<br>16.14.1　Struts＋Spring原理分析　407<br>16.14.2　Struts＋Spring配置方法　407<br>16.14.3　在Struts中访问Spring的上下文环境　408<br>16.15　管理员登录　408<br>16.15.1　管理员登录流程　408<br>16.15.2　修改AdminLog.jsp　409<br>16.15.3　建立管理员实体的DAO　409<br>16.15.4　建立登录模型　409<br>16.15.5　建立登录控制器　410<br>16.15.6　配置控制器和模型　412<br>16.16　管理员添加学生　413<br>16.16.1　管理员添加学生流程　413<br>16.16.2　修改AddStudent.jsp文件　413<br>16.16.3　建立学生实体的DAO　414<br>16.16.4　建立添加学生账号模型　414<br>16.16.5　建立添加学生控制器　415<br>16.16.6　配置模型和控制器　417<br>16.17　管理员添加教师　418<br>16.17.1　管理员添加教师流程　418<br>16.17.2　修改AddTeacher.jsp文件　418<br>16.17.3　建立教师实体的DAO　419<br>16.17.4　建立添加教师账号模型　419<br>16.17.5　建立添加教师控制器　420<br>16.17.6　配置模型和控制器　422<br>16.18　管理员删除学生　423<br>16.18.1　管理员删除学生流程　423<br>16.18.2　创建ReadStudent业务类　423<br>16.18.3　修改DeleteStudent.jsp文件　424<br>16.18.4　创建删除学生控制器　425<br>16.18.5　配置控制器　426<br>16.19　教师登录　427<br>16.19.1　教师登录流程　427<br>16.19.2　修改TeacherLog.jsp　427<br>16.19.3　建立登录模型　428<br>16.19.4　建立登录控制器　428<br>16.19.5　配置控制器和模型　430<br>16.20　教师开设课程　430<br>16.20.1　开设课程流程　430<br>16.20.2　修改CreateCourse.jsp文件　431<br>16.20.3　建立课程实体的DAO　431<br>16.20.4　建立开设新课程模型　432<br>16.20.5　建立开设课程控制器　432<br>16.20.6　配置模型和控制器　434<br>16.21　教师删除开设的课程　434<br>16.21.1　删除开设课程的流程　434<br>16.21.2　创建ReadCourseForTeacher业务类　435<br>16.21.3　修改DeleteCourse.jsp文件　436<br>16.21.4　创建删除已经开设课程的控制器　436<br>16.21.5　配置控制器　438<br>16.22　教师登录成绩　438<br>16.22.1　教师登录成绩流程　438<br>16.22.2　修改LogScore.jsp文件　439<br>16.22.3　建立登录成绩模型　440<br>16.22.4　建立登录成绩控制器　440<br>16.22.5　配置模型和控制器　442<br>16.23　学生登录　442<br>16.23.1　学生登录流程　442<br>16.23.2　修改StudentLog.jsp　443<br>16.23.3　建立登录模型　443<br>16.23.4　建立登录控制器　443<br>16.23.5　配置控制器和模型　445<br>16.24　学生选课　446<br>16.24.1　学生选课流程　446<br>16.24.2　创建ReadCourseForStudent业务类　446<br>16.24.3　建立选课实体的DAO　448<br>16.24.4　修改SelectCourse.jsp文件　448<br>16.24.5　创建选课控制器　449<br>16.24.6　配置控制器　450<br>16.25　学生删除选课　451<br>16.25.1　学生删除选课流程　451<br>16.25.2　创建ReadSelectedCourseForStudent业务类　451<br>16.25.3　修改DeleteSelectedCourse.jsp文件　453<br>16.25.4　创建删除选课控制器　454<br>16.25.5　配置控制器　455<br>16.26　学生查询成绩　456<br>16.26.1　学生查询成绩流程　456<br>16.26.2　LookupSelectedScore业务类　456<br>16.26.3　修改LookupScore.jsp文件　458<br>16.27　其他功能　458<br>16.28　本章小结　458<br><br>第17章　BBS(Struts＋Hibernate)　459<br>17.1　开发环境　459<br>17.1.1　开发环境简介　459<br>17.1.2　运行光盘实例　459<br>17.2　系统需求　460<br>17.2.1　用户模块　460<br>17.2.2　管理员模块　460<br>17.3　系统功能描述　461<br>17.3.1　用户注册　461<br>17.3.2　用户登录　462<br>17.3.3　用户信息管理　464<br>17.3.4　用户基本操作　464<br>17.3.5　管理员操作　465<br>17.4　系统设计　467<br>17.4.1　系统架构设计　467<br>17.4.2　业务实体设计　468<br>17.4.3　业务逻辑设计　469<br>17.5　系统框架搭建　469<br>17.5.1　数据库的设计与实现　469<br>17.5.2　创建bit论坛工程　471<br>17.5.3　搭建持久化层　473<br>17.5.4　BaseAction和BaseForm　473<br>17.5.5　工具类的编写　477<br>17.5.6　过滤器的编写　479<br>17.6　系统实现　479<br>17.7　创建配置文件和包结构　479<br>17.7.1　创建web.xml　479<br>17.7.2　创建struts-config.xml　480<br>17.7.3　创建Hibernate.cfg.xml　481<br>17.7.4　创建Log4j配置文件　482<br>17.7.5　创建包结构　482<br>17.8　注册功能　482<br>17.8.1　创建持久化类与映射文件　482<br>17.8.2　创建数据层　485<br>17.8.3　创建服务层　489<br>17.8.4　建立注册模型　490<br>17.8.5　创建控制器　491<br>17.8.6　创建视图　493<br>17.9　登录功能　495<br>17.9.1　创建模型　495<br>17.9.2　创建控制器　495<br>17.9.3　创建视图　496<br>17.10　分页功能　497<br>17.10.1　实现机制　497<br>17.10.2　PartialCollection类　498<br>17.10.3　QueryInfo类　499<br>17.10.4　PageDAO接口　500<br>17.10.5　PageBaseManager接口　501<br>17.10.6　PageManager类　501<br>17.10.7　Pager类　502<br>17.10.8　PageController类　503<br>17.10.9　PageForm类　504<br>17.10.10　PageAction类　505<br>17.10.11　BaseDAOHibernate类　507<br>17.11　编辑个人信息　509<br>17.11.1　创建控制器　509<br>17.11.2　创建视图　510<br>17.12　浏览主题　511<br>17.12.1　创建持久化类与映射文件　511<br>17.12.2　创建数据层　513<br>17.12.3　创建服务层　516<br>17.12.4　创建控制层　517<br>17.12.5　创建视图　517<br>17.13　浏览话题　518<br>17.13.1　创建持久化类和映射文件　518<br>17.13.2　创建数据层　520<br>17.13.3　创建服务层　523<br>17.13.4　创建控制层　523<br>17.13.5　创建视图　525<br>17.14　新建话题　527<br>17.14.1　创建模型　527<br>17.14.2　创建控制器　528<br>17.15　删除话题　529<br>17.15.1　创建视图　529<br>17.15.2　创建控制层　530<br>17.16　回复功能　530<br>17.16.1　创建持久化类和映射文件　530<br>17.16.2　创建数据层　532<br>17.16.3　创建服务层　534<br>17.16.4　创建模型层　535<br>17.16.5　创建控制层　535<br>17.16.6　创建视图层　538<br>17.17　用户管理　541<br>17.17.1　查看所有用户　541<br>17.17.2　删除用户　545<br>17.17.3　锁定用户　545<br>17.18　主题管理　546<br>17.18.1　创建视图　546<br>17.18.2　创建控制层　548<br>17.19　本章小结　549<br><br>第18章　航空票务系统(Spring＋Struts＋Hibernate)　550<br>18.1　开发环境与运行实例　550<br>18.1.1　开发环境简介　550<br>18.1.2　运行实例　551<br>18.2　需求概述　551<br>18.2.1　用户模块　551<br>18.2.2　管理员模块　552<br>18.3　系统功能描述　553<br>18.3.1　用户注册　553<br>18.3.2　用户登录　553<br>18.3.3　用户信息管理　554<br>18.3.4　管理员登录　554<br>18.3.5　管理员制定航班　554<br>18.3.6　管理员安排航班　555<br>18.3.7　用户查询航班　555<br>18.3.8　用户预订航班　556<br>18.3.9　用户取消预订的航班　556<br>18.4　系统设计　557<br>18.4.1　系统架构设计　557<br>18.4.2　系统业务实体设计　558<br>18.4.3　设计数据模型　559<br>18.5　业务逻辑设计　561<br>18.5.1　数据层设计　561<br>18.5.2　创建持久化类　572<br>18.5.3　创建对象/关系映射文件　576<br>18.5.4　服务层设计　579<br>18.6　逻辑主线分析　579<br>18.6.1　web.xml文件　579<br>18.6.2　struts-config.xml文件　580<br>18.6.3　beans.xml文件　584<br>18.7　搭建系统框架　589<br>18.7.1　建立工程　589<br>18.7.2　添加相关的架包　589<br>18.7.3　导入相关的架包　590<br>18.7.4　导入Struts的标签库文件　591<br>18.8　编写相关配置文件和资源文件　591<br>18.8.1　为工程编写资源文件　591<br>18.8.2　处理资源文件的字符问题　592<br>18.8.3　使用资源文件　592<br>18.8.4　创建Spring的配置文件beans.xml文件　593<br>18.8.5　创建Struts的struts-config.xml文件　593<br>18.8.6　为Log4j编写配置文件　593<br>18.8.7　修改工程的web.xml文件　594<br>18.9　实现系统功能　595<br>18.10　创建系统中的视图　595<br>18.11　创建系统的包　596<br>18.12　配置数据源和事务管理　596<br>18.12.1　数据源　596<br>18.12.2　事务管理　597<br>18.12.3　设置MySQL的账户　598<br>18.13　异常控制　599<br>18.14　Struts＋Hibernate＋Spring配置原理解析　600<br>18.14.1　Struts＋Spring原理分析　600<br>18.14.2　Struts＋Spring实际操作　600<br>18.14.3　在Struts中访问Spring的上下文环境　601<br>18.14.4　Hibernate＋Spring　601<br>18.14.5　事务管理　601<br>18.15　用户访问主页　602<br>18.16　用户注册　602<br>18.16.1　用户注册流程　602<br>18.16.2　修改reg.jsp文件代码　603<br>18.16.3　建立用户注册的DAO　604<br>18.16.4　建立注册模型　604<br>18.16.5　建立注册控制器　606<br>18.16.6　配置模型和控制器　607<br>18.17　用户登录　608<br>18.17.1　用户登录流程　608<br>18.17.2　修改index.jsp文件　608<br>18.17.3　建立用户登录的DAO　609<br>18.17.4　建立登录模型　609<br>18.17.5　建立登录控制器　610<br>18.17.6　配置模型和控制器　612<br>18.18　管理员登录　612<br>18.18.1　管理员登录流程　612<br>18.18.2　创建admin.jsp文件　613<br>18.18.3　建立管理员登录的DAO　613<br>18.18.4　建立登录模型　613<br>18.18.5　建立登录控制器　614<br>18.18.6　配置模型和控制器　615<br>18.19　管理员制定航班　615<br>18.19.1　管理员制定航班流程　615<br>18.19.2　修改admincontent.jsp文件　616<br>18.19.3　修改CreateFlight.jsp文件　616<br>18.19.4　建立制定航班操作的DAO　617<br>18.19.5　建立航班模型　617<br>18.19.6　建立制定航班控制器　618<br>18.19.7　配置模型和控制器　619<br>18.20　管理员制定航班日程　620<br>18.20.1　管理员制定航班日程流程　620<br>18.20.2　建立读取航班信息的DAO　621<br>18.20.3　创建ReadFlightAction控制器　621<br>18.20.4　修改CreateOrderItem.jsp文件　622<br>18.20.5　建立安排航班日程的DAO　624<br>18.20.6　建立模型OrderItemBean　624<br>18.20.7　建立安排航班日程的控制器CreateOrderItemAction　625<br>18.20.8　配置模型和控制器　627<br>18.21　用户查询航班和预订机票　627<br>18.21.1　用户查询航班和订票流程　627<br>18.21.2　创建purchase.jsp文件　628<br>18.21.3　建立查询航班和预订机票的DAO　629<br>18.21.4　建立业务对象Purchase　629<br>18.21.5　建立订票控制器　631<br>18.21.6　配置模型和视图　632<br>18.22　用户查询购物车和退票　633<br>18.22.1　用户查询购物车和退票流程　633<br>18.22.2　创建shoppingcar.jsp文件　633<br>18.22.3　建立读取购物车信息的DAO　634<br>18.22.4　建立退票的DAO　634<br>18.22.5　建立业务对象ShoppingCar　634<br>18.22.6　建立退票控制器　636<br>18.22.7　配置模型和控制器　637<br>18.23　其他功能　638<br>18.23.1　Purchaseok.jsp页面　638<br>18.23.2　Regok.jsp页面　638<br>18.23.3　IndexReturnAction控制器　638<br>18.23.4　PurchaseReturnAction控制器　639<br>18.24　本章小结　639 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书共分为3篇。“基础篇”对Eclipse平台做了简单的介绍，并列举了一些在Web开发过程中经常用到的Eclipse功能；“进阶篇”主要介绍了在Web开发中常用的技术，如Struts、Hibernate、Tomcat、Spring等以及这些技术在Eclipse平台中可能用到的一些插件和这些插件的下载、安装与配置方法；“实战篇”讲述了5个采用不同开发技术的实例，其中，详细地讲解了实例的分析、设计和实现的步骤。<br>　　本书内容循序渐进，实例丰富，从基础知识到工程的创建与实现，都是按照读者的学习习惯一步一步来实现的，开发步骤讲解十分详细，配套光盘中给出了所有的实例源代码和相关的软件，适合在Eclipse平台下从事Web开发的读者参考阅读。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">杨磊，陈凌云  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5749, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5749 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">精通Spring-Java轻量级架构开发实践(含盘) <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="精通Spring-Java轻量级架构开发实践(含盘)" border="1" height="216"  src="/Images/BookCovers/9787115150295.jpg" style="border:1px   solid   #B0B0B0" title="精通Spring-Java轻量级架构开发实践(含盘)" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：孟劼  编著
-                                        <br />
-                                        书名：精通Spring-Java轻量级架构开发实践(含盘)<br />
-                                        字数：939000<br />
-                                        出版时间：2006年10月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115150295<br />
-                                        <font color="#CC3300">本网价：<strong>￥68.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        精通Spring-Java轻量级架构开发实践(含盘) <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章　Spring基础知识　1<br>1.1　Spring的来历和目标　1<br>1.2　Spring概览　2<br>1.3　Spring的应用场景　3<br>1.4　Spring和J2EE　5<br>1.4.1　经典J2EE体系架构　5<br>1.4.2　轻量级容器　6<br>1.4.3　Spring和J2EE的关系　6<br>1.5　小结　6<br><br>第2章　开始Spring之旅　7<br>2.1　获取Spring　7<br>2.1.1　两大开源网站简介　7<br>2.1.2　获取Spring发布包和源代码　7<br>2.2　Spring的标准发布包和相关软件包　9<br>2.2.1　Spring标准发布包　9<br>2.2.2　Spring相关软件包　10<br>2.2.3　Spring自带范例　12<br>2.3　部署Spring　13<br>2.4　Spring应用初体验　14<br>2.4.1　Hello World遇到的问题　14<br>2.4.2　使用Spring对Hello World进行重构　20<br>2.4.3　实现依赖注射(DI)　22<br>2.4.4　重构总结　24<br>2.4.5　简单的Web应用程序Hello World　24<br>2.5　小结　26<br><br>第3章　贯穿Spring应用的核心理念　27<br>3.1　轻量级容器再探　27<br>3.1.1　容器和轻量级容器　27<br>3.1.2　需要容器的理由　28<br>3.1.3　轻量级容器的优势　28<br>3.2　控制反转(IoC)　28<br>3.2.1　一个简单的例子　29<br>3.2.2　引入问题　31<br>3.2.3　使用控制反转(Inversion of Control)模式　32<br>3.2.4　总结　33<br>3.3　依赖注射　34<br>3.3.1　依赖注射的几种形式　35<br>3.3.2　使用Spring 进行设值方法和构造函数注射　35<br>3.3.3　设值方法注射和构造函数注射的使用场合　36<br>3.4　面向方面编程(Aspect Oriented Programming)　37<br>3.4.1　AOP的历史来源　37<br>3.4.2　为什么需要AOP　38<br>3.4.3　AOP的重要概念　39<br>3.4.4　理解“横切”　41<br>3.4.5　AOP的实现策略　43<br>3.4.6　认识AspectJ　44<br>3.4.7　安装AspectJ的运行环境　44<br>3.4.8　用J2SE动态代理实现AOP　47<br>3.4.9　用AspectJ实现AOP　51<br>3.4.10　深入理解AspectJ　54<br>3.5　单元测试(Unit Test)　58<br>3.5.1　单元测试和JUnit框架　59<br>3.5.2　JUnit框架的3个核心概念　60<br>3.5.3　准备测试　60<br>3.5.4　添加测试代码并进行测试　62<br>3.5.5　取得更有意义的出错信息　63<br>3.5.6　捕捉错误信息　64<br>3.5.7　单元测试技巧　65<br>3.6　测试驱动开发(Test Driven Development)　67<br>3.6.1　传统测试的问题　67<br>3.6.2　测试驱动开发的应对策略　68<br>3.6.3　一个简单的示例　68<br>3.6.4　总结测试驱动开发的优势　73<br>3.7 小结　74<br><br>第4章　模式：Spring前行的路标　75<br>4.1　模式(Pattern)入门　75<br>4.1.1　什么是模式　75<br>4.1.2　不用模式产生的问题　76<br>4.1.3　通过实例理解模式本质　79<br>4.1.4　小结　81<br>4.2　工厂模式(Design Pattern：Factory Method)的精髓　81<br>4.2.1　引入问题　82<br>4.2.2　解决方法　83<br>4.2.3　工厂模式和依赖倒置的关系　85<br>4.3　单例模式(Design Pattern：Singleton)　88<br>4.3.1　单例模式的实现　88<br>4.3.2　单例注册表　89<br>4.4　模板模式和策略模式(Design Pattern：Template Method And Strategy)　91<br>4.4.1　模板模式　92<br>4.4.2　策略模式　95<br>4.5　代理模式(Design Pattern：Proxy)　100<br>4.5.1　第一个代理模式的例子　100<br>4.5.2　虚拟代理(Virtual Proxy)　103<br>4.6　数据访问对象模式(J2EE Pattern：Data Access Object)　105<br>4.7　模型视图控制器模式(Architecture/Framework Pattern：Model View Controller)　113<br>4.7.1　Model 1和Model 2简介　114<br>4.7.2　一个Model 2框架示例　115<br>4.8　框架与模式的关系　120<br>4.9　Spring和工厂模式　121<br>4.9.1　Spring工厂体系的另类视图　121<br>4.9.2　Spring工厂核心原理　122<br>4.10　Spring和单例模式　123<br>4.11　Spring的模板以及策略模式　125<br>4.11.1　Spring模板模式　125<br>4.11.2　Spring策略模式　126<br>4.12　Spring和代理模式　128<br>4.13　Spring和数据访问对象模式　129<br>4.14　Spring和MVC模式　131<br><br>第5章　Spring核心Bean工厂装配指南　133<br>5.1　核心Bean工厂　133<br>5.1.1　初识Bean工厂　133<br>5.1.2　拥有一份Bean的基础定义　135<br>5.1.3　使用构造函数创建Bean　136<br>5.1.4　使用静态工厂方法创建Bean　136<br>5.1.5　使用实例工厂方法创建Bean　137<br>5.1.6　Bean的标识符　139<br>5.1.7　是否使用Singleton　139<br>5.2　装配各种应用协作对象：Bean　141<br>5.2.1　设置Bean的属性和协作者　141<br>5.2.2　Bean的依赖决议　146<br>5.2.3　构造子参数决议　147<br>5.2.4　自动装配(Autowiring)　150<br>5.2.5　依赖检查　152<br>5.3　Bean属性和构造函数参数的细节　153<br>5.3.1　使用value元素设定属性　153<br>5.3.2　使用null元素设定空值　154<br>5.3.3　使用collection(集合)元素定义集合　154<br>5.3.4　通过嵌套Bean元素来定义内部Bean(innerBean)　157<br>5.3.5　使用idref元素预检错误　158<br>5.3.6　使用ref元素设定依赖　158<br>5.3.7　value与ref的简写式　161<br>5.3.8　使用depends-on属性强制依赖　162<br>5.4　方法也可以被注射　162<br>5.4.1　使用Lookup方法注射　162<br>5.4.2　替换任意方法　164<br>5.5　定制Bean的一些原生属性　165<br>5.5.1　生命周期接口　165<br>5.5.2　让Bean“知道”自己的身份　167<br>5.5.3　什么是FactoryBean　169<br>5.6　父和子Bean的定义　170<br>5.7　使用后处理器(Post-Processor)　173<br>5.7.1　使用BeanPostProcessor定制Bean　173<br>5.7.2　使用BeanFactoryPostProcessor定制Bean工厂　175<br>5.7.3　使用自定义的PropertyEditor　177<br><br>第6章　ApplicationContext和更多特性　178<br>6.1　ApplicationContext简介　178<br>6.2　ApplicationContext的扩展功能　178<br>6.2.1　资源国际化　178<br>6.2.2　事件传播　181<br>6.2.3　底层资源和ApplicationContext　184<br>6.3　在ApplicationContext中客制Bean的属性和行为　188<br>6.4　使用自定义的PropertyEditors　189<br>6.5　创建Web应用上下文　192<br>6.6　更多的轻松装配方式　193<br>6.6.1　从属性表达式来设置Bean的属性或者构造函数参数　193<br>6.6.2　从一个字段值来设置Bean的属性或者构造函数参数　195<br>6.6.3　调用另外一个方法并且使用其返回值(也可以没有返回值)　195<br>6.6.4　引入其他Bean的定义文件　196<br>6.7　Bean包装器(Wrapper)和属性编辑器(PropertyEditor)　197<br>6.7.1　BeanWrapper简介　197<br>6.7.2　JavaBean属性的设置、获取及嵌套　197<br>6.7.3　属性编辑器　200<br>6.8　Spring验证机制初探　202<br>6.9　小结　203<br><br>第7章　Spring面向方面编程基础　204<br>7.1　Spring AOP基础概念　204<br>7.1.1　AOP联盟简介　204<br>7.1.2　Spring AOP功能简介　205<br>7.1.3　Spring AOP概念重整　206<br>7.2　Spring AOP编程起步　207<br>7.2.1　陈旧案例重现　207<br>7.2.2　抽离关注点　208<br>7.2.3　划分切入点　210<br>7.2.4　结合Spring AOP和IoC：声明配置　212<br>7.3　Spring AOP代理和代理工厂　213<br>7.3.1　Spring代理工厂简介　214<br>7.3.2　使用ProxyFactory　214<br>7.3.3　使用ProxyFactoryBean　215<br>7.3.4　使用ProxyFactoryBean暴露的属性　215<br>7.3.5　选择合适的AOP代理　218<br>7.4　Spring AOP建议(Advice)　219<br>7.4.1　前置建议(Before Advice)　219<br>7.4.2　返回后(后置)建议(After Returning Advice)　224<br>7.4.3　环绕拦截建议(Interception Around Advice)　230<br>7.4.4　抛出建议(Throws Advice)　234<br>7.4.5　引介建议(Introduction Advice)　237<br>7.5　Spring AOP切入点(Pointcut)和顾问(Advisor)　237<br>7.5.1　未使用切入点存在的问题　237<br>7.5.2　引入切入点和顾问　237<br>7.5.3　初识切入点背后的ClassFilter和MethodMatcher接口　239<br>7.5.4　透过MethodMatcher接口了解静态和动态切入点　239<br>7.5.5　静态切入点和顾问DefaultPointcutAdvisor　242<br>7.5.6　静态切入点和顾问StaticMethodMatcherPointcut　242<br>7.5.7　静态切入点和顾问NameMatchMethodPointcut　245<br>7.5.8　使用正则表达式切入点　246<br>7.5.9　使用便利的切入点顾问(PointcutAdvisor)　247<br>7.5.10　使用动态切入点(Dynamic Pointcut)和自定义顾问(Advisor)　249<br><br>第8章　面向方面编程(AOP)高级应用　254<br>8.1　Spring AOP引介(Introduction)概述　254<br>8.2　使用混入(Mixin)实现引介(Introduction)建议　256<br>8.2.1　引入目标对象和待织入功能接口　256<br>8.2.2　给予关键引介建议　257<br>8.2.3　声明配置引介建议并测试　259<br>8.3　使用自动代理(Auto Proxy)　262<br>8.4　Spring AOP企业级服务　264<br>8.4.1　Spring AOP企业级服务菜单　264<br>8.4.2　使用TransactionProxyFactoryBean提供声明式事务管理　265<br>8.4.3　更为强大灵活的事务管理声明方式　270<br>8.4.4　使用EJB代理　272<br>8.5　小结　272<br><br>第9章　J2EE的持久化数据访问方案　273<br>9.1　传统高效的JDBC方案　273<br>9.2　基于SQL语句映射的Ibatis框架　275<br>9.2.1　IBatis简介　275<br>9.2.2　IBatis和高级ORM工具的比较　275<br>9.2.3　IBatis的应用场合　276<br>9.2.4　IBatis示例快照　276<br>9.3　流行的ORM利器Hibernate　278<br>9.3.1　Hibernate简介　278<br>9.3.2　Hibernate示例快照　279<br>9.4　再探数据访问对象(DAO)　282<br>9.4.1　传统的JDBC和DAO　282<br>9.4.2　IBatis和DAO　282<br>9.4.3　Hibernate和DAO　286<br>9.5　ORM方案的应用场合　286<br>9.6　宠物店背后的IBatis：SQL Map基本概念　286<br>9.7　宠物店背后的IBatis：XML配置文件　287<br>9.7.1　SQL Map的XML配置文件　287<br>9.7.2　使用<properties>元素引入属性文件　288<br>9.7.3　使用<setting>元素配置SqlMap　289<br>9.7.4　使用<typeAlias>元素指定别名　289<br>9.7.5　使用<transactionManager>元素配置事务策略　289<br>9.7.6　使用<datasource>元素配置数据源　290<br>9.7.7　使用<sqlMap>元素引入SQL Map映射文件　292<br>9.7.8　先行准备主控测试和子测试套件　293<br>9.8　宠物店背后的IBatis：XML映射文件　294<br>9.8.1　SQL Map的XML映射文件　294<br>9.8.2　通过Mapped Statement使用SQL　296<br>9.8.3　使用<Statements>元素指定SQL语句　296<br>9.8.4　SQL语句特殊规则　297<br>9.8.5　内联参数(Inline Parameter)简介　298<br>9.8.6　使用parameterClass指定参数类　300<br>9.8.7　基本类型输入参数　300<br>9.8.8　使用resultClass指定结果类　301<br>9.8.9　使用resultMap配置映射　302<br>9.8.10　IBatis事务处理　303<br>9.8.11　小结　304<br>9.9　宠物店背后的IBatis：XML映射文件高级特性　305<br>9.9.1　IBatis自动生成的主键　305<br>9.9.2　简单的动态SQL元素　306<br>9.9.3　缓存Mapped Statement结果集　307<br>9.9.4　缓存类型　308<br>9.9.5　动态Mapped Statement　310<br>9.9.6　运行自动测试　312<br>9.10　用Hibernate创建Spring宠物店的简易进货系统　313<br>9.10.1　Spring宠物店持久层渗入　313<br>9.10.2　实现Hibernate进货DAO：实体持久对象　314<br>9.10.3　实现Hibernate进货DAO：映射和基本配置　315<br>9.10.4　实现Hibernate进货DAO：工具类和DAO实现　317<br>9.10.5　实现Hibernate进货DAO：测试验收　318<br>9.11　小结　320<br><br>第10章　Spring和J2EE持久化数据访问　321<br>10.1　Spring对数据访问对象(DAO)的支持　321<br>10.1.1　通用的数据访问异常　321<br>10.1.2　通用的DAO抽象支持类　321<br>10.1.3　向业务对象注射DAO　322<br>10.2　Spring对JDBC的支持　324<br>10.2.1　JdbcTemplate和数据源概述　324<br>10.2.2　使用JdbcTemplate和数据源　325<br>10.2.3　对象化RDBMS操作概述　327<br>10.2.4　对象化RDBMS操作：使用MappingSqlQuery　328<br>10.2.5　对象化RDBMS操作：使用SqlUpdate　331<br>10.3　Spring对IBatis的支持　332<br>10.3.1　标准JavaBean实体和映射　332<br>10.3.2　衔接IBatis配置和DAO实现　333<br>10.3.3　关键整合点：Spring配置文件　334<br>10.3.4　添加声明式事务管理　335<br>10.4　Spring对Hibernate的支持　336<br>10.4.1　在Spring上下文中配置SessionFactory　336<br>10.4.2　重建Hibernate进货DAO伪实现　338<br>10.4.3　TDD实现规划测试案例　339<br>10.4.4　TDD实现完善基础设施　341<br>10.4.5　添加HibernateTemplate和HibernateCallback实现　341<br>10.4.6　声明式管理Hibernate本地事务　343<br>10.4.7　声明式管理Hibernate分布式事务　345<br><br>第11章　传统的企业JavaBean(EJB)　347<br>11.1　什么是EJB　347<br>11.2　什么是会话Bean(Session Bean)　348<br>11.2.1　无状态会话Bean　349<br>11.2.2　有状态会话Bean　349<br>11.2.3　何时使用会话Bean　349<br>11.3　实体Bean(Entity Bean)　350<br>11.3.1　EntityBean和Session Bean的异同　350<br>11.3.2　容器管理的持久性(CMP)　351<br>11.3.3　何时需要EntityBean　352<br>11.4　消息驱动Bean　352<br>11.4.1　Message-DrivenBean和Session以及Entity Bean的异同　353<br>11.4.2　何时使用Message-DrivenBean　353<br>11.5　定义客户端访问接口　353<br>11.5.1　远程客户端(Remote Clients)　354<br>11.5.2　本地客户端(Local Clients)　354<br>11.5.3　Local接口和CMR(Container-Managed RelationShips)　355<br>11.5.4　远程还是本地访问的选用　355<br>11.5.5　方法参数和访问方式　355<br>11.6　企业Bean的内容和命名约定　356<br>11.7　EJB和JBoss开发实践　357<br>11.7.1　JBoss的安装与启动　357<br>11.7.2　在JBoss下开发部署第一个HelloWorld EJB　360<br>11.7.3　无状态会话Bean(Stateless Session Bean)：开发和部署　364<br>11.7.4　无状态会话Bean：效果和生命周期　369<br>11.7.5　有状态会话Bean(Stateful Session Bean)：开发和部署　370<br>11.7.6　有状态会话Bean(Stateful Session Bean)：效果和生命周期　376<br>11.8　小结　377<br><br>第12章　Spring和EJB　378<br>12.1　概述　378<br>12.2　Spring对EJB提供的支持　378<br>12.3　Spring的EJB抽象访问层　379<br>12.3.1　深入BeanFactoryLocator接口　380<br>12.3.2　BeanFactoryLocator背后资源消耗的考量　382<br>12.4　使用Spring构建本地无状态会话Bean　383<br>12.4.1　提供业务契约：公共服务接口　384<br>12.4.2　提供本地和本地Home接口　384<br>12.4.3　提供可测试的业务委托：POJO实现类　385<br>12.4.4　提供Spring介入的企业Bean实现主类　385<br>12.4.5　给出EJB组件部署描述符　386<br>12.4.6　给出Spring和特定EJB容器配置，发布EJB　387<br>12.4.7　创建Web客户端，配置Web应用　388<br>12.4.8　解析Spring配置：SLSB代理工厂Bean　389<br>12.4.9　创建Servlet测试SLSB，发布Web客户包　390<br>12.5　使用Spring构建本地有状态会话Bean　391<br>12.5.1　SFSB解决方案　391<br>12.5.2　提供业务契约：公共服务接口　392<br>12.5.3　提供本地和本地Home接口　392<br>12.5.4　提供可测试的业务委托：POJO实现类　393<br>12.5.5　提供Spring介入的企业Bean实现主类　394<br>12.5.6　提供定制的EJB异常　396<br>12.5.7　给出部署表述符和Spring配置文件　396<br>12.5.8　创建Web客户端并配置Web应用　397<br>12.5.9　解析Spring配置：使用JndiObjectFactoryBean自动查找JNDI　398<br>12.5.10　创建Servlet测试SFSB并发布Web客户包　399<br>12.6　Spring眼中的EJB　400<br>12.6.1　EJB的缺点　400<br>12.6.2　Spring提倡的J2EE轻量架构理念：IoC/DI、AOP、装配和粘合　400<br><br>第13章　Spring和邮件服务　402<br>13.1　Spring邮件抽象层　402<br>13.2　使用Spring邮件抽象发送简单文本邮件　404<br>13.2.1　定义抽象父类模板　404<br>13.2.2　实现邮件发送子类　405<br>13.2.3　更灵活的实现　406<br>13.2.4　特定功能的子类实现　409<br>13.3　发送HTML MIME邮件的设计实现　409<br>13.3.1　分析设计和初步实现　410<br>13.3.2　定义MailMessage实体　411<br>13.3.3　功能实现和配置　413<br>13.4　发送HTML/纯文本MIME邮件，使用接口回调　415<br>13.4.1　回调的契机　415<br>13.4.2　功能实现和配置　415<br>13.5　小结　418<br><br>第14章　Spring和排程(scheduling)技术　419<br>14.1　排程(Scheduling)原理　419<br>14.2　什么是Timer　419<br>14.2.1　执行一次　420<br>14.2.2　周期执行　421<br>14.3　Spring对Timer的支持　422<br>14.3.1　用Spring来控制Timer　422<br>14.3.2　使用MethodInvokingTimerTaskFactoryBean工厂类　424<br>14.4　什么是Quartz　426<br>14.4.1　Quartz的核心概念　426<br>14.4.2　使用SimpleTrigger排程　426<br>14.4.3　使用CronTrigger排程　430<br>14.5　Spring对Quartz的支持　433<br>14.5.1　使用Spring支持Quartz SimpleTrigger排程　433<br>14.5.2　使用Spring支持Quartz CronTrigger排程　435<br>14.6　Quartz的持久化　438<br>14.6.1　Quartz持久机制的核心概念　438<br>14.6.2　使用Spring做一个JDBC有状态Quartz Job　438<br>14.6.3　JDBC持久的有状态和无状态job示例运行效果解析　441<br>14.7　小结　442<br><br>第15章　J2EE中流行的Web MVC框架　443<br>15.1　请求驱动的Web MVC框架简介　443<br>15.2　请求驱动的Web MVC框架在Struts中的实现　444<br>15.2.1　Struts的简介和基本Web配置　444<br>15.2.2　Struts的Action和ActionForm　445<br>15.2.3　Struts的核心原理　447<br>15.3　请求驱动的Web MVC框架在WebWork 2中的实现　449<br>15.3.1　WebWork 2简介　449<br>15.3.2　WebWork 2实现Web登录的页面流程　450<br>15.3.3　WebWork 2开发实践：配置Web应用　451<br>15.3.4　WebWork 2开发实践：配置验证、实现Action并绑定验证　452<br>15.3.5　WebWork 2开发实践：实现视图　454<br>15.4　事件驱动的Web MVC框架　455<br>15.4.1　简介　455<br>15.4.2　Tapestry概述　455<br>15.4.3　搭建Tapestry示例运行环境　456<br>15.4.4　Tapestry开发实践：配置Web应用　457<br>15.4.5　Tapestry开发实践：创建HTML视图模板　458<br>15.4.6　Tapestry开发实践：创建HTML组件规范文件　460<br>15.4.7　Tapestry开发实践：创建页面类　461<br>15.4.8　无需组件规范的HTML视图模板　462<br>15.5　小结　464<br><br>第16章　请求驱动的Spring Web MVC框架<br>16.1　Spring Web MVC框架简介　465<br>16.2　分发器　466<br>16.3　处理器映射　467<br>16.4　处理器拦截器　468<br>16.5　控制器简介　470<br>16.5.1　简单控制器　470<br>16.5.2　控制器抽象基类　471<br>16.5.3　命令控制器抽象基类　472<br>16.5.4　表单控制器简介　473<br>16.6　普通表单控制器　473<br>16.6.1　普通表单控制器：视图流转　473<br>16.6.2　普通表单控制器：基本配置　475<br>16.6.3　普通表单控制器：控制器和处理流程　476<br>16.6.4　普通表单控制器：表单、领域模型和视图　479<br>16.6.5　普通表单控制器：验证器和错误采集　482<br>16.7　向导式表单控制器　482<br>16.7.1　向导式表单控制器：视图流转　482<br>16.7.2　向导式表单控制器：基本配置　485<br>16.7.3　向导式表单控制器：控制器、验证器和处理流程　486<br>16.7.4　向导式表单控制器：表单、领域模型　489<br>16.8　模型、视图和视图解析(View Resovling)　490<br>16.8.1　返回视图名称　490<br>16.8.2　保存模型属性　490<br>16.8.3　视图解析器和视图抽象　491<br>16.9　小结　492<br><br>第17章　Spring和视图技术及Web框架的集成　493<br>17.1　Spring集成JSP和JSTL　493<br>17.1.1　JSP和JSTL简介　493<br>17.1.2　视图解析器　493<br>17.1.3　Spring的专有标签　497<br>17.2　Spring集成XSLT　499<br>17.2.1　XSLT简介　499<br>17.2.2　示例开发：需求和部署配置　499<br>17.2.3　示例开发：配置Web应用　500<br>17.2.4　示例开发：把模型数据转换成XML文档　500<br>17.2.5　示例开发：使用XSLT进行文档转换　503<br>17.3　Spring集成PDF/Excel　504<br>17.3.1　简介　504<br>17.3.2　示例开发：部署、配置Web应用和模型数据采集　504<br>17.3.3　示例开发：把模型数据转换成PDF和Excel视图　505<br>17.4　Spring集成Struts　508<br>17.4.1　集成概述和手法　508<br>17.4.2　Spring应用上下文装载的两种方式　509<br>17.4.3　使用Spring的ActionSupport类整合Struts　510<br>17.4.4　使用Spring的DelegatingRequestProcessor覆写Struts的RequestProcessor　512<br>17.4.5　使用Spring代理委托管理Struts Action　514<br>17.4.6　使用Spring拦截Struts Action，替换宠物店的安全策略　515<br>17.5　Spring集成WebWork2　519<br>17.6　Spring集成Tapestry4　522<br>17.6.1　Tapestry4背后的IoC容器：HiveMind　522<br>17.6.2　部署环境和逻辑分层　522<br>17.6.3　分层重构：引入表现层的业务注射，转移业务逻辑　523<br>17.6.4　分层重构：引入业务层，实现业务逻辑　524<br>17.6.5　分层重构：引入工具层，向Tapestry应用注射Spring上下文　524<br>17.6.6　集成配置：Web应用配置、修改组件规范文件　525<br>17.6.7　集成配置：通过HiveMind和工具类，衔接Spring　526<br>17.7　小结　528<br><br>第18章　Spring和单元测试　529<br>18.1　模仿对象　529<br>18.2　Spring Mock简介　529<br>18.2.1　Spring Mock Web简介　530<br>18.2.2　扩展JUnit框架的测试基类　530<br>18.3　Spring Mock快速指南　531<br>18.3.1　Web组件的单元测试：搭建测试环境　531<br>18.3.2　Web组件的单元测试：视图转发　533<br>18.3.3　Web组件的单元测试：会话状态　533<br>18.3.4　Web组件的单元测试：简单逻辑　534<br>18.3.5　事务性单元测试：使用Spring Mock事务基类搭建测试环境　535<br>18.4　EasyMock快速指南　538<br>18.4.1　EasyMock简介　538<br>18.4.2　组件单元测试：搭建测试环境　539<br>18.4.3　组件单元测试：模拟业务接口和领域对象的交互　540<br>18.4.4　组件单元测试：模拟具体类和DAO的交互　541<br>18.5　结合使用Spring Mock和EasyMock　541<br>18.5.1　Web组件单元测试：模拟控制器和业务接口、领域对象的交互　542<br>18.5.2　Web组件单元测试：重定向测试　545<br><br>第19章　Spring和JMX技术　547<br>19.1　JMX概述　547<br>19.2　JMX的体系分层架构　547<br>19.2.1　核心组件　548<br>19.2.2　设备层(Instrumentation Level)　549<br>19.2.3　代理层(Agent Level)　550<br>19.2.4　分布服务层(Distributed Service Level)　552<br>19.2.5　附加管理协议API　552<br>19.3　JMX编程实践　553<br>19.3.1　标准MBean编程：MBean接口和实现类　553<br>19.3.2　标准MBean编程：JMX Agent　554<br>19.3.3　标准MBean编程：手工和可视化注册MBean　555<br>19.3.4　通知模型编程　557<br>19.3.5　动态MBean和辅助元数据类编程　561<br>19.3.6　JMX连接器(Connectors)编程：基本流程　562<br>19.3.7　JMX Connectors编程：准备MBean套件和监听器　563<br>19.3.8　JMX Connectors编程：创建服务器　565<br>19.3.9　JMX Connectors编程：创建客户端　567<br>19.4　Spring对JMX的集成支持　568<br>19.4.1　Spring集成JMX概述　568<br>19.4.2　视Spring Bean为JMX MBean：简单的JavaBean配置　569<br>19.4.3　视Spring Bean为JMX MBean：客户代码　571<br>19.4.4　视Spring Bean为JMX MBean：自动侦测并且注册MBean　572<br>19.4.5　视Spring Bean为JMX MBean：ObjectName命名策略　574<br>19.4.6　Spring的JSR-160 Connector支持：服务器端配置和代码　576<br>19.4.7　Spring的JSR-160 Connector支持：客户端配置和代码　578<br>19.4.8　Sping集成JMX技术展望　579<br><br>第20章　从Spring宠物店看企业应用架构模式　580<br>20.1　企业应用架构模式(POEAA)简介　580<br>20.1.1　什么是企业应用架构模式　580<br>20.1.2　架构和分层　580<br>20.1.3　企业应用　580<br>20.2　宠物店和分层　581<br>20.3　宠物店和领域逻辑　582<br>20.3.1　如何组织领域逻辑　582<br>20.3.2　事务脚本　583<br>20.3.3　领域模型的基本概念　585<br>20.3.4　领域模型的持久　588<br>20.3.5　服务层　589<br>20.4　宠物店和数据源架构模式　591<br>20.5　宠物店和Web表现模式　592<br>20.5.1　模板视图　592<br>20.5.2　转换视图　592<br>20.5.3　两步视图　592 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书由浅入深、循序渐进地介绍了开源应用框架Spring的开发思想和实践。全书共分为20章，内容涵盖了Spring的基础知识体系、获取和部署方法、背后的先进核心理念、相关的部分设计模式和J2EE核心模式、核心组件Bean工厂的使用、Spring风格的面向方面编程、各种J2EE企业级应用框架和解决方案(包括持久数据访问、事务管理、EJB、邮件服务、时程安排、Web MVC框架、表现层视图技术、JMX远程方案等)、Spring和单元测试等内容。<br>　　此外本书也剖析了Spring宠物店示例，最后还讨论了宠物店和Martin Fowler企业架构模式(POEAA)的关系。<br>　　本书适用初中级读者学习，对高级用户也有很好的参考价值。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">孟劼  编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="精通Spring-Java轻量级架构开发实践(含盘)" border="1" height="216" src="/Images/BookCovers/9787115150295.jpg" style="border:1px   solid   #B0B0B0" title="精通Spring-Java轻量级架构开发实践(含盘)" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：孟劼  编著
+                                                                    <br />
+                                                                    书名：精通Spring-Java轻量级架构开发实践(含盘)<br />
+                                                                    字数：939000<br />
+                                                                    出版时间：2006年10月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115150295<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥68.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章　Spring基础知识　1<br>1.1　Spring的来历和目标　1<br>1.2　Spring概览　2<br>1.3　Spring的应用场景　3<br>1.4　Spring和J2EE　5<br>1.4.1　经典J2EE体系架构　5<br>1.4.2　轻量级容器　6<br>1.4.3　Spring和J2EE的关系　6<br>1.5　小结　6<br><br>第2章　开始Spring之旅　7<br>2.1　获取Spring　7<br>2.1.1　两大开源网站简介　7<br>2.1.2　获取Spring发布包和源代码　7<br>2.2　Spring的标准发布包和相关软件包　9<br>2.2.1　Spring标准发布包　9<br>2.2.2　Spring相关软件包　10<br>2.2.3　Spring自带范例　12<br>2.3　部署Spring　13<br>2.4　Spring应用初体验　14<br>2.4.1　Hello World遇到的问题　14<br>2.4.2　使用Spring对Hello World进行重构　20<br>2.4.3　实现依赖注射(DI)　22<br>2.4.4　重构总结　24<br>2.4.5　简单的Web应用程序Hello World　24<br>2.5　小结　26<br><br>第3章　贯穿Spring应用的核心理念　27<br>3.1　轻量级容器再探　27<br>3.1.1　容器和轻量级容器　27<br>3.1.2　需要容器的理由　28<br>3.1.3　轻量级容器的优势　28<br>3.2　控制反转(IoC)　28<br>3.2.1　一个简单的例子　29<br>3.2.2　引入问题　31<br>3.2.3　使用控制反转(Inversion of Control)模式　32<br>3.2.4　总结　33<br>3.3　依赖注射　34<br>3.3.1　依赖注射的几种形式　35<br>3.3.2　使用Spring 进行设值方法和构造函数注射　35<br>3.3.3　设值方法注射和构造函数注射的使用场合　36<br>3.4　面向方面编程(Aspect Oriented Programming)　37<br>3.4.1　AOP的历史来源　37<br>3.4.2　为什么需要AOP　38<br>3.4.3　AOP的重要概念　39<br>3.4.4　理解“横切”　41<br>3.4.5　AOP的实现策略　43<br>3.4.6　认识AspectJ　44<br>3.4.7　安装AspectJ的运行环境　44<br>3.4.8　用J2SE动态代理实现AOP　47<br>3.4.9　用AspectJ实现AOP　51<br>3.4.10　深入理解AspectJ　54<br>3.5　单元测试(Unit Test)　58<br>3.5.1　单元测试和JUnit框架　59<br>3.5.2　JUnit框架的3个核心概念　60<br>3.5.3　准备测试　60<br>3.5.4　添加测试代码并进行测试　62<br>3.5.5　取得更有意义的出错信息　63<br>3.5.6　捕捉错误信息　64<br>3.5.7　单元测试技巧　65<br>3.6　测试驱动开发(Test Driven Development)　67<br>3.6.1　传统测试的问题　67<br>3.6.2　测试驱动开发的应对策略　68<br>3.6.3　一个简单的示例　68<br>3.6.4　总结测试驱动开发的优势　73<br>3.7 小结　74<br><br>第4章　模式：Spring前行的路标　75<br>4.1　模式(Pattern)入门　75<br>4.1.1　什么是模式　75<br>4.1.2　不用模式产生的问题　76<br>4.1.3　通过实例理解模式本质　79<br>4.1.4　小结　81<br>4.2　工厂模式(Design Pattern：Factory Method)的精髓　81<br>4.2.1　引入问题　82<br>4.2.2　解决方法　83<br>4.2.3　工厂模式和依赖倒置的关系　85<br>4.3　单例模式(Design Pattern：Singleton)　88<br>4.3.1　单例模式的实现　88<br>4.3.2　单例注册表　89<br>4.4　模板模式和策略模式(Design Pattern：Template Method And Strategy)　91<br>4.4.1　模板模式　92<br>4.4.2　策略模式　95<br>4.5　代理模式(Design Pattern：Proxy)　100<br>4.5.1　第一个代理模式的例子　100<br>4.5.2　虚拟代理(Virtual Proxy)　103<br>4.6　数据访问对象模式(J2EE Pattern：Data Access Object)　105<br>4.7　模型视图控制器模式(Architecture/Framework Pattern：Model View Controller)　113<br>4.7.1　Model 1和Model 2简介　114<br>4.7.2　一个Model 2框架示例　115<br>4.8　框架与模式的关系　120<br>4.9　Spring和工厂模式　121<br>4.9.1　Spring工厂体系的另类视图　121<br>4.9.2　Spring工厂核心原理　122<br>4.10　Spring和单例模式　123<br>4.11　Spring的模板以及策略模式　125<br>4.11.1　Spring模板模式　125<br>4.11.2　Spring策略模式　126<br>4.12　Spring和代理模式　128<br>4.13　Spring和数据访问对象模式　129<br>4.14　Spring和MVC模式　131<br><br>第5章　Spring核心Bean工厂装配指南　133<br>5.1　核心Bean工厂　133<br>5.1.1　初识Bean工厂　133<br>5.1.2　拥有一份Bean的基础定义　135<br>5.1.3　使用构造函数创建Bean　136<br>5.1.4　使用静态工厂方法创建Bean　136<br>5.1.5　使用实例工厂方法创建Bean　137<br>5.1.6　Bean的标识符　139<br>5.1.7　是否使用Singleton　139<br>5.2　装配各种应用协作对象：Bean　141<br>5.2.1　设置Bean的属性和协作者　141<br>5.2.2　Bean的依赖决议　146<br>5.2.3　构造子参数决议　147<br>5.2.4　自动装配(Autowiring)　150<br>5.2.5　依赖检查　152<br>5.3　Bean属性和构造函数参数的细节　153<br>5.3.1　使用value元素设定属性　153<br>5.3.2　使用null元素设定空值　154<br>5.3.3　使用collection(集合)元素定义集合　154<br>5.3.4　通过嵌套Bean元素来定义内部Bean(innerBean)　157<br>5.3.5　使用idref元素预检错误　158<br>5.3.6　使用ref元素设定依赖　158<br>5.3.7　value与ref的简写式　161<br>5.3.8　使用depends-on属性强制依赖　162<br>5.4　方法也可以被注射　162<br>5.4.1　使用Lookup方法注射　162<br>5.4.2　替换任意方法　164<br>5.5　定制Bean的一些原生属性　165<br>5.5.1　生命周期接口　165<br>5.5.2　让Bean“知道”自己的身份　167<br>5.5.3　什么是FactoryBean　169<br>5.6　父和子Bean的定义　170<br>5.7　使用后处理器(Post-Processor)　173<br>5.7.1　使用BeanPostProcessor定制Bean　173<br>5.7.2　使用BeanFactoryPostProcessor定制Bean工厂　175<br>5.7.3　使用自定义的PropertyEditor　177<br><br>第6章　ApplicationContext和更多特性　178<br>6.1　ApplicationContext简介　178<br>6.2　ApplicationContext的扩展功能　178<br>6.2.1　资源国际化　178<br>6.2.2　事件传播　181<br>6.2.3　底层资源和ApplicationContext　184<br>6.3　在ApplicationContext中客制Bean的属性和行为　188<br>6.4　使用自定义的PropertyEditors　189<br>6.5　创建Web应用上下文　192<br>6.6　更多的轻松装配方式　193<br>6.6.1　从属性表达式来设置Bean的属性或者构造函数参数　193<br>6.6.2　从一个字段值来设置Bean的属性或者构造函数参数　195<br>6.6.3　调用另外一个方法并且使用其返回值(也可以没有返回值)　195<br>6.6.4　引入其他Bean的定义文件　196<br>6.7　Bean包装器(Wrapper)和属性编辑器(PropertyEditor)　197<br>6.7.1　BeanWrapper简介　197<br>6.7.2　JavaBean属性的设置、获取及嵌套　197<br>6.7.3　属性编辑器　200<br>6.8　Spring验证机制初探　202<br>6.9　小结　203<br><br>第7章　Spring面向方面编程基础　204<br>7.1　Spring AOP基础概念　204<br>7.1.1　AOP联盟简介　204<br>7.1.2　Spring AOP功能简介　205<br>7.1.3　Spring AOP概念重整　206<br>7.2　Spring AOP编程起步　207<br>7.2.1　陈旧案例重现　207<br>7.2.2　抽离关注点　208<br>7.2.3　划分切入点　210<br>7.2.4　结合Spring AOP和IoC：声明配置　212<br>7.3　Spring AOP代理和代理工厂　213<br>7.3.1　Spring代理工厂简介　214<br>7.3.2　使用ProxyFactory　214<br>7.3.3　使用ProxyFactoryBean　215<br>7.3.4　使用ProxyFactoryBean暴露的属性　215<br>7.3.5　选择合适的AOP代理　218<br>7.4　Spring AOP建议(Advice)　219<br>7.4.1　前置建议(Before Advice)　219<br>7.4.2　返回后(后置)建议(After Returning Advice)　224<br>7.4.3　环绕拦截建议(Interception Around Advice)　230<br>7.4.4　抛出建议(Throws Advice)　234<br>7.4.5　引介建议(Introduction Advice)　237<br>7.5　Spring AOP切入点(Pointcut)和顾问(Advisor)　237<br>7.5.1　未使用切入点存在的问题　237<br>7.5.2　引入切入点和顾问　237<br>7.5.3　初识切入点背后的ClassFilter和MethodMatcher接口　239<br>7.5.4　透过MethodMatcher接口了解静态和动态切入点　239<br>7.5.5　静态切入点和顾问DefaultPointcutAdvisor　242<br>7.5.6　静态切入点和顾问StaticMethodMatcherPointcut　242<br>7.5.7　静态切入点和顾问NameMatchMethodPointcut　245<br>7.5.8　使用正则表达式切入点　246<br>7.5.9　使用便利的切入点顾问(PointcutAdvisor)　247<br>7.5.10　使用动态切入点(Dynamic Pointcut)和自定义顾问(Advisor)　249<br><br>第8章　面向方面编程(AOP)高级应用　254<br>8.1　Spring AOP引介(Introduction)概述　254<br>8.2　使用混入(Mixin)实现引介(Introduction)建议　256<br>8.2.1　引入目标对象和待织入功能接口　256<br>8.2.2　给予关键引介建议　257<br>8.2.3　声明配置引介建议并测试　259<br>8.3　使用自动代理(Auto Proxy)　262<br>8.4　Spring AOP企业级服务　264<br>8.4.1　Spring AOP企业级服务菜单　264<br>8.4.2　使用TransactionProxyFactoryBean提供声明式事务管理　265<br>8.4.3　更为强大灵活的事务管理声明方式　270<br>8.4.4　使用EJB代理　272<br>8.5　小结　272<br><br>第9章　J2EE的持久化数据访问方案　273<br>9.1　传统高效的JDBC方案　273<br>9.2　基于SQL语句映射的Ibatis框架　275<br>9.2.1　IBatis简介　275<br>9.2.2　IBatis和高级ORM工具的比较　275<br>9.2.3　IBatis的应用场合　276<br>9.2.4　IBatis示例快照　276<br>9.3　流行的ORM利器Hibernate　278<br>9.3.1　Hibernate简介　278<br>9.3.2　Hibernate示例快照　279<br>9.4　再探数据访问对象(DAO)　282<br>9.4.1　传统的JDBC和DAO　282<br>9.4.2　IBatis和DAO　282<br>9.4.3　Hibernate和DAO　286<br>9.5　ORM方案的应用场合　286<br>9.6　宠物店背后的IBatis：SQL Map基本概念　286<br>9.7　宠物店背后的IBatis：XML配置文件　287<br>9.7.1　SQL Map的XML配置文件　287<br>9.7.2　使用<properties>元素引入属性文件　288<br>9.7.3　使用<setting>元素配置SqlMap　289<br>9.7.4　使用<typeAlias>元素指定别名　289<br>9.7.5　使用<transactionManager>元素配置事务策略　289<br>9.7.6　使用<datasource>元素配置数据源　290<br>9.7.7　使用<sqlMap>元素引入SQL Map映射文件　292<br>9.7.8　先行准备主控测试和子测试套件　293<br>9.8　宠物店背后的IBatis：XML映射文件　294<br>9.8.1　SQL Map的XML映射文件　294<br>9.8.2　通过Mapped Statement使用SQL　296<br>9.8.3　使用<Statements>元素指定SQL语句　296<br>9.8.4　SQL语句特殊规则　297<br>9.8.5　内联参数(Inline Parameter)简介　298<br>9.8.6　使用parameterClass指定参数类　300<br>9.8.7　基本类型输入参数　300<br>9.8.8　使用resultClass指定结果类　301<br>9.8.9　使用resultMap配置映射　302<br>9.8.10　IBatis事务处理　303<br>9.8.11　小结　304<br>9.9　宠物店背后的IBatis：XML映射文件高级特性　305<br>9.9.1　IBatis自动生成的主键　305<br>9.9.2　简单的动态SQL元素　306<br>9.9.3　缓存Mapped Statement结果集　307<br>9.9.4　缓存类型　308<br>9.9.5　动态Mapped Statement　310<br>9.9.6　运行自动测试　312<br>9.10　用Hibernate创建Spring宠物店的简易进货系统　313<br>9.10.1　Spring宠物店持久层渗入　313<br>9.10.2　实现Hibernate进货DAO：实体持久对象　314<br>9.10.3　实现Hibernate进货DAO：映射和基本配置　315<br>9.10.4　实现Hibernate进货DAO：工具类和DAO实现　317<br>9.10.5　实现Hibernate进货DAO：测试验收　318<br>9.11　小结　320<br><br>第10章　Spring和J2EE持久化数据访问　321<br>10.1　Spring对数据访问对象(DAO)的支持　321<br>10.1.1　通用的数据访问异常　321<br>10.1.2　通用的DAO抽象支持类　321<br>10.1.3　向业务对象注射DAO　322<br>10.2　Spring对JDBC的支持　324<br>10.2.1　JdbcTemplate和数据源概述　324<br>10.2.2　使用JdbcTemplate和数据源　325<br>10.2.3　对象化RDBMS操作概述　327<br>10.2.4　对象化RDBMS操作：使用MappingSqlQuery　328<br>10.2.5　对象化RDBMS操作：使用SqlUpdate　331<br>10.3　Spring对IBatis的支持　332<br>10.3.1　标准JavaBean实体和映射　332<br>10.3.2　衔接IBatis配置和DAO实现　333<br>10.3.3　关键整合点：Spring配置文件　334<br>10.3.4　添加声明式事务管理　335<br>10.4　Spring对Hibernate的支持　336<br>10.4.1　在Spring上下文中配置SessionFactory　336<br>10.4.2　重建Hibernate进货DAO伪实现　338<br>10.4.3　TDD实现规划测试案例　339<br>10.4.4　TDD实现完善基础设施　341<br>10.4.5　添加HibernateTemplate和HibernateCallback实现　341<br>10.4.6　声明式管理Hibernate本地事务　343<br>10.4.7　声明式管理Hibernate分布式事务　345<br><br>第11章　传统的企业JavaBean(EJB)　347<br>11.1　什么是EJB　347<br>11.2　什么是会话Bean(Session Bean)　348<br>11.2.1　无状态会话Bean　349<br>11.2.2　有状态会话Bean　349<br>11.2.3　何时使用会话Bean　349<br>11.3　实体Bean(Entity Bean)　350<br>11.3.1　EntityBean和Session Bean的异同　350<br>11.3.2　容器管理的持久性(CMP)　351<br>11.3.3　何时需要EntityBean　352<br>11.4　消息驱动Bean　352<br>11.4.1　Message-DrivenBean和Session以及Entity Bean的异同　353<br>11.4.2　何时使用Message-DrivenBean　353<br>11.5　定义客户端访问接口　353<br>11.5.1　远程客户端(Remote Clients)　354<br>11.5.2　本地客户端(Local Clients)　354<br>11.5.3　Local接口和CMR(Container-Managed RelationShips)　355<br>11.5.4　远程还是本地访问的选用　355<br>11.5.5　方法参数和访问方式　355<br>11.6　企业Bean的内容和命名约定　356<br>11.7　EJB和JBoss开发实践　357<br>11.7.1　JBoss的安装与启动　357<br>11.7.2　在JBoss下开发部署第一个HelloWorld EJB　360<br>11.7.3　无状态会话Bean(Stateless Session Bean)：开发和部署　364<br>11.7.4　无状态会话Bean：效果和生命周期　369<br>11.7.5　有状态会话Bean(Stateful Session Bean)：开发和部署　370<br>11.7.6　有状态会话Bean(Stateful Session Bean)：效果和生命周期　376<br>11.8　小结　377<br><br>第12章　Spring和EJB　378<br>12.1　概述　378<br>12.2　Spring对EJB提供的支持　378<br>12.3　Spring的EJB抽象访问层　379<br>12.3.1　深入BeanFactoryLocator接口　380<br>12.3.2　BeanFactoryLocator背后资源消耗的考量　382<br>12.4　使用Spring构建本地无状态会话Bean　383<br>12.4.1　提供业务契约：公共服务接口　384<br>12.4.2　提供本地和本地Home接口　384<br>12.4.3　提供可测试的业务委托：POJO实现类　385<br>12.4.4　提供Spring介入的企业Bean实现主类　385<br>12.4.5　给出EJB组件部署描述符　386<br>12.4.6　给出Spring和特定EJB容器配置，发布EJB　387<br>12.4.7　创建Web客户端，配置Web应用　388<br>12.4.8　解析Spring配置：SLSB代理工厂Bean　389<br>12.4.9　创建Servlet测试SLSB，发布Web客户包　390<br>12.5　使用Spring构建本地有状态会话Bean　391<br>12.5.1　SFSB解决方案　391<br>12.5.2　提供业务契约：公共服务接口　392<br>12.5.3　提供本地和本地Home接口　392<br>12.5.4　提供可测试的业务委托：POJO实现类　393<br>12.5.5　提供Spring介入的企业Bean实现主类　394<br>12.5.6　提供定制的EJB异常　396<br>12.5.7　给出部署表述符和Spring配置文件　396<br>12.5.8　创建Web客户端并配置Web应用　397<br>12.5.9　解析Spring配置：使用JndiObjectFactoryBean自动查找JNDI　398<br>12.5.10　创建Servlet测试SFSB并发布Web客户包　399<br>12.6　Spring眼中的EJB　400<br>12.6.1　EJB的缺点　400<br>12.6.2　Spring提倡的J2EE轻量架构理念：IoC/DI、AOP、装配和粘合　400<br><br>第13章　Spring和邮件服务　402<br>13.1　Spring邮件抽象层　402<br>13.2　使用Spring邮件抽象发送简单文本邮件　404<br>13.2.1　定义抽象父类模板　404<br>13.2.2　实现邮件发送子类　405<br>13.2.3　更灵活的实现　406<br>13.2.4　特定功能的子类实现　409<br>13.3　发送HTML MIME邮件的设计实现　409<br>13.3.1　分析设计和初步实现　410<br>13.3.2　定义MailMessage实体　411<br>13.3.3　功能实现和配置　413<br>13.4　发送HTML/纯文本MIME邮件，使用接口回调　415<br>13.4.1　回调的契机　415<br>13.4.2　功能实现和配置　415<br>13.5　小结　418<br><br>第14章　Spring和排程(scheduling)技术　419<br>14.1　排程(Scheduling)原理　419<br>14.2　什么是Timer　419<br>14.2.1　执行一次　420<br>14.2.2　周期执行　421<br>14.3　Spring对Timer的支持　422<br>14.3.1　用Spring来控制Timer　422<br>14.3.2　使用MethodInvokingTimerTaskFactoryBean工厂类　424<br>14.4　什么是Quartz　426<br>14.4.1　Quartz的核心概念　426<br>14.4.2　使用SimpleTrigger排程　426<br>14.4.3　使用CronTrigger排程　430<br>14.5　Spring对Quartz的支持　433<br>14.5.1　使用Spring支持Quartz SimpleTrigger排程　433<br>14.5.2　使用Spring支持Quartz CronTrigger排程　435<br>14.6　Quartz的持久化　438<br>14.6.1　Quartz持久机制的核心概念　438<br>14.6.2　使用Spring做一个JDBC有状态Quartz Job　438<br>14.6.3　JDBC持久的有状态和无状态job示例运行效果解析　441<br>14.7　小结　442<br><br>第15章　J2EE中流行的Web MVC框架　443<br>15.1　请求驱动的Web MVC框架简介　443<br>15.2　请求驱动的Web MVC框架在Struts中的实现　444<br>15.2.1　Struts的简介和基本Web配置　444<br>15.2.2　Struts的Action和ActionForm　445<br>15.2.3　Struts的核心原理　447<br>15.3　请求驱动的Web MVC框架在WebWork 2中的实现　449<br>15.3.1　WebWork 2简介　449<br>15.3.2　WebWork 2实现Web登录的页面流程　450<br>15.3.3　WebWork 2开发实践：配置Web应用　451<br>15.3.4　WebWork 2开发实践：配置验证、实现Action并绑定验证　452<br>15.3.5　WebWork 2开发实践：实现视图　454<br>15.4　事件驱动的Web MVC框架　455<br>15.4.1　简介　455<br>15.4.2　Tapestry概述　455<br>15.4.3　搭建Tapestry示例运行环境　456<br>15.4.4　Tapestry开发实践：配置Web应用　457<br>15.4.5　Tapestry开发实践：创建HTML视图模板　458<br>15.4.6　Tapestry开发实践：创建HTML组件规范文件　460<br>15.4.7　Tapestry开发实践：创建页面类　461<br>15.4.8　无需组件规范的HTML视图模板　462<br>15.5　小结　464<br><br>第16章　请求驱动的Spring Web MVC框架<br>16.1　Spring Web MVC框架简介　465<br>16.2　分发器　466<br>16.3　处理器映射　467<br>16.4　处理器拦截器　468<br>16.5　控制器简介　470<br>16.5.1　简单控制器　470<br>16.5.2　控制器抽象基类　471<br>16.5.3　命令控制器抽象基类　472<br>16.5.4　表单控制器简介　473<br>16.6　普通表单控制器　473<br>16.6.1　普通表单控制器：视图流转　473<br>16.6.2　普通表单控制器：基本配置　475<br>16.6.3　普通表单控制器：控制器和处理流程　476<br>16.6.4　普通表单控制器：表单、领域模型和视图　479<br>16.6.5　普通表单控制器：验证器和错误采集　482<br>16.7　向导式表单控制器　482<br>16.7.1　向导式表单控制器：视图流转　482<br>16.7.2　向导式表单控制器：基本配置　485<br>16.7.3　向导式表单控制器：控制器、验证器和处理流程　486<br>16.7.4　向导式表单控制器：表单、领域模型　489<br>16.8　模型、视图和视图解析(View Resovling)　490<br>16.8.1　返回视图名称　490<br>16.8.2　保存模型属性　490<br>16.8.3　视图解析器和视图抽象　491<br>16.9　小结　492<br><br>第17章　Spring和视图技术及Web框架的集成　493<br>17.1　Spring集成JSP和JSTL　493<br>17.1.1　JSP和JSTL简介　493<br>17.1.2　视图解析器　493<br>17.1.3　Spring的专有标签　497<br>17.2　Spring集成XSLT　499<br>17.2.1　XSLT简介　499<br>17.2.2　示例开发：需求和部署配置　499<br>17.2.3　示例开发：配置Web应用　500<br>17.2.4　示例开发：把模型数据转换成XML文档　500<br>17.2.5　示例开发：使用XSLT进行文档转换　503<br>17.3　Spring集成PDF/Excel　504<br>17.3.1　简介　504<br>17.3.2　示例开发：部署、配置Web应用和模型数据采集　504<br>17.3.3　示例开发：把模型数据转换成PDF和Excel视图　505<br>17.4　Spring集成Struts　508<br>17.4.1　集成概述和手法　508<br>17.4.2　Spring应用上下文装载的两种方式　509<br>17.4.3　使用Spring的ActionSupport类整合Struts　510<br>17.4.4　使用Spring的DelegatingRequestProcessor覆写Struts的RequestProcessor　512<br>17.4.5　使用Spring代理委托管理Struts Action　514<br>17.4.6　使用Spring拦截Struts Action，替换宠物店的安全策略　515<br>17.5　Spring集成WebWork2　519<br>17.6　Spring集成Tapestry4　522<br>17.6.1　Tapestry4背后的IoC容器：HiveMind　522<br>17.6.2　部署环境和逻辑分层　522<br>17.6.3　分层重构：引入表现层的业务注射，转移业务逻辑　523<br>17.6.4　分层重构：引入业务层，实现业务逻辑　524<br>17.6.5　分层重构：引入工具层，向Tapestry应用注射Spring上下文　524<br>17.6.6　集成配置：Web应用配置、修改组件规范文件　525<br>17.6.7　集成配置：通过HiveMind和工具类，衔接Spring　526<br>17.7　小结　528<br><br>第18章　Spring和单元测试　529<br>18.1　模仿对象　529<br>18.2　Spring Mock简介　529<br>18.2.1　Spring Mock Web简介　530<br>18.2.2　扩展JUnit框架的测试基类　530<br>18.3　Spring Mock快速指南　531<br>18.3.1　Web组件的单元测试：搭建测试环境　531<br>18.3.2　Web组件的单元测试：视图转发　533<br>18.3.3　Web组件的单元测试：会话状态　533<br>18.3.4　Web组件的单元测试：简单逻辑　534<br>18.3.5　事务性单元测试：使用Spring Mock事务基类搭建测试环境　535<br>18.4　EasyMock快速指南　538<br>18.4.1　EasyMock简介　538<br>18.4.2　组件单元测试：搭建测试环境　539<br>18.4.3　组件单元测试：模拟业务接口和领域对象的交互　540<br>18.4.4　组件单元测试：模拟具体类和DAO的交互　541<br>18.5　结合使用Spring Mock和EasyMock　541<br>18.5.1　Web组件单元测试：模拟控制器和业务接口、领域对象的交互　542<br>18.5.2　Web组件单元测试：重定向测试　545<br><br>第19章　Spring和JMX技术　547<br>19.1　JMX概述　547<br>19.2　JMX的体系分层架构　547<br>19.2.1　核心组件　548<br>19.2.2　设备层(Instrumentation Level)　549<br>19.2.3　代理层(Agent Level)　550<br>19.2.4　分布服务层(Distributed Service Level)　552<br>19.2.5　附加管理协议API　552<br>19.3　JMX编程实践　553<br>19.3.1　标准MBean编程：MBean接口和实现类　553<br>19.3.2　标准MBean编程：JMX Agent　554<br>19.3.3　标准MBean编程：手工和可视化注册MBean　555<br>19.3.4　通知模型编程　557<br>19.3.5　动态MBean和辅助元数据类编程　561<br>19.3.6　JMX连接器(Connectors)编程：基本流程　562<br>19.3.7　JMX Connectors编程：准备MBean套件和监听器　563<br>19.3.8　JMX Connectors编程：创建服务器　565<br>19.3.9　JMX Connectors编程：创建客户端　567<br>19.4　Spring对JMX的集成支持　568<br>19.4.1　Spring集成JMX概述　568<br>19.4.2　视Spring Bean为JMX MBean：简单的JavaBean配置　569<br>19.4.3　视Spring Bean为JMX MBean：客户代码　571<br>19.4.4　视Spring Bean为JMX MBean：自动侦测并且注册MBean　572<br>19.4.5　视Spring Bean为JMX MBean：ObjectName命名策略　574<br>19.4.6　Spring的JSR-160 Connector支持：服务器端配置和代码　576<br>19.4.7　Spring的JSR-160 Connector支持：客户端配置和代码　578<br>19.4.8　Sping集成JMX技术展望　579<br><br>第20章　从Spring宠物店看企业应用架构模式　580<br>20.1　企业应用架构模式(POEAA)简介　580<br>20.1.1　什么是企业应用架构模式　580<br>20.1.2　架构和分层　580<br>20.1.3　企业应用　580<br>20.2　宠物店和分层　581<br>20.3　宠物店和领域逻辑　582<br>20.3.1　如何组织领域逻辑　582<br>20.3.2　事务脚本　583<br>20.3.3　领域模型的基本概念　585<br>20.3.4　领域模型的持久　588<br>20.3.5　服务层　589<br>20.4　宠物店和数据源架构模式　591<br>20.5　宠物店和Web表现模式　592<br>20.5.1　模板视图　592<br>20.5.2　转换视图　592<br>20.5.3　两步视图　592 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书由浅入深、循序渐进地介绍了开源应用框架Spring的开发思想和实践。全书共分为20章，内容涵盖了Spring的基础知识体系、获取和部署方法、背后的先进核心理念、相关的部分设计模式和J2EE核心模式、核心组件Bean工厂的使用、Spring风格的面向方面编程、各种J2EE企业级应用框架和解决方案(包括持久数据访问、事务管理、EJB、邮件服务、时程安排、Web MVC框架、表现层视图技术、JMX远程方案等)、Spring和单元测试等内容。<br>　　此外本书也剖析了Spring宠物店示例，最后还讨论了宠物店和Martin Fowler企业架构模式(POEAA)的关系。<br>　　本书适用初中级读者学习，对高级用户也有很好的参考价值。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">孟劼  编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

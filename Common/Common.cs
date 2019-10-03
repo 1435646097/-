@@ -72,5 +72,37 @@ namespace Common
             context.Response.Cookies["cp2"].Expires = DateTime.Now.AddDays(-1);
             return isSuccess;
         }
+        /// <summary>
+        /// 获取时间差
+        /// </summary>
+        /// <param name="ts"></param>
+        /// <returns></returns>
+        public static string GetTimeSpan(TimeSpan ts)
+        {
+            if (ts.TotalDays > 365)
+            {
+                return Math.Floor(ts.TotalDays / 365) + "年前";
+            }
+            else if (ts.TotalDays > 30)
+            {
+                return Math.Floor(ts.TotalDays / 30) + "月前";
+            }
+            else if (ts.TotalHours > 24)
+            {
+                return Math.Floor(ts.TotalHours / 24) + "天前";
+            }
+            else if (ts.TotalHours > 1)
+            {
+                return Math.Floor(ts.TotalHours) + "小时前";
+            }
+            else if (ts.Minutes > 1)
+            {
+                return Math.Floor(ts.Minutes * 1.0) + "分钟前";
+            }
+            else
+            {
+                return "刚刚";
+            }
+        }
     }
 }

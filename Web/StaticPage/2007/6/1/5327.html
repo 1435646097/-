@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5327, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5327 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">ADO.NET2.0高级程序设计 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="ADO.NET2.0高级程序设计" border="1" height="216"  src="/Images/BookCovers/9787115158680.jpg" style="border:1px   solid   #B0B0B0" title="ADO.NET2.0高级程序设计" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（美）马利克  著，汤涛，邰晓翠  译
-                                        <br />
-                                        书名：ADO.NET2.0高级程序设计<br />
-                                        字数：685000<br />
-                                        出版时间：2007年6月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115158680<br />
-                                        <font color="#CC3300">本网价：<strong>￥59.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        ADO.NET2.0高级程序设计 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章　ADO.NET概述　<br>　1.1　什么是ADO.NET　<br>　1.2　ADO的不足之处　<br>　1.3　ADO.NET中的重要对象　<br>　　1.3.1　连接对象　<br>　　1.3.2　非连接对象　<br>　1.4　.NET数据提供程序　<br>　　1.4.1　使用ProviderBase模型　<br>　　1.4.2　第三方.NET数据提供程序　<br>　1.5　System.Data.Design命名空间　<br>　1.6　小结　<br>第2章　ADO.NET对象模型　<br>　2.1　本章可用作参考　<br>　2.2　ADO.NET鸟瞰　<br>　2.3　建立连接：DbConnection　<br>　2.4　执行命令：DbCommand和DbTransaction　<br>　2.5　保存非连接数据：DataSet　<br>　2.6　获取数据：DataReader和DataAdapter　<br>　　2.6.1　基于连接的方式获取数据：DbDataReader　<br>　　2.6.2　连接部分和非连接部分之间的桥梁：DbDataAdapter　<br>　2.7　ADO.NET中的异常　<br>　2.8　小结　<br>第3章　ADO.NET Hello World程序　<br>　3.1　构建Hello World程序的数据源　<br>　3.2　创建数据驱动的应用程序：拖放的方法　<br>　　3.2.1　ASP.NET 2.0中的拖放　<br>　　3.2.2　Windows窗口应用程序中的拖放　<br>　3.3　混合方法：写一些代码，用一些拖放　<br>　3.4　数据驱动的应用程序：自己编写代码的方法　<br>　3.5　小结　<br>第4章　连接到数据源　<br>　4.1　连接的能力　<br>　　4.1.1　创建连接对象　<br>　　4.1.2　生成提供程序特定的连接串　<br>　　4.1.3　编写连接串的简便方法　<br>　　4.1.4　增强连接串的安全性　<br>　4.2　公共行为：IDbConnection　<br>　4.3　公共逻辑：DbConnection　<br>　4.4　高要求的应用程序　<br>　4.5　连接池　<br>　　4.5.1　工作原理　<br>　　4.5.2　确定合适的池大小　<br>　　4.5.3　崩溃的连接池　<br>　4.6　关闭连接：良好的应用程序设计　<br>　4.7　小结　<br>第5章　在连接模式下获取数据　<br>　5.1　与数据源的通信　<br>　5.2　获取单个值　<br>　　5.2.1　要用哪个数据库执行命令　<br>　　5.2.2　要执行什么　<br>　　5.2.3　执行命令以获取结果　<br>　5.3　获取结果集　<br>　5.4　为存储而查询结果集　<br>　5.5　异步查询大结果集　<br>　5.6　从数据库查询多个结果集　<br>　5.7　面向对象与关系表示　<br>　　5.7.1　在数据库中存储对象　<br>　　5.7.2　使用SQL查询UDT数据　<br>　　5.7.3　以连接模式获取UDT数据　<br>　　5.7.4　实际使用UDT　<br>　5.8　小结　<br>第6章　DataSet　<br>　6.1　非连接模型的案例　<br>　6.2　DataSet对象模型　<br>　　6.2.1　DataTable　<br>　　6.2.2　DataColumn　<br>　　6.2.3　DataRow　<br>　　6.2.4　Constraint　<br>　　6.2.5　设置主键：PrimaryKey属性　<br>　　6.2.6　动态构建DataTable　<br>　　6.2.7　DataTable的事件　<br>　　6.2.8　DataTable事件的实际用法　<br>　6.3　关系数据　<br>　6.4　把所有内容放到一起　<br>　6.5　作为数据传输对象的DataSet　<br>　6.6　强类型DataSet：概述　<br>　　6.6.1　XSD概要　<br>　　6.6.2　DataSet架构　<br>　　6.6.3　构建强类型DataSet　<br>　　6.6.4　类型化DataSet的性能　<br>　　6.6.5　注释类型化DataSet　<br>　6.7　小结　<br>第7章　获取数据：DataAdapter　<br>　7.1　什么是DataAdaper　<br>　7.2　使用DataAdapter　<br>　　7.2.1　构建数据源　<br>　　7.2.2　查询数据表：指向并且点击　<br>　　7.2.3　查询数据表：编写代码　<br>　　7.2.4　填充DataSet：不止一个数据表　<br>　　7.2.5　查询数据库架构　<br>　7.3　映射　<br>　　7.3.1　使用SQL的AS关键字　<br>　　7.3.2　ADO.NET的映射机制　<br>　7.4　小结　<br>第8章　排序、获取和过滤　<br>　8.1　构建数据源　<br>　8.2　处理DataTable　<br>　　8.2.1　查找行　<br>　　8.2.2　选定多行记录　<br>　　8.2.3　表达式：动态计算列　<br>　　8.2.4　执行聚合计算　<br>　8.3　使用DataRelation对象　<br>　8.4　使用DataView对象　<br>　8.5　XML与非连接数据的交互　<br>　8.6　小结　<br>第9章　更新数据　<br>　9.1　更新数据表：简单拖放方法　<br>　9.2　使用命令构建器对象　<br>　9.3　DataRow中的状态管理以及在更新数据时状态管理的使用　<br>　9.4　移动大量的数据：SqlBulkCopy　<br>　9.5　编辑非连接数据　<br>　　9.5.1　添加新行　<br>　　9.5.2　修改现存行记录　<br>　　9.5.3　删除现存行记录　<br>　9.6　实际的例子　<br>　9.7　优化应用程序：GetChanges和Merge　<br>　　9.7.1　合并情况1：相同表结构，无主键　<br>　　9.7.2　合并情况2：相同表结构，有主键　<br>　　9.7.3　合并情况3：公共列，无主键　<br>　　9.7.4　合并情况4：公共列，有主键　<br>　　9.7.5　合并情况5：完全不同的表结构　<br>　　9.7.6　合并具有不同架构的两个DataSet/DataTable　<br>　9.8　使用映射名称更新记录　<br>　9.9　小结　<br>第10章　更新数据：高级进阶　<br>　10.1　冲突检测和并发解决　<br>　　10.1.1　预防冲突：交通信号灯　<br>　　10.1.2　处理冲突：事故发生后再抢救　<br>　10.2　实现并发：实践所关心的内容　<br>　　10.2.1　Null值　<br>　　10.2.2　所影响的行数和触发器　<br>　　10.2.3　更新多行记录　<br>　10.3　处理层次结构数据　<br>　　10.3.1　插入层次结构的数据　<br>　　10.3.2　更新层次化数据　<br>　　10.3.3　删除层次化数据　<br>　　10.3.4　所有的操作集中到一起：保存层次化数据　<br>　　10.3.5　代码不能用　<br>　10.4　层次化更新：结论　<br>　10.5　小结　<br>第11章　事务　<br>　11.1　什么是事务　<br>　　11.1.1　ACID属性　<br>　　11.1.2　数据库事务　<br>　　11.1.3　事务词汇表　<br>　11.2　ADO.NET的事务支持　<br>　11.3　编写事务性数据库应用程序　<br>　　11.3.1　实现事务　<br>　　11.3.2　考察隔离级别的效果　<br>　　11.3.3　MARS　<br>　　11.3.4　MARS和事务　<br>　11.4　单数据库的高级技术　<br>　　11.4.1　保存点　<br>　　11.4.2　嵌套事务　<br>　　11.4.3　与DataSet和DataAdapter一起使用事务　<br>　11.5　分布式事务　<br>　　11.5.1　分布式事务中的关键方：RM和DTC　<br>　　11.5.2　两阶段提交　<br>　　11.5.3　实现分布式事务：.NET 1.1的方法　<br>　　11.5.4　实现分布式事务：.NET 2.0的方法　<br>　　11.5.5　可提升登记：简单基础　<br>　　11.5.6　System.Transactions：手动登记和多线程环境　<br>　11.6　明智地使用事务　<br>　　11.6.1　事务和性能　<br>　　11.6.2　事务的默认行为　<br>　　11.6.3　事务和用户确认　<br>　　11.6.4　同时发生的ADO.NET和RDBMS事务　<br>　11.7　小结　<br>第12章　XML和ADO.NET　<br>　12.1　SQL Server本机XML支持　<br>　12.2　FOR XML　<br>　　12.2.1　FOR XML查询：概要　<br>　　12.2.2　FOR XML的可选参数　<br>　　12.2.3　FOR XML RAW　<br>　　12.2.4　FOR XML AUTO　<br>　　12.2.5　FOR XML EXPLICIT　<br>　　12.2.6　SQL Server 2005和FOR XML PATH　<br>　　12.2.7　在ADO.NET中使用FOR XML查询　<br>　12.3　OPENXML　<br>　12.4　SQL Server 2005独有的XML数据类型　<br>　12.5　利用SQL Server的XML功能：SQLXML　<br>　　12.5.1　SQLXML和ADO.NET　<br>　　12.5.2　SQLXML对象模型　<br>　12.6　小结　<br>第13章　SQL Server中的CLR　<br>　13.1　SQLCLR的正确使用　<br>　13.2　运行本章例子所需软件　<br>　13.3　手动编写UDF　<br>　13.4　SQL Server项目的UDF　<br>　13.5　调试SQLCLR代码　<br>　13.6　编写TVF：表值函数　<br>　13.7　创建聚合函数　<br>　13.8　编写SQLCLR存储过程　<br>　　13.8.1　上下文连接　<br>　　13.8.2　SQLCLR中的SqlTransaction　<br>　13.9　在SQLCLR触发器中使用事务　<br>　13.10　在SQLCLR内使用非上下文连接　<br>　13.11　小结　<br>第14章　ADO.NET最佳实践　<br>　14.1　了解你的系统需求　<br>　14.2　为正确的工作选择正确的工具　<br>　　14.2.1　DataReader或DataSet/DataAdapter　<br>　　14.2.2　保持连接打开：连接池　<br>　　14.2.3　DataSet或强类型DataSet　<br>　　14.2.4　强类型或非强类型？DataSet与业务对象　<br>　　14.2.5　T-SQL与SQLCLR以及扩展存储过程（XP）　<br>　　14.2.6　事务，到处是事务：选择哪种事务　<br>　14.3　重要规则　<br>　　14.3.1　实现数据层　<br>　　14.3.2　关闭连接　<br>　　14.3.3　网络延迟　<br>　　14.3.4　复杂的层次化DataSet　<br>　　14.3.5　缓存数据　<br>　14.4　小结 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书是介绍ADO.NET 2.0的权威参考书，用VB.NET和C#两种语言来描述，详细讲解了与数据库的连接、获取数据以及与事务工作的实际操作，而不是简单重复MSDN的文档。本书提供了深入的理解、全面的观点，还解释了如何用ADO.NET的技术来解决实际问题和搭建应用程序的架构。　　本书适用于中、高级的.NET应用开发人员。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">（美）马利克  著，汤涛，邰晓翠  译Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="ADO.NET2.0高级程序设计" border="1" height="216" src="/Images/BookCovers/9787115158680.jpg" style="border:1px   solid   #B0B0B0" title="ADO.NET2.0高级程序设计" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：（美）马利克  著，汤涛，邰晓翠  译
+                                                                    <br />
+                                                                    书名：ADO.NET2.0高级程序设计<br />
+                                                                    字数：685000<br />
+                                                                    出版时间：2007年6月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115158680<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥59.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章　ADO.NET概述　<br>　1.1　什么是ADO.NET　<br>　1.2　ADO的不足之处　<br>　1.3　ADO.NET中的重要对象　<br>　　1.3.1　连接对象　<br>　　1.3.2　非连接对象　<br>　1.4　.NET数据提供程序　<br>　　1.4.1　使用ProviderBase模型　<br>　　1.4.2　第三方.NET数据提供程序　<br>　1.5　System.Data.Design命名空间　<br>　1.6　小结　<br>第2章　ADO.NET对象模型　<br>　2.1　本章可用作参考　<br>　2.2　ADO.NET鸟瞰　<br>　2.3　建立连接：DbConnection　<br>　2.4　执行命令：DbCommand和DbTransaction　<br>　2.5　保存非连接数据：DataSet　<br>　2.6　获取数据：DataReader和DataAdapter　<br>　　2.6.1　基于连接的方式获取数据：DbDataReader　<br>　　2.6.2　连接部分和非连接部分之间的桥梁：DbDataAdapter　<br>　2.7　ADO.NET中的异常　<br>　2.8　小结　<br>第3章　ADO.NET Hello World程序　<br>　3.1　构建Hello World程序的数据源　<br>　3.2　创建数据驱动的应用程序：拖放的方法　<br>　　3.2.1　ASP.NET 2.0中的拖放　<br>　　3.2.2　Windows窗口应用程序中的拖放　<br>　3.3　混合方法：写一些代码，用一些拖放　<br>　3.4　数据驱动的应用程序：自己编写代码的方法　<br>　3.5　小结　<br>第4章　连接到数据源　<br>　4.1　连接的能力　<br>　　4.1.1　创建连接对象　<br>　　4.1.2　生成提供程序特定的连接串　<br>　　4.1.3　编写连接串的简便方法　<br>　　4.1.4　增强连接串的安全性　<br>　4.2　公共行为：IDbConnection　<br>　4.3　公共逻辑：DbConnection　<br>　4.4　高要求的应用程序　<br>　4.5　连接池　<br>　　4.5.1　工作原理　<br>　　4.5.2　确定合适的池大小　<br>　　4.5.3　崩溃的连接池　<br>　4.6　关闭连接：良好的应用程序设计　<br>　4.7　小结　<br>第5章　在连接模式下获取数据　<br>　5.1　与数据源的通信　<br>　5.2　获取单个值　<br>　　5.2.1　要用哪个数据库执行命令　<br>　　5.2.2　要执行什么　<br>　　5.2.3　执行命令以获取结果　<br>　5.3　获取结果集　<br>　5.4　为存储而查询结果集　<br>　5.5　异步查询大结果集　<br>　5.6　从数据库查询多个结果集　<br>　5.7　面向对象与关系表示　<br>　　5.7.1　在数据库中存储对象　<br>　　5.7.2　使用SQL查询UDT数据　<br>　　5.7.3　以连接模式获取UDT数据　<br>　　5.7.4　实际使用UDT　<br>　5.8　小结　<br>第6章　DataSet　<br>　6.1　非连接模型的案例　<br>　6.2　DataSet对象模型　<br>　　6.2.1　DataTable　<br>　　6.2.2　DataColumn　<br>　　6.2.3　DataRow　<br>　　6.2.4　Constraint　<br>　　6.2.5　设置主键：PrimaryKey属性　<br>　　6.2.6　动态构建DataTable　<br>　　6.2.7　DataTable的事件　<br>　　6.2.8　DataTable事件的实际用法　<br>　6.3　关系数据　<br>　6.4　把所有内容放到一起　<br>　6.5　作为数据传输对象的DataSet　<br>　6.6　强类型DataSet：概述　<br>　　6.6.1　XSD概要　<br>　　6.6.2　DataSet架构　<br>　　6.6.3　构建强类型DataSet　<br>　　6.6.4　类型化DataSet的性能　<br>　　6.6.5　注释类型化DataSet　<br>　6.7　小结　<br>第7章　获取数据：DataAdapter　<br>　7.1　什么是DataAdaper　<br>　7.2　使用DataAdapter　<br>　　7.2.1　构建数据源　<br>　　7.2.2　查询数据表：指向并且点击　<br>　　7.2.3　查询数据表：编写代码　<br>　　7.2.4　填充DataSet：不止一个数据表　<br>　　7.2.5　查询数据库架构　<br>　7.3　映射　<br>　　7.3.1　使用SQL的AS关键字　<br>　　7.3.2　ADO.NET的映射机制　<br>　7.4　小结　<br>第8章　排序、获取和过滤　<br>　8.1　构建数据源　<br>　8.2　处理DataTable　<br>　　8.2.1　查找行　<br>　　8.2.2　选定多行记录　<br>　　8.2.3　表达式：动态计算列　<br>　　8.2.4　执行聚合计算　<br>　8.3　使用DataRelation对象　<br>　8.4　使用DataView对象　<br>　8.5　XML与非连接数据的交互　<br>　8.6　小结　<br>第9章　更新数据　<br>　9.1　更新数据表：简单拖放方法　<br>　9.2　使用命令构建器对象　<br>　9.3　DataRow中的状态管理以及在更新数据时状态管理的使用　<br>　9.4　移动大量的数据：SqlBulkCopy　<br>　9.5　编辑非连接数据　<br>　　9.5.1　添加新行　<br>　　9.5.2　修改现存行记录　<br>　　9.5.3　删除现存行记录　<br>　9.6　实际的例子　<br>　9.7　优化应用程序：GetChanges和Merge　<br>　　9.7.1　合并情况1：相同表结构，无主键　<br>　　9.7.2　合并情况2：相同表结构，有主键　<br>　　9.7.3　合并情况3：公共列，无主键　<br>　　9.7.4　合并情况4：公共列，有主键　<br>　　9.7.5　合并情况5：完全不同的表结构　<br>　　9.7.6　合并具有不同架构的两个DataSet/DataTable　<br>　9.8　使用映射名称更新记录　<br>　9.9　小结　<br>第10章　更新数据：高级进阶　<br>　10.1　冲突检测和并发解决　<br>　　10.1.1　预防冲突：交通信号灯　<br>　　10.1.2　处理冲突：事故发生后再抢救　<br>　10.2　实现并发：实践所关心的内容　<br>　　10.2.1　Null值　<br>　　10.2.2　所影响的行数和触发器　<br>　　10.2.3　更新多行记录　<br>　10.3　处理层次结构数据　<br>　　10.3.1　插入层次结构的数据　<br>　　10.3.2　更新层次化数据　<br>　　10.3.3　删除层次化数据　<br>　　10.3.4　所有的操作集中到一起：保存层次化数据　<br>　　10.3.5　代码不能用　<br>　10.4　层次化更新：结论　<br>　10.5　小结　<br>第11章　事务　<br>　11.1　什么是事务　<br>　　11.1.1　ACID属性　<br>　　11.1.2　数据库事务　<br>　　11.1.3　事务词汇表　<br>　11.2　ADO.NET的事务支持　<br>　11.3　编写事务性数据库应用程序　<br>　　11.3.1　实现事务　<br>　　11.3.2　考察隔离级别的效果　<br>　　11.3.3　MARS　<br>　　11.3.4　MARS和事务　<br>　11.4　单数据库的高级技术　<br>　　11.4.1　保存点　<br>　　11.4.2　嵌套事务　<br>　　11.4.3　与DataSet和DataAdapter一起使用事务　<br>　11.5　分布式事务　<br>　　11.5.1　分布式事务中的关键方：RM和DTC　<br>　　11.5.2　两阶段提交　<br>　　11.5.3　实现分布式事务：.NET 1.1的方法　<br>　　11.5.4　实现分布式事务：.NET 2.0的方法　<br>　　11.5.5　可提升登记：简单基础　<br>　　11.5.6　System.Transactions：手动登记和多线程环境　<br>　11.6　明智地使用事务　<br>　　11.6.1　事务和性能　<br>　　11.6.2　事务的默认行为　<br>　　11.6.3　事务和用户确认　<br>　　11.6.4　同时发生的ADO.NET和RDBMS事务　<br>　11.7　小结　<br>第12章　XML和ADO.NET　<br>　12.1　SQL Server本机XML支持　<br>　12.2　FOR XML　<br>　　12.2.1　FOR XML查询：概要　<br>　　12.2.2　FOR XML的可选参数　<br>　　12.2.3　FOR XML RAW　<br>　　12.2.4　FOR XML AUTO　<br>　　12.2.5　FOR XML EXPLICIT　<br>　　12.2.6　SQL Server 2005和FOR XML PATH　<br>　　12.2.7　在ADO.NET中使用FOR XML查询　<br>　12.3　OPENXML　<br>　12.4　SQL Server 2005独有的XML数据类型　<br>　12.5　利用SQL Server的XML功能：SQLXML　<br>　　12.5.1　SQLXML和ADO.NET　<br>　　12.5.2　SQLXML对象模型　<br>　12.6　小结　<br>第13章　SQL Server中的CLR　<br>　13.1　SQLCLR的正确使用　<br>　13.2　运行本章例子所需软件　<br>　13.3　手动编写UDF　<br>　13.4　SQL Server项目的UDF　<br>　13.5　调试SQLCLR代码　<br>　13.6　编写TVF：表值函数　<br>　13.7　创建聚合函数　<br>　13.8　编写SQLCLR存储过程　<br>　　13.8.1　上下文连接　<br>　　13.8.2　SQLCLR中的SqlTransaction　<br>　13.9　在SQLCLR触发器中使用事务　<br>　13.10　在SQLCLR内使用非上下文连接　<br>　13.11　小结　<br>第14章　ADO.NET最佳实践　<br>　14.1　了解你的系统需求　<br>　14.2　为正确的工作选择正确的工具　<br>　　14.2.1　DataReader或DataSet/DataAdapter　<br>　　14.2.2　保持连接打开：连接池　<br>　　14.2.3　DataSet或强类型DataSet　<br>　　14.2.4　强类型或非强类型？DataSet与业务对象　<br>　　14.2.5　T-SQL与SQLCLR以及扩展存储过程（XP）　<br>　　14.2.6　事务，到处是事务：选择哪种事务　<br>　14.3　重要规则　<br>　　14.3.1　实现数据层　<br>　　14.3.2　关闭连接　<br>　　14.3.3　网络延迟　<br>　　14.3.4　复杂的层次化DataSet　<br>　　14.3.5　缓存数据　<br>　14.4　小结 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书是介绍ADO.NET 2.0的权威参考书，用VB.NET和C#两种语言来描述，详细讲解了与数据库的连接、获取数据以及与事务工作的实际操作，而不是简单重复MSDN的文档。本书提供了深入的理解、全面的观点，还解释了如何用ADO.NET的技术来解决实际问题和搭建应用程序的架构。　　本书适用于中、高级的.NET应用开发人员。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">（美）马利克  著，汤涛，邰晓翠  译Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

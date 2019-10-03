@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 5051, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 5051 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">Visual Basic+SQL Server数据库应用系统开发与实例（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="Visual Basic+SQL Server数据库应用系统开发与实例（附光盘）" border="1" height="216"  src="/Images/BookCovers/9787115112286.jpg" style="border:1px   solid   #B0B0B0" title="Visual Basic+SQL Server数据库应用系统开发与实例（附光盘）" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：李晓黎，张巍 编著
-                                        <br />
-                                        书名：Visual Basic+SQL Server数据库应用系统开发与实例（附光盘）<br />
-                                        字数：640000<br />
-                                        出版时间：2003年10月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115112286<br />
-                                        <font color="#CC3300">本网价：<strong>￥42.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        Visual Basic+SQL Server数据库应用系统开发与实例（附光盘） <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章  SQL Server 2000数据库对象管理　1<br>1.1  数据库管理　1<br>1.1.1  系统数据库　1<br>1.1.2  创建数据库　2<br>1.1.3  删除数据库　4<br>1.2  表管理　4<br>1.2.1  SQL Server 2000数据类型　4<br>1.2.2  表设计器　8<br>1.2.3  数据库设计器　9<br>1.2.4  查看表中的数据　12<br>1.2.5  设置表中的键　16<br>1.2.6  删除表　17<br>1.3  视图管理　18<br>1.3.1  视图的基本概念　18<br>1.3.2  创建视图　19<br>1.3.3  删除视图　22<br>1.4  服务器与客户端配置　22<br>1.4.1  启动、暂停和停止 SQL Server　23<br>1.4.2  配置 ODBC 数据源　24<br>第2章  Transact-SQL语言简介　28<br>2.1  Transact-SQL概述　28<br>2.1.1  Transact-SQL的语法规则　28<br>2.1.2  Transact-SQL的语法元素　29<br>2.1.3  osql实用工具　30<br>2.2  数据库对象操作语句　32<br>2.2.1  创建数据库语句CREATE DATABASE　32<br>2.2.2  删除数据库语句DROP DATABASE　37<br>2.2.3  创建表语句CREATE TABLE　37<br>2.2.4  删除表语句DROP TABLE　41<br>2.2.5  创建视图语句CREATE VIEW　41<br>2.2.6  删除视图语句DROP VIEW　42<br>2.3  数据查询语句　42<br>2.3.1　SELECT语句语法简介　43<br>2.3.2  检验查询结果的方法　44<br>2.3.3  最基本的SELECT语句　47<br>2.3.4  设置查询条件　50<br>2.3.5  对查询结果排序　50<br>2.3.6  使用聚合函数　51<br>2.3.7  对查询结果分组　52<br>2.3.8  指定组或聚合的搜索条件　54<br>2.3.9  连接查询　54<br>2.3.10  子查询　56<br>2.3.11  合并查询　57<br>2.3.12  保存查询结果　57<br>2.4  数据更新语句　58<br>2.4.1  插入数据语句INSERT　58<br>2.4.2  修改数据语句UPDATE　60<br>2.4.3  删除数据语句DELETE　62<br>第3章  Visual Basic数据库工程实用管理　63<br>3.1  Visual Basic访问SQL Server数据库概述　63<br>3.1.1  Visual Basic数据访问技术综述　63<br>3.1.2  ADO数据访问技术简介　64<br>3.1.3  ODBC数据库访问技术简介　67<br>3.2  Visual Basic工程管理　71<br>3.2.1  工程的文件组成和管理　72<br>3.2.2  设置工程选项　73<br>3.3  Visual Basic数据库访问控件　73<br>3.3.1  Data控件　73<br>3.3.2  Data控件的示例程序　75<br>3.3.3  ADO Data控件　78<br>3.3.4  ADO Data 控件的示例程序　79<br>3.3.5  DataList控件 / DataCombo控件　81<br>3.3.6  DataList控件 / DataCombo控件的示例程序　82<br>3.3.7  DataGrid控件　86<br>3.3.8  DataGrid控件的示例程序　91<br>3.3.9  MSChart控件　95<br>3.3.10  MSChart控件的示例程序　98<br>3.4  Visual Basic功能模块规划　104<br>3.4.1  窗体、模块和类模块的功能划分　104<br>3.4.2  Const模块内容介绍　107<br>3.4.3  DbFunc模块内容介绍　107<br>3.4.4  GeneralFunc模块内容介绍　113<br>3.5  Visual Basic数据库工程开发过程　118<br>3.5.1  系统功能分析和总体设计　118<br>3.5.2  数据库准备　119<br>3.5.3  工程管理　120<br>3.5.4  添加类模块　120<br>3.5.5  添加模块　121<br>3.5.6  添加并编辑窗体　121<br>第4章  学生档案管理系统　122<br>4.1  系统设计　122<br>4.1.1  系统功能描述　122<br>4.1.2  功能模块划分　123<br>4.1.3  系统流程分析　125<br>4.2  数据库设计　126<br>4.2.1  创建数据库　126<br>4.2.2  数据库逻辑结构设计　127<br>4.2.3  创建表的脚本文件　131<br>4.3  设计工程框架　134<br>4.3.1  创建工程　134<br>4.3.2  添加模块　134<br>4.3.3  添加类模块　135<br>4.3.4  创建数据源　145<br>4.4  系统主界面设计　145<br>4.4.1  设计主界面　145<br>4.4.2  在主界面中添加代码　146<br>4.5  登录模块设计　147<br>4.5.1  设计登录窗体　147<br>4.5.2  在登录窗体中添加代码　147<br>4.6  院系管理模块设计　149<br>4.6.1  使用TreeView控件管理院系数据的方法　149<br>4.6.2  设计编辑院系信息的窗体　151<br>4.6.3  设计院系管理窗体　154<br>4.6.4  设计选择院系班级窗体　158<br>4.6.5  在主界面中增加院系管理代码　158<br>4.7  学生基本信息管理模块设计　159<br>4.7.1  设计选择日期窗体　159<br>4.7.2  设计选择学生窗体　160<br>4.7.3  设计编辑学生基本信息的窗体　163<br>4.7.4  设计学生信息管理窗体　169<br>4.8  学生照片管理模块设计　172<br>4.8.1  ImageFunc模块　172<br>4.8.2  设计照片管理窗体　174<br>4.8.3  在学生信息管理窗体中添加照片管理代码　176<br>4.9  学生教育经历管理模块设计　176<br>4.9.1  设计学生教育经历编辑模块　177<br>4.9.2  设计学生教育经历管理模块　178<br>4.10  学生奖惩管理模块设计　181<br>4.10.1  设计编辑奖惩信息的窗体　181<br>4.10.2  设计奖惩信息管理窗体　181<br>4.11  学籍变动管理模块设计　183<br>4.11.1  设计编辑学籍变动信息的窗体　183<br>4.11.2  设计学籍变动管理窗体　185<br>4.12  课程设置管理模块设计　187<br>4.12.1  设计课程信息编辑窗体　188<br>4.12.2  设计课程信息管理窗体　189<br>4.13  学生成绩管理模块设计　190<br>4.13.1  设计学生成绩信息编辑窗体　190<br>4.13.2  设计学生成绩信息管理窗体　192<br>4.14  用户管理模块设计　193<br>4.14.1  设计编辑用户信息的窗体　193<br>4.14.2  设计用户管理窗体　195<br>4.14.3  在主界面中增加用户管理代码　197<br>第5章  软件项目开发管理系统　198<br>5.1  系统设计　198<br>5.1.1  系统功能描述　198<br>5.1.2  功能模块划分　200<br>5.1.3  系统流程分析　201<br>5.2  数据库设计　202<br>5.2.1  创建数据库　202<br>5.2.2  数据库逻辑结构设计　204<br>5.2.3  创建表的脚本文件　207<br>5.3  设计工程框架　210<br>5.3.1  创建工程　211<br>5.3.2  添加模块　211<br>5.3.3  添加类模块　212<br>5.3.4  创建数据源　220<br>5.4  系统主界面设计　220<br>5.4.1  设计主界面　220<br>5.4.2  在主界面中添加代码　222<br>5.5  登录模块设计　222<br>5.5.1  设计登录窗体　222<br>5.5.2  在登录窗体中添加代码　222<br>5.6  项目管理模块设计　222<br>5.6.1  设计编辑项目信息的窗体　223<br>5.6.2  设计编辑项目分配信息的窗体　225<br>5.6.3  设计项目管理窗体　226<br>5.6.4  在主界面中增加项目管理代码　232<br>5.6.5  设计选择项目的窗体　232<br>5.7  项目实施管理模块设计　234<br>5.7.1  设计添加项目组成员信息的窗体　234<br>5.7.2  设计编辑功能模块信息的窗体　235<br>5.7.3  设计编辑工作报告信息的窗体　238<br>5.7.4  设计项目实施管理窗体　239<br>5.8  文档管理模块设计　241<br>5.8.1  DocFunc模块　241<br>5.8.2  设计文档基本信息编辑窗体　244<br>5.8.3  设计文档管理窗体　245<br>5.8.4  在主界面中添加文档管理代码　247<br>5.9  测试管理模块设计　247<br>5.9.1  设计报错问题编辑窗体　248<br>5.9.2  设计报错问题管理窗体　250<br>5.10  项目总结管理模块设计　251<br>5.10.1  设计项目总结信息编辑窗体　252<br>5.10.2  设计项目总结信息编辑窗体　252<br>5.11  用户管理模块设计　254<br>5.11.1  设计编辑用户信息的窗体　254<br>5.11.2  设计用户管理窗体　256<br>5.11.3  在主界面中增加用户管理代码　258<br>第6章  旅游资源及线路管理系统　260<br>6.1  系统设计　260<br>6.1.1  系统功能描述　260<br>6.1.2  功能模块划分　261<br>6.1.3  系统流程分析　263<br>6.2  数据库设计　263<br>6.2.1  创建数据库　263<br>6.2.2  数据库逻辑结构设计　265<br>6.2.3  创建表的脚本文件　270<br>6.3  设计工程框架　275<br>6.3.1  创建工程　276<br>6.3.2  添加模块　276<br>6.3.3  添加类模块　277<br>6.3.4  创建数据源　290<br>6.4  系统主界面设计　290<br>6.4.1  设计主界面　290<br>6.4.2  在主界面中添加代码　292<br>6.5  登录模块设计　292<br>6.5.1  设计登录窗体　292<br>6.5.2  在登录窗体中添加代码　293<br>6.6  旅游地域资源管理模块设计　293<br>6.6.1  设计旅游地域资源编辑窗体　293<br>6.6.2  设计旅游地域资源管理窗体　294<br>6.6.3  在主界面中增加地域管理代码　298<br>6.7  景点资源管理模块设计　299<br>6.7.1  设计景点资源编辑窗体　299<br>6.7.2  设计景点资源管理窗体　300<br>6.8  宾馆资源管理模块设计　303<br>6.8.1  设计宾馆资源编辑窗体　303<br>6.8.2  设计宾馆资源管理窗体　304<br>6.9  餐厅资源管理模块设计　304<br>6.9.1  设计餐厅资源编辑窗体　305<br>6.9.2  设计餐厅资源管理窗体　305<br>6.10  娱乐资源管理模块设计　305<br>6.10.1  设计娱乐资源编辑窗体　306<br>6.10.2  设计娱乐项目管理窗体　306<br>6.10.3  设计娱乐资源管理窗体　308<br>6.11  火车资源管理模块设计　308<br>6.11.1  设计火车资源编辑窗体　309<br>6.11.2  设计火车资源管理窗体　309<br>6.12  飞机资源管理模块设计　309<br>6.12.1  设计飞机资源编辑窗体　310<br>6.12.2  设计飞机资源管理窗体　313<br>6.13  旅游线路管理模块设计　313<br>6.13.1  设计旅游线路管理窗体　314<br>6.13.2  设计旅游线路编辑窗体　315<br>6.13.3  设计线路中旅游资源信息的编辑窗体　322<br>6.14  用户管理模块设计　325<br>6.14.1  设计编辑用户信息的窗体　326<br>6.14.2  设计用户管理窗体　327<br>6.14.3  在主界面中增加用户管理代码　329<br>第7章  企业库存管理系统　330<br>7.1  系统设计　330<br>7.1.1  系统功能描述　330<br>7.1.2  功能模块划分　331<br>7.1.3  系统流程分析　332<br>7.2  数据库设计　333<br>7.2.1  创建数据库　333<br>7.2.2  数据库逻辑结构设计　334<br>7.2.3  创建表的脚本文件　338<br>7.3  设计工程框架　341<br>7.3.1  创建工程　341<br>7.3.2  添加模块　341<br>7.3.3  添加类模块　342<br>7.3.4  创建数据源　352<br>7.4  系统主界面设计　352<br>7.4.1  设计主界面　352<br>7.4.2  在主界面中添加代码　354<br>7.5  登录模块设计　354<br>7.5.1  设计登录窗体　354<br>7.5.2  在登录窗体中添加代码　355<br>7.6  客户管理模块设计　355<br>7.6.1  设计客户信息编辑窗体　355<br>7.6.2  设计客户信息管理窗体　358<br>7.7  仓库管理模块设计　361<br>7.7.1  设计仓库信息编辑窗体　361<br>7.7.2  设计仓库信息管理窗体　363<br>7.8  用户管理模块设计　364<br>7.9  产品管理模块设计　364<br>7.9.1  设计产品类目管理模块　364<br>7.9.2  设计产品信息管理模块　367<br>7.10  库存操作管理模块设计　368<br>7.10.1  设计入库操作管理模块　368<br>7.10.2  设计出库操作管理模块　371<br>7.10.3  设计库存盘点操作管理模块　372<br>7.11  库存警示管理模块设计　372<br>7.11.1  设计产品数量报警管理模块　372<br>7.11.2  设计产品失效报警管理模块　374<br>7.12  统计查询管理模块设计　375<br>7.12.1  设计产品出入库统计表窗体　375<br>7.12.2  设计库存产品流水统计表窗体　377<br>第8章  应用程序的优化和发布　379<br>8.1  应用程序界面优化　379<br>8.1.1  为应用程序添加皮肤　379<br>8.1.2  应用程序中的动画处理　382<br>8.2  应用程序的权限控制　384<br>8.2.1  权限设置实现方法　385<br>8.2.2  学生档案管理系统权限控制　385<br>8.3  应用程序的日志管理　389<br>8.3.1  日志管理实现方法　389<br>8.3.2  学生档案管理系统日志管理　390<br>8.4  创建帮助文件　394<br>8.4.1  制作CHM帮助文件　394<br>8.4.2  在Visual Basic中访问CHM帮助文件　400<br>8.5  制作安装程序　401<br>8.5.1  打包和展开向导　401<br>8.5.2  安装程序制作过程　402<br>8.5.3  应用程序安装过程　405<br>附录A  下载SQL Server 2000评估版　407<br>附录B  推荐网站　409 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书介绍了Visual Basic和SQL Server 2000的必备知识，并完整地介绍了几个使用Visual Basic开发SQL Server 2000数据库应用程序的实例，包括学生档案管理系统、软件项目开发管理系统、旅游资源及线路管理系统和企业库存管理系统，既可以作为独立的系统运行，也可以作为应用软件的一个模块，具有很强的实用性和可移植性。本书最后还给出了程序优化和发布方法。<br>  本书适合SQL Server 2000数据库管理员和应用程序开发人员，以及对相关技术感兴趣的读者阅读。阅读者中人要具备基本的Visual Basic编程知识，无需有任何经验，就可以按照书中的实例开发数据应用程序。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">李晓黎，张巍 编著Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="Visual Basic+SQL Server数据库应用系统开发与实例（附光盘）" border="1" height="216" src="/Images/BookCovers/9787115112286.jpg" style="border:1px   solid   #B0B0B0" title="Visual Basic+SQL Server数据库应用系统开发与实例（附光盘）" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：李晓黎，张巍 编著
+                                                                    <br />
+                                                                    书名：Visual Basic+SQL Server数据库应用系统开发与实例（附光盘）<br />
+                                                                    字数：640000<br />
+                                                                    出版时间：2003年10月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115112286<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥42.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章  SQL Server 2000数据库对象管理　1<br>1.1  数据库管理　1<br>1.1.1  系统数据库　1<br>1.1.2  创建数据库　2<br>1.1.3  删除数据库　4<br>1.2  表管理　4<br>1.2.1  SQL Server 2000数据类型　4<br>1.2.2  表设计器　8<br>1.2.3  数据库设计器　9<br>1.2.4  查看表中的数据　12<br>1.2.5  设置表中的键　16<br>1.2.6  删除表　17<br>1.3  视图管理　18<br>1.3.1  视图的基本概念　18<br>1.3.2  创建视图　19<br>1.3.3  删除视图　22<br>1.4  服务器与客户端配置　22<br>1.4.1  启动、暂停和停止 SQL Server　23<br>1.4.2  配置 ODBC 数据源　24<br>第2章  Transact-SQL语言简介　28<br>2.1  Transact-SQL概述　28<br>2.1.1  Transact-SQL的语法规则　28<br>2.1.2  Transact-SQL的语法元素　29<br>2.1.3  osql实用工具　30<br>2.2  数据库对象操作语句　32<br>2.2.1  创建数据库语句CREATE DATABASE　32<br>2.2.2  删除数据库语句DROP DATABASE　37<br>2.2.3  创建表语句CREATE TABLE　37<br>2.2.4  删除表语句DROP TABLE　41<br>2.2.5  创建视图语句CREATE VIEW　41<br>2.2.6  删除视图语句DROP VIEW　42<br>2.3  数据查询语句　42<br>2.3.1　SELECT语句语法简介　43<br>2.3.2  检验查询结果的方法　44<br>2.3.3  最基本的SELECT语句　47<br>2.3.4  设置查询条件　50<br>2.3.5  对查询结果排序　50<br>2.3.6  使用聚合函数　51<br>2.3.7  对查询结果分组　52<br>2.3.8  指定组或聚合的搜索条件　54<br>2.3.9  连接查询　54<br>2.3.10  子查询　56<br>2.3.11  合并查询　57<br>2.3.12  保存查询结果　57<br>2.4  数据更新语句　58<br>2.4.1  插入数据语句INSERT　58<br>2.4.2  修改数据语句UPDATE　60<br>2.4.3  删除数据语句DELETE　62<br>第3章  Visual Basic数据库工程实用管理　63<br>3.1  Visual Basic访问SQL Server数据库概述　63<br>3.1.1  Visual Basic数据访问技术综述　63<br>3.1.2  ADO数据访问技术简介　64<br>3.1.3  ODBC数据库访问技术简介　67<br>3.2  Visual Basic工程管理　71<br>3.2.1  工程的文件组成和管理　72<br>3.2.2  设置工程选项　73<br>3.3  Visual Basic数据库访问控件　73<br>3.3.1  Data控件　73<br>3.3.2  Data控件的示例程序　75<br>3.3.3  ADO Data控件　78<br>3.3.4  ADO Data 控件的示例程序　79<br>3.3.5  DataList控件 / DataCombo控件　81<br>3.3.6  DataList控件 / DataCombo控件的示例程序　82<br>3.3.7  DataGrid控件　86<br>3.3.8  DataGrid控件的示例程序　91<br>3.3.9  MSChart控件　95<br>3.3.10  MSChart控件的示例程序　98<br>3.4  Visual Basic功能模块规划　104<br>3.4.1  窗体、模块和类模块的功能划分　104<br>3.4.2  Const模块内容介绍　107<br>3.4.3  DbFunc模块内容介绍　107<br>3.4.4  GeneralFunc模块内容介绍　113<br>3.5  Visual Basic数据库工程开发过程　118<br>3.5.1  系统功能分析和总体设计　118<br>3.5.2  数据库准备　119<br>3.5.3  工程管理　120<br>3.5.4  添加类模块　120<br>3.5.5  添加模块　121<br>3.5.6  添加并编辑窗体　121<br>第4章  学生档案管理系统　122<br>4.1  系统设计　122<br>4.1.1  系统功能描述　122<br>4.1.2  功能模块划分　123<br>4.1.3  系统流程分析　125<br>4.2  数据库设计　126<br>4.2.1  创建数据库　126<br>4.2.2  数据库逻辑结构设计　127<br>4.2.3  创建表的脚本文件　131<br>4.3  设计工程框架　134<br>4.3.1  创建工程　134<br>4.3.2  添加模块　134<br>4.3.3  添加类模块　135<br>4.3.4  创建数据源　145<br>4.4  系统主界面设计　145<br>4.4.1  设计主界面　145<br>4.4.2  在主界面中添加代码　146<br>4.5  登录模块设计　147<br>4.5.1  设计登录窗体　147<br>4.5.2  在登录窗体中添加代码　147<br>4.6  院系管理模块设计　149<br>4.6.1  使用TreeView控件管理院系数据的方法　149<br>4.6.2  设计编辑院系信息的窗体　151<br>4.6.3  设计院系管理窗体　154<br>4.6.4  设计选择院系班级窗体　158<br>4.6.5  在主界面中增加院系管理代码　158<br>4.7  学生基本信息管理模块设计　159<br>4.7.1  设计选择日期窗体　159<br>4.7.2  设计选择学生窗体　160<br>4.7.3  设计编辑学生基本信息的窗体　163<br>4.7.4  设计学生信息管理窗体　169<br>4.8  学生照片管理模块设计　172<br>4.8.1  ImageFunc模块　172<br>4.8.2  设计照片管理窗体　174<br>4.8.3  在学生信息管理窗体中添加照片管理代码　176<br>4.9  学生教育经历管理模块设计　176<br>4.9.1  设计学生教育经历编辑模块　177<br>4.9.2  设计学生教育经历管理模块　178<br>4.10  学生奖惩管理模块设计　181<br>4.10.1  设计编辑奖惩信息的窗体　181<br>4.10.2  设计奖惩信息管理窗体　181<br>4.11  学籍变动管理模块设计　183<br>4.11.1  设计编辑学籍变动信息的窗体　183<br>4.11.2  设计学籍变动管理窗体　185<br>4.12  课程设置管理模块设计　187<br>4.12.1  设计课程信息编辑窗体　188<br>4.12.2  设计课程信息管理窗体　189<br>4.13  学生成绩管理模块设计　190<br>4.13.1  设计学生成绩信息编辑窗体　190<br>4.13.2  设计学生成绩信息管理窗体　192<br>4.14  用户管理模块设计　193<br>4.14.1  设计编辑用户信息的窗体　193<br>4.14.2  设计用户管理窗体　195<br>4.14.3  在主界面中增加用户管理代码　197<br>第5章  软件项目开发管理系统　198<br>5.1  系统设计　198<br>5.1.1  系统功能描述　198<br>5.1.2  功能模块划分　200<br>5.1.3  系统流程分析　201<br>5.2  数据库设计　202<br>5.2.1  创建数据库　202<br>5.2.2  数据库逻辑结构设计　204<br>5.2.3  创建表的脚本文件　207<br>5.3  设计工程框架　210<br>5.3.1  创建工程　211<br>5.3.2  添加模块　211<br>5.3.3  添加类模块　212<br>5.3.4  创建数据源　220<br>5.4  系统主界面设计　220<br>5.4.1  设计主界面　220<br>5.4.2  在主界面中添加代码　222<br>5.5  登录模块设计　222<br>5.5.1  设计登录窗体　222<br>5.5.2  在登录窗体中添加代码　222<br>5.6  项目管理模块设计　222<br>5.6.1  设计编辑项目信息的窗体　223<br>5.6.2  设计编辑项目分配信息的窗体　225<br>5.6.3  设计项目管理窗体　226<br>5.6.4  在主界面中增加项目管理代码　232<br>5.6.5  设计选择项目的窗体　232<br>5.7  项目实施管理模块设计　234<br>5.7.1  设计添加项目组成员信息的窗体　234<br>5.7.2  设计编辑功能模块信息的窗体　235<br>5.7.3  设计编辑工作报告信息的窗体　238<br>5.7.4  设计项目实施管理窗体　239<br>5.8  文档管理模块设计　241<br>5.8.1  DocFunc模块　241<br>5.8.2  设计文档基本信息编辑窗体　244<br>5.8.3  设计文档管理窗体　245<br>5.8.4  在主界面中添加文档管理代码　247<br>5.9  测试管理模块设计　247<br>5.9.1  设计报错问题编辑窗体　248<br>5.9.2  设计报错问题管理窗体　250<br>5.10  项目总结管理模块设计　251<br>5.10.1  设计项目总结信息编辑窗体　252<br>5.10.2  设计项目总结信息编辑窗体　252<br>5.11  用户管理模块设计　254<br>5.11.1  设计编辑用户信息的窗体　254<br>5.11.2  设计用户管理窗体　256<br>5.11.3  在主界面中增加用户管理代码　258<br>第6章  旅游资源及线路管理系统　260<br>6.1  系统设计　260<br>6.1.1  系统功能描述　260<br>6.1.2  功能模块划分　261<br>6.1.3  系统流程分析　263<br>6.2  数据库设计　263<br>6.2.1  创建数据库　263<br>6.2.2  数据库逻辑结构设计　265<br>6.2.3  创建表的脚本文件　270<br>6.3  设计工程框架　275<br>6.3.1  创建工程　276<br>6.3.2  添加模块　276<br>6.3.3  添加类模块　277<br>6.3.4  创建数据源　290<br>6.4  系统主界面设计　290<br>6.4.1  设计主界面　290<br>6.4.2  在主界面中添加代码　292<br>6.5  登录模块设计　292<br>6.5.1  设计登录窗体　292<br>6.5.2  在登录窗体中添加代码　293<br>6.6  旅游地域资源管理模块设计　293<br>6.6.1  设计旅游地域资源编辑窗体　293<br>6.6.2  设计旅游地域资源管理窗体　294<br>6.6.3  在主界面中增加地域管理代码　298<br>6.7  景点资源管理模块设计　299<br>6.7.1  设计景点资源编辑窗体　299<br>6.7.2  设计景点资源管理窗体　300<br>6.8  宾馆资源管理模块设计　303<br>6.8.1  设计宾馆资源编辑窗体　303<br>6.8.2  设计宾馆资源管理窗体　304<br>6.9  餐厅资源管理模块设计　304<br>6.9.1  设计餐厅资源编辑窗体　305<br>6.9.2  设计餐厅资源管理窗体　305<br>6.10  娱乐资源管理模块设计　305<br>6.10.1  设计娱乐资源编辑窗体　306<br>6.10.2  设计娱乐项目管理窗体　306<br>6.10.3  设计娱乐资源管理窗体　308<br>6.11  火车资源管理模块设计　308<br>6.11.1  设计火车资源编辑窗体　309<br>6.11.2  设计火车资源管理窗体　309<br>6.12  飞机资源管理模块设计　309<br>6.12.1  设计飞机资源编辑窗体　310<br>6.12.2  设计飞机资源管理窗体　313<br>6.13  旅游线路管理模块设计　313<br>6.13.1  设计旅游线路管理窗体　314<br>6.13.2  设计旅游线路编辑窗体　315<br>6.13.3  设计线路中旅游资源信息的编辑窗体　322<br>6.14  用户管理模块设计　325<br>6.14.1  设计编辑用户信息的窗体　326<br>6.14.2  设计用户管理窗体　327<br>6.14.3  在主界面中增加用户管理代码　329<br>第7章  企业库存管理系统　330<br>7.1  系统设计　330<br>7.1.1  系统功能描述　330<br>7.1.2  功能模块划分　331<br>7.1.3  系统流程分析　332<br>7.2  数据库设计　333<br>7.2.1  创建数据库　333<br>7.2.2  数据库逻辑结构设计　334<br>7.2.3  创建表的脚本文件　338<br>7.3  设计工程框架　341<br>7.3.1  创建工程　341<br>7.3.2  添加模块　341<br>7.3.3  添加类模块　342<br>7.3.4  创建数据源　352<br>7.4  系统主界面设计　352<br>7.4.1  设计主界面　352<br>7.4.2  在主界面中添加代码　354<br>7.5  登录模块设计　354<br>7.5.1  设计登录窗体　354<br>7.5.2  在登录窗体中添加代码　355<br>7.6  客户管理模块设计　355<br>7.6.1  设计客户信息编辑窗体　355<br>7.6.2  设计客户信息管理窗体　358<br>7.7  仓库管理模块设计　361<br>7.7.1  设计仓库信息编辑窗体　361<br>7.7.2  设计仓库信息管理窗体　363<br>7.8  用户管理模块设计　364<br>7.9  产品管理模块设计　364<br>7.9.1  设计产品类目管理模块　364<br>7.9.2  设计产品信息管理模块　367<br>7.10  库存操作管理模块设计　368<br>7.10.1  设计入库操作管理模块　368<br>7.10.2  设计出库操作管理模块　371<br>7.10.3  设计库存盘点操作管理模块　372<br>7.11  库存警示管理模块设计　372<br>7.11.1  设计产品数量报警管理模块　372<br>7.11.2  设计产品失效报警管理模块　374<br>7.12  统计查询管理模块设计　375<br>7.12.1  设计产品出入库统计表窗体　375<br>7.12.2  设计库存产品流水统计表窗体　377<br>第8章  应用程序的优化和发布　379<br>8.1  应用程序界面优化　379<br>8.1.1  为应用程序添加皮肤　379<br>8.1.2  应用程序中的动画处理　382<br>8.2  应用程序的权限控制　384<br>8.2.1  权限设置实现方法　385<br>8.2.2  学生档案管理系统权限控制　385<br>8.3  应用程序的日志管理　389<br>8.3.1  日志管理实现方法　389<br>8.3.2  学生档案管理系统日志管理　390<br>8.4  创建帮助文件　394<br>8.4.1  制作CHM帮助文件　394<br>8.4.2  在Visual Basic中访问CHM帮助文件　400<br>8.5  制作安装程序　401<br>8.5.1  打包和展开向导　401<br>8.5.2  安装程序制作过程　402<br>8.5.3  应用程序安装过程　405<br>附录A  下载SQL Server 2000评估版　407<br>附录B  推荐网站　409 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书介绍了Visual Basic和SQL Server 2000的必备知识，并完整地介绍了几个使用Visual Basic开发SQL Server 2000数据库应用程序的实例，包括学生档案管理系统、软件项目开发管理系统、旅游资源及线路管理系统和企业库存管理系统，既可以作为独立的系统运行，也可以作为应用软件的一个模块，具有很强的实用性和可移植性。本书最后还给出了程序优化和发布方法。<br>  本书适合SQL Server 2000数据库管理员和应用程序开发人员，以及对相关技术感兴趣的读者阅读。阅读者中人要具备基本的Visual Basic编程知识，无需有任何经验，就可以按照书中的实例开发数据应用程序。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">李晓黎，张巍 编著Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>

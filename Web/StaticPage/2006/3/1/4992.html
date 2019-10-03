@@ -1,31 +1,47 @@
 ﻿<html>
 <head>
-        <style type="text/css">
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
- <style type="text/css">
+    <style type="text/css">
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+    </style>
+    <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-A.samesortgoods_A1:link {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:active {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-A.samesortgoods_A1:visited {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: none
-}
-A.samesortgoods_A1:hover {
-	FONT-SIZE: 12px; COLOR: #554F4F; TEXT-DECORATION: underline
-}
-</style>
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
+        }
+
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        A.samesortgoods_A1:link {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:active {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+
+        A.samesortgoods_A1:visited {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: none
+        }
+
+        A.samesortgoods_A1:hover {
+            FONT-SIZE: 12px;
+            COLOR: #554F4F;
+            TEXT-DECORATION: underline
+        }
+    </style>
     <title>北京市新华书店王府井书店 - 网上书店80折起，购书满99元免运费！</title>
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
@@ -34,13 +50,12 @@ A.samesortgoods_A1:hover {
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-1.7.1.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-    
+    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
+
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
-                
             });
             loadComment();//加载评论
         });
@@ -48,7 +63,7 @@ A.samesortgoods_A1:hover {
         function addComment() {
             var msg = $("#txtComment").val();
             if (msg != "") {
-                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": $bookId, "action": "add" }, function (data) {
+                $.post("/ashx/ProcessComment.ashx", { "msg": msg, "bookId": 4992, "action": "add" }, function (data) {
                     var serverData = data.split(':');
                     if (serverData[0] == "ok") {
                         alert(serverData[1]);
@@ -64,373 +79,429 @@ A.samesortgoods_A1:hover {
         }
         //加载评论
         function loadComment() {
-            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": $bookId }, function (data) {
+            $.post("/ashx/ProcessComment.ashx", { "action": "load", "bookId": 4992 }, function (data) {
                 var serverData = $.parseJSON(data);
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
-                    $("<li>"+serverData[i].CreateDateTime+":"+serverData[i].Msg+"</li><br/>").appendTo("#commentList");
+                    $("<li>" + serverData[i].CreateDateTime + ":" + serverData[i].Msg + "</li><br/>").appendTo("#commentList");
                 }
             });
         }
     </script>
- 
+
     <style type="text/css">
 
-.samesortgoods_L17 {
-	LINE-HEIGHT: 230%
-}
-.samesortgoods_F3 {
-	FONT-SIZE: 12px ;color:#A8A7A7; 
-}
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-
-/*修改编辑器的样式*/
-        #cke_txtComment {
-        width:650px;
+        .samesortgoods_L17 {
+            LINE-HEIGHT: 230%
         }
 
-        
-        </style>
+        .samesortgoods_F3 {
+            FONT-SIZE: 12px;
+            color: #A8A7A7;
+        }
+
+        .new_F4 {
+            FONT-SIZE: 14px;
+            color: #404042;
+            font-weight: bold;
+        }
+
+        /*修改编辑器的样式*/
+        #cke_txtComment {
+            width: 650px;
+        }
+    </style>
 </head>
 
 <body>
-        <center>
+    <center>
 
-<div class="top">
-	<div class="m_c" style="width: 736px; height: 27px">
-	<span class="l">
-      <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
-      <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
-      <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
-      <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
-      <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
-      <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
-	  <a href="/OrderInfo.aspx" >我的订单</a> &nbsp;&nbsp;     
-	
-    
-    </span><span id="showUserName" style="font-size:14px;color:red"></span>
-    <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span></div></div>
-
-	<div style="WIDTH: 750px; text-align: left;"><img src="/images/集团网站1.jpg" width="780" height="93" /><br />
-&nbsp;&nbsp;&nbsp;&nbsp;         </div>
+        <div class="top">
+            <div class="m_c" style="width: 736px; height: 27px">
+                <span class="l">
+                    <a href="http://www.beifabook.com" target="_blank">北发图书网主网站</a> |&nbsp;
+                    <a href="http://www.bjbb.com" target="_blank">北京图书大厦</a>&nbsp; |
+                    <a href="../default.aspx" target="_blank"><font color="#00A0E9">王府井书店</font></a>&nbsp;|
+                    <a href="http://www.zgcbb.com/" target="_blank">中关村图书大厦</a>&nbsp; |
+                    <a href="http://www.yycbook.com/" target="_blank">亚运村图书大厦</a>&nbsp; |
+                    <a href="http://www.hs-book.com" target="_blank">花市书店</a>&nbsp; |
+                    <a href="/OrderInfo.aspx">我的订单</a> &nbsp;&nbsp;
 
 
-<div id="main_box">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
-        <tr>
-    
-	<!-- 中间占位的空单元格 -->
-    
-	<!-- 中间占位的空单元格 -->
-            <td align="center" valign="top" width="924">
-     <!-- 装右侧内容的单元格 -->
+                </span><span id="showUserName" style="font-size:14px;color:red"></span>
+                <span id="showLoginInfo" style="font-size:14px;color:red;display:none">登录</span>
+            </div>
+        </div>
 
-                <style type="text/css">
+        <div style="WIDTH: 750px; text-align: left;">
+            <img src="/images/集团网站1.jpg" width="780" height="93" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
 
-.new_F4 {
-	FONT-SIZE: 14px ;color:#404042; font-weight: bold;
-}
-</style>
-                <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
-                    <tr>
-                        <td valign="middle" width="10">&nbsp;</td>
-                        <td valign="middle">
-                            <h1 class="new_F4" style="margin-bottom:0px;">Symbian OS C++高效编程 <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="8" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="top" width="152">
-                            <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
-                                <tr>
-                                    <td>
-                                        <img alt="Symbian OS C++高效编程" border="1" height="216"  src="/Images/BookCovers/9787115143198.jpg" style="border:1px   solid   #B0B0B0" title="Symbian OS C++高效编程" width="150" /></td>
-                                </tr>
-                            </table>
-                        </td>
-                        <td valign="top" width="564">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td height="31" valign="bottom"><font class="F24"><del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="left" class="L14" valign="top" width="50%"><font class="F24">作者：（美）斯蒂克伯里  著，谢轩  译
-                                        <br />
-                                        书名：Symbian OS C++高效编程<br />
-                                        字数：403000<br />
-                                        出版时间：2006年3月1日<br />
-                                        版&nbsp;&nbsp;&nbsp;&nbsp;次： 
-                                        <br />
-		                <!-- 印刷时间： 2008/03/01<br>  -->
-		                                印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
-                                        I S B N ： 9787115143198<br />
-                                        <font color="#CC3300">本网价：<strong>￥42.00</strong></font></font></td>
-                                    <td align="left" class="L14" valign="top" width="50%">
-                                        <p>
-                                            <br />
-                                            <br />
-                                            <font class="F24">&nbsp;<br />
-                                            页&nbsp;&nbsp;&nbsp;&nbsp;数： 
-                                            <br />
-                                            开&nbsp;&nbsp;&nbsp;&nbsp;本： 
-                                            <br />
-                                            纸&nbsp;&nbsp;&nbsp;&nbsp;张： 
-                                            <br />
-                                            包&nbsp;&nbsp;&nbsp;&nbsp;装： </font>
-                                        </p>
-                                    </td>
-                                </tr>
-                            </table>
-                                        &nbsp;&nbsp; </font> </td>
-                                </tr>
-                                <tr>
-                                    <td height="43">
-                                        <table border="0" cellpadding="0" cellspacing="0">
+
+        <div id="main_box">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" width="800">
+                <tr>
+
+                    <!-- 中间占位的空单元格 -->
+                    <!-- 中间占位的空单元格 -->
+                    <td align="center" valign="top" width="924">
+                        <!-- 装右侧内容的单元格 -->
+
+                        <style type="text/css">
+
+                            .new_F4 {
+                                FONT-SIZE: 14px;
+                                color: #404042;
+                                font-weight: bold;
+                            }
+                        </style>
+                        <table bgcolor="#F3F3F5" border="0" cellpadding="5" cellspacing="0" height="41" width="100%">
+                            <tr>
+                                <td valign="middle" width="10">&nbsp;</td>
+                                <td valign="middle">
+                                    <h1 class="new_F4" style="margin-bottom:0px;">
+                                        Symbian OS C++高效编程 <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                             <tr>
-                                                <td align="left" valign="middle"><a href="javascript:void(0)" name="buy_book">
-                                                    <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" /></a> &nbsp;</td>
+                                                <td align="right" valign="middle"><a class="A21" href="javascript:void(0)" 推荐给朋友</a></td>
                                             </tr>
                                         </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td height="25">&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-       <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                  
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="center" valign="middle" width="20">
-                            <img height="7" src="/Template/image/11x.jpg" /></td>
-                        <td align="left" class="F25" valign="middle">心田服务承诺</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" height="10"></td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L14" valign="top"><font class="F24">正品：心田只做正品 假一赔一<br />
-                            供货：商品均由品牌商或一级经销商供货<br />
-                            送货：全国送达<br />
-                            运费：全中国各省市地区全部免运费<br />
-                            退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货 </font></td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">目录内容</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">第1章　Symbian OS中的类命名约定　1<br>1.1　基本类型　1<br>1.2　T类　2<br>1.3　C类　3<br>1.4　R类　5<br>1.5　M类　6<br>1.6　静态类　9<br>1.7　使用者注意事项　9<br>1.8　小结　9<br><br>第2章　异常退出(leave)：Symbian OS的异常　10<br>2.1　异常退出函数　10<br>2.2　使用new(ELeave)进行基于堆的内存分配　12<br>2.3　构造函数与析构函数　13<br>2.4　使用异常退出函数　14<br>2.5　用TRAP和TRAPD捕获异常退出　15<br>2.6　LeaveScan　20<br>2.7　小结　21<br><br>第3章　清除栈　22<br>3.1　使用清除栈　24<br>3.2　清除栈是如何工作的　27<br>3.3　对非CBase派生类使用清除栈　29<br>3.4　使用TCleanupItem实现定制清除　33<br>3.5　可移植性　35<br>3.6　对于使用转型(cast)的附加说明　35<br>3.7　小结　36<br><br>第4章　两段构造　37<br><br>第5章　描述符：Symbian OS中的字符串　41<br>5.1　不可修改的描述符　42<br>5.2　可修改的描述符　43<br>5.3　指针描述符　44<br>5.4　基于栈的缓冲描述符　47<br>5.5　基于堆的缓冲描述符　49<br>5.6　字面描述符　51<br>5.7　小结　54<br><br>第6章　良好的描述符风格　56<br>6.1　作为参数和返回类型的描述符　57<br>6.2　一般描述符方法　58<br>6.3　使用HBufC堆描述符　61<br>6.4　外部化和内部化描述符　62<br>6.5　TFileName的过度使用　64<br>6.6　在描述符操纵方面有用的类　64<br>6.7　小结　66<br><br>第7章　动态数组与缓冲区　68<br>7.1　CArrayX类　69<br>7.2　RArray<class T>和RPointerArray<class T>　73<br>7.3　为什么要用RArray代替CArrayX　77<br>7.4　动态描述符数组　78<br>7.5　定长数组　79<br>7.6　动态缓冲区　80<br>7.7　小结　82<br><br>第8章　使用活动对象的事件驱动多任务　84<br>8.1　多任务基础　84<br>8.2　事件驱动多任务　85<br>8.3　使用活动对象　87<br>8.4　示例代码　90<br>8.5　没有活动调度器的线程　93<br>8.6　应用程序代码和活动对象　93<br>8.7　小结　94<br><br>第9章　活动对象揭密　96<br>9.1　活动对象基础　96<br>9.2　活动对象的职责　99<br>9.3　异步服务提供者的职责　101<br>9.4　活动调度器的职责　101<br>9.5　启动活动调度器　102<br>9.6　嵌套活动调度器　102<br>9.7　扩展活动调度器　103<br>9.8　撤销　103<br>9.9　请求完成　104<br>9.10　状态机　105<br>9.11　长线任务(Long-Running Task)　109<br>9.12　CIdle类　111<br>9.13　CPeriodic类　113<br>9.14　常见错误　114<br>9.15　小结　115<br><br>第10章　Symbian OS的线程与进程　116<br>10.1　RThread类　117<br>10.2　线程优先级　119<br>10.3　停止一个运行的线程　121<br>10.4　线程间数据传递　124<br>10.5　异常处理　126<br>10.6　进程　126<br>10.7　小结　128<br><br>第11章　客户机/服务器框架原理　129<br>11.1　为什么会有客户机/服务器框架　129<br>11.2　客户和服务器是如何协作的　130<br>11.3　客户与服务器如何通信　131<br>11.4　客户机/服务器框架使用了哪些类　132<br>11.5　同步请求和异步请求有什么区别　138<br>11.6　如何启动服务器　139<br>11.7　一个客户可以有多少个连接　139<br>11.8　当客户断开连接时会发生什么　140<br>11.9　如果客户终止会发生什么　140<br>11.10　如果服务器终止会发生什么　140<br>11.11　客户机/服务器通信是如何使用线程的　140<br>11.12　服务器空间活动对象有什么含义　141<br>11.13　局部服务器(与客户处于同一进程中)的优点是什么　141<br>11.14　客户机/服务器通信的开销有哪些　141<br>11.15　一个客户在一个服务器中可以有几个当前请求　144<br>11.16　可以对服务器功能加以扩展吗　144<br>11.17　示例代码　144<br>11.18　小结　145<br><br>第12章　客户机/服务器框架实践　147<br>12.1　客户机/服务器请求代码　148<br>12.2　客户样板代码　148<br>12.3　启动服务器并连接上客户　155<br>12.4　服务器启动代码　159<br>12.5　服务器类　161<br>12.6　服务器关闭　168<br>12.7　访问服务器　168<br>12.8　小结　169<br><br>第13章　二进制类型　171<br>13.1　Symbian OS的EXE　171<br>13.2　Symbian OS的DLL　172<br>13.3　可写的静态数据　173<br>13.4　线程局部存储(Thread-Local Storage)　176<br>13.5　DLL装载器　178<br>13.6　UID　179<br>13.7　targettype限定符　180<br>13.8　小结　182<br><br>第14章　ECOM　183<br>14.1　ECOM的架构　183<br>14.2　ECOM接口的特性　185<br>14.3　工厂方法　186<br>14.4　实现一个ECOM接口　188<br>14.5　资源文件　190<br>14.6　示例客户代码　192<br>14.7　小结　193<br><br>第15章　严重错误(Panic)　194<br>15.1　即时调试　194<br>15.2　良好的严重错误风格　195<br>15.3　Symbian OS严重错误的分类　196<br>15.4　让另一个线程发生严重错误　197<br>15.5　故障(fault)、异常退出和严重错误　198<br>15.6　小结　199<br><br>第16章　用断言发现bug　200<br>16.1　_ASSERT_DEBUG　201<br>16.2　_ASSERT_ALWAYS　204<br>16.3　小结　205<br><br>第17章　调试宏与测试类　207<br>17.1　堆检查宏　207<br>17.2　对象恒定宏　211<br>17.3　用RTest进行控制台测试　213<br>17.4　小结　216<br><br>第18章　兼容性　217<br>18.1　向前和向后兼容性　218<br>18.2　源代码兼容性　219<br>18.3　二进制兼容性　220<br>18.4　防止破坏兼容性　220<br>18.5　在不破坏二进制兼容性的情况下可以做哪些变更　225<br>18.6　最佳实践：为未来的变化做打算　227<br>18.7　兼容性与Symbian OS类的类别　229<br>18.8　小结　229<br><br>第19章　轻量级模板　230<br><br>第20章　展示一个全面而易理解的API　234<br>20.1　类布局　235<br>20.2　IMPORT_C和EXPORT_C　235<br>20.3　参数和返回值　237<br>20.4　成员数据和功能抽象　241<br>20.5　选择类、方法和参数的名字　244<br>20.6　编译器生成的函数　245<br>20.7　小结　246<br><br>第21章　良好的编码风格　248<br>21.1　减小代码尺寸　248<br>21.2　小心地使用堆内存　250<br>21.3　小心地使用栈内存　254<br>21.4　消除子表达式，最大化代码效率　256<br>21.5　推迟优化　258<br>21.6　小结　258<br><br>附录1　代码检查列表　259<br>类的声明　259<br>头文件　259<br>注释　260<br>构造函数　260<br>析构函数　260<br>分配与删除　260<br>清除栈和异常退出安全　261<br>循环与程序流控制　261<br>程序逻辑　262<br>描述符　262<br>容器　263<br><br>附录2　术语表　264<br><br>附录3　参考书目及在线资源　267 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">内容简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">本书旨在帮助读者编写良好的基于Symbian OS的C++程序。全书共分为21章，分别介绍了Symbian OS中的类命名约定、异常退出、清除栈、两段构造、描述符、良好的描述符风格、动态的数组与缓冲区、使用活动对象的事件驱动多任务、活动对象、Symbian OS的线程与进程、客户/服务器原理、客户/服务器框架实践、二进制类型、ECOM、严重错误、用断言发现bug、调试宏与测试类、兼容性、轻量级模板、API、良好的编码风格等内容。<br>　　本书适合于使用Symbian OS进行程序开发的人员。 </td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
-                    </tr>
-                </table>
-                <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                        <td align="left" valign="middle" width="10">
-                            <img height="7" src="/Template/image/11.jpg" width="4" /></td>
-                        <td align="left" class="F25" valign="middle">作者简介</td>
-                    </tr>
-                    <tr>
-                        <td align="left" height="25" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td align="left" valign="top">&nbsp;</td>
-                        <td align="left" class="L15" valign="top">（美）斯蒂克伯里  著，谢轩  译Desc</td>
-                    </tr>
-                </table>
-                <style type="text/css">
-
-A.new_A8:link {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:active {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-A.new_A8:visited {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: none
-}
-A.new_A8:hover {
-	FONT-SIZE: 12px; COLOR: #ffffff; TEXT-DECORATION: underline
-}
-
-</style>
-
-                <a name="reviewsummary"></a>
-                <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
-                    <tr>
-                        <td align="left" valign="top">
-                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td>
-                                        <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                            <tr>
-                                                <td height="26" width="1%">&nbsp;</td>
-                                                <td align="left"><span class="F27">顾客评论 </span> </td>
-                                                <td align="left" width="75">&nbsp;</td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-			    <!---->
-                            <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
-                                <tr>
-                                    <td >
-
-                                        <ul id="commentList" >
-
-                                        </ul>
-
-                                    </td>
-                                </tr>
-                            </table>
-                            <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                <tr>
-                                    <td align="center" height="321" valign="middle">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="90">
-                                            <tr>
-                                                <td align="left" height="39">
-                                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="8" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="top" width="152">
+                                    <table border="0" cellpadding="0" cellspacing="0" height="216" width="150">
+                                        <tr>
+                                            <td>
+                                                <img alt="Symbian OS C++高效编程" border="1" height="216" src="/Images/BookCovers/9787115143198.jpg" style="border:1px   solid   #B0B0B0" title="Symbian OS C++高效编程" width="150" />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td valign="top" width="564">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td height="31" valign="bottom">
+                                                <font class="F24">
+                                                    <del>定价：￥42.0</del><table border="0" cellpadding="4" cellspacing="0" width="100%">
                                                         <tr>
-                                                            <td align="left" height="25">我要评论</td>
-                                                            <td align="right" valign="bottom">不超过2000字</td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <font class="F24">
+                                                                    作者：（美）斯蒂克伯里  著，谢轩  译
+                                                                    <br />
+                                                                    书名：Symbian OS C++高效编程<br />
+                                                                    字数：403000<br />
+                                                                    出版时间：2006年3月1日<br />
+                                                                    版&nbsp;&nbsp;&nbsp;&nbsp;次：
+                                                                    <br />
+                                                                    <!-- 印刷时间： 2008/03/01<br>  -->
+                                                                    印&nbsp;&nbsp;&nbsp;&nbsp;次：<br />
+                                                                    I S B N ： 9787115143198<br />
+                                                                    <font color="#CC3300">本网价：<strong>￥42.00</strong></font>
+                                                                </font>
+                                                            </td>
+                                                            <td align="left" class="L14" valign="top" width="50%">
+                                                                <p>
+                                                                    <br />
+                                                                    <br />
+                                                                    <font class="F24">
+                                                                        &nbsp;<br />
+                                                                        页&nbsp;&nbsp;&nbsp;&nbsp;数：
+                                                                        <br />
+                                                                        开&nbsp;&nbsp;&nbsp;&nbsp;本：
+                                                                        <br />
+                                                                        纸&nbsp;&nbsp;&nbsp;&nbsp;张：
+                                                                        <br />
+                                                                        包&nbsp;&nbsp;&nbsp;&nbsp;装：
+                                                                    </font>
+                                                                </p>
+                                                            </td>
                                                         </tr>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="center">
-                                                    <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea> </td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35" valign="bottom">
-                                                    <span id="userspan">
-                                                  
-                                                    不需要登录，点发表评论即可！ </span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="left" height="35">
-                                                    <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:hand" width="64" /> </td>
-                                            </tr>
-                                        </table>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
+                                                    &nbsp;&nbsp;
+                                                </font>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="43">
+                                                <table border="0" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="left" valign="middle">
+                                                            <a href="javascript:void(0)" name="buy_book">
+                                                                <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
+                                                            </a> &nbsp;
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td height="25">&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="center" valign="middle" width="20">
+                                    <img height="7" src="/Template/image/11x.jpg" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">心田服务承诺</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" height="10"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L14" valign="top">
+                                    <font class="F24">
+                                        正品：心田只做正品 假一赔一<br />
+                                        供货：商品均由品牌商或一级经销商供货<br />
+                                        送货：全国送达<br />
+                                        运费：全中国各省市地区全部免运费<br />
+                                        退换货：签收15日内，商品及包装保持本网站出售时原状且配件齐全，不影响二次销售，全款退货
+                                    </font>
+                                </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">目录内容</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">第1章　Symbian OS中的类命名约定　1<br>1.1　基本类型　1<br>1.2　T类　2<br>1.3　C类　3<br>1.4　R类　5<br>1.5　M类　6<br>1.6　静态类　9<br>1.7　使用者注意事项　9<br>1.8　小结　9<br><br>第2章　异常退出(leave)：Symbian OS的异常　10<br>2.1　异常退出函数　10<br>2.2　使用new(ELeave)进行基于堆的内存分配　12<br>2.3　构造函数与析构函数　13<br>2.4　使用异常退出函数　14<br>2.5　用TRAP和TRAPD捕获异常退出　15<br>2.6　LeaveScan　20<br>2.7　小结　21<br><br>第3章　清除栈　22<br>3.1　使用清除栈　24<br>3.2　清除栈是如何工作的　27<br>3.3　对非CBase派生类使用清除栈　29<br>3.4　使用TCleanupItem实现定制清除　33<br>3.5　可移植性　35<br>3.6　对于使用转型(cast)的附加说明　35<br>3.7　小结　36<br><br>第4章　两段构造　37<br><br>第5章　描述符：Symbian OS中的字符串　41<br>5.1　不可修改的描述符　42<br>5.2　可修改的描述符　43<br>5.3　指针描述符　44<br>5.4　基于栈的缓冲描述符　47<br>5.5　基于堆的缓冲描述符　49<br>5.6　字面描述符　51<br>5.7　小结　54<br><br>第6章　良好的描述符风格　56<br>6.1　作为参数和返回类型的描述符　57<br>6.2　一般描述符方法　58<br>6.3　使用HBufC堆描述符　61<br>6.4　外部化和内部化描述符　62<br>6.5　TFileName的过度使用　64<br>6.6　在描述符操纵方面有用的类　64<br>6.7　小结　66<br><br>第7章　动态数组与缓冲区　68<br>7.1　CArrayX类　69<br>7.2　RArray<class T>和RPointerArray<class T>　73<br>7.3　为什么要用RArray代替CArrayX　77<br>7.4　动态描述符数组　78<br>7.5　定长数组　79<br>7.6　动态缓冲区　80<br>7.7　小结　82<br><br>第8章　使用活动对象的事件驱动多任务　84<br>8.1　多任务基础　84<br>8.2　事件驱动多任务　85<br>8.3　使用活动对象　87<br>8.4　示例代码　90<br>8.5　没有活动调度器的线程　93<br>8.6　应用程序代码和活动对象　93<br>8.7　小结　94<br><br>第9章　活动对象揭密　96<br>9.1　活动对象基础　96<br>9.2　活动对象的职责　99<br>9.3　异步服务提供者的职责　101<br>9.4　活动调度器的职责　101<br>9.5　启动活动调度器　102<br>9.6　嵌套活动调度器　102<br>9.7　扩展活动调度器　103<br>9.8　撤销　103<br>9.9　请求完成　104<br>9.10　状态机　105<br>9.11　长线任务(Long-Running Task)　109<br>9.12　CIdle类　111<br>9.13　CPeriodic类　113<br>9.14　常见错误　114<br>9.15　小结　115<br><br>第10章　Symbian OS的线程与进程　116<br>10.1　RThread类　117<br>10.2　线程优先级　119<br>10.3　停止一个运行的线程　121<br>10.4　线程间数据传递　124<br>10.5　异常处理　126<br>10.6　进程　126<br>10.7　小结　128<br><br>第11章　客户机/服务器框架原理　129<br>11.1　为什么会有客户机/服务器框架　129<br>11.2　客户和服务器是如何协作的　130<br>11.3　客户与服务器如何通信　131<br>11.4　客户机/服务器框架使用了哪些类　132<br>11.5　同步请求和异步请求有什么区别　138<br>11.6　如何启动服务器　139<br>11.7　一个客户可以有多少个连接　139<br>11.8　当客户断开连接时会发生什么　140<br>11.9　如果客户终止会发生什么　140<br>11.10　如果服务器终止会发生什么　140<br>11.11　客户机/服务器通信是如何使用线程的　140<br>11.12　服务器空间活动对象有什么含义　141<br>11.13　局部服务器(与客户处于同一进程中)的优点是什么　141<br>11.14　客户机/服务器通信的开销有哪些　141<br>11.15　一个客户在一个服务器中可以有几个当前请求　144<br>11.16　可以对服务器功能加以扩展吗　144<br>11.17　示例代码　144<br>11.18　小结　145<br><br>第12章　客户机/服务器框架实践　147<br>12.1　客户机/服务器请求代码　148<br>12.2　客户样板代码　148<br>12.3　启动服务器并连接上客户　155<br>12.4　服务器启动代码　159<br>12.5　服务器类　161<br>12.6　服务器关闭　168<br>12.7　访问服务器　168<br>12.8　小结　169<br><br>第13章　二进制类型　171<br>13.1　Symbian OS的EXE　171<br>13.2　Symbian OS的DLL　172<br>13.3　可写的静态数据　173<br>13.4　线程局部存储(Thread-Local Storage)　176<br>13.5　DLL装载器　178<br>13.6　UID　179<br>13.7　targettype限定符　180<br>13.8　小结　182<br><br>第14章　ECOM　183<br>14.1　ECOM的架构　183<br>14.2　ECOM接口的特性　185<br>14.3　工厂方法　186<br>14.4　实现一个ECOM接口　188<br>14.5　资源文件　190<br>14.6　示例客户代码　192<br>14.7　小结　193<br><br>第15章　严重错误(Panic)　194<br>15.1　即时调试　194<br>15.2　良好的严重错误风格　195<br>15.3　Symbian OS严重错误的分类　196<br>15.4　让另一个线程发生严重错误　197<br>15.5　故障(fault)、异常退出和严重错误　198<br>15.6　小结　199<br><br>第16章　用断言发现bug　200<br>16.1　_ASSERT_DEBUG　201<br>16.2　_ASSERT_ALWAYS　204<br>16.3　小结　205<br><br>第17章　调试宏与测试类　207<br>17.1　堆检查宏　207<br>17.2　对象恒定宏　211<br>17.3　用RTest进行控制台测试　213<br>17.4　小结　216<br><br>第18章　兼容性　217<br>18.1　向前和向后兼容性　218<br>18.2　源代码兼容性　219<br>18.3　二进制兼容性　220<br>18.4　防止破坏兼容性　220<br>18.5　在不破坏二进制兼容性的情况下可以做哪些变更　225<br>18.6　最佳实践：为未来的变化做打算　227<br>18.7　兼容性与Symbian OS类的类别　229<br>18.8　小结　229<br><br>第19章　轻量级模板　230<br><br>第20章　展示一个全面而易理解的API　234<br>20.1　类布局　235<br>20.2　IMPORT_C和EXPORT_C　235<br>20.3　参数和返回值　237<br>20.4　成员数据和功能抽象　241<br>20.5　选择类、方法和参数的名字　244<br>20.6　编译器生成的函数　245<br>20.7　小结　246<br><br>第21章　良好的编码风格　248<br>21.1　减小代码尺寸　248<br>21.2　小心地使用堆内存　250<br>21.3　小心地使用栈内存　254<br>21.4　消除子表达式，最大化代码效率　256<br>21.5　推迟优化　258<br>21.6　小结　258<br><br>附录1　代码检查列表　259<br>类的声明　259<br>头文件　259<br>注释　260<br>构造函数　260<br>析构函数　260<br>分配与删除　260<br>清除栈和异常退出安全　261<br>循环与程序流控制　261<br>程序逻辑　262<br>描述符　262<br>容器　263<br><br>附录2　术语表　264<br><br>附录3　参考书目及在线资源　267 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">内容简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">本书旨在帮助读者编写良好的基于Symbian OS的C++程序。全书共分为21章，分别介绍了Symbian OS中的类命名约定、异常退出、清除栈、两段构造、描述符、良好的描述符风格、动态的数组与缓冲区、使用活动对象的事件驱动多任务、活动对象、Symbian OS的线程与进程、客户/服务器原理、客户/服务器框架实践、二进制类型、ECOM、严重错误、用断言发现bug、调试宏与测试类、兼容性、轻量级模板、API、良好的编码风格等内容。<br>　　本书适合于使用Symbian OS进行程序开发的人员。 </td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td background="/Template/image/12.jpg" height="39">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td align="left" valign="middle" width="10">
+                                    <img height="7" src="/Template/image/11.jpg" width="4" />
+                                </td>
+                                <td align="left" class="F25" valign="middle">作者简介</td>
+                            </tr>
+                            <tr>
+                                <td align="left" height="25" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td align="left" valign="top">&nbsp;</td>
+                                <td align="left" class="L15" valign="top">（美）斯蒂克伯里  著，谢轩  译Desc</td>
+                            </tr>
+                        </table>
+                        <style type="text/css">
+
+                            A.new_A8:link {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:active {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+
+                            A.new_A8:visited {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: none
+                            }
+
+                            A.new_A8:hover {
+                                FONT-SIZE: 12px;
+                                COLOR: #ffffff;
+                                TEXT-DECORATION: underline
+                            }
+                        </style>
+
+                        <a name="reviewsummary"></a>
+                        <table border="0" cellpadding="0" cellspacing="0" height="144" width="100%">
+                            <tr>
+                                <td align="left" valign="top">
+                                    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#639AC3" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td>
+                                                <table 0="" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                    <tr>
+                                                        <td height="26" width="1%">&nbsp;</td>
+                                                        <td align="left"><span class="F27">顾客评论 </span> </td>
+                                                        <td align="left" width="75">&nbsp;</td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!---->
+                                    <table border="0" cellpadding="0" cellspacing="0" height="23" width="100%">
+                                        <tr>
+                                            <td>
+
+                                                <ul id="commentList">
+                                                </ul>
+
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="#F5F5F5" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tr>
+                                            <td align="center" height="321" valign="middle">
+                                                <table border="0" cellpadding="0" cellspacing="0" width="90">
+                                                    <tr>
+                                                        <td align="left" height="39">
+                                                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tr>
+                                                                    <td align="left" height="25">我要评论</td>
+                                                                    <td align="right" valign="bottom">不超过2000字</td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="center">
+                                                            <textarea cols="90" name="nr" rows="10" id="txtComment" style="width:600px"></textarea>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35" valign="bottom">
+                                                            <span id="userspan">
+
+                                                                不需要登录，点发表评论即可！
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td align="left" height="35">
+                                                            <img border="0" height="19" id="btnAddComment" src="/Template/image/12.gif" style="cursor:help;" width="64" />
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="footer">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
+                <tr>
+                    <td height="37" rowspan="2"></td>
+                    <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
+                    <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
+                </tr>
+                <tr>
+                    <td align="left" height="13" valign="middle">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                    <td align="left" class="style_14_000000" valign="middle" width="150">
+                        <img height="1" src="/Template/image/mid10.jpg" width="116" />
+                    </td>
+                </tr>
+                <tr>
+                    <td height="100" width="100">&nbsp;</td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a>
+                    </td>
+                    <td align="left" class="style_h170" valign="top">
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
+                        <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
+                        <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+    <!--
+
+    -->
+    <div id="dialog-message" title="错误提示!!">
+        <span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
+        <a href="javascript:void(0)" id="locationLogin">请登录</a>
     </div>
-<div id="footer">
-    <table align="center" border="0" cellpadding="0" cellspacing="0" style="BORDER: #DCDADD 1px solid;" width="1100">
-        <tr>
-            <td height="37" rowspan="2"></td>
-            <td align="left" class="style_14_000000" height="32" valign="bottom" width="150"><b>新手上路</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>付款方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>配送方式</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>售后服务</b></td>
-            <td align="left" class="style_14_000000" valign="bottom" width="150"><b>帮助中心</b></td>
-        </tr>
-        <tr>
-            <td align="left" height="13" valign="middle">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-            <td align="left" class="style_14_000000" valign="middle" width="150">
-                <img height="1" src="/Template/image/mid10.jpg" width="116" /></td>
-        </tr>
-        <tr>
-            <td height="100" width="100">&nbsp;</td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="/Account/Register.aspx" target="_blank">新用户注册</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">怎样下订单</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">关于会员积分</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">礼券</a><a class="a_12_000000" href="javascript:void(0)" target="_blank">,礼品卡</a><br />
-            </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">支付方式</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">支付期限</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退款方式及时间</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">运费收取标准</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">配送时间及配送范围</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">服务保障承诺</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货政策</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">退换货流程</a> </td>
-            <td align="left" class="style_h170" valign="top"><a class="a_12_000000" href="javascript:void(0)" target="_blank">常见问题</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">找回密码</a><br />
-                <a class="a_12_000000" href="javascript:void(0) target="_blank">顾客建议</a><br />
-                <a class="a_12_000000" href="javascript:void(0)" target="_blank">顾客投诉</a><br />
-            </td>
-        </tr>
-    </table>
-            </div>
-</center>
-   <!-- 
-  
--->
- <div id="dialog-message" title="错误提示!!">
-	<span id="showUserLoginMsg" style="font-size:14px;color:red"></span>
-     <a href="javascript:void(0)" id="locationLogin">请登录</a>
-</div>
-    
+
 </body>
 
 </html>
