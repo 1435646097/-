@@ -69,16 +69,17 @@ namespace BookShop.Web.ashx
             {
                 context.Response.Write("no:评论中含有禁用词");
             }
+            else if (articel_WordsManager.CheckMOD(msg))
+            {
+                context.Response.Write("ok:评论需要审核");
+                bll.Add(model);
+            }
             else
             {
-                if (bll.Add(model) > 0)
-                {
-                    context.Response.Write("ok:评论成功");
-                }
-                else
-                {
-                    context.Response.Write("no:评论失败");
-                }
+                msg = articel_WordsManager.GetReplace(msg);
+                model.Msg = msg;
+                bll.Add(model);
+                context.Response.Write("ok:评论成功");
             }
         }
 

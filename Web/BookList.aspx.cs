@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace BookShop.Web
 {
-    public partial class BookList : BasePage
+    public partial class BookList : Page
     {
         public List<Book> list { get; set; }
         public int PageIndex { get; set; }

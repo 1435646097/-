@@ -81,6 +81,7 @@
   <ItemGroup>
     <Content Include="AddCode.aspx" />
     <Content Include="BookList.aspx" />
+    <Content Include="CartInfo.aspx" />
     <Content Include="Css\accordion.css" />
     <Content Include="Css\all.css" />
     <Content Include="Css\autocomplete.css" />
@@ -91,6 +92,7 @@
     <Content Include="Css\core.css" />
     <Content Include="Css\datepicker.css" />
     <Content Include="Css\default.css" />
+    <Content Include="Css\demos.css" />
     <Content Include="Css\dialog.css" />
     <Content Include="Css\draggable.css" />
     <Content Include="Css\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -177,8 +179,14 @@
     <Compile Include="AddCode.aspx.designer.cs">
       <DependentUpon>AddCode.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\CartEdit.ashx.cs">
+      <DependentUpon>CartEdit.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ashx\logout.ashx.cs">
       <DependentUpon>logout.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\ProcessCart.ashx.cs">
+      <DependentUpon>ProcessCart.ashx</DependentUpon>
     </Compile>
     <Compile Include="ashx\ProcessComment.ashx.cs">
       <DependentUpon>ProcessComment.ashx</DependentUpon>
@@ -189,6 +197,9 @@
     <Compile Include="ashx\SWFUpLoad.ashx.cs">
       <DependentUpon>SWFUpLoad.ashx</DependentUpon>
     </Compile>
+    <Compile Include="ashx\validateUserInfo.ashx.cs">
+      <DependentUpon>validateUserInfo.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -198,6 +209,13 @@
     </Compile>
     <Compile Include="BookList.aspx.designer.cs">
       <DependentUpon>BookList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CartInfo.aspx.cs">
+      <DependentUpon>CartInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CartInfo.aspx.designer.cs">
+      <DependentUpon>CartInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1777,6 +1795,9 @@
     <Content Include="ashx\logout.ashx" />
     <Content Include="ashx\RetrievePassword.ashx" />
     <Content Include="ashx\ProcessComment.ashx" />
+    <Content Include="ashx\validateUserInfo.ashx" />
+    <Content Include="ashx\ProcessCart.ashx" />
+    <Content Include="ashx\CartEdit.ashx" />
     <None Include="ewebeditor\sysimage\Thumbs.db" />
     <None Include="Images\BookCovers\9787560925110jpg" />
     <None Include="Images\BookCovers\Thumbs.db" />

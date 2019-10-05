@@ -8,7 +8,7 @@ namespace BookShop.DAL
 	/// <summary>
 	/// 数据访问类CartServices。
 	/// </summary>
-	public class CartServices
+	public partial class CartServices
 	{
         UserServices userServices = new UserServices();
         BookServices bookServices = new BookServices();

@@ -16,7 +16,7 @@
                     onclick="window.location='<%=GetStaticPagePath(book.PublishDate) %><%=book.Id %>.html'">
                     <img
                         style="cursor: help" height="121"
-                        alt="<%=book.Title %>" hspace="4 "
+                        alt="<%=book.Title %>" hspace="4"
                         src="/Images/BookCovers/<%=book.ISBN %>.jpg" width="95"></a>
                 </td>
                 <td style="font-size: small; color: red" width="650"><a

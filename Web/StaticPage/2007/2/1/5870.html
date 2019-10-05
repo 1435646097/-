@@ -46,19 +46,42 @@
     <meta content="北京市新华书店王府井书店，致力于提供专业化购书服务.网上购书选择新华书店王府井书店(网上书店),购书放心有保障.王府井书店电话:010-65132842.010-65252592" name="description" />
     <meta content="王府井书店 新华书店 网上书店 网上购书 北京图书大厦" name="keywords">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-
     <link href="/css/index.css" rel="stylesheet" type="text/css">
     <link href="/Template/css.css" rel="stylesheet" />
     <link href="/Template/css1.css" rel="stylesheet" />
-    <script src="/js/jquery-3.4.1.min.js"></script><!--在模板文件中引用外部文件时一定要用绝对路径--->
-
+    <script src="/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#btnAddComment").click(function () {
                 addComment();
             });
+            $("#Cart").click(function () {
+                addProductCart();//添加商品到购物车
+            });
             loadComment();//加载评论
         });
+        function addProductCart() {
+            $.post("/ashx/validateUserInfo.ashx", {}, function (data) {
+                dataServe = data.split(":");
+                if (dataServe[0] == "ok") {
+                    $.post("/ashx/ProcessCart.ashx", { "bookId": 5870 }, function (d) {
+                        var dServer = d.split(":");
+                        if (dServer[0] == 'ok') {
+                            var confirm = window.confirm("是否前往购物车结账?");
+                            if (confirm) {
+                                alert('你已经跳转到购物车准备结算了');
+                            } 
+                        } else {
+                            alert(dServer[1]);
+                        }
+                    })
+                } else {
+                    alert('请先登录');
+                    var url = window.location.href;
+                    window.location.href = "/Login.aspx?returnUrl=" + url;
+                }
+            })
+        };
         //发布评论
         function addComment() {
             var msg = $("#txtComment").val();
@@ -69,6 +92,7 @@
                         alert(serverData[1]);
                         $("#commentList").empty();
                         loadComment();
+                        $("#txtComment").val() = '';
                     } else {
                         alert(serverData[1]);
                     }
@@ -229,7 +253,7 @@
                                                 <table border="0" cellpadding="0" cellspacing="0">
                                                     <tr>
                                                         <td align="left" valign="middle">
-                                                            <a href="javascript:void(0)" name="buy_book">
+                                                            <a id="Cart" href="javascript:void(0)" name="buy_book">
                                                                 <img border="0" height="20" src="/Template/image/7.jpg" style="cursor:hand" width="69" />
                                                             </a> &nbsp;
                                                         </td>
