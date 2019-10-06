@@ -22,11 +22,24 @@ namespace BookShop.Web.ashx
                 case "edit":
                     Edit(context);
                     break;
+                case "remove":
+                    Remove(context);
+                    break;
                 default:
                     break;
             }
         }
-
+        /// <summary>
+        /// 删除商品
+        /// </summary>
+        private void Remove(HttpContext context)
+        {
+            int id = Convert.ToInt32(context.Request.Form["id"]);
+            CartManager cartManager = new CartManager();
+            cartManager.Delete(id);
+            context.Response.Write("ok");
+        }
+        //更新商品数量
         private void Edit(HttpContext context)
         {
             int id = Convert.ToInt32(context.Request.Form["id"]);
