@@ -22,7 +22,25 @@ namespace BookShop.Web
             {
                 BindSource();
             }
+            else
+            {
+                CreateOrderAndPay();
+            }
         }
+
+        private void CreateOrderAndPay()
+        {
+            string orderId = DateTime.Now.ToString("yyyyMMddHHmmssfff") + UserModel.Id;//订单号
+            //收货人:adminsdfd,联系电话:11223333,地址:sadf,邮编:88899
+            string address = string.Format("收货人:{0},联系电话:{1},地址:{2},邮编:{3}", Request["txtName"], Request["txtPhone"], Request["txtAddress"], Request["txtPostCode"]);
+            BLL.OrdersManager orderManager = new BLL.OrdersManager();
+            //调用存储过程，完成下订单。返回的是总金额。
+            decimal totalMoney=orderManager.CreateOrders(UserModel.Id, address, orderId);
+            AliPay.Pay pay = new AliPay.Pay("图书","网上图书",orderId,totalMoney);
+           string url= pay.GoPay();
+           Response.Redirect(url);
+        }
+
         /// <summary>
         /// 绑定数据源
         /// </summary>

@@ -56,5 +56,19 @@ namespace BookShop.DAL
                 return null;
             }
         }
+
+        public decimal DownOrderAndPay(string orderId,int userId,string address)
+        {
+            string sql = "CreateOrder";
+            SqlParameter[] ps =
+            {
+                new SqlParameter("@OrderId",orderId),
+                new SqlParameter("@UserId",userId),
+                new SqlParameter("@Address",address),
+                new SqlParameter("@TotalMoney",SqlDbType.Money)
+            };
+            DbHelperSQL.RunProcedure(sql, ps);
+            return Convert.ToDecimal(ps[3].Value);//获取存储过程中的输出参数的值。
+        }
     }
 }

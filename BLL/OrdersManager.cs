@@ -151,7 +151,7 @@ namespace BookShop.BLL
         public decimal CreateOrders(int userId, string orderNumber, string postAddress)
         {
 
-           return dal.CreateOrder(userId, orderNumber, postAddress);
+           return dal.CreateOrderAndPay(userId, orderNumber, postAddress);
         }
 
 		#endregion  成员方法
